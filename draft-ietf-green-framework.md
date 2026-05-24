@@ -100,7 +100,7 @@ informative:
     title: "Energy Object Context MIB"
     date: 2015-01
     target: <https://www.rfc-editor.org/info/rfc7461>
-   
+
    GreenTerminology: I-D.ietf-green-terminology
 
    GreenUseCases: I-D.ietf-green-use-cases
