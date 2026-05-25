@@ -91,6 +91,16 @@ informative:
     - org: IEC
     date: 2000-12-11
 
+   RFC7460:
+    title: "Monitoring and Control MIB for Power and Energy"
+    date: 2015-01
+    target: <https://www.rfc-editor.org/info/rfc7460>
+
+   RFC7461:
+    title: "Energy Object Context MIB"
+    date: 2015-01
+    target: <https://www.rfc-editor.org/info/rfc7461>
+
    GreenTerminology: I-D.ietf-green-terminology
 
    GreenUseCases: I-D.ietf-green-use-cases
@@ -139,7 +149,7 @@ Implementers are expected to refer to both documents: this framework for underst
 
 The following terms are defined in {{GreenTerminology}}: Energy, Power, Energy Object, Energy Management, Energy Monitoring, and Energy Control.
 
-The following terms are defined in EMAN Framework {{?RFC7326}}, athey are provided here for convenience:
+The following terms are defined in EMAN Framework {{?RFC7326}}, they are provided here for convenience:
 
 Energy Management System (EnMS):
 : An Energy Management System is a combination of hardware and
@@ -218,6 +228,32 @@ This document uses the terms Power and Energy in accordance with {{GreenTerminol
 - Power refers to the instantaneous rate at which a device consumes or produces electrical energy (typically expressed in Watts).
 - Energy, by contrast, represents the cumulative amount of work performed over time (typically expressed in Joules or Watt-hours).
 Both concepts are required within the YANG modules: Power enables real-time monitoring, control, and optimization of device operation, while Energy provides a time-integrated view necessary for accounting and reporting. For completeness and alignment with existing operational models and use cases, this specification includes both Power and Energy attributes.
+
+## EMAN Data Model Compatibility {#eman-compat}
+
+The GREEN framework builds upon the conceptual foundations of the Energy
+MANagement (EMAN) framework {{?RFC7326}} and its associated SNMP-based
+data models {{?RFC7460}}{{?RFC7461}}.  The GREEN YANG data model
+{{PowerAndEnergy}} supersedes those MIB modules using the correspondence
+shown in {{eman-mapping-table}}.  Energy collection scheduling objects
+from {{?RFC7460}} (e.g., `eoEnergyCollectionStartTime`) are not carried
+forward, as collection timing is managed through YANG-Push subscriptions
+{{?RFC8641}}.  Implementations currently supporting the EMAN MIBs can
+use this correspondence as a migration path toward
+YANG/NETCONF/RESTCONF-based energy management.
+
+
+| EMAN MIB Object | GREEN YANG Data Model |
+|-|:-
+| `eoPowerTable` / `eoEnergyTable` | `energy-objects` container |
+| `eoPowerEntry` | `energy-entry` list |
+| `eoPowerAdminState` | `power-state-admin` identityref (control tree) |
+| `eoPowerOperState` | `power-state-oper` identityref (monitoring tree) |
+| `eoPowerStateEnterReason` | `state-enter-reason` identityref |
+| `PowerStateSet` | `power-state-on`, `power-state-off`, `power-state-low-power` identities |
+| `eoRelationTable` | `relationship` list |
+{: #eman-mapping-table title="EMAN MIB to GREEN YANG Mapping"}
+
 
 # Motivation
 
