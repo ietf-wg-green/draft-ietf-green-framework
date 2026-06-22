@@ -74,14 +74,14 @@ informative:
     target: http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=4116785
     title: The Authoritative Dictionary of IEEE Standards Terms
     author:
-    - org: IEEE
+    org: IEEE
     date: 2000-12-11
 
    IEEE1621:
     title: Standard for User Interface Elements in Power Control of Electronic
      Devices Employed in Office/Consumer Environments, IEEE 1621
     author:
-    - org: IEEE
+    org: IEEE
     date: 2004-12
 
    IEC60050:
@@ -182,17 +182,17 @@ Energy Management.
 
 Device:
 : A device is a piece of electrical or non-electrical equipment.
-Reference: Adapted from [IEEE100].
+Reference: Adapted from {{IEEE100}}.
 
 Component:
 : A component is a part of electrical or non-electrical equipment
 (device).
-Reference: Adapted from [TMN].
+Reference: Adapted from {{TMN}}.
 
 Meter (Energy Meter):
 : A meter is a device intended to measure electrical energy by
 integrating power with respect to time.
-Reference: Adapted from [IEC60050].
+Reference: Adapted from {{IEC60050}}.
 
 Power Inlet:
 : A power inlet (or simply "inlet") is an interface at which a
@@ -211,7 +211,7 @@ Power State:
 : A Power State is a condition or mode of a device (or component)
 that broadly characterizes its capabilities, power, and
 responsiveness to input.
-Reference: Adapted from [IEEE1621].
+Reference: Adapted from {{IEEE1621}}.
 
 Power State Set:
 : A Power State Set is a collection of Power States that comprises a
