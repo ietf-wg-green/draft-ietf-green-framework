@@ -9,17 +9,15 @@ Inventory        Monitor        DataSheets/DataBase and/or          (g)
 Of identity      Energy        | via API,                           API
 and Capability   Efficiency    | Metadata and other             Service
      ^               ^         | device/component/network     Interface
-     |               |         | related information to be:          ^
+     |               |         | related information                 ^
      |               |         |                                     |
-     |               |         |  .Power/Energy related metrics      |
-     |               |         |  .Origin of Energy Mix              |
-     |               |         |  .Carbon aware based on location    |
+     |               |         |                                     |
      |               |         |                                     |
      |               |         |                                     |
      |               |         v                                     |
 +------------------------------------------------------------------+ |
 |                                                                  | |
-|       (2) controller (collection, compute and aggregate?)        |-+
+|       (2) Controller (collection, compute and aggregate?)        |-+
 |                                                                  |
 +------------------------------------------------------------------+
                 ^                      ^                      ^ |

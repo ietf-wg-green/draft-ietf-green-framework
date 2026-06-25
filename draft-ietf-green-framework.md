@@ -105,7 +105,7 @@ informative:
 
    GreenUseCases: I-D.ietf-green-use-cases
 
-   PowerAndEnergy: I-D.bcmj-green-power-and-energy-yang
+   PowerAndEnergy: I-D.ietf-green-power-and-energy-yang
 
    PetraApi: I-D.petra-green-api
 
@@ -323,6 +323,11 @@ The GREEN Framework Reference Model is represented in {{fig-green-reference-mode
 ~~~
 {: #fig-green-reference-model title="GREEN Framework Reference Model" }
 
+The current GREEN Working Group deliverables primarily focus on the Energy Management Layer while preserving architectural extensibility toward Service Consumption Layer functions.
+
+The GREEN Framework defines a complete conceptual architecture for energy-efficiency management. Not all logical functions are necessarily standardized within the current GREEN Working Group charter. 
+
+The current work primarily focuses on energy monitoring, metrics, inventory correlation, and control capabilities supported through YANG-based data models. Service-level applications, reporting functions, sustainability dashboards, lifecycle management integrations, and external API consumption are represented in the framework to provide architectural context and support future extensibility.
 
 The main elements in the framework are as follows:
 
@@ -336,6 +341,10 @@ The main elements in the framework are as follows:
 
 * (g) API Service Interface: enables access for service consumption, enabling data retrieval , control, and integration through API, e.g., {{PetraApi}}.
 
+Inventory information, referring to interfaces (a) and (d), may originate from device self-discovery, manufacturer datasheets, asset-management systems, or other authoritative metadata repositories. The controller is responsible for correlating these sources and exposing a consistent inventory view.
+
+The reference model covers every network device and component that have a Unique Identifiable ID (UUID) and can represent or influence power or energy consumption. If the component can be uniquely identified, it can be modeled.
+
 The monitoring interface (e) monitors more aspects than just power and energy,
 (for example traffic monitoring) but this is not covered in the framework.
 
@@ -343,7 +352,9 @@ Note that the GREEN framework specifies logical blocks, however, the Energy Effi
 
 Even if the reference model implicitly assumes a hierarchical network structure, this assumption acknowledges that conventional networks have flatter and anticipate more distributed topologies.
 
-The reference model covers every network device and component that have a Unique Identifiable ID (UUID) and can represent or influence power or energy consumption. If the component can be uniquely identified, it can be modeled.
+Examples of applications consuming GREEN framework data include carbon-aware workload placement, sustainability reporting, lifecycle management, and energy-aware traffic engineering.
+
+The logical interfaces defined by the GREEN Framework are expected to be realized through YANG-based data models, primarily the GREEN Power and Energy YANG model {{PowerAndEnergy}} together with {{RFC8348}} hardware inventory models and associated telemetry mechanisms.
 
 In scope:
 
@@ -388,6 +399,8 @@ The framework supports both initiation models:
   - Devices can autonomously report critical energy events
   - Useful for threshold violations or hardware failures
   - Complements controller-initiated subscriptions
+
+  Energy efficiency management requires stable identification of Energy Objects across device, controller, inventory, and reporting systems. The framework therefore relies on UUID-based identification from RFC8348 while allowing controller-assigned identifiers for onboarding and cross-system correlation. Implementations should maintain mappings between local identifiers and globally unique hardware identifiers to support inventory and reporting consistency, as well as telemetry correlation.
 
 ### UUID-Based Component Identification
 
@@ -923,7 +936,7 @@ The following topics remain open for further discussion points:
 - Create a standard method to describe this mapping across systems.
 
 ## Handling Transitions and Ensuring Safety
-- Capability to power off individual components, as described in {{?I-D.li-green-power}}, should be explicitly modeled in the Power State Set. Also to review recovery procedures and impact on dependent Energy Objects.
+- Capability to power off individual components, as described in {{?I-D.li-green-power}}, should be explicitly modeled in the Power State Set, and covered by {{PowerAndEnergy}}. Also to review recovery procedures and impact on dependent Energy Objects.
 - Consider how long it takes for an Energy Object to switch power states.
 - Recommendation to standardize a data model for safe limits on frequency or speed of transitions to prevent device/component's damage.
 - Model SLAs that include both performance (e.g., transition time) and device safety (e.g., cycle limitations).
