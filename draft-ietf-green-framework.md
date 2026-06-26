@@ -65,31 +65,6 @@ normative:
 
 informative:
 
-   TMN:
-    title: International Telecommunication Union, "TMN management functions"
-    date: 2000-02
-    target: ITU-T Recommendation M.3400
-
-   IEEE100:
-    target: http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=4116785
-    title: The Authoritative Dictionary of IEEE Standards Terms
-    author:
-    org: IEEE
-    date: 2000-12-11
-
-   IEEE1621:
-    title: Standard for User Interface Elements in Power Control of Electronic
-     Devices Employed in Office/Consumer Environments, IEEE 1621
-    author:
-    org: IEEE
-    date: 2004-12
-
-   IEC60050:
-    target: http://www.iec.ch/smartgrid/standards/
-    title: Power Utility Automation
-    author:
-    - org: IEC
-    date: 2000-12-11
 
    RFC7460:
     title: "Monitoring and Control MIB for Power and Energy"
@@ -120,15 +95,15 @@ Recognizing the urgent need for energy efficiency, this document specifies a man
 {{GreenUseCases}} analyzes use cases such as "Incremental Application of the GREEN Framework" and "Consideration of other domains for end-to-end metrics"; these cases demonstrate the need for structured network device management that supports energy-efficient operations. The framework establishes foundational components for:
 
 * Standardization: Ensuring consistent practices across devices and network segments to facilitate interoperability.
-* Energy Efficiency Management: Providing guidelines to identify inefficiencies, balance energy usage with network/resource/component utilization, and implement improvements.
+* Energy efficiency management: Providing guidelines to identify inefficiencies, balance energy usage with network/resource/component utilization, and implement improvements.
 * Scalability: Approaches that handle increasing network size and complexity.
-* Cost Reduction: Optimizing energy usage to lower operational costs and extend equipment lifecycles.
-* Market differentiation: Enabling organizations to qualify for procurement, financing, and other opportunities increasingly conditioned on verified energy performance.
-* Environmental Impact: Supporting broader energy optimization practices and sustainability initiatives by reducing carbon footprints.
-* Simplified Implementation: Streamlining deployment of energy-efficient measures to minimize service disruptions.
+* Cost reduction: Optimizing energy usage to lower operational costs and extend equipment lifecycles.
+* Competitiveness: Enabling organizations to maintain competitive infrastructure through enhanced sustainability
+* Environmental impact: Supporting broader energy optimization practices and sustainability initiatives by reducing carbon footprints.
+* Simplified implementation: Streamlining deployment of energy-efficient measures to minimize service disruptions.
 * Security: Protection of power state and consumption data.
 
-This document specifies an Energy Management framework for devices within, or connected to, communication networks, addressing the use cases in {{GreenUseCases}}.
+This document specifies an Energy Efficiency Management framework for devices within, or connected to, communication networks, addressing the use cases in {{GreenUseCases}}.
 
 The framework covers devices and components that can be monitored and controlled for energy management purposes:
 
@@ -145,90 +120,21 @@ This framework defines conceptual requirements and architectural patterns for en
 
 Implementers are expected to refer to both documents: this framework for understanding requirements and use cases, the YANG data model for implementation details and data structures.
 
-This framework defines requirements for the collection and representation of raw energy measurements obtained directly from devices and their components. The derivation or aggregation of these measurements into energy efficiency indicators, optimization decisions, or other analytical results is outside the scope of this document and remains implementation-specific. Implementations SHOULD preserve raw measurements to support interoperability, validation, and traceability.
-
 ## Terminology
 
-The following terms are defined in {{GreenTerminology}}: Energy, Power, Energy Object, Energy Management, Energy Monitoring, and Energy Control.
+The following terms are defined in {{GreenTerminology}}: Energy, Power,
+Energy Object, Energy Management, Energy Monitoring, Energy Control,
+Energy Management System (EnMS), Device, Component, Meter (Energy Meter),
+Power Inlet, Power Outlet, Power Interface, Power State, Power State Set, Nameplate Power,
+Energy Efficiency, Energy Efficiency Management, Energy Saving,
+Energy-Aware Intent.
 
-The following terms are defined in EMAN Framework {{?RFC7326}}, they are provided here for convenience:
 
-Energy Management System (EnMS):
-: An Energy Management System is a combination of hardware and
-software used to administer a network, with the primary purpose of
-Energy Management.
 
-      NOTES:
+This document uses the terms Power and Energy as further elaborated in {{GreenTerminology}}:
 
-      1. An Energy Management System according to ISO50001 (ISO-EnMS)
-         is a set of systems or procedures upon which organizations can
-         develop and implement an energy policy, set targets and action
-         plans, and take into account legal requirements related to
-         energy use.  An ISO-EnMS allows organizations to improve energy
-         performance and demonstrate conformity to requirements,
-         standards, and/or legal requirements.
-
-      2. Example ISO-EnMS: Company A defines a set of policies and
-         procedures indicating that there should exist multiple
-         computerized systems that will poll energy measurements from
-         their meters and pricing / source data from their local
-         utility.  Company A specifies that their CFO (Chief Financial
-         Officer) should collect information and summarize it quarterly
-         to be sent to an accounting firm to produce carbon accounting
-         reporting as required by their local government.
-
-      3. For the purposes of EMAN, the definition herein is the
-         preferred meaning of an EnMS.  The definition from ISO50001
-         can be referred to as an ISO Energy Management System
-         (ISO-EnMS).
-
-Device:
-: A device is a piece of electrical or non-electrical equipment.
-Reference: Adapted from {{IEEE100}}.
-
-Component:
-: A component is a part of electrical or non-electrical equipment
-(device).
-Reference: Adapted from {{TMN}}.
-
-Meter (Energy Meter):
-: A meter is a device intended to measure electrical energy by
-integrating power with respect to time.
-Reference: Adapted from {{IEC60050}}.
-
-Power Inlet:
-: A power inlet (or simply "inlet") is an interface at which a
-device or component receives energy from another device or
-component.
-
-Power Outlet:
-: A power outlet (or simply "outlet") is an interface at which a
-device or component provides energy to another device or
-component.
-
-Power Interface:
-: A Power Interface is a power inlet, outlet, or both.
-
-Power State:
-: A Power State is a condition or mode of a device (or component)
-that broadly characterizes its capabilities, power, and
-responsiveness to input.
-Reference: Adapted from {{IEEE1621}}.
-
-Power State Set:
-: A Power State Set is a collection of Power States that comprises a
-named or logical control grouping.
-
-Energy Object:
-: An Energy Object represents a piece of equipment that is
-part of, or attached to, a communications network that is monitored
-or controlled or that aids in the management of another device for
-Energy Management.
-
-This document uses the terms Power and Energy in accordance with {{GreenTerminology}}:
-
-- Power refers to the instantaneous rate at which a device consumes or produces electrical energy (typically expressed in Watts).
-- Energy, by contrast, represents the cumulative amount of work performed over time (typically expressed in Joules or Watt-hours).
+- Power refers to the instantaneous rate at which a device consumes or produces electrical energy (typically expressed in watts).
+- Energy, by contrast, represents the cumulative amount of work performed over time (typically expressed in joules or watt-hours).
 Both concepts are required within the YANG modules: Power enables real-time monitoring, control, and optimization of device operation, while Energy provides a time-integrated view necessary for accounting and reporting. For completeness and alignment with existing operational models and use cases, this specification includes both Power and Energy attributes.
 
 ## EMAN Data Model Compatibility {#eman-compat}
@@ -263,12 +169,12 @@ YANG/NETCONF/RESTCONF-based energy management.
 
 The framework aims to enhance the creation of energy metrics with actionable insights by:
 
-* Standardizing Metrics: Establishing consistent measurement protocols for energy consumption and efficiency.
-* Enhancing Data Collection: Facilitating comprehensive monitoring and data aggregation across devices.
-* Supporting Real-time Monitoring: Enabling dynamic tracking and immediate optimization of energy usage.
-* Integration Across Devices: Ensuring interoperability for network-wide data analysis.
-* Providing Actionable Insights: Translating raw data into meaningful information for decision-making.
-* East-West Traffic Impact: Addressing the increasing energy footprint of east-west traffic in data centers and distributed systems by providing a framework for measuring and optimizing energy consumption in these environments.
+* Standardizing metrics: Establishing consistent measurement protocols for energy consumption and efficiency.
+* Enhancing data collection: Facilitating comprehensive monitoring and data aggregation across devices.
+* Supporting real-time monitoring: Enabling dynamic tracking and immediate optimization of energy usage.
+* Integration across devices: Ensuring interoperability for network-wide data analysis.
+* Providing actionable insights: Translating raw data into meaningful information for decision-making.
+* East-west traffic impact: Addressing the increasing energy footprint of east-west traffic in data centers and distributed systems by providing a framework for measuring and optimizing energy consumption in these environments.
 
 ## Device Readiness
 
@@ -713,7 +619,7 @@ Identifying what power states an Energy Object supports is crucial for onboardin
 
 ### Intent Mapping
 
-The goal of intent mapping is to translate Energy-Aware intent into specific device/component configurations. For example:
+The goal of intent mapping is to translate Energy-Aware Intent into specific device/component configurations. For example:
 
 - An intent like "reduce power consumption at low utilization" might map to a predefined low-power state.
 - Controllers may interpret intents variably, e.g., "run at half capacity but be ready to scale up if needed."
