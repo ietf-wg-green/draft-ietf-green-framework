@@ -325,7 +325,7 @@ The GREEN Framework Reference Model is represented in {{fig-green-reference-mode
 
 The current GREEN Working Group deliverables primarily focus on the Energy Management Layer while preserving architectural extensibility toward Service Consumption Layer functions.
 
-The GREEN Framework defines a complete conceptual architecture for energy-efficiency management. Not all logical functions are necessarily standardized within the current GREEN Working Group charter. 
+The GREEN Framework defines a complete conceptual architecture for energy-efficiency management. Not all logical functions are necessarily standardized within the current GREEN Working Group charter.
 
 The current work primarily focuses on energy monitoring, metrics, inventory correlation, and control capabilities supported through YANG-based data models. Service-level applications, reporting functions, sustainability dashboards, lifecycle management integrations, and external API consumption are represented in the framework to provide architectural context and support future extensibility.
 

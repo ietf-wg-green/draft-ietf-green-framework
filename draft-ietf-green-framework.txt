@@ -823,12 +823,8 @@ Chassis (accuracy: gold ±5%)
   (a)              (b)              (c)
   Inventory        Monitor       +- DataSheets/DataBase and/or via API
   Of identity      Energy        |  Metadata and other device/component
-  and Capability   Efficiency    |  /network related information:
+  and Capability   Efficiency    |  /network related information
        ^               ^         |
-       |               |         |  .Power/Energy related metrics
-       |               |         |   information
-       |               |         |  .Origin of Energy Mix
-       |               |         |  .Carbon aware based on location
        |               |         |
        |               |         |
        |               |         |
@@ -868,10 +864,6 @@ Chassis (accuracy: gold ±5%)
   Of identity      Energy        |  Metadata and other device/component
   and Capability   Efficiency    |  /network related information:
        ^               ^         |
-       |               |         |  .Power/Energy related metrics
-       |               |         |   information
-       |               |         |  .Origin of Energy Mix
-       |               |         |  .Carbon aware based on location
        |               |         |
        |               |         |
        |               |         |
@@ -925,10 +917,6 @@ Chassis (accuracy: gold ±5%)
    of identity    Energy     |  Metadata and other device/
    & capability  Efficiency  |  component/network related
         ^               ^    |  information:
-        |               |    |  .Power/Energy related metrics
-        |               |    |   Information
-        |               |    |  .Origin of Energy Mix
-        |               |    |  .Carbon aware based on location
         |               |    |
         |               |    |
         |               |    |
@@ -976,10 +964,6 @@ Chassis (accuracy: gold ±5%)
   Of identity      Energy        |  Metadata and other device/component
   and Capability   Efficiency    |  /network related information:
        ^               ^         |
-       |               |         |  .Power/Energy related metrics
-       |               |         |   information
-       |               |         |  .Origin of Energy Mix
-       |               |         |  .Carbon aware based on location
        |               |         |
        |               |         |
        |               |         |
@@ -1039,12 +1023,8 @@ Chassis (accuracy: gold ±5%)
   (a)              (b)              (c)
   Inventory        Monitor       +- DataSheets/DataBase and/or via API
   Of identity      Energy        |  Metadata and other device/component
-  and Capability   Efficiency    |  /network related information:
+  and Capability   Efficiency    |  /network related information
        ^               ^         |
-       |               |         |  .Power/Energy related metrics
-       |               |         |   information
-       |               |         |  .Origin of Energy Mix
-       |               |         |  .Carbon aware based on location
        |               |         |
        |               |         |
        |               |         |
@@ -1092,12 +1072,8 @@ Chassis (accuracy: gold ±5%)
  (a)              (b)              (c)
  Inventory        Monitor       +- DataSheets/DataBase and/or via API
  Of identity      Energy        |  Metadata and other device/component
- and Capability   Efficiency    |  /network related information:
+ and Capability   Efficiency    |  /network related information
       ^               ^         |
-      |               |         |  .Power/Energy related metrics
-      |               |         |   information
-      |               |         |  .Origin of Energy Mix
-      |               |         |  .Carbon aware based on location
       |               |         |
       |               |         |
       |               |         |
