@@ -4,7 +4,7 @@
 
 GREEN                                                          B. Claise
 Internet-Draft                                            Everything OPS
-Intended status: Informational                           L. M. Contreras
+Intended status: Informational                              L. Contreras
 Expires: 28 December 2026                                     Telefonica
                                                              J. Lindblad
                                                              All For Eco
@@ -413,7 +413,7 @@ Table of Contents
 
    The framework introduces the concept of a Power Interface.  A Power
    Interface is defined as an interconnection among devices where energy
-   can be provided, received, or both.  There are someƒ similarities
+   can be provided, received, or both.  There are some similarities
    between Power Interfaces and network interfaces.  A network interface
    can be set to different states, such as sending or receiving data on
    an attached line.  Similarly, a Power Interface can be receiving or
@@ -422,13 +422,13 @@ Table of Contents
    The most basic example of Energy Management is a single device
    reporting information about itself.  In many cases, however, energy
    is not measured by the device itself but is measured upstream in the
-   power distribution tree.  For example, a Power Distribution Unit
-   (PDU) may measure the energy it supplies to attached devices and
-   report this to an Energy Management System.  Therefore, devices often
-   have relationships to other devices or components in the power
-   network.  An Energy Management System (EnMS) generally requires an
+   power distribution tree.  For example, a Power Distribution Unit(PDU)
+   may measure the energy it supplies to attached devices and report
+   this to an Energy Management System.  Therefore, devices often have
+   relationships to other devices or components in the power network.
+   An Energy Management System (EnMS) generally requires an
    understanding of the power topology (who provides power to whom), the
-   Metering topology (who meters whom), and the potential Aggregation
+   metering topology (who meters whom), and the potential aggregation
    (who aggregates values of others).
 
    The relationships build on the Power Interface concept.  The
@@ -1300,87 +1300,87 @@ Chassis (accuracy: gold ±5%)
 
    *  (c) Metrics interface
 
-      +====+========================+==============================+
-      | UC | Use Case               | Interfaces Usages            |
-      +====+========================+==============================+
-      | 1  | Incremental deployment | c; c->b; a->d->b->e          |
-      +----+------------------------+------------------------------+
-      |    | of the GREEN Framework | 1,2: legacy; 3: GREEN WG     |
-      |    |                        | support (i)                  |
-      +----+------------------------+------------------------------+
-      | 2  | Selective Reduction of | e->b->c->f                   |
-      +----+------------------------+------------------------------+
-      |    | Energy Consumption     | monitor->metrics->control    |
-      +----+------------------------+------------------------------+
-      | 3  | Reporting on Lifecycle | c->g                         |
-      +----+------------------------+------------------------------+
-      |    | Management             | metrics / metadata->API or   |
-      |    |                        | report                       |
-      +----+------------------------+------------------------------+
-      | 4  | Real-time Energy       | b->c                         |
-      |    | Metering               |                              |
-      +----+------------------------+------------------------------+
-      |    | of Virtualised NFs     | monitor->metrics             |
-      +----+------------------------+------------------------------+
-      | 5  | Indirect Energy        | b->f                         |
-      |    | Monitoring             |                              |
-      +----+------------------------+------------------------------+
-      |    | & Control              | monitor aggregate->control   |
-      +----+------------------------+------------------------------+
-      | 6  | Consideration of Other | c->g->b                      |
-      +----+------------------------+------------------------------+
-      |    | Domains for End-to-End | metrics->cross-domain API->  |
-      +----+------------------------+------------------------------+
-      |    | Metrics                | monitoring                   |
-      +----+------------------------+------------------------------+
-      | 7  | Dynamic Adjustment via | b->f->c                      |
-      +----+------------------------+------------------------------+
-      |    | Traffic Levels         | observe->control->update     |
-      |    |                        | metrics                      |
-      +----+------------------------+------------------------------+
-      | 8  | Video Streaming Use    | b->c->f                      |
-      |    | Case                   |                              |
-      +----+------------------------+------------------------------+
-      |    |                        | monitor->metrics->control    |
-      +----+------------------------+------------------------------+
-      | 9  | WLAN Network Energy    | b->f                         |
-      |    | Saving                 |                              |
-      +----+------------------------+------------------------------+
-      |    |                        | monitor->control             |
-      +----+------------------------+------------------------------+
-      | 10 | Fixed Network Energy   | b->f                         |
-      +----+------------------------+------------------------------+
-      |    | Saving                 | monitor->control             |
-      +----+------------------------+------------------------------+
-      | 11 | Energy Efficiency      | a->b->c->f->g                |
-      |    | Network                |                              |
-      +----+------------------------+------------------------------+
-      |    | Management             | discover->monitor->metrics-> |
-      +----+------------------------+------------------------------+
-      |    |                        | control->API                 |
-      +----+------------------------+------------------------------+
-      | 12 | ISAC-enabled Energy-   | ---                          |
-      |    | Aware                  |                              |
-      +----+------------------------+------------------------------+
-      |    | Smart City Traffic     | not clearly specified        |
-      |    | Mgmt                   |                              |
-      +----+------------------------+------------------------------+
-      | 13 | Double Accounting Open | c->g                         |
-      +----+------------------------+------------------------------+
-      |    | Issue                  | metrics / metadata->API      |
-      +----+------------------------+------------------------------+
-      | 14 | Energy Efficiency      | b->f                         |
-      |    | Under                  |                              |
-      +----+------------------------+------------------------------+
-      |    | Power Shortage         | monitor->control             |
-      +----+------------------------+------------------------------+
-      | 15 | Energy-Efficient Mgmt  | b->c->f                      |
-      |    | of                     |                              |
-      +----+------------------------+------------------------------+
-      |    | AI Training Workloads  | monitor->metrics->control    |
-      +----+------------------------+------------------------------+
+      +=====+========================+==============================+
+      | UC# | Use Case               | Interfaces Usages            |
+      +=====+========================+==============================+
+      | 1   | Incremental deployment | c; c->b; a->d->b->e          |
+      +-----+------------------------+------------------------------+
+      |     | of the GREEN Framework | 1,2: legacy; 3: GREEN WG     |
+      |     |                        | support (i)                  |
+      +-----+------------------------+------------------------------+
+      | 2   | Selective Reduction of | e->b->c->f                   |
+      +-----+------------------------+------------------------------+
+      |     | Energy Consumption     | monitor->metrics->control    |
+      +-----+------------------------+------------------------------+
+      | 3   | Reporting on Lifecycle | c->g                         |
+      +-----+------------------------+------------------------------+
+      |     | Management             | metrics / metadata->API or   |
+      |     |                        | report                       |
+      +-----+------------------------+------------------------------+
+      | 4   | Real-time Energy       | b->c                         |
+      |     | Metering               |                              |
+      +-----+------------------------+------------------------------+
+      |     | of Virtualised NFs     | monitor->metrics             |
+      +-----+------------------------+------------------------------+
+      | 5   | Indirect Energy        | b->f                         |
+      |     | Monitoring             |                              |
+      +-----+------------------------+------------------------------+
+      |     | & Control              | monitor aggregate->control   |
+      +-----+------------------------+------------------------------+
+      | 6   | Consideration of Other | c->g->b                      |
+      +-----+------------------------+------------------------------+
+      |     | Domains for End-to-End | metrics->cross-domain API->  |
+      +-----+------------------------+------------------------------+
+      |     | Metrics                | monitoring                   |
+      +-----+------------------------+------------------------------+
+      | 7   | Dynamic Adjustment via | b->f->c                      |
+      +-----+------------------------+------------------------------+
+      |     | Traffic Levels         | observe->control->update     |
+      |     |                        | metrics                      |
+      +-----+------------------------+------------------------------+
+      | 8   | Video Streaming Use    | b->c->f                      |
+      |     | Case                   |                              |
+      +-----+------------------------+------------------------------+
+      |     |                        | monitor->metrics->control    |
+      +-----+------------------------+------------------------------+
+      | 9   | WLAN Network Energy    | b->f                         |
+      |     | Saving                 |                              |
+      +-----+------------------------+------------------------------+
+      |     |                        | monitor->control             |
+      +-----+------------------------+------------------------------+
+      | 10  | Fixed Network Energy   | b->f                         |
+      +-----+------------------------+------------------------------+
+      |     | Saving                 | monitor->control             |
+      +-----+------------------------+------------------------------+
+      | 11  | Energy Efficiency      | a->b->c->f->g                |
+      |     | Network                |                              |
+      +-----+------------------------+------------------------------+
+      |     | Management             | discover->monitor->metrics-> |
+      +-----+------------------------+------------------------------+
+      |     |                        | control->API                 |
+      +-----+------------------------+------------------------------+
+      | 12  | ISAC-enabled Energy-   | ---                          |
+      |     | Aware                  |                              |
+      +-----+------------------------+------------------------------+
+      |     | Smart City Traffic     | not clearly specified        |
+      |     | Mgmt                   |                              |
+      +-----+------------------------+------------------------------+
+      | 13  | Double Accounting Open | c->g                         |
+      +-----+------------------------+------------------------------+
+      |     | Issue                  | metrics / metadata->API      |
+      +-----+------------------------+------------------------------+
+      | 14  | Energy Efficiency      | b->f                         |
+      |     | Under                  |                              |
+      +-----+------------------------+------------------------------+
+      |     | Power Shortage         | monitor->control             |
+      +-----+------------------------+------------------------------+
+      | 15  | Energy-Efficient Mgmt  | b->c->f                      |
+      |     | of                     |                              |
+      +-----+------------------------+------------------------------+
+      |     | AI Training Workloads  | monitor->metrics->control    |
+      +-----+------------------------+------------------------------+
 
-                   Table 2: Use Cases Interfaces Usage
+                    Table 2: Use Cases Interfaces Usage
 
    Use Case 1 (Incremental Deployment) illustrates how the usage of the
    framework interfaces evolves during the lifecycle of a network or
@@ -1714,7 +1714,7 @@ A.5.  East-West Traffic/Energy Metrics
 Acknowledgments
 
    This framework takes into account concepts from the Energy MANagement
-   (EMAN) Framework [RFC7326], authors by John Parello, Benoit Claise,
+   (EMAN) Framework [RFC7326], authored by John Parello, Benoit Claise,
    Brad Schoening, and Juergen Quittek.  The contribution of Luis M.
    Contreras to this document has been supported by the Smart Networks
    and Services Joint Undertaking (SNS JU) under the European Union's

@@ -31,27 +31,27 @@ venue:
 
 author:
 
- - ins:
+ - ins: B. Claise
    fullname: Benoit Claise
    organization: Everything OPS
    email: benoit@everything-ops.net
- - ins:
+ - ins: L. Contreras
    fullname: Luis M. Contreras
    organization: Telefonica
    email: luismiguel.contrerasmurillo@telefonica.com
- - ins:
+ - ins: J. Lindblad
    fullname: Jan Lindblad
    organization: All For Eco
    email: jan.lindblad+ietf@for.eco
- - ins:
+ - ins: M. Palmero
    fullname: Marisol Palmero
    organization: Independent
    email: marisol.ietf@gmail.com
- - ins:
+ - ins: E. Stephan
    fullname: Emile Stephan
    organization: Orange
    email: emile.stephan@orange.com
- - ins:
+ - ins: Q. Wu
    fullname: Qin Wu
    organization: Huawei
    email: bill.wu@huawei.com
@@ -94,12 +94,12 @@ informative:
    RFC7460:
     title: "Monitoring and Control MIB for Power and Energy"
     date: 2015-01
-    target: <https://www.rfc-editor.org/info/rfc7460>
+    target: https://www.rfc-editor.org/info/rfc7460
 
    RFC7461:
     title: "Energy Object Context MIB"
     date: 2015-01
-    target: <https://www.rfc-editor.org/info/rfc7461>
+    target: https://www.rfc-editor.org/info/rfc7461
 
    GreenTerminology: I-D.ietf-green-terminology
 
@@ -292,29 +292,11 @@ Establishing the framework for energy efficiency management now is strategic and
 # Reference Model
 
    The framework introduces the concept of a Power Interface.
-   A Power Interface is defined as an interconnection among devices
-   where energy can be provided, received, or both. There are someƒ
-   similarities between Power Interfaces and network interfaces. A
-   network interface can be set to different states, such
-   as sending or receiving data on an attached line. Similarly, a Power
-   Interface can be receiving or providing energy.
+   A Power Interface is defined as an interconnection among devices where energy can be provided, received, or both. There are some similarities between Power Interfaces and network interfaces. A network interface can be set to different states, such as sending or receiving data on an attached line. Similarly, a Power Interface can be receiving or providing energy.
 
-   The most basic example of Energy Management is a single device
-   reporting information about itself.  In many cases, however, energy
-   is not measured by the device itself but is measured upstream in the
-   power distribution tree.  For example, a Power Distribution Unit
-   (PDU) may measure the energy it supplies to attached devices and
-   report this to an Energy Management System.  Therefore, devices often
-   have relationships to other devices or components in the power
-   network.  An Energy Management System (EnMS) generally requires an
-   understanding of the power topology (who provides power to whom), the
-   Metering topology (who meters whom), and the potential Aggregation
-   (who aggregates values of others).
+   The most basic example of Energy Management is a single device reporting information about itself.  In many cases, however, energy is not measured by the device itself but is measured upstream in the power distribution tree.  For example, a Power Distribution Unit(PDU) may measure the energy it supplies to attached devices and report this to an Energy Management System.  Therefore, devices often have relationships to other devices or components in the power network.  An Energy Management System (EnMS) generally requires an understanding of the power topology (who provides power to whom), the metering topology (who meters whom), and the potential aggregation (who aggregates values of others).
 
-   The relationships build on the Power Interface concept.  The
-   different relationships among device(s)/component(s), as specified in
-   this document, include power source, Metering, and Aggregation
-   Relationships.
+   The relationships build on the Power Interface concept. The different relationships among device(s)/component(s), as specified in this document, include power source, Metering, and Aggregation Relationships.
 
 The GREEN Framework Reference Model is represented in {{fig-green-reference-model}}.
 
@@ -764,8 +746,8 @@ The notation `a->b->c` represents the flow between framework components as descr
 - (c) Metrics interface
 
 
-|UC| Use Case | Interfaces Usages |
-|-|:-|:-
+|UC#| Use Case | Interfaces Usages |
+|-|:-|:-|
 |1| Incremental deployment | c; c->b; a->d->b->e |
 | | of the GREEN Framework | 1,2: legacy; 3: GREEN WG support (i)|
 |2| Selective Reduction of | e->b->c->f |
@@ -838,7 +820,7 @@ Even device-centric use cases(autonomous operation) typically use controller-ini
 
 
 | UC# | Use Case | Critical Capabilities |
-|-----|----------|---------------------|
+|-|:-|:-|
 | **Device-Centric** |||
 | 14 | Power Shortage Management | Backup power awareness, autonomous operation |
 | 1 | Incremental Deployment | Baseline metrics, certification reporting, capability discovery |
@@ -948,7 +930,7 @@ The following topics remain open for further discussion points:
 {:numbered="false"}
 
 This framework takes into account concepts from the Energy MANagement
-(EMAN) Framework {{?RFC7326}}, authors by John Parello, Benoit Claise,
+(EMAN) Framework {{?RFC7326}}, authored by John Parello, Benoit Claise,
 Brad Schoening, and Juergen Quittek. The contribution of Luis M.
 Contreras to this document has been supported by the Smart Networks
 and Services Joint Undertaking (SNS JU) under the European Union's
