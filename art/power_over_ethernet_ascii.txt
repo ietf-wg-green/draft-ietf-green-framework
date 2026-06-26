@@ -9,10 +9,6 @@ Inventory        Monitor       +- DataSheets/DataBase and/or via API
 Of identity      Energy        |  Metadata and other device/component
 and Capability   Efficiency    |  /network related information:
      ^               ^         |
-     |               |         |  .Power/Energy related metrics
-     |               |         |   information
-     |               |         |  .Origin of Energy Mix
-     |               |         |  .Carbon aware based on location
      |               |         |
      |               |         |
      |               |         |
