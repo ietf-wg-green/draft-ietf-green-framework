@@ -145,6 +145,8 @@ This framework defines conceptual requirements and architectural patterns for en
 
 Implementers are expected to refer to both documents: this framework for understanding requirements and use cases, the YANG data model for implementation details and data structures.
 
+This framework defines requirements for the collection and representation of raw energy measurements obtained directly from devices and their components. The derivation or aggregation of these measurements into energy efficiency indicators, optimization decisions, or other analytical results is outside the scope of this document and remains implementation-specific. Implementations SHOULD preserve raw measurements to support interoperability, validation, and traceability.
+
 ## Terminology
 
 The following terms are defined in {{GreenTerminology}}: Energy, Power, Energy Object, Energy Management, Energy Monitoring, and Energy Control.
