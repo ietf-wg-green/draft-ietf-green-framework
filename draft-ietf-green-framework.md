@@ -119,14 +119,14 @@ Recognizing the urgent need for energy efficiency, this document specifies a man
 
 {{GreenUseCases}} analyzes use cases such as "Incremental Application of the GREEN Framework" and "Consideration of other domains for end-to-end metrics"; these cases demonstrate the need for structured network device management that supports energy-efficient operations. The framework establishes foundational components for:
 
-* Standardization: Ensuring consistent practices across devices and network segments to facilitate interoperability
-* Energy Efficiency Management: Providing guidelines to identify inefficiencies, balance energy usage with network/resource/component utilization, and implement improvements
-* Scalability: Approaches that handle increasing network size and complexity
-* Cost Reduction: Optimizing energy usage to lower operational costs and extend equipment lifecycles
-* Competitiveness: Enabling organizations to maintain competitive infrastructure through enhanced sustainability
-* Environmental Impact: Supporting broader energy optimization practices and sustainability initiatives by reducing carbon footprints
-* Simplified Implementation: Streamlining deployment of energy-efficient measures to minimize service disruptions
-* Security: Protection of power state and consumption data
+* Standardization: Ensuring consistent practices across devices and network segments to facilitate interoperability.
+* Energy Efficiency Management: Providing guidelines to identify inefficiencies, balance energy usage with network/resource/component utilization, and implement improvements.
+* Scalability: Approaches that handle increasing network size and complexity.
+* Cost Reduction: Optimizing energy usage to lower operational costs and extend equipment lifecycles.
+* Market differentiation: Enabling organizations to qualify for procurement, financing, and other opportunities increasingly conditioned on verified energy performance.
+* Environmental Impact: Supporting broader energy optimization practices and sustainability initiatives by reducing carbon footprints.
+* Simplified Implementation: Streamlining deployment of energy-efficient measures to minimize service disruptions.
+* Security: Protection of power state and consumption data.
 
 This document specifies an Energy Management framework for devices within, or connected to, communication networks, addressing the use cases in {{GreenUseCases}}.
 
