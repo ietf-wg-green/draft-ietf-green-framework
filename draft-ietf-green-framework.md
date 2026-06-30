@@ -809,7 +809,7 @@ The following topics remain open for further discussion points:
 - Create a standard method to describe this mapping across systems.
 
 ## Handling Transitions and Ensuring Safety
-- Capability to power off individual components, as described in {{?I-D.li-green-power}}, should be explicitly modeled in the Power State Set, and covered by {{PowerAndEnergy}}. Also to review recovery procedures and impact on dependent Energy Objects.
+- Capability to power off individual components should be explicitly modeled in the Power State Set, and covered by {{PowerAndEnergy}}. Also to review recovery procedures and impact on dependent Energy Objects.
 - Consider how long it takes for an Energy Object to switch power states.
 - Recommendation to standardize a data model for safe limits on frequency or speed of transitions to prevent device/component's damage.
 - Model SLAs that include both performance (e.g., transition time) and device safety (e.g., cycle limitations).
