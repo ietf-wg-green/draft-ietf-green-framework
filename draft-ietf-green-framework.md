@@ -274,23 +274,6 @@ The framework aims to enhance the creation of energy metrics with actionable ins
 
 While many modern networking devices have basic energy monitoring capabilities, these are often proprietary. The framework defines requirements to enhance these capabilities, enabling standardized metric production and meaningful data contributions for energy management goals.
 
-## Why Now?
-
-The motivation of defining a framework for energy management is driven by:
-
-* Immediate Benefits: Start realizing cost savings, reduced carbon footprints, and improved efficiencies.
-* Rapid Technological Advancements: Aligning the framework with current technologies to prevent obsolescence.
-* Increasing Energy Demands: Mitigating the impact of growing energy consumption on costs.
-* Regulatory Pressure: Preparing for compliance with existing and anticipated regulations.
-* Competitive Advantage: Positioning organizations as leaders in innovation.
-* Foundational Work Ready: Building on the use cases and requirements established in Phase I.
-* Proactive Risk Management: Minimizing risks associated with energy costs and environmental factors.
-* Facilitate Future Innovations: Creating a platform for continuous improvements and adaptations.
-* Stakeholder Engagement: Ensuring diverse perspectives are reflected for broader adoption.
-
-
-Establishing the framework for energy efficiency management now is strategic and timely, leveraging the current momentum of use cases and requirements to drive meaningful progress in energy efficiency management. Delaying its development could result in missed opportunities for immediate benefits, increased costs, and challenges in adapting to future technological and regulatory landscapes.
-
 # Reference Model
 
    The framework introduces the concept of a Power Interface.
