@@ -1,6 +1,6 @@
 +-------------------------------------------------------------+
 |                                                             |
-|                  (3) Network Domain Level                   |
+|           (3) Energy Management System (EnMS)               |
 |                                                             |
 +-------------------------------------------------------------+
 
@@ -9,10 +9,6 @@ Inventory      Monitor    +- DataSheets/DataBase and/or via API
 of identity    Energy     |  Metadata and other device/
 & capability  Efficiency  |  component/network related 
      ^               ^    |  information:
-     |               |    |  .Power/Energy related metrics
-     |               |    |   Information
-     |               |    |  .Origin of Energy Mix
-     |               |    |  .Carbon aware based on location
      |               |    |
      |               |    |
      |               |    |

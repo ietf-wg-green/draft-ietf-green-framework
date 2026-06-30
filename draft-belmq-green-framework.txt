@@ -4,8 +4,8 @@
 
 GREEN                                                          B. Claise
 Internet-Draft                                            Everything OPS
-Intended status: Informational                              L. Contreras
-Expires: 28 December 2026                                     Telefonica
+Intended status: Informational                           L. M. Contreras
+Expires: 12 August 2026                                       Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,37 +14,38 @@ Expires: 28 December 2026                                     Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                            26 June 2026
+                                                         8 February 2026
 
 
                Framework for Energy Efficiency Management
-                     draft-ietf-green-framework-01
+                     draft-belmq-green-framework-10
 
 Abstract
 
    Recognizing the urgent need for energy efficiency, this document
-   specifies a management framework focused on networks, devices and
-   device components within, or connected to, interconnected systems.
-   The framework aims to enable energy usage optimization, based on the
+   specifies a management framework focused on devices and device
+   components within, or connected to, interconnected systems.  The
+   framework aims to enable energy usage optimization, based on the
    network condition while achieving the network's functional and
    performance requirements (e.g., improving overall network
    utilization) and also ensure interoperability across diverse systems.
    Leveraging data from existing use cases, it delivers actionable
    metrics to support effective energy management and informed decision-
-   making.  Furthermore, the framework defines mechanisms for
+   making.  Furthermore, the framework proposes mechanisms for
    representing and organizing timestamped telemetry data using YANG
-   data models and metadata, enabling transparent and reliable
-   monitoring.  This structured approach facilitates improved energy
-   efficiency through consistent energy management practices.
+   models and metadata, enabling transparent and reliable monitoring.
+   This structured approach facilitates improved energy efficiency
+   through consistent energy management practices.
 
 About This Document
 
    This note is to be removed before publishing as an RFC.
 
-   The latest revision of this draft can be found at https://github.com/
-   ietf-wg-green/draft-ietf-green-framework.html.  Status information
-   for this document may be found at https://datatracker.ietf.org/doc/
-   draft-ietf-green-framework/.
+   The latest revision of this draft can be found at
+   https://marisolpalmero.github.io/draft-belm-green-framework/draft-
+   belmq-green-framework.html.  Status information for this document may
+   be found at https://datatracker.ietf.org/doc/draft-belmq-green-
+   framework/.
 
    Discussion of this document takes place on the Getting Ready for
    Energy-Efficient Networking mailing list (mailto:green@ietf.org),
@@ -52,8 +53,7 @@ About This Document
    Subscribe at https://www.ietf.org/mailman/listinfo/green/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/https://github.com/ietf-wg-green/draft-ietf-green-
-   framework.
+   https://github.com/marisolpalmero/draft-belm-green-framework.
 
 Status of This Memo
 
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 December 2026.
+   This Internet-Draft will expire on 12 August 2026.
 
 Copyright Notice
 
@@ -88,64 +88,108 @@ Copyright Notice
 
 Table of Contents
 
-   1.  Introduction
-     1.1.  Terminology
-     1.2.  EMAN Data Model Compatibility
-   2.  Motivation
-     2.1.  Impact on Energy Metrics
-     2.2.  Device Readiness
-     2.3.  Why Now?
-   3.  Reference Model
-     3.1.  Data Collection Architecture
-       3.1.1.  Telemetry Push Pattern
-       3.1.2.  Controller vs. Device Initiated
-       3.1.3.  UUID-Based Component Identification
-       3.1.4.  Measurement Accuracy and Data Source Classification
-       3.1.5.  Industry-Standard Certifications
-       3.1.6.  Extensibility Through YANG Identities
-       3.1.7.  Hierarchical Data Model and Default Value Inheritance
-       3.1.8.  Unit Multiplier Consistency
-       3.1.9.  Power Factor
-     3.2.  Typical Power Topologies
-       3.2.1.  Basic Power Supply
-       3.2.2.  Physical Meter with Legacy Device
-       3.2.3.  Physical Meter with New Device
-       3.2.4.  Power over Ethernet
-       3.2.5.  Single Power Supply with Multiple Devices
-       3.2.6.  Multiple Power Supplies with Single Device
-     3.3.  Relationships
-     3.4.  Power State Set
-     3.5.  Power State Set Mapping and Intent
-       3.5.1.  Capability Discovery
-       3.5.2.  Intent Mapping
-       3.5.3.  SLA Considerations
-   4.  Interfaces Usage Of the Framework
-     4.1.  Mapping of Use Cases to Framework Interfaces
-   5.  Use Case Implementation Requirements: Device vs. Controller
+   1.  TO DO and Open Issues
+     1.1.  Discovering Capabilities
+     1.2.  Understanding Device Capabilities
+     1.3.  Mapping Intents to Device Settings
+     1.4.  Handling Transitions and Ensuring Safety
+     1.5.  East-West Traffic/Energy Metrics
+   2.  Introduction
+     2.1.  Terminology
+   3.  Motivation
+     3.1.  Impact on Energy Metrics
+     3.2.  Current Device Readiness
+     3.3.  Why Now?
+   4.  Reference Model
+     4.1.  Data Collection Architecture
+       4.1.1.  Telemetry Push Pattern
+       4.1.2.  Controller vs. Device Initiated
+       4.1.3.  UUID-Based Component Identification
+       4.1.4.  Measurement Accuracy and Data Source Classification
+       4.1.5.  Industry-Standard Certifications
+       4.1.6.  Extensibility Through YANG Identities
+       4.1.7.  Hierarchical Data Model and Default Value Inheritance
+       4.1.8.  Unit Multiplier Consistency
+       4.1.9.  Power Factor
+     4.2.  Typical Power Topologies
+       4.2.1.  Basic Power Supply
+       4.2.2.  Physical Meter with Legacy Device
+       4.2.3.  Physical Meter with New Device
+       4.2.4.  Power over Ethernet
+       4.2.5.  Single Power Supply with Multiple Devices
+       4.2.6.  Multiple Power Supplies with Single Device
+     4.3.  Relationships
+     4.4.  Power State Set
+     4.5.  Power State Set Mapping and Intent
+       4.5.1.  Capability Discovery
+       4.5.2.  Intent Mapping
+       4.5.3.  SLA Considerations
+   5.  Interfaces Usage Of the Framework
+     5.1.  Mapping of Use Cases to Framework Interfaces
+   6.  Use Case Implementation Requirements: Device vs. Controller
            Centric
-     5.1.  Implementation Focus: Where Intelligence Resides
-     5.2.  Key Findings
-       5.2.1.  Device Capabilities Required across Use Cases
-       5.2.2.  Controller Capabilities Required across Use Cases
-     5.3.  Implementation Priorities
-     5.4.  Next Steps
-   6.  Conventions and Definitions
-   7.  Operational Considerations
+     6.1.  Implementation Focus: Where Intelligence Resides
+     6.2.  Key Findings
+       6.2.1.  Device Capabilities Required across Use Cases
+       6.2.2.  Controller Capabilities Required across Use Cases
+     6.3.  Implementation Priorities
+     6.4.  Next Steps
+   7.  Conventions and Definitions
    8.  Security Considerations
    9.  IANA Considerations
-   10. References
-     10.1.  Normative References
-     10.2.  Informative References
-   Appendix A.  TO DO and Open Issues
-     A.1.  Discovering Capabilities
-     A.2.  Understanding Device Capabilities
-     A.3.  Mapping Intents to Device Settings
-     A.4.  Handling Transitions and Ensuring Safety
-     A.5.  East-West Traffic/Energy Metrics
-   Acknowledgments
+   10. Acknowledgments
+   11. References
+     11.1.  Normative References
+     11.2.  Informative References
    Authors' Addresses
 
-1.  Introduction
+1.  TO DO and Open Issues
+
+   *  IEC60050 reference needs a new URL
+
+   The following topics remain open for further discussion points:
+
+1.1.  Discovering Capabilities
+
+   *  Enable automatic detection of power-saving features.
+
+   *  Allow controllers to easily discover device-specific limits like
+      transition time and duty cycle.
+
+1.2.  Understanding Device Capabilities
+
+   *  Explore if Energy Objects can support multiple sets of power
+      states.
+
+   *  Make power states clearly described and understandable.
+
+   *  Represent these capabilities in a machine-readable format.
+
+1.3.  Mapping Intents to Device Settings
+
+   *  Develop ways to translate high-level energy goals (like "save
+      energy at low utilization") into actual device configurations.
+
+   *  Create a standard method to describe this mapping across systems.
+
+1.4.  Handling Transitions and Ensuring Safety
+
+   *  Consider how long it takes for an Energy Object to switch power
+      states.
+
+   *  Recommendation to standardize a data model for safe limits on
+      frequency or speed of transitions to prevent device/component's
+      damage.
+
+   *  Model SLAs that include both performance (e.g., transition time)
+      and device safety (e.g., cycle limitations).
+
+1.5.  East-West Traffic/Energy Metrics
+
+   *  Recommendation to standardize a data model for new equipment
+      interconnected East-West with optimized energy consumption.
+
+2.  Introduction
 
    [GreenUseCases] analyzes use cases such as "Incremental Application
    of the GREEN Framework" and "Consideration of other domains for end-
@@ -208,22 +252,22 @@ Table of Contents
 
    *  Hierarchical default value inheritance
 
-   *  [RFC8348] hardware data model link with energy attributes
+   *  [RFC8348] hardware model link with energy attributes
 
-   Implementers are expected to refer to both documents: this framework
-   for understanding requirements and use cases, the YANG data model for
+   Implementers should reference both documents: this framework for
+   understanding requirements and use cases, the YANG model for
    implementation details and data structures.
 
-1.1.  Terminology
+2.1.  Terminology
 
-   The following terms are defined in [GreenTerminology]: Energy, Power,
-   Energy Object, Energy Management, Energy Monitoring, and Energy
-   Control.
+   The following terms are defined in [GreenTerminology] and EMAN
+   Framework [RFC7326]: Energy, Power, Energy Object, Energy Management,
+   Energy Monitoring, Energy Control.
 
-   The following terms are defined in EMAN Framework [RFC7326], they are
-   provided here for convenience:
+   The following terms are defined in EMAN Framework [RFC7326], and cut/
+   paste here for completeness:
 
-   Energy Management System (EnMS):  An Energy Management System is a
+   Energy Management System (EnMS)  An Energy Management System is a
       combination of hardware and software used to administer a network,
       with the primary purpose of Energy Management.
 
@@ -251,96 +295,56 @@ Table of Contents
          can be referred to as an ISO Energy Management System
          (ISO-EnMS).
 
-   Device:  A device is a piece of electrical or non-electrical
+   Device  A device is a piece of electrical or non-electrical
       equipment.  Reference: Adapted from [IEEE100].
 
-   Component:  A component is a part of electrical or non-electrical
+   Component  A component is a part of electrical or non-electrical
       equipment (device).  Reference: Adapted from [TMN].
 
-   Meter (Energy Meter):  A meter is a device intended to measure
+   Meter (Energy Meter)  A meter is a device intended to measure
       electrical energy by integrating power with respect to time.
       Reference: Adapted from [IEC60050].
 
-   Power Inlet:  A power inlet (or simply "inlet") is an interface at
+   Power Inlet  A power inlet (or simply "inlet") is an interface at
       which a device or component receives energy from another device or
       component.
 
-   Power Outlet:  A power outlet (or simply "outlet") is an interface at
+   Power Outlet  A power outlet (or simply "outlet") is an interface at
       which a device or component provides energy to another device or
       component.
 
-   Power Interface:  A Power Interface is a power inlet, outlet, or
-      both.
+   Power Interface  A Power Interface is a power inlet, outlet, or both.
 
-   Power State:  A Power State is a condition or mode of a device (or
+   Power State  A Power State is a condition or mode of a device (or
       component) that broadly characterizes its capabilities, power, and
       responsiveness to input.  Reference: Adapted from [IEEE1621].
 
-   Power State Set:  A Power State Set is a collection of Power States
+   Power State Set  A Power State Set is a collection of Power States
       that comprises a named or logical control grouping.
 
-   Energy Object:  An Energy Object represents a piece of equipment that
+   Energy Object  An Energy Object represents a piece of equipment that
       is part of, or attached to, a communications network that is
       monitored or controlled or that aids in the management of another
       device for Energy Management.
 
    This document uses the terms Power and Energy in accordance with
-   [GreenTerminology]:
+   [GreenTerminology]: - Power refers to the instantaneous rate at which
+   a device consumes or produces electrical energy (typically expressed
+   in Watts). - Energy, by contrast, represents the cumulative amount of
+   work performed over time (typically expressed in Joules or Watt-
+   hours).  Both concepts are required within this YANG module: Power
+   enables real-time monitoring, control, and optimization of device
+   operation, while Energy provides a time-integrated view necessary for
+   accounting and reporting.  For completeness and alignment with
+   existing operational models and use cases, this specification
+   includes both Power and Energy attributes.
 
-   *  Power refers to the instantaneous rate at which a device consumes
-      or produces electrical energy (typically expressed in Watts).
+3.  Motivation
 
-   *  Energy, by contrast, represents the cumulative amount of work
-      performed over time (typically expressed in Joules or Watt-hours).
-      Both concepts are required within the YANG modules: Power enables
-      real-time monitoring, control, and optimization of device
-      operation, while Energy provides a time-integrated view necessary
-      for accounting and reporting.  For completeness and alignment with
-      existing operational models and use cases, this specification
-      includes both Power and Energy attributes.
+3.1.  Impact on Energy Metrics
 
-1.2.  EMAN Data Model Compatibility
-
-   The GREEN framework builds upon the conceptual foundations of the
-   Energy MANagement (EMAN) framework [RFC7326] and its associated SNMP-
-   based data models [RFC7460][RFC7461].  The GREEN YANG data model
-   [PowerAndEnergy] supersedes those MIB modules using the
-   correspondence shown in Table 1.  Energy collection scheduling
-   objects from [RFC7460] (e.g., eoEnergyCollectionStartTime) are not
-   carried forward, as collection timing is managed through YANG-Push
-   subscriptions [RFC8641].  Implementations currently supporting the
-   EMAN MIBs can use this correspondence as a migration path toward
-   YANG/NETCONF/RESTCONF-based energy management.
-
-    +==============================+==================================+
-    | EMAN MIB Object              | GREEN YANG Data Model            |
-    +==============================+==================================+
-    | eoPowerTable / eoEnergyTable | energy-objects container         |
-    +------------------------------+----------------------------------+
-    | eoPowerEntry                 | energy-entry list                |
-    +------------------------------+----------------------------------+
-    | eoPowerAdminState            | power-state-admin identityref    |
-    |                              | (control tree)                   |
-    +------------------------------+----------------------------------+
-    | eoPowerOperState             | power-state-oper identityref     |
-    |                              | (monitoring tree)                |
-    +------------------------------+----------------------------------+
-    | eoPowerStateEnterReason      | state-enter-reason identityref   |
-    +------------------------------+----------------------------------+
-    | PowerStateSet                | power-state-on, power-state-off, |
-    |                              | power-state-low-power identities |
-    +------------------------------+----------------------------------+
-    | eoRelationTable              | relationship list                |
-    +------------------------------+----------------------------------+
-
-                  Table 1: EMAN MIB to GREEN YANG Mapping
-
-2.  Motivation
-
-2.1.  Impact on Energy Metrics
-
-   The framework aims to enhance the creation of energy metrics with
-   actionable insights by:
+   The framework will significantly enhance the creation of energy
+   metrics with actionable insights by:
 
    *  Standardizing Metrics: Establishing consistent measurement
       protocols for energy consumption and efficiency.
@@ -362,17 +366,17 @@ Table of Contents
       systems by providing a framework for measuring and optimizing
       energy consumption in these environments.
 
-2.2.  Device Readiness
+3.2.  Current Device Readiness
 
    While many modern networking devices have basic energy monitoring
-   capabilities, these are often proprietary.  The framework defines
+   capabilities, these are often proprietary.  The framework will define
    requirements to enhance these capabilities, enabling standardized
    metric production and meaningful data contributions for energy
    management goals.
 
-2.3.  Why Now?
+3.3.  Why Now?
 
-   The motivation of defining a framework for energy management is
+   The decision to define the framework now, rather than later, is
    driven by:
 
    *  Immediate Benefits: Start realizing cost savings, reduced carbon
@@ -402,14 +406,15 @@ Table of Contents
    *  Stakeholder Engagement: Ensuring diverse perspectives are
       reflected for broader adoption.
 
-   Establishing the framework for energy efficiency management now is
-   strategic and timely, leveraging the current momentum of use cases
-   and requirements to drive meaningful progress in energy efficiency
-   management.  Delaying its development could result in missed
-   opportunities for immediate benefits, increased costs, and challenges
-   in adapting to future technological and regulatory landscapes.
+   In conclusion, establishing the framework for energy efficiency
+   management now is strategic and timely, leveraging the current
+   momentum of use cases and requirements to drive meaningful progress
+   in energy efficiency management.  Delaying its development could
+   result in missed opportunities for immediate benefits, increased
+   costs, and challenges in adapting to future technological and
+   regulatory landscapes.
 
-3.  Reference Model
+4.  Reference Model
 
    The framework introduces the concept of a Power Interface.  A Power
    Interface is defined as an interconnection among devices where energy
@@ -422,13 +427,13 @@ Table of Contents
    The most basic example of Energy Management is a single device
    reporting information about itself.  In many cases, however, energy
    is not measured by the device itself but is measured upstream in the
-   power distribution tree.  For example, a Power Distribution Unit(PDU)
-   may measure the energy it supplies to attached devices and report
-   this to an Energy Management System.  Therefore, devices often have
-   relationships to other devices or components in the power network.
-   An Energy Management System (EnMS) generally requires an
+   power distribution tree.  For example, a Power Distribution Unit
+   (PDU) may measure the energy it supplies to attached devices and
+   report this to an Energy Management System.  Therefore, devices often
+   have relationships to other devices or components in the power
+   network.  An Energy Management System (EnMS) generally requires an
    understanding of the power topology (who provides power to whom), the
-   metering topology (who meters whom), and the potential aggregation
+   Metering topology (who meters whom), and the potential Aggregation
    (who aggregates values of others).
 
    The relationships build on the Power Interface concept.  The
@@ -436,11 +441,11 @@ Table of Contents
    this document, include power source, Metering, and Aggregation
    Relationships.
 
-   The GREEN Framework Reference Model is represented in Figure 1.
+   The GREEN Reference Model is represented in the Figure 1
 
  +------------------------------------------------------------------+
  |                                                                  |
- |               (3) Energy Management System (EnMS)                |-+
+ |                  (3) Network Domain Level                        |-+
  |                                                                  | |
  +------------------------------------------------------------------+ |
                                                                       |
@@ -449,15 +454,17 @@ Table of Contents
  Of identity      Energy        | via API,                           API
  and Capability   Efficiency    | Metadata and other             Service
       ^               ^         | device/component/network     Interface
-      |               |         | related information                 ^
+      |               |         | related information to be:          ^
       |               |         |                                     |
-      |               |         |                                     |
+      |               |         |  .Power/Energy related metrics      |
+      |               |         |  .Origin of Energy Mix              |
+      |               |         |  .Carbon aware based on location    |
       |               |         |                                     |
       |               |         |                                     |
       |               |         v                                     |
  +------------------------------------------------------------------+ |
  |                                                                  | |
- |       (2) Controller (collection, compute and aggregate?)        |-+
+ |       (2) controller (collection, compute and aggregate?)        |-+
  |                                                                  |
  +------------------------------------------------------------------+
                  ^                      ^                      ^ |
@@ -481,24 +488,7 @@ Table of Contents
  | +---------+  +-----------+  +----------------+  +----------------+ |
  +--------------------------------------------------------------------+
 
-               Figure 1: GREEN Framework Reference Model
-
-   The current GREEN Working Group deliverables primarily focus on the
-   Energy Management Layer while preserving architectural extensibility
-   toward Service Consumption Layer functions.
-
-   The GREEN Framework defines a complete conceptual architecture for
-   energy-efficiency management.  Not all logical functions are
-   necessarily standardized within the current GREEN Working Group
-   charter.
-
-   The current work primarily focuses on energy monitoring, metrics,
-   inventory correlation, and control capabilities supported through
-   YANG-based data models.  Service-level applications, reporting
-   functions, sustainability dashboards, lifecycle management
-   integrations, and external API consumption are represented in the
-   framework to provide architectural context and support future
-   extensibility.
+                    Figure 1: GREEN Reference Model
 
    The main elements in the framework are as follows:
 
@@ -514,38 +504,23 @@ Table of Contents
       enabling data retrieval , control, and integration through API,
       e.g., [PetraApi].
 
-   Inventory information, referring to interfaces (a) and (d), may
-   originate from device self-discovery, manufacturer datasheets, asset-
-   management systems, or other authoritative metadata repositories.
-   The controller is responsible for correlating these sources and
-   exposing a consistent inventory view.
-
-   The reference model covers every network device and component that
-   have a Unique Identifiable ID (UUID) and can represent or influence
-   power or energy consumption.  If the component can be uniquely
-   identified, it can be modeled.
-
-   The monitoring interface (e) monitors more aspects than just power
-   and energy, (for example traffic monitoring) but this is not covered
-   in the framework.
+   The monitoring interface (e) obviously monitor more aspects than just
+   power and energy, (for example traffic monitoring) but this is not
+   covered in the framework.
 
    Note that the GREEN framework specifies logical blocks, however, the
    Energy Efficiency Management function might be implemented inside the
    device, based in [RFC8348], in the controller, or a combination of
    both.
 
-   Even if the reference model implicitly assumes a hierarchical network
-   structure, this assumption acknowledges that conventional networks
+   Even the current reference model implicitly assumes a hierarchical
+   network structure, this assumption acknowledges that modern networks
    have flatter and anticipate more distributed topologies.
 
-   Examples of applications consuming GREEN framework data include
-   carbon-aware workload placement, sustainability reporting, lifecycle
-   management, and energy-aware traffic engineering.
-
-   The logical interfaces defined by the GREEN Framework are expected to
-   be realized through YANG-based data models, primarily the GREEN Power
-   and Energy YANG model [PowerAndEnergy] together with [RFC8348]
-   hardware inventory models and associated telemetry mechanisms.
+   The reference model covers every network device and component that
+   have a Unique Identifiable ID (UUID) and can represent or influence
+   power or energy consumption.  If the component can be uniquely
+   identified, it can be modeled.
 
    In scope:
 
@@ -563,9 +538,9 @@ Table of Contents
 
    *  Any element providing power, energy
 
-3.1.  Data Collection Architecture
+4.1.  Data Collection Architecture
 
-3.1.1.  Telemetry Push Pattern
+4.1.1.  Telemetry Push Pattern
 
    The framework recommends a push-based telemetry model for energy
    efficiency data collection, where network devices stream power and
@@ -598,7 +573,7 @@ Table of Contents
    *  Energy collection parameters table: Replaced by YANG-Push
       subscription configuration.
 
-3.1.2.  Controller vs. Device Initiated
+4.1.2.  Controller vs. Device Initiated
 
    The framework supports both initiation models:
 
@@ -620,19 +595,10 @@ Table of Contents
 
       -  Complements controller-initiated subscriptions
 
-      Energy efficiency management requires stable identification of
-      Energy Objects across device, controller, inventory, and reporting
-      systems.  The framework therefore relies on UUID-based
-      identification from RFC8348 while allowing controller-assigned
-      identifiers for onboarding and cross-system correlation.
-      Implementations should maintain mappings between local identifiers
-      and globally unique hardware identifiers to support inventory and
-      reporting consistency, as well as telemetry correlation.
-
-3.1.3.  UUID-Based Component Identification
+4.1.3.  UUID-Based Component Identification
 
    Energy metrics are anchored to hardware components using UUIDs from
-   the "ietf-hardware" YANG module [RFC8348]:
+   the ietf-hardware model [RFC8348]:
 
    *  Each physical component (chassis, power supply, line card, etc.)
       has a stable UUID
@@ -651,10 +617,10 @@ Table of Contents
    To enable stable component identification across systems, the GREEN
    Framework supports dual identifiers based on [RFC8348]: controllers
    will need to assign their own ID during onboarding, query the
-   device's "ietf-hardware" UUID, and maintain a mapping between both
-   for cross-system correlation.
+   device's ietf-hardware UUID, and maintain a mapping between both for
+   cross-system correlation.
 
-3.1.4.  Measurement Accuracy and Data Source Classification
+4.1.4.  Measurement Accuracy and Data Source Classification
 
    Power and energy data reported by network elements differ
    significantly in origin and reliability.  Some values are derived
@@ -674,7 +640,7 @@ Table of Contents
    Detailed accuracy categories, and extensibility mechanisms are
    specified in the GREEN YANG data model [PowerAndEnergy].
 
-3.1.5.  Industry-Standard Certifications
+4.1.5.  Industry-Standard Certifications
 
    In addition to measurement accuracy, the framework supports the
    reporting of industry-standard energy efficiency certifications, per
@@ -695,28 +661,24 @@ Table of Contents
    Detailed certification models and encoding rules are defined in the
    companion GREEN YANG data model.
 
-3.1.6.  Extensibility Through YANG Identities
+4.1.6.  Extensibility Through YANG Identities
 
    The accuracy hierarchy uses YANG identityref to allow vendor-specific
-   extensions:
-
-   identity accuracy-measured-vendor-calibrated {
-     base accuracy-measured;
-     description
-       "Vendor-specific calibrated sensor with certificate ID XYZ";
-   }
+   extensions: yang identity accuracy-measured-vendor-calibrated { base
+   accuracy-measured; description "Vendor-specific calibrated sensor
+   with certificate ID XYZ"; }
 
    This maintains interoperability (base accuracy-measured
    classification) while supporting proprietary accuracy metadata.
 
    Implementation details are in [PowerAndEnergy].
 
-3.1.7.  Hierarchical Data Model and Default Value Inheritance
+4.1.7.  Hierarchical Data Model and Default Value Inheritance
 
-   The framework leverages the hierarchical structure of the "ietf-
-   hardware" YANG module [RFC8348] to minimize redundant data reporting
-   and simplify device implementation.  The framework refers as parent-
-   child relationships.
+   The framework leverages the hierarchical structure of the ietf-
+   hardware model [RFC8348] to minimize redundant data reporting and
+   simplify device implementation.  The framework refers as parent-child
+   relationships.
 
    Energy objects inherit their hierarchical containment relationships
    from the hardware component tree.  For example:
@@ -754,17 +716,15 @@ Table of Contents
    *  Only components with different accuracy need to explicitly report
       their value
 
-   Example:
+   Example: Chassis (accuracy: gold ±5%) ├── Line Card 1 (inherits: gold
+   ±5%) ← No need to report ├── Line Card 2 (inherits: gold ±5%) ← No
+   need to report └── PSU 1 (explicit: silver ±10%) ← Must report
+   (differs from parent)
 
-Chassis (accuracy: gold ±5%)
-├── Line Card 1 (inherits: gold ±5%)  ← No need to report
-├── Line Card 2 (inherits: gold ±5%)  ← No need to report
-└── PSU 1 (explicit: silver ±10%)     ← Must report (differs from parent)
+   This dramatically reduces YANG-Push telemetry volume while
+   maintaining accuracy transparency.
 
-   This reduces YANG-Push telemetry volume while maintaining accuracy
-   transparency.
-
-3.1.8.  Unit Multiplier Consistency
+4.1.8.  Unit Multiplier Consistency
 
    While unit-multiplier does not inherit, the framework recommends:
 
@@ -777,7 +737,7 @@ Chassis (accuracy: gold ±5%)
    final YANG model can choose either approach, but must not use
    inheritance to avoid client code complexity.
 
-3.1.9.  Power Factor
+4.1.9.  Power Factor
 
    The YANG data model [PowerAndEnergy] introduces a power-factor leaf
    to capture Power Factor (PF), enabling controller engines to
@@ -791,7 +751,7 @@ Chassis (accuracy: gold ±5%)
    PSUs) need explicit values - Simplifies data for most networking
    equipment
 
-3.2.  Typical Power Topologies
+4.2.  Typical Power Topologies
 
    The following reference model describes physical power topologies
    that exist in parallel with a communication topology.  While many
@@ -809,22 +769,26 @@ Chassis (accuracy: gold ±5%)
    *  "- >" is used to denote a transfer of information using Network
       Interface.
 
-3.2.1.  Basic Power Supply
+4.2.1.  Basic Power Supply
 
    This covers the basic example of router connected to Power Outlet in
    the wall.
 
   +--------------------------------------------------------------------+
   |                                                                    |
-  |             (3) Energy Management System (EnMS)                    |
+  |                  (3) Network Domain Level                          |
   |                                                                    |
   +--------------------------------------------------------------------+
 
   (a)              (b)              (c)
   Inventory        Monitor       +- DataSheets/DataBase and/or via API
   Of identity      Energy        |  Metadata and other device/component
-  and Capability   Efficiency    |  /network related information
+  and Capability   Efficiency    |  /network related information:
        ^               ^         |
+       |               |         |  .Power/Energy related metrics
+       |               |         |   information
+       |               |         |  .Origin of Energy Mix
+       |               |         |  .Carbon aware based on location
        |               |         |
        |               |         |
        |               |         |
@@ -834,11 +798,11 @@ Chassis (accuracy: gold ±5%)
   |       (2) controller (collection, compute and aggregate?)          |
   |                                                                    |
   +--------------------------------------------------------------------+
-                                               ^   ^   ^
-                                               |   |   |
-                                              (d) (e) (f)
-                                               |   |   |
-                                               |   |   v
+                                               ^   ^   ^ |
+                                               |   |   | |
+                                              (d) (e)  (f)
+                                               |   |   | |
+                                               |   |     v
               +--------------+            +------------------+
               |              |            |                  |
               | Power Supply |############| Device/Component |
@@ -847,7 +811,7 @@ Chassis (accuracy: gold ±5%)
 
           Figure 2: Reference Model Example: Basic Power Supply
 
-3.2.2.  Physical Meter with Legacy Device
+4.2.2.  Physical Meter with Legacy Device
 
    This covers the basic example of device connected to wall Power
    Outlet, with a Physical Meter placed in the wall Power Outlet,
@@ -855,7 +819,7 @@ Chassis (accuracy: gold ±5%)
 
   +--------------------------------------------------------------------+
   |                                                                    |
-  |              (3) Energy Management System (EnMS)                   |
+  |                  (3) Network Domain Level                          |
   |                                                                    |
   +--------------------------------------------------------------------+
 
@@ -864,6 +828,10 @@ Chassis (accuracy: gold ±5%)
   Of identity      Energy        |  Metadata and other device/component
   and Capability   Efficiency    |  /network related information:
        ^               ^         |
+       |               |         |  .Power/Energy related metrics
+       |               |         |   information
+       |               |         |  .Origin of Energy Mix
+       |               |         |  .Carbon aware based on location
        |               |         |
        |               |         |
        |               |         |
@@ -900,7 +868,7 @@ Chassis (accuracy: gold ±5%)
    as meters are connected to the wiring topology.  A typical example is
    meters that clamp onto the existing wiring.
 
-3.2.3.  Physical Meter with New Device
+4.2.3.  Physical Meter with New Device
 
    This covers the example of device connected to wall Power Outlet,
    with a Physical Meter placed in the wall Power Outlet, because the
@@ -908,7 +876,7 @@ Chassis (accuracy: gold ±5%)
 
    +-------------------------------------------------------------+
    |                                                             |
-   |           (3) Energy Management System (EnMS)               |
+   |                  (3) Network Domain Level                   |
    |                                                             |
    +-------------------------------------------------------------+
 
@@ -917,6 +885,10 @@ Chassis (accuracy: gold ±5%)
    of identity    Energy     |  Metadata and other device/
    & capability  Efficiency  |  component/network related
         ^               ^    |  information:
+        |               |    |  .Power/Energy related metrics
+        |               |    |   Information
+        |               |    |  .Origin of Energy Mix
+        |               |    |  .Carbon aware based on location
         |               |    |
         |               |    |
         |               |    |
@@ -926,11 +898,11 @@ Chassis (accuracy: gold ±5%)
    |    (2) controller (collection, compute and aggregate?)       |
    |                                                              |
    +--------------------------------------------------------------+
-                                 ^                 ^   ^   ^
-                                 |                 |   |   |
-                                (e)               (d) (e) (f)
-                                 |                 |   |   |
-                                 |                 |   |   v
+                                 ^                 ^   ^   ^ |
+                                 |                 |   |   | |
+                                (e)               (d) (e)  (f)
+                                 |                 |   |   | |
+                                 |                 |   |     v
     +--------------+   +----------------+   +------------------+
     |              |   |                |   |                  |
     | Power Supply |###| Physical Meter |###| Device/Component |
@@ -947,7 +919,7 @@ Chassis (accuracy: gold ±5%)
    the Metering Relationship between the two Energy Objects, the EnMS
    will double count the Energy consumed in the network.
 
-3.2.4.  Power over Ethernet
+4.2.4.  Power over Ethernet
 
    This covers the example of a switch port (Power Outlet) the provides
    energy with Power over Ethernet (PoE) to a PoE end points (camera,
@@ -955,7 +927,7 @@ Chassis (accuracy: gold ±5%)
 
   +--------------------------------------------------------------------+
   |                                                                    |
-  |             (3) Energy Management System (EnMS)                    |
+  |                  (3) Network Domain Level                          |
   |                                                                    |
   +--------------------------------------------------------------------+
 
@@ -964,6 +936,10 @@ Chassis (accuracy: gold ±5%)
   Of identity      Energy        |  Metadata and other device/component
   and Capability   Efficiency    |  /network related information:
        ^               ^         |
+       |               |         |  .Power/Energy related metrics
+       |               |         |   information
+       |               |         |  .Origin of Energy Mix
+       |               |         |  .Carbon aware based on location
        |               |         |
        |               |         |
        |               |         |
@@ -973,11 +949,11 @@ Chassis (accuracy: gold ±5%)
   |       (2) controller (collection, compute and aggregate?)          |
   |                                                                    |
   +--------------------------------------------------------------------+
-                ^   ^   ^                    ^   ^   ^
-                |   |   |                    |   |   |
-               (d) (e) (f)                  (d) (e) (f)
-                |   |   |                    |   |   |
-                |   |   v                    |   |   v
+                ^   ^   ^ |                  ^   ^   ^ |
+                |   |   | |                  |   |   | |
+               (d) (e)  (f)                 (d) (e)  (f)
+                |   |   | |                  |   |   | |
+                |   |     v                  |   |     v
               +--------------+            +----------------+
               |              |            |                |
               | Device       |############| PoE End Point  |
@@ -1009,22 +985,26 @@ Chassis (accuracy: gold ±5%)
    controller might for example put the PoE End Point to a lower Power
    State.
 
-3.2.5.  Single Power Supply with Multiple Devices
+4.2.5.  Single Power Supply with Multiple Devices
 
    This covers the example of a smart PDU that provides energy to a
    series of routers in a rack.
 
   +--------------------------------------------------------------------+
   |                                                                    |
-  |              (3) Energy Management System (EnMS)                   |
+  |                  (3) Network Domain Level                          |
   |                                                                    |
   +--------------------------------------------------------------------+
 
   (a)              (b)              (c)
   Inventory        Monitor       +- DataSheets/DataBase and/or via API
   Of identity      Energy        |  Metadata and other device/component
-  and Capability   Efficiency    |  /network related information
+  and Capability   Efficiency    |  /network related information:
        ^               ^         |
+       |               |         |  .Power/Energy related metrics
+       |               |         |   information
+       |               |         |  .Origin of Energy Mix
+       |               |         |  .Carbon aware based on location
        |               |         |
        |               |         |
        |               |         |
@@ -1034,11 +1014,11 @@ Chassis (accuracy: gold ±5%)
   |       (2) controller (collection, compute and aggregate?)          |
   |                                                                    |
   +--------------------------------------------------------------------+
-                ^   ^   ^                     ^   ^   ^
-                |   |   |                     |   |   |
-               (d) (e) (f)                   (d) (e) (f) ... N
-                |   |   |                     |   |   |
-                |   |   v                     |   |   v
+                ^   ^   ^ |                   ^   ^   ^ |
+                |   |   | |                   |   |   | |
+               (d) (e)  (f)                  (d) (e)  (f) ... N
+                |   |   | |                   |   |   | |
+                |   |     v                   |   |     v
               +--------------+            +--------------------+
               |              |            |                    |
               | Power Supply |############| Device/Component 1 |
@@ -1061,19 +1041,23 @@ Chassis (accuracy: gold ±5%)
        Figure 6: Reference Model Example: Single Power Supply with
                              Multiple Devices
 
-3.2.6.  Multiple Power Supplies with Single Device
+4.2.6.  Multiple Power Supplies with Single Device
 
  +--------------------------------------------------------------------+
  |                                                                    |
- |             (3) Energy Management System (EnMS)                    |
+ |                  (3) Network Domain Level                          |
  |                                                                    |
  +--------------------------------------------------------------------+
 
  (a)              (b)              (c)
  Inventory        Monitor       +- DataSheets/DataBase and/or via API
  Of identity      Energy        |  Metadata and other device/component
- and Capability   Efficiency    |  /network related information
+ and Capability   Efficiency    |  /network related information:
       ^               ^         |
+      |               |         |  .Power/Energy related metrics
+      |               |         |   information
+      |               |         |  .Origin of Energy Mix
+      |               |         |  .Carbon aware based on location
       |               |         |
       |               |         |
       |               |         |
@@ -1083,11 +1067,11 @@ Chassis (accuracy: gold ±5%)
  |       (2) controller (collection, compute and aggregate?)          |
  |                                                                    |
  +--------------------------------------------------------------------+
-       ^   ^   ^                ^   ^   ^                 ^   ^   ^
-       |   |   |                |   |   |                 |   |   |
-      (d) (e) (f)              (d) (e) (f)               (d) (e) (f)
-       |   |   |                |   |   |                 |   |   |
-       |   |   v                |   |   v                 |   |   v
+       ^   ^   ^ |              ^   ^   ^ |               ^   ^   ^ |
+       |   |   | |              |   |   | |               |   |   | |
+      (d) (e)  (f)             (d) (e)  (f)              (d) (e)  (f)
+       |   |   | |              |   |   | |               |   |   | |
+       |   |     v              |   |     v               |   |     v
     +----------------+      +------------------+      +----------------+
     |                |      |                  |      |                |
     | Power Supply 1 |######| Device/Component |######| Power Supply 2 |
@@ -1097,9 +1081,9 @@ Chassis (accuracy: gold ±5%)
     Figure 7: Reference Model Example: Multiple Power Supplies with
                              Single Device
 
-3.3.  Relationships
+4.3.  Relationships
 
-   The framework for Energy Management needs to describe a means to
+   The framework for Energy Management need to describe a means to
    monitor and control devices and components, and it needs to describe
    the relationships among, and connections between, devices and
    components.
@@ -1163,7 +1147,7 @@ Chassis (accuracy: gold ±5%)
    Given that relationships can be assigned manually, the following
    sections describe guidelines for use.
 
-3.4.  Power State Set
+4.4.  Power State Set
 
    The Energy Object contains a Power State Set attribute that
    represents a set of Power States a device or component supports.
@@ -1205,7 +1189,7 @@ Chassis (accuracy: gold ±5%)
    There are many existing standards describing device and component
    Power States.  TO BE COMPLETED
 
-3.5.  Power State Set Mapping and Intent
+4.5.  Power State Set Mapping and Intent
 
    Defining and enforcing power states can be challenging, because each
    Energy Object's technical capabilities must be mapped to high-level
@@ -1224,7 +1208,7 @@ Chassis (accuracy: gold ±5%)
    an Energy Object should enter at any given time and under what
    conditions.
 
-3.5.1.  Capability Discovery
+4.5.1.  Capability Discovery
 
    Identifying what power states an Energy Object supports is crucial
    for onboarding and integration, especially for legacy systems.  Key
@@ -1244,10 +1228,10 @@ Chassis (accuracy: gold ±5%)
 
    *  Impacts on measurement accuracy.
 
-3.5.2.  Intent Mapping
+4.5.2.  Intent Mapping
 
-   The goal of intent mapping is to translate Energy-Aware intent into
-   specific device/component configurations.  For example:
+   The goal of intent mapping is to translate high-level energy-saving
+   intents into specific device/component configurations.  For example:
 
    *  An intent like "reduce power consumption at low utilization" might
       map to a predefined low-power state.
@@ -1259,7 +1243,7 @@ Chassis (accuracy: gold ±5%)
    high-level Customer-Facing Services (CFS) to Resource-Facing Services
    (RFS) and ultimately to device-specific configurations.
 
-3.5.3.  SLA Considerations
+4.5.3.  SLA Considerations
 
    Meanwhile saving energy, the device or component shouldn't drop below
    a certain performance threshold or allow a certain service reduction
@@ -1272,7 +1256,7 @@ Chassis (accuracy: gold ±5%)
    *  Operational SLAs - e.g., device frequency or operational cycle
       limits that ensure long-term hardware health.
 
-4.  Interfaces Usage Of the Framework
+5.  Interfaces Usage Of the Framework
 
    This section provides an overview of how the GREEN use cases
    described in [GreenUseCases] interact with the framework interfaces
@@ -1281,9 +1265,9 @@ Chassis (accuracy: gold ±5%)
    Each use case is characterized by the sequence of framework
    interfaces it invokes to achieve energy-efficiency objectives.
 
-4.1.  Mapping of Use Cases to Framework Interfaces
+5.1.  Mapping of Use Cases to Framework Interfaces
 
-   The table Table 2 maps each GREEN use case to the framework
+   The table Table 1 maps each GREEN use case to the framework
    interfaces and summarizes how these are used:
 
    *  The first line shows the interface sequences.
@@ -1300,87 +1284,87 @@ Chassis (accuracy: gold ±5%)
 
    *  (c) Metrics interface
 
-      +=====+========================+==============================+
-      | UC# | Use Case               | Interfaces Usages            |
-      +=====+========================+==============================+
-      | 1   | Incremental deployment | c; c->b; a->d->b->e          |
-      +-----+------------------------+------------------------------+
-      |     | of the GREEN Framework | 1,2: legacy; 3: GREEN WG     |
-      |     |                        | support (i)                  |
-      +-----+------------------------+------------------------------+
-      | 2   | Selective Reduction of | e->b->c->f                   |
-      +-----+------------------------+------------------------------+
-      |     | Energy Consumption     | monitor->metrics->control    |
-      +-----+------------------------+------------------------------+
-      | 3   | Reporting on Lifecycle | c->g                         |
-      +-----+------------------------+------------------------------+
-      |     | Management             | metrics / metadata->API or   |
-      |     |                        | report                       |
-      +-----+------------------------+------------------------------+
-      | 4   | Real-time Energy       | b->c                         |
-      |     | Metering               |                              |
-      +-----+------------------------+------------------------------+
-      |     | of Virtualised NFs     | monitor->metrics             |
-      +-----+------------------------+------------------------------+
-      | 5   | Indirect Energy        | b->f                         |
-      |     | Monitoring             |                              |
-      +-----+------------------------+------------------------------+
-      |     | & Control              | monitor aggregate->control   |
-      +-----+------------------------+------------------------------+
-      | 6   | Consideration of Other | c->g->b                      |
-      +-----+------------------------+------------------------------+
-      |     | Domains for End-to-End | metrics->cross-domain API->  |
-      +-----+------------------------+------------------------------+
-      |     | Metrics                | monitoring                   |
-      +-----+------------------------+------------------------------+
-      | 7   | Dynamic Adjustment via | b->f->c                      |
-      +-----+------------------------+------------------------------+
-      |     | Traffic Levels         | observe->control->update     |
-      |     |                        | metrics                      |
-      +-----+------------------------+------------------------------+
-      | 8   | Video Streaming Use    | b->c->f                      |
-      |     | Case                   |                              |
-      +-----+------------------------+------------------------------+
-      |     |                        | monitor->metrics->control    |
-      +-----+------------------------+------------------------------+
-      | 9   | WLAN Network Energy    | b->f                         |
-      |     | Saving                 |                              |
-      +-----+------------------------+------------------------------+
-      |     |                        | monitor->control             |
-      +-----+------------------------+------------------------------+
-      | 10  | Fixed Network Energy   | b->f                         |
-      +-----+------------------------+------------------------------+
-      |     | Saving                 | monitor->control             |
-      +-----+------------------------+------------------------------+
-      | 11  | Energy Efficiency      | a->b->c->f->g                |
-      |     | Network                |                              |
-      +-----+------------------------+------------------------------+
-      |     | Management             | discover->monitor->metrics-> |
-      +-----+------------------------+------------------------------+
-      |     |                        | control->API                 |
-      +-----+------------------------+------------------------------+
-      | 12  | ISAC-enabled Energy-   | ---                          |
-      |     | Aware                  |                              |
-      +-----+------------------------+------------------------------+
-      |     | Smart City Traffic     | not clearly specified        |
-      |     | Mgmt                   |                              |
-      +-----+------------------------+------------------------------+
-      | 13  | Double Accounting Open | c->g                         |
-      +-----+------------------------+------------------------------+
-      |     | Issue                  | metrics / metadata->API      |
-      +-----+------------------------+------------------------------+
-      | 14  | Energy Efficiency      | b->f                         |
-      |     | Under                  |                              |
-      +-----+------------------------+------------------------------+
-      |     | Power Shortage         | monitor->control             |
-      +-----+------------------------+------------------------------+
-      | 15  | Energy-Efficient Mgmt  | b->c->f                      |
-      |     | of                     |                              |
-      +-----+------------------------+------------------------------+
-      |     | AI Training Workloads  | monitor->metrics->control    |
-      +-----+------------------------+------------------------------+
+      +====+========================+==============================+
+      | UC | Use Case               | Interfaces Usages            |
+      +====+========================+==============================+
+      | 1  | Incremental deployment | c; c->b; a->d->b->e          |
+      +----+------------------------+------------------------------+
+      |    | of the GREEN Framework | 1,2: legacy; 3: GREEN WG     |
+      |    |                        | support (i)                  |
+      +----+------------------------+------------------------------+
+      | 2  | Selective Reduction of | e->b->c->f                   |
+      +----+------------------------+------------------------------+
+      |    | Energy Consumption     | monitor->metrics->control    |
+      +----+------------------------+------------------------------+
+      | 3  | Reporting on Lifecycle | c->g                         |
+      +----+------------------------+------------------------------+
+      |    | Management             | metrics / metadata->API or   |
+      |    |                        | report                       |
+      +----+------------------------+------------------------------+
+      | 4  | Real-time Energy       | b->c                         |
+      |    | Metering               |                              |
+      +----+------------------------+------------------------------+
+      |    | of Virtualised NFs     | monitor->metrics             |
+      +----+------------------------+------------------------------+
+      | 5  | Indirect Energy        | b->f                         |
+      |    | Monitoring             |                              |
+      +----+------------------------+------------------------------+
+      |    | & Control              | monitor aggregate->control   |
+      +----+------------------------+------------------------------+
+      | 6  | Consideration of Other | c->g->b                      |
+      +----+------------------------+------------------------------+
+      |    | Domains for End-to-End | metrics->cross-domain API->  |
+      +----+------------------------+------------------------------+
+      |    | Metrics                | monitoring                   |
+      +----+------------------------+------------------------------+
+      | 7  | Dynamic Adjustment via | b->f->c                      |
+      +----+------------------------+------------------------------+
+      |    | Traffic Levels         | observe->control->update     |
+      |    |                        | metrics                      |
+      +----+------------------------+------------------------------+
+      | 8  | Video Streaming Use    | b->c->f                      |
+      |    | Case                   |                              |
+      +----+------------------------+------------------------------+
+      |    |                        | monitor->metrics->control    |
+      +----+------------------------+------------------------------+
+      | 9  | WLAN Network Energy    | b->f                         |
+      |    | Saving                 |                              |
+      +----+------------------------+------------------------------+
+      |    |                        | monitor->control             |
+      +----+------------------------+------------------------------+
+      | 10 | Fixed Network Energy   | b->f                         |
+      +----+------------------------+------------------------------+
+      |    | Saving                 | monitor->control             |
+      +----+------------------------+------------------------------+
+      | 11 | Energy Efficiency      | a->b->c->f->g                |
+      |    | Network                |                              |
+      +----+------------------------+------------------------------+
+      |    | Management             | discover->monitor->metrics-> |
+      +----+------------------------+------------------------------+
+      |    |                        | control->API                 |
+      +----+------------------------+------------------------------+
+      | 12 | ISAC-enabled Energy-   | ---                          |
+      |    | Aware                  |                              |
+      +----+------------------------+------------------------------+
+      |    | Smart City Traffic     | not clearly specified        |
+      |    | Mgmt                   |                              |
+      +----+------------------------+------------------------------+
+      | 13 | Double Accounting Open | c->g                         |
+      +----+------------------------+------------------------------+
+      |    | Issue                  | metrics / metadata->API      |
+      +----+------------------------+------------------------------+
+      | 14 | Energy Efficiency      | b->f                         |
+      |    | Under                  |                              |
+      +----+------------------------+------------------------------+
+      |    | Power Shortage         | monitor->control             |
+      +----+------------------------+------------------------------+
+      | 15 | Energy-Efficient Mgmt  | b->c->f                      |
+      |    | of                     |                              |
+      +----+------------------------+------------------------------+
+      |    | AI Training Workloads  | monitor->metrics->control    |
+      +----+------------------------+------------------------------+
 
-                    Table 2: Use Cases Interfaces Usage
+                   Table 1: Use Cases Interfaces Usage
 
    Use Case 1 (Incremental Deployment) illustrates how the usage of the
    framework interfaces evolves during the lifecycle of a network or
@@ -1388,7 +1372,7 @@ Chassis (accuracy: gold ±5%)
    1=(c) and 2=(c -> b) and progressively incorporating GREEN-specific
    components 3=(a -> d -> b -> e).
 
-5.  Use Case Implementation Requirements: Device vs. Controller Centric
+6.  Use Case Implementation Requirements: Device vs. Controller Centric
 
    This section analyzes the [GreenUseCases] to identify which
    capabilities require device-level implementation versus controller
@@ -1398,7 +1382,7 @@ Chassis (accuracy: gold ±5%)
 
    The framework distinguishes between two orthogonal concepts:
 
-5.1.  Implementation Focus: Where Intelligence Resides
+6.1.  Implementation Focus: Where Intelligence Resides
 
    Device-Centric Use Cases require autonomous on-device decision-
    making: - Example: UC 14 (Power Shortage) - Device must independently
@@ -1412,9 +1396,9 @@ Chassis (accuracy: gold ±5%)
    state changes. - It requires cross-device coordination, centralized
    intelligence
 
-   Use Cases need both device capabilities and controller coordination:
-   - Example: UC 9 (WLAN Energy Saving) - Devices support power modes;
-   controller coordinates AP groups to maintain coverage.
+   Hybrid Use Cases need both device capabilities and controller
+   coordination: - Example: UC 9 (WLAN Energy Saving) - Devices support
+   power modes; controller coordinates AP groups to maintain coverage.
 
    Who triggers telemetry is independent of implementation focus and
    follows YANG-Push [RFC8641] patterns:
@@ -1447,8 +1431,8 @@ Chassis (accuracy: gold ±5%)
     |                      |              | capability discovery      |
     +----------------------+--------------+---------------------------+
     +----------------------+--------------+---------------------------+
-    | *Device +            |              |                           |
-    | Controller*          |              |                           |
+    | *Hybrid (Device +    |              |                           |
+    | Controller)*         |              |                           |
     +----------------------+--------------+---------------------------+
     | 4                    | Virtualized  | HW-layer metering, VM     |
     |                      | NF Metering  | correlation, real-time    |
@@ -1516,31 +1500,29 @@ Chassis (accuracy: gold ±5%)
     |                      |              | state synchronization     |
     +----------------------+--------------+---------------------------+
 
-                   Table 3: Use Case Implementation Focus
+                   Table 2: Use Case Implementation Focus
 
    <<TODO - consider to include>>
 
-5.2.  Key Findings
+6.2.  Key Findings
 
-5.2.1.  Device Capabilities Required across Use Cases
+6.2.1.  Device Capabilities Required across Use Cases
 
-5.2.2.  Controller Capabilities Required across Use Cases
+6.2.2.  Controller Capabilities Required across Use Cases
 
-5.3.  Implementation Priorities
+6.3.  Implementation Priorities
 
-5.4.  Next Steps
+6.4.  Next Steps
 
    <<TODO - ends here>>
 
-6.  Conventions and Definitions
+7.  Conventions and Definitions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
    "OPTIONAL" in this document are to be interpreted as described in
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
-
-7.  Operational Considerations
 
 8.  Security Considerations
 
@@ -1573,9 +1555,20 @@ Chassis (accuracy: gold ±5%)
 
    This document has no IANA actions.
 
-10.  References
+10.  Acknowledgments
 
-10.1.  Normative References
+   This framework takes into account concepts from the Energy MANagement
+   (EMAN) Framework [RFC7326], authors by John Parello, Benoit Claise,
+   Brad Schoening, and Juergen Quittek.  The contribution of Luis M.
+   Contreras to this document has been supported by the Smart Networks
+   and Services Joint Undertaking (SNS JU) under the European Union's
+   Horizon Europe research and innovation projects 6Green (Grant
+   Agreement no. 101096925) and Exigence (Grant Agreement no.
+   101139120).
+
+11.  References
+
+11.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -1589,15 +1582,15 @@ Chassis (accuracy: gold ±5%)
    [RFC8348]  "A YANG Data Model for Hardware Management", March 2018,
               <https://www.rfc-editor.org/info/rfc8348>.
 
-10.2.  Informative References
+11.2.  Informative References
 
    [GreenTerminology]
               Chen, G., Boucadair, M., Wu, Q., Contreras, L. M., and M.
               P. Palmero, "Terminology for Energy Efficiency Network
               Management", Work in Progress, Internet-Draft, draft-ietf-
-              green-terminology-01, 13 February 2026,
+              green-terminology-00, 18 November 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-green-
-              terminology-01>.
+              terminology-00>.
 
    [GreenUseCases]
               Stephan, E., Palmero, M. P., Claise, B., Wu, Q.,
@@ -1607,37 +1600,30 @@ Chassis (accuracy: gold ±5%)
               2026, <https://datatracker.ietf.org/doc/html/draft-ietf-
               green-use-cases-01>.
 
-   [I-D.li-green-power]
-              Li, T. and R. P. Bonica, "A YANG model for Power
-              Management", Work in Progress, Internet-Draft, draft-li-
-              green-power-00, 17 October 2024,
-              <https://datatracker.ietf.org/doc/html/draft-li-green-
-              power-00>.
-
    [IEC60050] IEC, "Power Utility Automation", 11 December 2000,
               <http://www.iec.ch/smartgrid/standards/>.
 
-   [IEEE100]  "The Authoritative Dictionary of IEEE Standards Terms", 11
-              December 2000, <http://ieeexplore.ieee.org/xpl/
+   [IEEE100]  IEEE, "The Authoritative Dictionary of IEEE Standards
+              Terms", 11 December 2000, <http://ieeexplore.ieee.org/xpl/
               mostRecentIssue.jsp?punumber=4116785>.
 
-   [IEEE1621] "Standard for User Interface Elements in Power Control of
-              Electronic Devices Employed in Office/Consumer
+   [IEEE1621] IEEE, "Standard for User Interface Elements in Power
+              Control of Electronic Devices Employed in Office/Consumer
               Environments, IEEE 1621", December 2004.
 
    [PetraApi] Rodriguez-Natal, A., Contreras, L. M., Palmero, M. P.,
               Lindblad, J., and A. G. Sánchez, "Path Energy Traffic
               Ratio API (PETRA)", Work in Progress, Internet-Draft,
-              draft-petra-green-api-03, 2 March 2026,
+              draft-petra-green-api-02, 20 October 2025,
               <https://datatracker.ietf.org/doc/html/draft-petra-green-
-              api-03>.
+              api-02>.
 
    [PowerAndEnergy]
               Claise, B., Chen, G., Palmero, M. P., and J. Lindblad,
               "Power and Energy YANG Module", Work in Progress,
-              Internet-Draft, draft-ietf-green-power-and-energy-yang-00,
-              18 June 2026, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-green-power-and-energy-yang-00>.
+              Internet-Draft, draft-bcmj-green-power-and-energy-yang-01,
+              2 February 2026, <https://datatracker.ietf.org/doc/html/
+              draft-bcmj-green-power-and-energy-yang-01>.
 
    [RFC7326]  Parello, J., Claise, B., Schoening, B., and J. Quittek,
               "Energy Management Framework", RFC 7326,
@@ -1649,78 +1635,12 @@ Chassis (accuracy: gold ±5%)
               Energy", RFC 7460, DOI 10.17487/RFC7460, March 2015,
               <https://www.rfc-editor.org/rfc/rfc7460>.
 
-   [RFC7461]  Parello, J., Claise, B., and M. Chandramouli, "Energy
-              Object Context MIB", RFC 7461, DOI 10.17487/RFC7461, March
-              2015, <https://www.rfc-editor.org/rfc/rfc7461>.
-
    [RFC8641]  Clemm, A. and E. Voit, "Subscription to YANG Notifications
               for Datastore Updates", RFC 8641, DOI 10.17487/RFC8641,
               September 2019, <https://www.rfc-editor.org/rfc/rfc8641>.
 
    [TMN]      "International Telecommunication Union, "TMN management
               functions"", February 2000, <ITU-T Recommendation M.3400>.
-
-Appendix A.  TO DO and Open Issues
-
-   *  IEC60050 reference needs a new URL
-
-   The following topics remain open for further discussion points:
-
-A.1.  Discovering Capabilities
-
-   *  Enable automatic detection of power-saving features.
-
-   *  Allow controllers to easily discover device-specific limits like
-      transition time and duty cycle.
-
-A.2.  Understanding Device Capabilities
-
-   *  Explore if Energy Objects can support multiple sets of power
-      states.
-
-   *  Make power states clearly described and understandable.
-
-   *  Represent these capabilities in a machine-readable format.
-
-A.3.  Mapping Intents to Device Settings
-
-   *  Develop ways to translate high-level energy goals (like "save
-      energy at low utilization") into actual device configurations.
-
-   *  Create a standard method to describe this mapping across systems.
-
-A.4.  Handling Transitions and Ensuring Safety
-
-   *  Capability to power off individual components, as described in
-      [I-D.li-green-power], should be explicitly modeled in the Power
-      State Set, and covered by [PowerAndEnergy].  Also to review
-      recovery procedures and impact on dependent Energy Objects.
-
-   *  Consider how long it takes for an Energy Object to switch power
-      states.
-
-   *  Recommendation to standardize a data model for safe limits on
-      frequency or speed of transitions to prevent device/component's
-      damage.
-
-   *  Model SLAs that include both performance (e.g., transition time)
-      and device safety (e.g., cycle limitations).
-
-A.5.  East-West Traffic/Energy Metrics
-
-   *  Recommendation to standardize a data model for new equipment
-      interconnected East-West with optimized energy consumption.
-
-Acknowledgments
-
-   This framework takes into account concepts from the Energy MANagement
-   (EMAN) Framework [RFC7326], authored by John Parello, Benoit Claise,
-   Brad Schoening, and Juergen Quittek.  The contribution of Luis M.
-   Contreras to this document has been supported by the Smart Networks
-   and Services Joint Undertaking (SNS JU) under the European Union's
-   Horizon Europe research and innovation projects 6Green (Grant
-   Agreement no. 101096925) and Exigence (Grant Agreement no.
-   101139120).
 
 Authors' Addresses
 

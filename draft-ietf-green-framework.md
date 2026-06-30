@@ -31,27 +31,27 @@ venue:
 
 author:
 
- - ins:
+ - ins: B. Claise
    fullname: Benoit Claise
    organization: Everything OPS
    email: benoit@everything-ops.net
- - ins:
+ - ins: L. Contreras
    fullname: Luis M. Contreras
    organization: Telefonica
    email: luismiguel.contrerasmurillo@telefonica.com
- - ins:
+ - ins: J. Lindblad
    fullname: Jan Lindblad
    organization: All For Eco
    email: jan.lindblad+ietf@for.eco
- - ins:
+ - ins: M. Palmero
    fullname: Marisol Palmero
    organization: Independent
    email: marisol.ietf@gmail.com
- - ins:
+ - ins: E. Stephan
    fullname: Emile Stephan
    organization: Orange
    email: emile.stephan@orange.com
- - ins:
+ - ins: Q. Wu
    fullname: Qin Wu
    organization: Huawei
    email: bill.wu@huawei.com
@@ -65,47 +65,22 @@ normative:
 
 informative:
 
-   TMN:
-    title: International Telecommunication Union, "TMN management functions"
-    date: 2000-02
-    target: ITU-T Recommendation M.3400
-
-   IEEE100:
-    target: http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=4116785
-    title: The Authoritative Dictionary of IEEE Standards Terms
-    author:
-    org: IEEE
-    date: 2000-12-11
-
-   IEEE1621:
-    title: Standard for User Interface Elements in Power Control of Electronic
-     Devices Employed in Office/Consumer Environments, IEEE 1621
-    author:
-    org: IEEE
-    date: 2004-12
-
-   IEC60050:
-    target: http://www.iec.ch/smartgrid/standards/
-    title: Power Utility Automation
-    author:
-    - org: IEC
-    date: 2000-12-11
 
    RFC7460:
     title: "Monitoring and Control MIB for Power and Energy"
     date: 2015-01
-    target: <https://www.rfc-editor.org/info/rfc7460>
+    target: https://www.rfc-editor.org/info/rfc7460
 
    RFC7461:
     title: "Energy Object Context MIB"
     date: 2015-01
-    target: <https://www.rfc-editor.org/info/rfc7461>
+    target: https://www.rfc-editor.org/info/rfc7461
 
    GreenTerminology: I-D.ietf-green-terminology
 
    GreenUseCases: I-D.ietf-green-use-cases
 
-   PowerAndEnergy: I-D.bcmj-green-power-and-energy-yang
+   PowerAndEnergy: I-D.ietf-green-power-and-energy-yang
 
    PetraApi: I-D.petra-green-api
 
@@ -119,16 +94,16 @@ Recognizing the urgent need for energy efficiency, this document specifies a man
 
 {{GreenUseCases}} analyzes use cases such as "Incremental Application of the GREEN Framework" and "Consideration of other domains for end-to-end metrics"; these cases demonstrate the need for structured network device management that supports energy-efficient operations. The framework establishes foundational components for:
 
-* Standardization: Ensuring consistent practices across devices and network segments to facilitate interoperability
-* Energy Efficiency Management: Providing guidelines to identify inefficiencies, balance energy usage with network/resource/component utilization, and implement improvements
-* Scalability: Approaches that handle increasing network size and complexity
-* Cost Reduction: Optimizing energy usage to lower operational costs and extend equipment lifecycles
+* Standardization: Ensuring consistent practices across devices and network segments to facilitate interoperability.
+* Energy efficiency management: Providing guidelines to identify inefficiencies, balance energy usage with network/resource/component utilization, and implement improvements.
+* Scalability: Approaches that handle increasing network size and complexity.
+* Cost reduction: Optimizing energy usage to lower operational costs and extend equipment lifecycles.
 * Competitiveness: Enabling organizations to maintain competitive infrastructure through enhanced sustainability
-* Environmental Impact: Supporting broader energy optimization practices and sustainability initiatives by reducing carbon footprints
-* Simplified Implementation: Streamlining deployment of energy-efficient measures to minimize service disruptions
-* Security: Protection of power state and consumption data
+* Environmental impact: Supporting broader energy optimization practices and sustainability initiatives by reducing carbon footprints.
+* Simplified implementation: Streamlining deployment of energy-efficient measures to minimize service disruptions.
+* Security: Protection of power state and consumption data.
 
-This document specifies an Energy Management framework for devices within, or connected to, communication networks, addressing the use cases in {{GreenUseCases}}.
+This document specifies an Energy Efficiency Management framework for devices within, or connected to, communication networks, addressing the use cases in {{GreenUseCases}}.
 
 The framework covers devices and components that can be monitored and controlled for energy management purposes:
 
@@ -147,86 +122,19 @@ Implementers are expected to refer to both documents: this framework for underst
 
 ## Terminology
 
-The following terms are defined in {{GreenTerminology}}: Energy, Power, Energy Object, Energy Management, Energy Monitoring, and Energy Control.
+The following terms are defined in {{GreenTerminology}}: Energy, Power,
+Energy Object, Energy Management, Energy Monitoring, Energy Control,
+Energy Management System (EnMS), Device, Component, Meter (Energy Meter),
+Power Inlet, Power Outlet, Power Interface, Power State, Power State Set, Nameplate Power,
+Energy Efficiency, Energy Efficiency Management, Energy Saving,
+Energy-Aware Intent.
 
-The following terms are defined in EMAN Framework {{?RFC7326}}, they are provided here for convenience:
 
-Energy Management System (EnMS):
-: An Energy Management System is a combination of hardware and
-software used to administer a network, with the primary purpose of
-Energy Management.
 
-      NOTES:
+This document uses the terms Power and Energy as further elaborated in {{GreenTerminology}}:
 
-      1. An Energy Management System according to ISO50001 (ISO-EnMS)
-         is a set of systems or procedures upon which organizations can
-         develop and implement an energy policy, set targets and action
-         plans, and take into account legal requirements related to
-         energy use.  An ISO-EnMS allows organizations to improve energy
-         performance and demonstrate conformity to requirements,
-         standards, and/or legal requirements.
-
-      2. Example ISO-EnMS: Company A defines a set of policies and
-         procedures indicating that there should exist multiple
-         computerized systems that will poll energy measurements from
-         their meters and pricing / source data from their local
-         utility.  Company A specifies that their CFO (Chief Financial
-         Officer) should collect information and summarize it quarterly
-         to be sent to an accounting firm to produce carbon accounting
-         reporting as required by their local government.
-
-      3. For the purposes of EMAN, the definition herein is the
-         preferred meaning of an EnMS.  The definition from ISO50001
-         can be referred to as an ISO Energy Management System
-         (ISO-EnMS).
-
-Device:
-: A device is a piece of electrical or non-electrical equipment.
-Reference: Adapted from {{IEEE100}}.
-
-Component:
-: A component is a part of electrical or non-electrical equipment
-(device).
-Reference: Adapted from {{TMN}}.
-
-Meter (Energy Meter):
-: A meter is a device intended to measure electrical energy by
-integrating power with respect to time.
-Reference: Adapted from {{IEC60050}}.
-
-Power Inlet:
-: A power inlet (or simply "inlet") is an interface at which a
-device or component receives energy from another device or
-component.
-
-Power Outlet:
-: A power outlet (or simply "outlet") is an interface at which a
-device or component provides energy to another device or
-component.
-
-Power Interface:
-: A Power Interface is a power inlet, outlet, or both.
-
-Power State:
-: A Power State is a condition or mode of a device (or component)
-that broadly characterizes its capabilities, power, and
-responsiveness to input.
-Reference: Adapted from {{IEEE1621}}.
-
-Power State Set:
-: A Power State Set is a collection of Power States that comprises a
-named or logical control grouping.
-
-Energy Object:
-: An Energy Object represents a piece of equipment that is
-part of, or attached to, a communications network that is monitored
-or controlled or that aids in the management of another device for
-Energy Management.
-
-This document uses the terms Power and Energy in accordance with {{GreenTerminology}}:
-
-- Power refers to the instantaneous rate at which a device consumes or produces electrical energy (typically expressed in Watts).
-- Energy, by contrast, represents the cumulative amount of work performed over time (typically expressed in Joules or Watt-hours).
+- Power refers to the instantaneous rate at which a device consumes or produces electrical energy (typically expressed in watts).
+- Energy, by contrast, represents the cumulative amount of work performed over time (typically expressed in joules or watt-hours).
 Both concepts are required within the YANG modules: Power enables real-time monitoring, control, and optimization of device operation, while Energy provides a time-integrated view necessary for accounting and reporting. For completeness and alignment with existing operational models and use cases, this specification includes both Power and Energy attributes.
 
 ## EMAN Data Model Compatibility {#eman-compat}
@@ -261,60 +169,25 @@ YANG/NETCONF/RESTCONF-based energy management.
 
 The framework aims to enhance the creation of energy metrics with actionable insights by:
 
-* Standardizing Metrics: Establishing consistent measurement protocols for energy consumption and efficiency.
-* Enhancing Data Collection: Facilitating comprehensive monitoring and data aggregation across devices.
-* Supporting Real-time Monitoring: Enabling dynamic tracking and immediate optimization of energy usage.
-* Integration Across Devices: Ensuring interoperability for network-wide data analysis.
-* Providing Actionable Insights: Translating raw data into meaningful information for decision-making.
-* East-West Traffic Impact: Addressing the increasing energy footprint of east-west traffic in data centers and distributed systems by providing a framework for measuring and optimizing energy consumption in these environments.
+* Standardizing metrics: Establishing consistent measurement protocols for energy consumption and efficiency.
+* Enhancing data collection: Facilitating comprehensive monitoring and data aggregation across devices.
+* Supporting real-time monitoring: Enabling dynamic tracking and immediate optimization of energy usage.
+* Integration across devices: Ensuring interoperability for network-wide data analysis.
+* Providing actionable insights: Translating raw data into meaningful information for decision-making.
+* East-west traffic impact: Addressing the increasing energy footprint of east-west traffic in data centers and distributed systems by providing a framework for measuring and optimizing energy consumption in these environments.
 
 ## Device Readiness
 
 While many modern networking devices have basic energy monitoring capabilities, these are often proprietary. The framework defines requirements to enhance these capabilities, enabling standardized metric production and meaningful data contributions for energy management goals.
 
-## Why Now?
-
-The motivation of defining a framework for energy management is driven by:
-
-* Immediate Benefits: Start realizing cost savings, reduced carbon footprints, and improved efficiencies.
-* Rapid Technological Advancements: Aligning the framework with current technologies to prevent obsolescence.
-* Increasing Energy Demands: Mitigating the impact of growing energy consumption on costs.
-* Regulatory Pressure: Preparing for compliance with existing and anticipated regulations.
-* Competitive Advantage: Positioning organizations as leaders in innovation.
-* Foundational Work Ready: Building on the use cases and requirements established in Phase I.
-* Proactive Risk Management: Minimizing risks associated with energy costs and environmental factors.
-* Facilitate Future Innovations: Creating a platform for continuous improvements and adaptations.
-* Stakeholder Engagement: Ensuring diverse perspectives are reflected for broader adoption.
-
-
-Establishing the framework for energy efficiency management now is strategic and timely, leveraging the current momentum of use cases and requirements to drive meaningful progress in energy efficiency management. Delaying its development could result in missed opportunities for immediate benefits, increased costs, and challenges in adapting to future technological and regulatory landscapes.
-
 # Reference Model
 
    The framework introduces the concept of a Power Interface.
-   A Power Interface is defined as an interconnection among devices
-   where energy can be provided, received, or both. There are someƒ
-   similarities between Power Interfaces and network interfaces. A
-   network interface can be set to different states, such
-   as sending or receiving data on an attached line. Similarly, a Power
-   Interface can be receiving or providing energy.
+   A Power Interface is defined as an interconnection among devices where energy can be provided, received, or both. There are some similarities between Power Interfaces and network interfaces. A network interface can be set to different states, such as sending or receiving data on an attached line. Similarly, a Power Interface can be receiving or providing energy.
 
-   The most basic example of Energy Management is a single device
-   reporting information about itself.  In many cases, however, energy
-   is not measured by the device itself but is measured upstream in the
-   power distribution tree.  For example, a Power Distribution Unit
-   (PDU) may measure the energy it supplies to attached devices and
-   report this to an Energy Management System.  Therefore, devices often
-   have relationships to other devices or components in the power
-   network.  An Energy Management System (EnMS) generally requires an
-   understanding of the power topology (who provides power to whom), the
-   Metering topology (who meters whom), and the potential Aggregation
-   (who aggregates values of others).
+   The most basic example of Energy Management is a single device reporting information about itself.  In many cases, however, energy is not measured by the device itself but is measured upstream in the power distribution tree.  For example, a Power Distribution Unit(PDU) may measure the energy it supplies to attached devices and report this to an Energy Management System.  Therefore, devices often have relationships to other devices or components in the power network.  An Energy Management System (EnMS) generally requires an understanding of the power topology (who provides power to whom), the metering topology (who meters whom), and the potential aggregation (who aggregates values of others).
 
-   The relationships build on the Power Interface concept.  The
-   different relationships among device(s)/component(s), as specified in
-   this document, include power source, Metering, and Aggregation
-   Relationships.
+   The relationships build on the Power Interface concept. The different relationships among device(s)/component(s), as specified in this document, include power source, Metering, and Aggregation Relationships.
 
 The GREEN Framework Reference Model is represented in {{fig-green-reference-model}}.
 
@@ -323,6 +196,11 @@ The GREEN Framework Reference Model is represented in {{fig-green-reference-mode
 ~~~
 {: #fig-green-reference-model title="GREEN Framework Reference Model" }
 
+The current GREEN Working Group deliverables primarily focus on the Energy Management Layer while preserving architectural extensibility toward Service Consumption Layer functions.
+
+The GREEN Framework defines a complete conceptual architecture for energy-efficiency management. Not all logical functions are necessarily standardized within the current GREEN Working Group charter.
+
+The current work primarily focuses on energy monitoring, metrics, inventory correlation, and control capabilities supported through YANG-based data models. Service-level applications, reporting functions, sustainability dashboards, lifecycle management integrations, and external API consumption are represented in the framework to provide architectural context and support future extensibility.
 
 The main elements in the framework are as follows:
 
@@ -336,6 +214,10 @@ The main elements in the framework are as follows:
 
 * (g) API Service Interface: enables access for service consumption, enabling data retrieval , control, and integration through API, e.g., {{PetraApi}}.
 
+Inventory information, referring to interfaces (a) and (d), may originate from device self-discovery, manufacturer datasheets, asset-management systems, or other authoritative metadata repositories. The controller is responsible for correlating these sources and exposing a consistent inventory view.
+
+The reference model covers every network device and component that have a Unique Identifiable ID (UUID) and can represent or influence power or energy consumption. If the component can be uniquely identified, it can be modeled.
+
 The monitoring interface (e) monitors more aspects than just power and energy,
 (for example traffic monitoring) but this is not covered in the framework.
 
@@ -343,7 +225,9 @@ Note that the GREEN framework specifies logical blocks, however, the Energy Effi
 
 Even if the reference model implicitly assumes a hierarchical network structure, this assumption acknowledges that conventional networks have flatter and anticipate more distributed topologies.
 
-The reference model covers every network device and component that have a Unique Identifiable ID (UUID) and can represent or influence power or energy consumption. If the component can be uniquely identified, it can be modeled.
+Examples of applications consuming GREEN framework data include carbon-aware workload placement, sustainability reporting, lifecycle management, and energy-aware traffic engineering.
+
+The logical interfaces defined by the GREEN Framework are expected to be realized through YANG-based data models, primarily the GREEN Power and Energy YANG model {{PowerAndEnergy}} together with {{RFC8348}} hardware inventory models and associated telemetry mechanisms.
 
 In scope:
 
@@ -388,6 +272,8 @@ The framework supports both initiation models:
   - Devices can autonomously report critical energy events
   - Useful for threshold violations or hardware failures
   - Complements controller-initiated subscriptions
+
+  Energy efficiency management requires stable identification of Energy Objects across device, controller, inventory, and reporting systems. The framework therefore relies on UUID-based identification from RFC8348 while allowing controller-assigned identifiers for onboarding and cross-system correlation. Implementations should maintain mappings between local identifiers and globally unique hardware identifiers to support inventory and reporting consistency, as well as telemetry correlation.
 
 ### UUID-Based Component Identification
 
@@ -716,7 +602,7 @@ Identifying what power states an Energy Object supports is crucial for onboardin
 
 ### Intent Mapping
 
-The goal of intent mapping is to translate Energy-Aware intent into specific device/component configurations. For example:
+The goal of intent mapping is to translate Energy-Aware Intent into specific device/component configurations. For example:
 
 - An intent like "reduce power consumption at low utilization" might map to a predefined low-power state.
 - Controllers may interpret intents variably, e.g., "run at half capacity but be ready to scale up if needed."
@@ -751,8 +637,8 @@ The notation `a->b->c` represents the flow between framework components as descr
 - (c) Metrics interface
 
 
-|UC| Use Case | Interfaces Usages |
-|-|:-|:-
+|UC#| Use Case | Interfaces Usages |
+|-|:-|:-|
 |1| Incremental deployment | c; c->b; a->d->b->e |
 | | of the GREEN Framework | 1,2: legacy; 3: GREEN WG support (i)|
 |2| Selective Reduction of | e->b->c->f |
@@ -825,7 +711,7 @@ Even device-centric use cases(autonomous operation) typically use controller-ini
 
 
 | UC# | Use Case | Critical Capabilities |
-|-----|----------|---------------------|
+|-|:-|:-|
 | **Device-Centric** |||
 | 14 | Power Shortage Management | Backup power awareness, autonomous operation |
 | 1 | Incremental Deployment | Baseline metrics, certification reporting, capability discovery |
@@ -923,7 +809,7 @@ The following topics remain open for further discussion points:
 - Create a standard method to describe this mapping across systems.
 
 ## Handling Transitions and Ensuring Safety
-- Capability to power off individual components, as described in {{?I-D.li-green-power}}, should be explicitly modeled in the Power State Set. Also to review recovery procedures and impact on dependent Energy Objects.
+- Capability to power off individual components should be explicitly modeled in the Power State Set, and covered by {{PowerAndEnergy}}. Also to review recovery procedures and impact on dependent Energy Objects.
 - Consider how long it takes for an Energy Object to switch power states.
 - Recommendation to standardize a data model for safe limits on frequency or speed of transitions to prevent device/component's damage.
 - Model SLAs that include both performance (e.g., transition time) and device safety (e.g., cycle limitations).
@@ -935,7 +821,7 @@ The following topics remain open for further discussion points:
 {:numbered="false"}
 
 This framework takes into account concepts from the Energy MANagement
-(EMAN) Framework {{?RFC7326}}, authors by John Parello, Benoit Claise,
+(EMAN) Framework {{?RFC7326}}, authored by John Parello, Benoit Claise,
 Brad Schoening, and Juergen Quittek. The contribution of Luis M.
 Contreras to this document has been supported by the Smart Networks
 and Services Joint Undertaking (SNS JU) under the European Union's
