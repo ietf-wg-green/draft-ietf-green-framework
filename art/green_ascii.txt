@@ -3,8 +3,8 @@
 |               (3) Energy Management System (EnMS)                |
 |                                                                  |
 +------------------------------------------------------------------+
-  ^               ^            |                        |           
-  | (a)           | (b)        | (c)                    |           
+  ^               ^                                     |           
+  | (a)           | (b)        +- (c)                   |           
   | Inventory of  | Monitor    | DataSheets/DataBase    |            
   | identity and  | Energy     | and/or via API,        v API Service
   | Capability    | Efficiency | Metadata and other    (g) Interface 
