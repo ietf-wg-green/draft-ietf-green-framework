@@ -218,8 +218,12 @@ Inventory information, referring to interfaces (a) and (d), may originate from d
 
 The reference model covers every network device and component that have a Unique Identifiable ID (UUID) and can represent or influence power or energy consumption. If the component can be uniquely identified, it can be modeled.
 
+The GREEN metric related interfaces (b) (c) between the EnMS and the Controller can be used to collect/exchange both dynamic energy efficiency metrics and static energy/power consumption metrics.
+
 The monitoring interface (e) monitors more aspects than just power and energy,
 (for example traffic monitoring) but this is not covered in the framework.
+
+The control interface (f) allows both local management and network wide management. The nework wide management can be used fufill the intent,e.g., turn on or off of energy saving capability globally based on discovered inventory capabilities.
 
 Note that the GREEN framework specifies logical blocks, however, the Energy Efficiency Management function might be implemented inside the device, based in {{RFC8348}}, in the controller, or a combination of both.
 
@@ -227,7 +231,7 @@ Even if the reference model implicitly assumes a hierarchical network structure,
 
 Examples of applications consuming GREEN framework data include carbon-aware workload placement, sustainability reporting, lifecycle management, and energy-aware traffic engineering.
 
-The logical interfaces defined by the GREEN Framework are expected to be realized through YANG-based data models, primarily the GREEN Power and Energy YANG model {{PowerAndEnergy}} together with {{RFC8348}} hardware inventory models and associated telemetry mechanisms.
+These logical interfaces defined by the GREEN Framework are expected to be realized through YANG-based data models, primarily the GREEN Power and Energy YANG model {{PowerAndEnergy}} together with {{RFC8348}} hardware inventory models and associated telemetry mechanisms.
 
 In scope:
 
