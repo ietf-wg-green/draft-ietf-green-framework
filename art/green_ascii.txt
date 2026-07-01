@@ -1,34 +1,34 @@
 +------------------------------------------------------------------+
 |                                                                  |
-|               (3) Energy Management System (EnMS)                |-+
-|                                                                  | |
-+------------------------------------------------------------------+ |
-                                                                     |
-(a)              (b)          (c)                                    v
-Inventory        Monitor        DataSheets/DataBase and/or          (g)
-Of identity      Energy        | via API,                           API
-and Capability   Efficiency    | Metadata and other             Service
-     ^               ^         | device/component/network     Interface
-     |               |         | related information                 ^
-     |               |         |                                     |
-     |               |         |                                     |
-     |               |         |                                     |
-     |               |         |                                     |
-     |               |         v                                     |
-+------------------------------------------------------------------+ |
-|                                                                  | |
-|       (2) Controller (collection, compute and aggregate?)        |-+
+|               (3) Energy Management System (EnMS)                |
 |                                                                  |
 +------------------------------------------------------------------+
-                ^                      ^                      ^ |
-     (d)        |     (e)              |   (f)                | |
-     Inventory  |     Monitor power    |   Control            | |
-     Capability |     Proportion       |   (Energy saving     | |
-                |     Energy efficiency|   Functionality      | |
-                |     ratio, power     |   Localized mgmt/    | |
-                |     consumption,     |   network wide mgmt) | |
-                |     etc)             |                      | |
-                |                      |                      | v
+  ^               ^            |                        |           
+  | (a)           | (b)        | (c)                    |           
+  | Inventory of  | Monitor    | DataSheets/DataBase    |            
+  | identity and  | Energy     | and/or via API,        v API Service
+  | Capability    | Efficiency | Metadata and other    (g) Interface 
+  |               |            | device, component and        
+  |               |            | network related        ^            
+  |               |            | information            |            
+  |               |            |                        |            
+  |               |            |                        |            
+  |               |            |                        |            
+  |               |            v                        |            
++------------------------------------------------------------------+
+|                                                                  |
+|       (2) Controller (collection, compute and aggregate?)        |
+|                                                                  |
++------------------------------------------------------------------+
+  ^                   ^                       	^ |           
+  | (d)               | (e)                    	| | (f)               
+  | Inventory         | Monitor power          	| | Control           
+  | Capability        | Proportion             	| | (Energy saving    
+  |                   | Energy efficiency      	| | Functionality     
+  |                   | ratio, power           	| | Localized mgmt/   
+  |                   | consumption,           	| | network wide mgmt)
+  |                   | etc)                  	| |           
+  |                   |                       	| v           
 +--------------------------------------------------------------------+
 |                                                                    |
 |                       (1) Device/Component                         |
