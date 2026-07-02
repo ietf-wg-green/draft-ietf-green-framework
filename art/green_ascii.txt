@@ -21,12 +21,12 @@
 |                                                                  |
 +------------------------------------------------------------------+
   ^                   ^                         ^ |           
-  | (d)               | (e)                    	| | (f)               
-  | Inventory         | Monitor power          	| | Control           
-  | Capability        | Proportion             	| | (Energy saving    
-  |                   | Energy efficiency      	| | Functionality     
-  |                   | ratio, power           	| | Localized mgmt/   
-  |                   | consumption,           	| | network wide mgmt)
+  | (d)               | (e)                     | | (f)               
+  | Inventory         | Monitor power           | | Control           
+  | Capability        | Proportion              | | (Energy saving    
+  |                   | Energy efficiency       | | Functionality     
+  |                   | ratio, power            | | Localized mgmt/   
+  |                   | consumption,            | | network wide mgmt)
   |                   | etc)                    | |           
   |                   |                         | v           
 +--------------------------------------------------------------------+
