@@ -180,6 +180,10 @@ The framework aims to enhance the creation of energy metrics with actionable ins
 
 While many modern networking devices have basic energy monitoring capabilities, these are often proprietary. The framework defines requirements to enhance these capabilities, enabling standardized metric production and meaningful data contributions for energy management goals.
 
+# Conventions and Definitions
+
+{::boilerplate bcp14-tagged}
+
 # Reference Model
 
    The framework introduces the concept of a Power Interface.
@@ -753,10 +757,6 @@ Even device-centric use cases(autonomous operation) typically use controller-ini
 ## Next Steps
 
 <<TODO - ends here>>
-
-# Conventions and Definitions
-
-{::boilerplate bcp14-tagged}
 
 # Operational Considerations
 
