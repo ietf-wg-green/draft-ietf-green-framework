@@ -20,15 +20,15 @@
 |       (2) Controller (collection, compute and aggregate?)        |
 |                                                                  |
 +------------------------------------------------------------------+
-  ^                   ^                       	^ |           
+  ^                   ^                         ^ |           
   | (d)               | (e)                    	| | (f)               
   | Inventory         | Monitor power          	| | Control           
   | Capability        | Proportion             	| | (Energy saving    
   |                   | Energy efficiency      	| | Functionality     
   |                   | ratio, power           	| | Localized mgmt/   
   |                   | consumption,           	| | network wide mgmt)
-  |                   | etc)                  	| |           
-  |                   |                       	| v           
+  |                   | etc)                    | |           
+  |                   |                         | v           
 +--------------------------------------------------------------------+
 |                                                                    |
 |                       (1) Device/Component                         |
