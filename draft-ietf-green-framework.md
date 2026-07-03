@@ -343,16 +343,12 @@ Chassis (accuracy: gold ±5%)
 
 This reduces YANG-Push telemetry volume while maintaining accuracy transparency.
 
-### Unit Multiplier Consistency
+### Unit Multiplier
 
-While `unit-multiplier` does not inherit, the framework recommends:
+The `unit-multiplier` leaf in {{PowerAndEnergy}} is defined as a YANG identityref to express the scale of power and energy values.
 
-- Mandatory unit-multiplier specification OR
-- Default to `multiplier-units` (10^0 = 1) for simplicity
-
-**Rationale from WG Discussion:**
-> "Either mandatory or default to 1, not inheritance. Leave it open to authors to discuss further." The final YANG model can choose either approach, but must not use inheritance to avoid client code complexity.
-
+- In the `power` container: 'unit-multiplier' is mandatory. Devices MUST always specify the scale.
+- In the `energy` container: 'unit-multiplier' is optional, with a default of `multiplier-units` (10^0 = 1, i.e., Watt-hours). Devices that report energy at a different scale MUST explicitly set this leaf.
 
 ### Power Factor
 
@@ -683,6 +679,10 @@ Even device-centric use cases(autonomous operation) typically use controller-ini
 <<TODO - ends here>>
 
 # Operational Considerations
+
+## Unit Multiplier
+
+Inheritance is not used for unit-multiplier, to avoid implementation complexity.
 
 # Security Considerations
 
