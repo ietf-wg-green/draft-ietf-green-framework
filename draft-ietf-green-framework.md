@@ -174,7 +174,7 @@ While many modern networking devices have basic energy monitoring capabilities, 
 
 The GREEN Framework Reference Model is represented in {{fig-green-reference-model}}.
 
-~~~ aasvg
+~~~
 {::include art/green_ascii.txt}
 ~~~
 {: #fig-green-reference-model title="GREEN Framework Reference Model" }
@@ -375,7 +375,7 @@ The `power-factor` leaf defaults to 100 (unity power factor), meaning:
 
 This covers the basic example of router connected to Power Outlet in the wall.
 
-~~~ aasvg
+~~~
 {::include art/basic_power_ascii.txt}
 ~~~
 {: #fig-basic_power title="Reference Model Example: Basic Power Supply" }
@@ -384,7 +384,7 @@ This covers the basic example of router connected to Power Outlet in the wall.
 
 This covers the basic example of device connected to wall Power Outlet, with a Physical Meter placed in the wall Power Outlet, because the device can not monitor its power, energy, demand.
 
-~~~ aasvg
+~~~
 {::include art/physical_meter_ascii.txt}
 ~~~
 {: #fig-physical_meter title="Reference Model Example: Physical Meter" }
@@ -397,7 +397,7 @@ A Metering Relationship is a relationship where one Energy Object measures power
 
 This covers the example of device connected to wall Power Outlet, with a Physical Meter placed in the wall Power Outlet, because the previous device was not able to monitor its power, energy, demand.
 
-~~~ aasvg
+~~~
 {::include art/physical_meter_new_device_ascii.txt}
 ~~~
 {: #fig-new_device title="Reference Model Example: Physical Meter with New Device" }
@@ -410,7 +410,7 @@ The most important issue in such a topology is to avoid the double counting in t
 
 This covers the example of a switch port (Power Outlet) the provides energy with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).
 
-~~~ aasvg
+~~~
 {::include art/power_over_ethernet_ascii.txt}
 ~~~
 {: #fig-power_ethernet title="Reference Model Example: Power over Ethernet" }
@@ -429,14 +429,14 @@ On top of that, there might be two control points for the PoE End Point. First t
 
 This covers the example of a smart PDU that provides energy to a series of routers in a rack.
 
-~~~ aasvg
+~~~
 {::include art/multiple_devices_ascii.txt}
 ~~~
 {: #fig-multiple_devices title="Reference Model Example: Single Power Supply with Multiple Devices" }
 
 ### Multiple Power Supplies with Single Device
 
-~~~ aasvg
+~~~
 {::include art/multiple_power_ascii.txt}
 ~~~
 {: #fig-multiple_power title="Reference Model Example: Multiple Power Supplies with Single Device" }
