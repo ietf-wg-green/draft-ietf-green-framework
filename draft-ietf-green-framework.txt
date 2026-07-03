@@ -5,7 +5,7 @@
 GREEN                                                          B. Claise
 Internet-Draft                                            Everything OPS
 Intended status: Informational                              L. Contreras
-Expires: 4 January 2027                                       Telefonica
+Expires: 5 January 2027                                       Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 4 January 2027                                       Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                             3 July 2026
+                                                             4 July 2026
 
 
                Framework for Energy Efficiency Management
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 January 2027.
+   This Internet-Draft will expire on 5 January 2027.
 
 Copyright Notice
 
@@ -104,7 +104,7 @@ Table of Contents
        4.1.5.  Industry-Standard Certifications
        4.1.6.  Extensibility Through YANG Identities
        4.1.7.  Hierarchical Data Model and Default Value Inheritance
-       4.1.8.  Unit Multiplier Consistency
+       4.1.8.  Unit Multiplier
        4.1.9.  Power Factor
      4.2.  Typical Power Topologies
        4.2.1.  Basic Power Supply
@@ -130,6 +130,7 @@ Table of Contents
      6.3.  Implementation Priorities
      6.4.  Next Steps
    7.  Operational Considerations
+     7.1.  Unit Multiplier
    8.  Security Considerations
    9.  IANA Considerations
    10. References
@@ -681,18 +682,18 @@ Chassis (accuracy: gold ±5%)
    This reduces YANG-Push telemetry volume while maintaining accuracy
    transparency.
 
-4.1.8.  Unit Multiplier Consistency
+4.1.8.  Unit Multiplier
 
-   While unit-multiplier does not inherit, the framework recommends:
+   The unit-multiplier leaf in [PowerAndEnergy] is defined as a YANG
+   identityref to express the scale of power and energy values.
 
-   *  Mandatory unit-multiplier specification OR
+   *  In the power container: 'unit-multiplier' is mandatory.  Devices
+      MUST always specify the scale.
 
-   *  Default to multiplier-units (10^0 = 1) for simplicity
-
-   *Rationale from WG Discussion:* > "Either mandatory or default to 1,
-   not inheritance.  Leave it open to authors to discuss further."  The
-   final YANG model can choose either approach, but must not use
-   inheritance to avoid client code complexity.
+   *  In the energy container: 'unit-multiplier' is optional, with a
+      default of multiplier-units (10^0 = 1, i.e., Watt-hours).  Devices
+      that report energy at a different scale MUST explicitly set this
+      leaf.
 
 4.1.9.  Power Factor
 
@@ -1034,8 +1035,8 @@ Chassis (accuracy: gold ±5%)
    of the other participant in the relationship, along with a
    Relationship type.
 
-   There are three types of relationships are Power Source, Metering,
-   and Aggregations.
+   There are four types of relationships are Power Source, Metering,
+   Aggregation, and Functional Enablement.
 
    *  A Power Source Relationship is a relationship where one Energy
       Object provides power to one or more Energy Objects.  The Power
@@ -1065,6 +1066,25 @@ Chassis (accuracy: gold ±5%)
       other devices.  The Aggregation Relationship is slightly different
       compared to the other relationships, as this refers more to a
       management function.
+
+   *  A Functional Dependency Relationship is a relationship where one
+      Energy Object requires another Energy Object to be in an
+      operational state for its own correct functioning, even though no
+      energy flows between them and neither measures the other.  This
+      relationship captures operational dependencies that are distinct
+      from physical power supply or metering topology.  For example, a
+      line card (Line Processing Unit, LPU) that depends on a switch
+      card (Switch Fabric Unit, SFU) to forward traffic.  The SFU does
+      not power the LPU, does not meter it, and does not aggregate its
+      energy measurements; the dependency is purely functional.  Without
+      an explicit Functional Dependency Relationship, a controller that
+      only understands Power Source, Metering, and Aggregation
+      Relationships has no basis for concluding that powering off the
+      SFU will disrupt the LPU's data-plane operation.  The relationship
+      is expressed as a symmetric pair in the YANG data model
+      [PowerAndEnergy]: enabled-by (from the dependent toward the object
+      it requires) and enabling (from the required object toward those
+      that depend on it).
 
    To prevent double counting in scenarios where one Energy Object
    provides power to another (e.g., PoE switch port to PoE endpoint):
@@ -1456,6 +1476,11 @@ Chassis (accuracy: gold ±5%)
    <<TODO - ends here>>
 
 7.  Operational Considerations
+
+7.1.  Unit Multiplier
+
+   Inheritance is not used for unit-multiplier, to avoid implementation
+   complexity.
 
 8.  Security Considerations
 
