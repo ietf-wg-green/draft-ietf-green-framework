@@ -450,7 +450,7 @@ Two Energy Objects can establish an Energy Object Relationship to model the depl
 
 Relationships are modeled with a Relationship that contains the UUID of the other participant in the relationship, along with a Relationship type.
 
-There are three types of relationships are Power Source, Metering, and Aggregations.
+There are four types of relationships are Power Source, Metering, Aggregation, and Functional Enablement.
 
 * A Power Source Relationship is a relationship where one Energy Object provides power to one or more Energy Objects.  The Power Source Relationship gives a view of the physical wiring topology; for example, a data center server receiving power from two specific Power Interfaces from two different PDUs.
 
@@ -460,7 +460,7 @@ Note: A Power Source Relationship may or may not change as the direction of powe
 
 * An Aggregation Relationship is a relationship where one Energy Object aggregates Energy Management information of one or more other Energy Objects.  The Aggregation Relationship gives a model of devices that may aggregate (sum, average, etc.) values for other devices.  The Aggregation Relationship is slightly different compared to the other relationships, as this refers more to a management function.
 
-*  A Functional Dependency Relationship is a relationship where one Energy Object requires another Energy Object to be in an operational state for its own correct functioning, even though no energy flows between them and neither measures the other.  This relationship captures operational dependencies that are distinct from physical power supply or metering topology. For example, a line card (Line Processing Unit, LPU) that depends on a switch card (Switch Fabric Unit, SFU) to forward traffic.  The SFU does not power the LPU, does not meter it, and does not aggregate its energy measurements; the dependency is purely functional.  Without an explicit Functional Dependency Relationship, a controller that only understands Power Source, Metering, and Aggregation Relationships has no basis for concluding that powering off the SFU will disrupt the LPU's data-plane operation.
+* A Functional Dependency Relationship is a relationship where one Energy Object requires another Energy Object to be in an operational state for its own correct functioning, even though no energy flows between them and neither measures the other.  This relationship captures operational dependencies that are distinct from physical power supply or metering topology. For example, a line card (Line Processing Unit, LPU) that depends on a switch card (Switch Fabric Unit, SFU) to forward traffic.  The SFU does not power the LPU, does not meter it, and does not aggregate its energy measurements; the dependency is purely functional.  Without an explicit Functional Dependency Relationship, a controller that only understands Power Source, Metering, and Aggregation Relationships has no basis for concluding that powering off the SFU will disrupt the LPU's data-plane operation. The relationship is expressed as a symmetric pair in the YANG data model {{PowerAndEnergy}}: `enabled-by` (from the dependent toward the object it requires) and `enabling` (from the required object toward those that depend on it). 
 
 To prevent double counting in scenarios where one Energy Object provides power to another (e.g., PoE switch port to PoE endpoint):
 
