@@ -3,32 +3,32 @@
 |               (3) Energy Management System (EnMS)                |
 |                                                                  |
 +------------------------------------------------------------------+
-  ^               ^                                     |           
-  | (a)           | (b)        +- (c)                   |           
-  | Inventory of  | Monitor    | DataSheets/DataBase    |            
+  ^               ^                                     |
+  | (a)           | (b)        +- (c)                   |
+  | Inventory of  | Monitor    | DataSheets/DataBase    |
   | identity and  | Energy     | and/or via API,        v API Service
   | Capability    | Efficiency | Metadata and other    (g) Interface 
-  |               |            | device, component and        
-  |               |            | network related        ^            
-  |               |            | information            |            
-  |               |            |                        |            
-  |               |            |                        |            
-  |               |            |                        |            
-  |               |            v                        |            
+  |               |            | device, component and
+  |               |            | network related        ^
+  |               |            | information            |
+  |               |            |                        |
+  |               |            |                        |
+  |               |            |                        |
+  |               |            v                        |
 +------------------------------------------------------------------+
 |                                                                  |
 |       (2) Controller (collection, compute and aggregate?)        |
 |                                                                  |
 +------------------------------------------------------------------+
-  ^                   ^                         ^ |           
-  | (d)               | (e)                     | | (f)               
-  | Inventory         | Monitor power           | | Control           
-  | Capability        | Proportion              | | (Energy saving    
-  |                   | Energy efficiency       | | Functionality     
-  |                   | ratio, power            | | Localized mgmt/   
+  ^                   ^                         ^ |
+  | (d)               | (e)                     | | (f)
+  | Inventory         | Monitor power           | | Control
+  | Capability        | Proportion              | | (Energy saving
+  |                   | Energy efficiency       | | Functionality
+  |                   | ratio, power            | | Localized mgmt/
   |                   | consumption,            | | network wide mgmt)
-  |                   | etc)                    | |           
-  |                   |                         | v           
+  |                   | etc)                    | |
+  |                   |                         | v
 +--------------------------------------------------------------------+
 |                                                                    |
 |                       (1) Device/Component                         |

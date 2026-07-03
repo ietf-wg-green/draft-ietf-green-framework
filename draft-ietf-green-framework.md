@@ -57,24 +57,12 @@ author:
    email: bill.wu@huawei.com
 
 normative:
-
-   RFC8348:
+  RFC8348:
     title: A YANG Data Model for Hardware Management
     date: 2018-03
     target: https://www.rfc-editor.org/info/rfc8348
 
 informative:
-
-
-   RFC7460:
-    title: "Monitoring and Control MIB for Power and Energy"
-    date: 2015-01
-    target: https://www.rfc-editor.org/info/rfc7460
-
-   RFC7461:
-    title: "Energy Object Context MIB"
-    date: 2015-01
-    target: https://www.rfc-editor.org/info/rfc7461
 
    GreenTerminology: I-D.ietf-green-terminology
 
@@ -139,20 +127,11 @@ Both concepts are required within the YANG modules: Power enables real-time moni
 
 ## EMAN Data Model Compatibility {#eman-compat}
 
-The GREEN framework builds upon the conceptual foundations of the Energy
-MANagement (EMAN) framework {{?RFC7326}} and its associated SNMP-based
-data models {{?RFC7460}}{{?RFC7461}}.  The GREEN YANG data model
-{{PowerAndEnergy}} supersedes those MIB modules using the correspondence
-shown in {{eman-mapping-table}}.  Energy collection scheduling objects
-from {{?RFC7460}} (e.g., `eoEnergyCollectionStartTime`) are not carried
-forward, as collection timing is managed through YANG-Push subscriptions
-{{?RFC8641}}.  Implementations currently supporting the EMAN MIBs can
-use this correspondence as a migration path toward
-YANG/NETCONF/RESTCONF-based energy management.
+The GREEN framework builds upon the conceptual foundations of the Energy MANagement (EMAN) framework {{?RFC7326}} and its associated SNMP-based data models {{?RFC7460}}{{?RFC7461}}.  The GREEN YANG data model {{PowerAndEnergy}} supersedes those MIB modules using the correspondence shown in {{eman-mapping-table}}.  Energy collection scheduling objects from {{?RFC7460}} (e.g., `eoEnergyCollectionStartTime`) are not carried forward, as collection timing is managed through YANG-Push subscriptions {{?RFC8641}}. Implementations currently supporting the EMAN MIBs can use this correspondence as a migration path toward YANG/NETCONF/RESTCONF-based energy management.
 
 
 | EMAN MIB Object | GREEN YANG Data Model |
-|-|:-
+|-|:-|
 | `eoPowerTable` / `eoEnergyTable` | `energy-objects` container |
 | `eoPowerEntry` | `energy-entry` list |
 | `eoPowerAdminState` | `power-state-admin` identityref (control tree) |
@@ -161,7 +140,6 @@ YANG/NETCONF/RESTCONF-based energy management.
 | `PowerStateSet` | `power-state-on`, `power-state-off`, `power-state-low-power` identities |
 | `eoRelationTable` | `relationship` list |
 {: #eman-mapping-table title="EMAN MIB to GREEN YANG Mapping"}
-
 
 # Motivation
 
@@ -187,6 +165,7 @@ While many modern networking devices have basic energy monitoring capabilities, 
 # Reference Model
 
    The framework introduces the concept of a Power Interface.
+
    A Power Interface is defined as an interconnection among devices where energy can be provided, received, or both. There are some similarities between Power Interfaces and network interfaces. A network interface can be set to different states, such as sending or receiving data on an attached line. Similarly, a Power Interface can be receiving or providing energy.
 
    The most basic example of Energy Management is a single device reporting information about itself.  In many cases, however, energy is not measured by the device itself but is measured upstream in the power distribution tree.  For example, a Power Distribution Unit(PDU) may measure the energy it supplies to attached devices and report this to an Energy Management System.  Therefore, devices often have relationships to other devices or components in the power network.  An Energy Management System (EnMS) generally requires an understanding of the power topology (who provides power to whom), the metering topology (who meters whom), and the potential aggregation (who aggregates values of others).
@@ -224,8 +203,7 @@ The reference model covers every network device and component that have a Unique
 
 The GREEN metric related interfaces (b) (c) between the EnMS and the Controller can be used to collect/exchange both dynamic energy efficiency metrics and static energy/power consumption metrics.
 
-The monitoring interface (e) monitors more aspects than just power and energy,
-(for example traffic monitoring) but this is not covered in the framework.
+The monitoring interface (e) monitors more aspects than just power and energy, (for example traffic monitoring) but this is not covered in the framework.
 
 The control interface (f) allows both local management and network wide management. The nework wide management can be used fufill the intent,e.g., turn on or off of energy saving capability globally based on discovered inventory capabilities.
 
@@ -389,13 +367,7 @@ The `power-factor` leaf defaults to 100 (unity power factor), meaning:
 
 ## Typical Power Topologies
 
-   The following reference model describes physical power topologies
-   that exist in parallel with a communication topology. While many
-   more topologies can be created with a combination of devices, the
-   following are some basic ones that show how Energy Management
-   topologies differ from Network Management topologies. Only the controller,
-   devices and components, are depicted here, as the Network Domain Level
-   remains identical.
+   The following reference model describes physical power topologies that exist in parallel with a communication topology. While many more topologies can be created with a combination of devices, the following are some basic ones that show how Energy Management topologies differ from Network Management topologies. Only the controller, devices and components, are depicted here, as the Network Domain Level remains identical.
 
  NOTE:
 
@@ -414,28 +386,16 @@ This covers the basic example of router connected to Power Outlet in the wall.
 
 ### Physical Meter with Legacy Device
 
-This covers the basic example of device connected to wall Power Outlet,
-with a Physical Meter placed in the wall Power Outlet, because the device
-can not monitor its power, energy, demand.
+This covers the basic example of device connected to wall Power Outlet, with a Physical Meter placed in the wall Power Outlet, because the device can not monitor its power, energy, demand.
 
 ~~~ aasvg
 {::include art/physical_meter_ascii.txt}
 ~~~
 {: #fig-physical_meter title="Reference Model Example: Physical Meter" }
 
-When the EnMS discovers the physical meter, it must know for
-which Energy Object(s) it measures power or energy. This is the
-Metering Relatonship.
+When the EnMS discovers the physical meter, it must know for which Energy Object(s) it measures power or energy. This is the Metering Relatonship.
 
-A Metering Relationship is a relationship where one Energy Object
-measures power, energy, demand, or Power Attributes of one or more
-other Energy Objects.  The Metering Relationship gives the view of
-the Metering topology.  Physical meters can be placed anywhere in
-a power distribution tree.  For example, utility meters monitor
-and report accumulated power consumption of the entire building.
-Logically, the Metering topology overlaps with the wiring
-topology, as meters are connected to the wiring topology.  A
-typical example is meters that clamp onto the existing wiring.
+A Metering Relationship is a relationship where one Energy Object measures power, energy, demand, or Power Attributes of one or more other Energy Objects.  The Metering Relationship gives the view of the Metering topology.  Physical meters can be placed anywhere in a power distribution tree.  For example, utility meters monitor and report accumulated power consumption of the entire building. Logically, the Metering topology overlaps with the wiring topology, as meters are connected to the wiring topology.  A typical example is meters that clamp onto the existing wiring.
 
 ### Physical Meter with New Device
 
@@ -471,8 +431,7 @@ On top of that, there might be two control points for the PoE End Point. First t
 
 ### Single Power Supply with Multiple Devices
 
-This covers the example of a smart PDU that provides energy to a series
-of routers in a rack.
+This covers the example of a smart PDU that provides energy to a series of routers in a rack.
 
 ~~~ aasvg
 {::include art/multiple_devices_ascii.txt}
@@ -497,34 +456,13 @@ Relationships are modeled with a Relationship that contains the UUID of the othe
 
 There are three types of relationships are Power Source, Metering, and Aggregations.
 
-* A Power Source Relationship is a relationship where one Energy
-  Object provides power to one or more Energy Objects.  The Power
-  Source Relationship gives a view of the physical wiring topology
-  -- for example, a data center server receiving power from two
-  specific Power Interfaces from two different PDUs.
+* A Power Source Relationship is a relationship where one Energy Object provides power to one or more Energy Objects.  The Power Source Relationship gives a view of the physical wiring topology; for example, a data center server receiving power from two specific Power Interfaces from two different PDUs.
 
-  Note: A Power Source Relationship may or may not change as the
-  direction of power changes between two Energy Objects.  The
-  relationship may remain to indicate that the change of power
-  direction was unintended or an error condition.
+Note: A Power Source Relationship may or may not change as the direction of power changes between two Energy Objects.  The relationship may remain to indicate that the change of power direction was unintended or an error condition.
 
-* A Metering Relationship is a relationship where one Energy Object
-  measures power, energy, demand, or Power Attributes of one or more
-  other Energy Objects.  The Metering Relationship gives the view of
-  the Metering topology.  Physical meters can be placed anywhere in
-  a power distribution tree.  For example, utility meters monitor
-  and report accumulated power consumption of the entire building.
-  Logically, the Metering topology overlaps with the wiring
-  topology, as meters are connected to the wiring topology.  A
-  typical example is meters that clamp onto the existing wiring.
+* A Metering Relationship is a relationship where one Energy Object measures power, energy, demand, or Power Attributes of one or more other Energy Objects.  The Metering Relationship gives the view of the Metering topology.  Physical meters can be placed anywhere in a power distribution tree.  For example, utility meters monitor and report accumulated power consumption of the entire building. Logically, the Metering topology overlaps with the wiring topology, as meters are connected to the wiring topology. A typical example is meters that clamp onto the existing wiring.
 
-* An Aggregation Relationship is a relationship where one Energy
-  Object aggregates Energy Management information of one or more
-  other Energy Objects.  The Aggregation Relationship gives a model
-  of devices that may aggregate (sum, average, etc.) values for
-  other devices.  The Aggregation Relationship is slightly different
-  compared to the other relationships, as this refers more to a
-  management function.
+* An Aggregation Relationship is a relationship where one Energy Object aggregates Energy Management information of one or more other Energy Objects.  The Aggregation Relationship gives a model of devices that may aggregate (sum, average, etc.) values for other devices.  The Aggregation Relationship is slightly different compared to the other relationships, as this refers more to a management function.
 
 To prevent double counting in scenarios where one Energy Object provides power to another (e.g., PoE switch port to PoE endpoint):
 
@@ -542,42 +480,29 @@ In some situations, it is not possible to discover the Energy Object Relationshi
 
 ## Power State Set
 
-The Energy Object contains a Power State Set attribute that represents
-a set of Power States a device or component supports.
+The Energy Object contains a Power State Set attribute that represents a set of Power States a device or component supports.
 
-A Power State describes a condition or mode of a device or component.
-While Power States are typically used for control, they may be used
-for monitoring only.
+A Power State describes a condition or mode of a device or component. While Power States are typically used for control, they may be used for monitoring only.
 
-A device or component is expected to support at least one set of
-Power States consisting of at least two states: an on state and an
-off state.
+A device or component is expected to support at least one set of Power States consisting of at least two states: an on state and an off state.
 
 The semantics of a Power State are specified by:
 
    * The functionality provided by an Energy Object in this state.
 
-   * A limitation of the power that an Energy Object uses in this
-      state.
+   * A limitation of the power that an Energy Object uses in this state.
 
    * A combination of the first two.
 
-The semantics of a Power State should be clearly defined.  Limitation
-(curtailment) of the power used by an Energy Object in a state may be
-specified by:
+The semantics of a Power State should be clearly defined.  Limitation(curtailment) of the power used by an Energy Object in a state may be specified by:
 
    *  An absolute power value.
 
-   *  A percentage value of power relative to the Energy Object's
-      Nameplate Power.
+   *  A percentage value of power relative to the Energy Object's Nameplate Power.
 
-   *  An indication of power relative to another Power State.  For
-      example, specify that power in state A is less than in state B.
+   *  An indication of power relative to another Power State.  For example, specify that power in state A is less than in state B.
 
-   *  For supporting Power State management, an Energy Object provides
-      statistics on Power States, including the time an Energy Object
-      spent in a certain Power State and the number of times an Energy
-      Object entered a Power State.
+   *  For supporting Power State management, an Energy Object provides statistics on Power States, including the time an Energy Object spent in a certain Power State and the number of times an Energy Object entered a Power State.
 
 
 There are many existing standards describing device and component
@@ -626,8 +551,7 @@ Meanwhile saving energy, the device or component shouldn't drop below a certain 
 
 # Interfaces Usage Of the Framework
 
-This section provides an overview of how the GREEN use cases described in
-{{GreenUseCases}} interact with the framework interfaces defined in this document.
+This section provides an overview of how the GREEN use cases described in {{GreenUseCases}} interact with the framework interfaces defined in this document.
 
 Each use case is characterized by the sequence of framework interfaces it invokes to achieve energy-efficiency objectives.
 
@@ -690,7 +614,7 @@ This section analyzes the {{GreenUseCases}} to identify which capabilities requi
 
 The framework distinguishes between two orthogonal concepts:
 
-### Implementation Focus: Where Intelligence Resides
+## Implementation Focus: Where Intelligence Resides
 
 Device-Centric Use Cases require autonomous on-device decision-making:
 - Example: UC 14 (Power Shortage) - Device must independently manage backup power transitions when network connectivity is lost.
@@ -762,30 +686,13 @@ Even device-centric use cases(autonomous operation) typically use controller-ini
 
 # Security Considerations
 
-Resiliency is an implicit use case of energy efficiency management
-which comes with numerous security considerations :
+Resiliency is an implicit use case of energy efficiency management which comes with numerous security considerations :
 
-Controlling Power State and power supply of entities are considered
-highly sensitive actions, since they can significantly affect the
-operation of directly and indirectly connected devices.  Therefore,
-all control actions must be sufficiently protected through
-authentication, authorization, and integrity protection mechanisms.
+Controlling Power State and power supply of entities are considered highly sensitive actions, since they can significantly affect the operation of directly and indirectly connected devices.  Therefore, all control actions must be sufficiently protected through authentication, authorization, and integrity protection mechanisms.
 
-Entities that are not sufficiently secure to operate directly on the
-public Internet do exist and can be a significant cause of risk, for
-example, if the remote control functions can be exercised on those
-devices from anywhere on the Internet.
+Entities that are not sufficiently secure to operate directly on the public Internet do exist and can be a significant cause of risk, for example, if the remote control functions can be exercised on those devices from anywhere on the Internet.
 
-The monitoring of energy-related quantities of an entity as addressed
-can be used to derive more information than just the received and
-provided energy; therefore, monitored data requires protection.
-This protection includes authentication and authorization of entities
-requesting access to monitored data as well as confidentiality
-protection during transmission of monitored data.  Privacy of stored
-data in an entity must be taken into account.  Monitored data may be
-used as input to control, accounting, and other actions, so integrity
-of transmitted information and authentication of the origin may be
-needed.
+The monitoring of energy-related quantities of an entity as addressed can be used to derive more information than just the received and provided energy; therefore, monitored data requires protection. This protection includes authentication and authorization of entities requesting access to monitored data as well as confidentiality protection during transmission of monitored data.  Privacy of stored data in an entity must be taken into account.  Monitored data may be used as input to control, accounting, and other actions, so integrity of transmitted information and authentication of the origin may be needed.
 
 # IANA Considerations
 
@@ -824,12 +731,6 @@ The following topics remain open for further discussion points:
 # Acknowledgments
 {:numbered="false"}
 
-This framework takes into account concepts from the Energy MANagement
-(EMAN) Framework {{?RFC7326}}, authored by John Parello, Benoit Claise,
-Brad Schoening, and Juergen Quittek. The contribution of Luis M.
-Contreras to this document has been supported by the Smart Networks
-and Services Joint Undertaking (SNS JU) under the European Union's
-Horizon Europe research and innovation projects 6Green (Grant
-Agreement no. 101096925) and Exigence (Grant Agreement no. 101139120).
+This framework takes into account concepts from the Energy MANagement(EMAN) Framework {{?RFC7326}}, authored by John Parello, Benoit Claise, Brad Schoening, and Juergen Quittek. The contribution of Luis M. Contreras to this document has been supported by the Smart Networks and Services Joint Undertaking (SNS JU) under the European Union's Horizon Europe research and innovation projects 6Green (Grant Agreement no. 101096925) and Exigence (Grant Agreement no. 101139120).
 
 

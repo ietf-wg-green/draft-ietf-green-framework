@@ -3,20 +3,20 @@
 |             (3) Energy Management System (EnMS)                    |
 |                                                                    |
 +--------------------------------------------------------------------+
-  ^                  ^                                   
-  | (a)              | (b)                               
-  | Inventory of     | Monitor    	 +- (c)                      
-  | identity and     | Energy     	 |                           
-  | Capability       | Efficiency 	 | DataSheets/DataBase       
-  |                  |            	 | and/or via API,           
-  |                  |            	 | Metadata and other        
-  |                  |            	 | device, component and     
-  |                  |            	 | network related           
-  |                  |            	 | information               
-  |                  |            	 v   
+  ^                  ^
+  | (a)              | (b)
+  | Inventory of     | Monitor       +- (c)
+  | identity and     | Energy        |
+  | Capability       | Efficiency    | DataSheets/DataBase
+  |                  |               | and/or via API,
+  |                  |               | Metadata and other
+  |                  |               | device, component and
+  |                  |               | network related
+  |                  |               | information
+  |                  |               v
 +--------------------------------------------------------------------+
 |                                                                    |
-|       (2) controller (collection, compute and aggregate?)          |
+|       (2) Controller (collection, compute and aggregate?)          |
 |                                                                    |
 +--------------------------------------------------------------------+
       ^   ^   ^                ^   ^   ^                 ^   ^   ^
