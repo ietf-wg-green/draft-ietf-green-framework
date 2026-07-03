@@ -5,7 +5,7 @@
 GREEN                                                          B. Claise
 Internet-Draft                                            Everything OPS
 Intended status: Informational                           L. M. Contreras
-Expires: 13 September 2026                                    Telefonica
+Expires: 12 August 2026                                       Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,11 +14,11 @@ Expires: 13 September 2026                                    Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                           12 March 2026
+                                                         8 February 2026
 
 
                Framework for Energy Efficiency Management
-                       draft-ietf-green-framework
+                     draft-belmq-green-framework-10
 
 Abstract
 
@@ -41,10 +41,11 @@ About This Document
 
    This note is to be removed before publishing as an RFC.
 
-   The latest revision of this draft can be found at https://github.com/
-   ietf-wg-green/draft-ietf-green-framework.html.  Status information
-   for this document may be found at https://datatracker.ietf.org/doc/
-   draft-ietf-green/.
+   The latest revision of this draft can be found at
+   https://marisolpalmero.github.io/draft-belm-green-framework/draft-
+   belmq-green-framework.html.  Status information for this document may
+   be found at https://datatracker.ietf.org/doc/draft-belmq-green-
+   framework/.
 
    Discussion of this document takes place on the Getting Ready for
    Energy-Efficient Networking mailing list (mailto:green@ietf.org),
@@ -52,8 +53,7 @@ About This Document
    Subscribe at https://www.ietf.org/mailman/listinfo/green/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/https://github.com/ietf-wg-green/draft-ietf-green-
-   framework.
+   https://github.com/marisolpalmero/draft-belm-green-framework.
 
 Status of This Memo
 
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 September 2026.
+   This Internet-Draft will expire on 12 August 2026.
 
 Copyright Notice
 
@@ -664,13 +664,9 @@ Table of Contents
 4.1.6.  Extensibility Through YANG Identities
 
    The accuracy hierarchy uses YANG identityref to allow vendor-specific
-   extensions:
-
-   identity accuracy-measured-vendor-calibrated {
-     base accuracy-measured;
-     description
-       "Vendor-specific calibrated sensor with certificate ID XYZ";
-   }
+   extensions: yang identity accuracy-measured-vendor-calibrated { base
+   accuracy-measured; description "Vendor-specific calibrated sensor
+   with certificate ID XYZ"; }
 
    This maintains interoperability (base accuracy-measured
    classification) while supporting proprietary accuracy metadata.
@@ -720,12 +716,10 @@ Table of Contents
    *  Only components with different accuracy need to explicitly report
       their value
 
-   Example:
-
-Chassis (accuracy: gold ±5%)
-├── Line Card 1 (inherits: gold ±5%)  ← No need to report
-├── Line Card 2 (inherits: gold ±5%)  ← No need to report
-└── PSU 1 (explicit: silver ±10%)     ← Must report (differs from parent)
+   Example: Chassis (accuracy: gold ±5%) ├── Line Card 1 (inherits: gold
+   ±5%) ← No need to report ├── Line Card 2 (inherits: gold ±5%) ← No
+   need to report └── PSU 1 (explicit: silver ±10%) ← Must report
+   (differs from parent)
 
    This dramatically reduces YANG-Push telemetry volume while
    maintaining accuracy transparency.
@@ -804,11 +798,11 @@ Chassis (accuracy: gold ±5%)
   |       (2) controller (collection, compute and aggregate?)          |
   |                                                                    |
   +--------------------------------------------------------------------+
-                                               ^   ^   ^
-                                               |   |   |
-                                              (d) (e) (f)
-                                               |   |   |
-                                               |   |   v
+                                               ^   ^   ^ |
+                                               |   |   | |
+                                              (d) (e)  (f)
+                                               |   |   | |
+                                               |   |     v
               +--------------+            +------------------+
               |              |            |                  |
               | Power Supply |############| Device/Component |
@@ -904,11 +898,11 @@ Chassis (accuracy: gold ±5%)
    |    (2) controller (collection, compute and aggregate?)       |
    |                                                              |
    +--------------------------------------------------------------+
-                                 ^                 ^   ^   ^
-                                 |                 |   |   |
-                                (e)               (d) (e) (f)
-                                 |                 |   |   |
-                                 |                 |   |   v
+                                 ^                 ^   ^   ^ |
+                                 |                 |   |   | |
+                                (e)               (d) (e)  (f)
+                                 |                 |   |   | |
+                                 |                 |   |     v
     +--------------+   +----------------+   +------------------+
     |              |   |                |   |                  |
     | Power Supply |###| Physical Meter |###| Device/Component |
@@ -955,11 +949,11 @@ Chassis (accuracy: gold ±5%)
   |       (2) controller (collection, compute and aggregate?)          |
   |                                                                    |
   +--------------------------------------------------------------------+
-                ^   ^   ^                    ^   ^   ^
-                |   |   |                    |   |   |
-               (d) (e) (f)                  (d) (e) (f)
-                |   |   |                    |   |   |
-                |   |   v                    |   |   v
+                ^   ^   ^ |                  ^   ^   ^ |
+                |   |   | |                  |   |   | |
+               (d) (e)  (f)                 (d) (e)  (f)
+                |   |   | |                  |   |   | |
+                |   |     v                  |   |     v
               +--------------+            +----------------+
               |              |            |                |
               | Device       |############| PoE End Point  |
@@ -1020,11 +1014,11 @@ Chassis (accuracy: gold ±5%)
   |       (2) controller (collection, compute and aggregate?)          |
   |                                                                    |
   +--------------------------------------------------------------------+
-                ^   ^   ^                     ^   ^   ^
-                |   |   |                     |   |   |
-               (d) (e) (f)                   (d) (e) (f) ... N
-                |   |   |                     |   |   |
-                |   |   v                     |   |   v
+                ^   ^   ^ |                   ^   ^   ^ |
+                |   |   | |                   |   |   | |
+               (d) (e)  (f)                  (d) (e)  (f) ... N
+                |   |   | |                   |   |   | |
+                |   |     v                   |   |     v
               +--------------+            +--------------------+
               |              |            |                    |
               | Power Supply |############| Device/Component 1 |
@@ -1073,11 +1067,11 @@ Chassis (accuracy: gold ±5%)
  |       (2) controller (collection, compute and aggregate?)          |
  |                                                                    |
  +--------------------------------------------------------------------+
-       ^   ^   ^                ^   ^   ^                 ^   ^   ^
-       |   |   |                |   |   |                 |   |   |
-      (d) (e) (f)              (d) (e) (f)               (d) (e) (f)
-       |   |   |                |   |   |                 |   |   |
-       |   |   v                |   |   v                 |   |   v
+       ^   ^   ^ |              ^   ^   ^ |               ^   ^   ^ |
+       |   |   | |              |   |   | |               |   |   | |
+      (d) (e)  (f)             (d) (e)  (f)              (d) (e)  (f)
+       |   |   | |              |   |   | |               |   |   | |
+       |   |     v              |   |     v               |   |     v
     +----------------+      +------------------+      +----------------+
     |                |      |                  |      |                |
     | Power Supply 1 |######| Device/Component |######| Power Supply 2 |
@@ -1594,9 +1588,9 @@ Chassis (accuracy: gold ±5%)
               Chen, G., Boucadair, M., Wu, Q., Contreras, L. M., and M.
               P. Palmero, "Terminology for Energy Efficiency Network
               Management", Work in Progress, Internet-Draft, draft-ietf-
-              green-terminology-01, 13 February 2026,
+              green-terminology-00, 18 November 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-green-
-              terminology-01>.
+              terminology-00>.
 
    [GreenUseCases]
               Stephan, E., Palmero, M. P., Claise, B., Wu, Q.,
@@ -1620,16 +1614,16 @@ Chassis (accuracy: gold ±5%)
    [PetraApi] Rodriguez-Natal, A., Contreras, L. M., Palmero, M. P.,
               Lindblad, J., and A. G. Sánchez, "Path Energy Traffic
               Ratio API (PETRA)", Work in Progress, Internet-Draft,
-              draft-petra-green-api-03, 2 March 2026,
+              draft-petra-green-api-02, 20 October 2025,
               <https://datatracker.ietf.org/doc/html/draft-petra-green-
-              api-03>.
+              api-02>.
 
    [PowerAndEnergy]
               Claise, B., Chen, G., Palmero, M. P., and J. Lindblad,
               "Power and Energy YANG Module", Work in Progress,
-              Internet-Draft, draft-bcmj-green-power-and-energy-yang-04,
-              2 March 2026, <https://datatracker.ietf.org/doc/html/
-              draft-bcmj-green-power-and-energy-yang-04>.
+              Internet-Draft, draft-bcmj-green-power-and-energy-yang-01,
+              2 February 2026, <https://datatracker.ietf.org/doc/html/
+              draft-bcmj-green-power-and-energy-yang-01>.
 
    [RFC7326]  Parello, J., Claise, B., Schoening, B., and J. Quittek,
               "Energy Management Framework", RFC 7326,
