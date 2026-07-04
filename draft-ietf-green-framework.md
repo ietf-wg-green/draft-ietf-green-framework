@@ -345,10 +345,9 @@ This reduces YANG-Push telemetry volume while maintaining accuracy transparency.
 
 ### Unit Multiplier
 
-The `unit-multiplier` leaf in {{PowerAndEnergy}} is defined as a YANG identityref to express the scale of power and energy values.
-
-- In the `power` container: 'unit-multiplier' is mandatory. Devices MUST always specify the scale.
-- In the `energy` container: 'unit-multiplier' is optional, with a default of `multiplier-units` (10^0 = 1, i.e., Watt-hours). Devices that report energy at a different scale MUST explicitly set this leaf.
+The unit-multiplier leaf in {{PowerAndEnergy}} expresses the scale of power and energy values (e.g., milli, kilo). It is defined independently per container, not inherited from parent objects:
+- In the `power` container is mandatory. Devices MUST always specify the scale explicitly.
+- In the `energy` container is optional. If absent, multiplier-units default value SHOULD be considered as 10^0 = 1 Watt-hours applies. Devices reporting at a different scale MUST set this leaf explicitly.
 
 ### Power Factor
 
@@ -682,9 +681,27 @@ Even device-centric use cases(autonomous operation) typically use controller-ini
 
 # Operational Considerations
 
-## Unit Multiplier
+## Hierarchical Inheritance: unit-multiplier vs accuracy
 
-Inheritance is not used for unit-multiplier, to avoid implementation complexity.
+The data model uses two different patterns for absent leaf values:
+
+- unit-multiplier: if absent, the default value is 10^0 = 1 Watt-hours. The client requires no additional lookup.
+
+- data-source-accuracy: if absent, the client looks up the parent object's accuracy value in the hardware tree {{RFC8348}}.
+
+If a client incorrectly assumes inheritance for unit-multiplier, a single missing leaf can cause energy values to be reported orders of magnitude above or below their actual value. For example:
+
+~~~
+Chassis (unit-multiplier: kilo)
+├── Line Card 1 (unit-multiplier: milli)  ← must be explicit
+└── PSU 1      (unit-multiplier: kilo)    ← must be explicit
+~~~
+
+If Line Card 1 omits unit-multiplier and the client assumes inheritance from the chassis (in this case, kilo), the reported power value would be interpreted as 10^6 times larger than its actual value (kilo vs. milli). This magnitude of error is unacceptable for energy accounting/reporting.
+
+By contrast, a misread of data-source-accuracy (e.g., treating a silver ±10% measurement as gold ±5%) affects data confidence but does not produce incorrect absolute values.
+
+For this reason, unit-multiplier SHOULD be self-contained per energy object: clients read it directly from each object without traversing the hardware containment tree.
 
 # Security Considerations
 
