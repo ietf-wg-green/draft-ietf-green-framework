@@ -64,6 +64,8 @@ normative:
 
 informative:
 
+   RFC9562:
+
    GreenTerminology: I-D.ietf-green-terminology
 
    GreenUseCases: I-D.ietf-green-use-cases
@@ -97,7 +99,7 @@ The framework covers devices and components that can be monitored and controlled
 
 - Power consumers: Routers, switches, servers, storage systems, and their components (line cards, fans, disks, processors, GPUs)
 - Power sources: Uninterruptible power supplies (UPS), Power Distribution Units (PDUs), Power over Ethernet (PoE) switches, renewable energy systems, and their components (battery cells, inverters, photovoltaic panels)
-- Monitored entities: Any network-attached device or component with a unique identifier (UUID per {{RFC8348}}) that influences power or energy consumption
+- Monitored entities: Any network-attached device or component with a unique identifier (UUID per {{?RFC9562}}) that influences power or energy consumption
 
 This framework defines conceptual requirements and architectural patterns for energy efficiency management. The companion YANG data model {{PowerAndEnergy}} provides the implementable specification, including:
 
@@ -259,13 +261,13 @@ The framework supports both initiation models:
   - Useful for threshold violations or hardware failures
   - Complements controller-initiated subscriptions
 
-  Energy efficiency management requires stable identification of Energy Objects across device, controller, inventory, and reporting systems. The framework therefore relies on UUID-based identification from RFC8348 while allowing controller-assigned identifiers for onboarding and cross-system correlation. Implementations should maintain mappings between local identifiers and globally unique hardware identifiers to support inventory and reporting consistency, as well as telemetry correlation.
+  Energy efficiency management requires stable identification of Energy Objects across device, controller, inventory, and reporting systems. The framework therefore relies on UUID-based identification ({{?RFC9562}}) as exposed through {{RFC8348}}, while allowing controller-assigned identifiers for onboarding and cross-system correlation. Implementations should maintain mappings between local identifiers and globally unique hardware identifiers to support inventory and reporting consistency, as well as telemetry correlation.
 
 ### UUID-Based Component Identification
 
-Energy metrics are anchored to hardware components using UUIDs from the "ietf-hardware" YANG module {{RFC8348}}:
+Energy metrics are anchored to hardware components using UUIDs (refer to {{?RFC9562}}), as exposed by the "ietf-hardware" YANG module {{RFC8348}}:
 
-- Each physical component (chassis, power supply, line card, etc.) has a stable UUID
+- Each physical component (chassis, power supply, line card, etc.) has a stable UUID as defined in {{?RFC9562}}
 - Energy metrics reference these UUIDs, enabling correlation with:
   - Component lifecycle (installation, replacement, decommissioning)
   - Inventory management systems
