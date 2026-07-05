@@ -64,6 +64,8 @@ normative:
 
 informative:
 
+   RFC9562:
+
    GreenTerminology: I-D.ietf-green-terminology
 
    GreenUseCases: I-D.ietf-green-use-cases
@@ -97,7 +99,7 @@ The framework covers devices and components that can be monitored and controlled
 
 - Power consumers: Routers, switches, servers, storage systems, and their components (line cards, fans, disks, processors, GPUs)
 - Power sources: Uninterruptible power supplies (UPS), Power Distribution Units (PDUs), Power over Ethernet (PoE) switches, renewable energy systems, and their components (battery cells, inverters, photovoltaic panels)
-- Monitored entities: Any network-attached device or component with a unique identifier (UUID per {{RFC8348}}) that influences power or energy consumption
+- Monitored entities: Any network-attached device or component with a unique identifier (UUID per {{?RFC9562}}) that influences power or energy consumption
 
 This framework defines conceptual requirements and architectural patterns for energy efficiency management. The companion YANG data model {{PowerAndEnergy}} provides the implementable specification, including:
 
@@ -259,13 +261,13 @@ The framework supports both initiation models:
   - Useful for threshold violations or hardware failures
   - Complements controller-initiated subscriptions
 
-  Energy efficiency management requires stable identification of Energy Objects across device, controller, inventory, and reporting systems. The framework therefore relies on UUID-based identification from RFC8348 while allowing controller-assigned identifiers for onboarding and cross-system correlation. Implementations should maintain mappings between local identifiers and globally unique hardware identifiers to support inventory and reporting consistency, as well as telemetry correlation.
+  Energy efficiency management requires stable identification of Energy Objects across device, controller, inventory, and reporting systems. The framework therefore relies on UUID-based identification ({{?RFC9562}}) as exposed through {{RFC8348}}, while allowing controller-assigned identifiers for onboarding and cross-system correlation. Implementations should maintain mappings between local identifiers and globally unique hardware identifiers to support inventory and reporting consistency, as well as telemetry correlation.
 
 ### UUID-Based Component Identification
 
-Energy metrics are anchored to hardware components using UUIDs from the "ietf-hardware" YANG module {{RFC8348}}:
+Energy metrics are anchored to hardware components using UUIDs (refer to {{?RFC9562}}), as exposed by the "ietf-hardware" YANG module {{RFC8348}}:
 
-- Each physical component (chassis, power supply, line card, etc.) has a stable UUID
+- Each physical component (chassis, power supply, line card, etc.) has a stable UUID as defined in {{?RFC9562}}
 - Energy metrics reference these UUIDs, enabling correlation with:
   - Component lifecycle (installation, replacement, decommissioning)
   - Inventory management systems
@@ -345,10 +347,9 @@ This reduces YANG-Push telemetry volume while maintaining accuracy transparency.
 
 ### Unit Multiplier
 
-The `unit-multiplier` leaf in {{PowerAndEnergy}} is defined as a YANG identityref to express the scale of power and energy values.
-
-- In the `power` container: 'unit-multiplier' is mandatory. Devices MUST always specify the scale.
-- In the `energy` container: 'unit-multiplier' is optional, with a default of `multiplier-units` (10^0 = 1, i.e., Watt-hours). Devices that report energy at a different scale MUST explicitly set this leaf.
+The unit-multiplier leaf in {{PowerAndEnergy}} expresses the scale of power and energy values (e.g., milli, kilo). It is defined independently per container, not inherited from parent objects:
+- In the `power` container is mandatory. Devices MUST always specify the scale explicitly.
+- In the `energy` container is optional. If absent, multiplier-units default value SHOULD be considered as 10^0 = 1 Watt-hours applies. Devices reporting at a different scale MUST set this leaf explicitly.
 
 ### Power Factor
 
@@ -450,7 +451,7 @@ Two Energy Objects can establish an Energy Object Relationship to model the depl
 
 Relationships are modeled with a Relationship that contains the UUID of the other participant in the relationship, along with a Relationship type.
 
-There are three types of relationships are Power Source, Metering, and Aggregations.
+There are four types of relationships are Power Source, Metering, Aggregation, and Functional Enablement.
 
 * A Power Source Relationship is a relationship where one Energy Object provides power to one or more Energy Objects.  The Power Source Relationship gives a view of the physical wiring topology; for example, a data center server receiving power from two specific Power Interfaces from two different PDUs.
 
@@ -459,6 +460,8 @@ Note: A Power Source Relationship may or may not change as the direction of powe
 * A Metering Relationship is a relationship where one Energy Object measures power, energy, demand, or Power Attributes of one or more other Energy Objects.  The Metering Relationship gives the view of the Metering topology.  Physical meters can be placed anywhere in a power distribution tree.  For example, utility meters monitor and report accumulated power consumption of the entire building. Logically, the Metering topology overlaps with the wiring topology, as meters are connected to the wiring topology. A typical example is meters that clamp onto the existing wiring.
 
 * An Aggregation Relationship is a relationship where one Energy Object aggregates Energy Management information of one or more other Energy Objects.  The Aggregation Relationship gives a model of devices that may aggregate (sum, average, etc.) values for other devices.  The Aggregation Relationship is slightly different compared to the other relationships, as this refers more to a management function.
+
+* A Functional Dependency Relationship is a relationship where one Energy Object requires another Energy Object to be in an operational state for its own correct functioning, even though no energy flows between them and neither measures the other.  This relationship captures operational dependencies that are distinct from physical power supply or metering topology. For example, a line card (Line Processing Unit, LPU) that depends on a switch card (Switch Fabric Unit, SFU) to forward traffic.  The SFU does not power the LPU, does not meter it, and does not aggregate its energy measurements; the dependency is purely functional.  Without an explicit Functional Dependency Relationship, a controller that only understands Power Source, Metering, and Aggregation Relationships has no basis for concluding that powering off the SFU will disrupt the LPU's data-plane operation. The relationship is expressed as a symmetric pair in the YANG data model {{PowerAndEnergy}}: `enabled-by` (from the dependent toward the object it requires) and `enabling` (from the required object toward those that depend on it).
 
 To prevent double counting in scenarios where one Energy Object provides power to another (e.g., PoE switch port to PoE endpoint):
 
@@ -680,9 +683,27 @@ Even device-centric use cases(autonomous operation) typically use controller-ini
 
 # Operational Considerations
 
-## Unit Multiplier
+## Hierarchical Inheritance: unit-multiplier vs accuracy
 
-Inheritance is not used for unit-multiplier, to avoid implementation complexity.
+The data model uses two different patterns for absent leaf values:
+
+- unit-multiplier: if absent, the default value is 10^0 = 1 Watt-hours. The client requires no additional lookup.
+
+- data-source-accuracy: if absent, the client looks up the parent object's accuracy value in the hardware tree {{RFC8348}}.
+
+If a client incorrectly assumes inheritance for unit-multiplier, a single missing leaf can cause energy values to be reported orders of magnitude above or below their actual value. For example:
+
+~~~
+Chassis (unit-multiplier: kilo)
+├── Line Card 1 (unit-multiplier: milli)  ← must be explicit
+└── PSU 1      (unit-multiplier: kilo)    ← must be explicit
+~~~
+
+If Line Card 1 omits unit-multiplier and the client assumes inheritance from the chassis (in this case, kilo), the reported power value would be interpreted as 10^6 times larger than its actual value (kilo vs. milli). This magnitude of error is unacceptable for energy accounting/reporting.
+
+By contrast, a misread of data-source-accuracy (e.g., treating a silver ±10% measurement as gold ±5%) affects data confidence but does not produce incorrect absolute values.
+
+For this reason, unit-multiplier SHOULD be self-contained per energy object: clients read it directly from each object without traversing the hardware containment tree.
 
 # Security Considerations
 
