@@ -5,7 +5,7 @@
 GREEN                                                          B. Claise
 Internet-Draft                                            Everything OPS
 Intended status: Informational                              L. Contreras
-Expires: 5 January 2027                                       Telefonica
+Expires: 7 January 2027                                       Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 5 January 2027                                       Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                             4 July 2026
+                                                             6 July 2026
 
 
                Framework for Energy Efficiency Management
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 January 2027.
+   This Internet-Draft will expire on 7 January 2027.
 
 Copyright Notice
 
@@ -130,7 +130,7 @@ Table of Contents
      6.3.  Implementation Priorities
      6.4.  Next Steps
    7.  Operational Considerations
-     7.1.  Unit Multiplier
+     7.1.  Hierarchical Inheritance: unit-multiplier vs accuracy
    8.  Security Considerations
    9.  IANA Considerations
    10. References
@@ -194,7 +194,7 @@ Table of Contents
       inverters, photovoltaic panels)
 
    *  Monitored entities: Any network-attached device or component with
-      a unique identifier (UUID per [RFC8348]) that influences power or
+      a unique identifier (UUID per [RFC9562]) that influences power or
       energy consumption
 
    This framework defines conceptual requirements and architectural
@@ -541,19 +541,21 @@ Table of Contents
       Energy efficiency management requires stable identification of
       Energy Objects across device, controller, inventory, and reporting
       systems.  The framework therefore relies on UUID-based
-      identification from RFC8348 while allowing controller-assigned
-      identifiers for onboarding and cross-system correlation.
-      Implementations should maintain mappings between local identifiers
-      and globally unique hardware identifiers to support inventory and
-      reporting consistency, as well as telemetry correlation.
+      identification ([RFC9562]) as exposed through [RFC8348], while
+      allowing controller-assigned identifiers for onboarding and cross-
+      system correlation.  Implementations should maintain mappings
+      between local identifiers and globally unique hardware identifiers
+      to support inventory and reporting consistency, as well as
+      telemetry correlation.
 
 4.1.3.  UUID-Based Component Identification
 
-   Energy metrics are anchored to hardware components using UUIDs from
-   the "ietf-hardware" YANG module [RFC8348]:
+   Energy metrics are anchored to hardware components using UUIDs (refer
+   to [RFC9562]), as exposed by the "ietf-hardware" YANG module
+   [RFC8348]:
 
    *  Each physical component (chassis, power supply, line card, etc.)
-      has a stable UUID
+      has a stable UUID as defined in [RFC9562]
 
    *  Energy metrics reference these UUIDs, enabling correlation with:
 
@@ -684,16 +686,14 @@ Chassis (accuracy: gold ±5%)
 
 4.1.8.  Unit Multiplier
 
-   The unit-multiplier leaf in [PowerAndEnergy] is defined as a YANG
-   identityref to express the scale of power and energy values.
-
-   *  In the power container: 'unit-multiplier' is mandatory.  Devices
-      MUST always specify the scale.
-
-   *  In the energy container: 'unit-multiplier' is optional, with a
-      default of multiplier-units (10^0 = 1, i.e., Watt-hours).  Devices
-      that report energy at a different scale MUST explicitly set this
-      leaf.
+   The unit-multiplier leaf in [PowerAndEnergy] expresses the scale of
+   power and energy values (e.g., milli, kilo).  It is defined
+   independently per container, not inherited from parent objects: - In
+   the power container is mandatory.  Devices MUST always specify the
+   scale explicitly. - In the energy container is optional.  If absent,
+   multiplier-units default value SHOULD be considered as 10^0 = 1 Watt-
+   hours applies.  Devices reporting at a different scale MUST set this
+   leaf explicitly.
 
 4.1.9.  Power Factor
 
@@ -1477,10 +1477,37 @@ Chassis (accuracy: gold ±5%)
 
 7.  Operational Considerations
 
-7.1.  Unit Multiplier
+7.1.  Hierarchical Inheritance: unit-multiplier vs accuracy
 
-   Inheritance is not used for unit-multiplier, to avoid implementation
-   complexity.
+   The data model uses two different patterns for absent leaf values:
+
+   *  unit-multiplier: if absent, the default value is 10^0 = 1 Watt-
+      hours.  The client requires no additional lookup.
+
+   *  data-source-accuracy: if absent, the client looks up the parent
+      object's accuracy value in the hardware tree [RFC8348].
+
+   If a client incorrectly assumes inheritance for unit-multiplier, a
+   single missing leaf can cause energy values to be reported orders of
+   magnitude above or below their actual value.  For example:
+
+   Chassis (unit-multiplier: kilo)
+   ├── Line Card 1 (unit-multiplier: milli)  ← must be explicit
+   └── PSU 1      (unit-multiplier: kilo)    ← must be explicit
+
+   If Line Card 1 omits unit-multiplier and the client assumes
+   inheritance from the chassis (in this case, kilo), the reported power
+   value would be interpreted as 10^6 times larger than its actual value
+   (kilo vs. milli).  This magnitude of error is unacceptable for energy
+   accounting/reporting.
+
+   By contrast, a misread of data-source-accuracy (e.g., treating a
+   silver ±10% measurement as gold ±5%) affects data confidence but does
+   not produce incorrect absolute values.
+
+   For this reason, unit-multiplier SHOULD be self-contained per energy
+   object: clients read it directly from each object without traversing
+   the hardware containment tree.
 
 8.  Security Considerations
 
@@ -1578,6 +1605,10 @@ Chassis (accuracy: gold ±5%)
    [RFC8641]  Clemm, A. and E. Voit, "Subscription to YANG Notifications
               for Datastore Updates", RFC 8641, DOI 10.17487/RFC8641,
               September 2019, <https://www.rfc-editor.org/rfc/rfc8641>.
+
+   [RFC9562]  Davis, K., Peabody, B., and P. Leach, "Universally Unique
+              IDentifiers (UUIDs)", RFC 9562, DOI 10.17487/RFC9562, May
+              2024, <https://www.rfc-editor.org/rfc/rfc9562>.
 
 Appendix A.  TO DO and Open Issues
 
