@@ -330,17 +330,17 @@ The YANG data model {{PowerAndEnergy}} implements hierarchical defaults for key 
 
 The `data-source-accuracy` leaf has a default value of `accuracy-like-parent`, meaning:
 
-- If a chassis reports `accuracy-measured-gold` (±5%)
+- If a chassis reports `accuracy-measured-gold` (+/-5%)
 - All child components(line cards, ports, fans) automatically inherit `accuracy-measured-gold`
 - Only components with different accuracy need to explicitly report their value
 
 Example:
 
 ~~~
-Chassis (accuracy: gold ±5%)
-├── Line Card 1 (inherits: gold ±5%)  ← No need to report
-├── Line Card 2 (inherits: gold ±5%)  ← No need to report
-└── PSU 1 (explicit: silver ±10%)     ← Must report (differs from parent)
+Chassis (accuracy: gold +/-5%)
++-- Line Card 1 (inherits: gold +/-5%)  <- No need to report
+|-- Line Card 2 (inherits: gold +/-5%)  <- No need to report
+|-- PSU 1 (explicit: silver +/-10%)     <- Must report (differs from parent)
 ~~~
 
 This reduces YANG-Push telemetry volume while maintaining accuracy transparency.
@@ -695,13 +695,13 @@ If a client incorrectly assumes inheritance for unit-multiplier, a single missin
 
 ~~~
 Chassis (unit-multiplier: kilo)
-├── Line Card 1 (unit-multiplier: milli)  ← must be explicit
-└── PSU 1      (unit-multiplier: kilo)    ← must be explicit
++-- Line Card 1 (unit-multiplier: milli)  <- must be explicit
+|-- PSU 1       (unit-multiplier: kilo)   <- must be explicit
 ~~~
 
 If Line Card 1 omits unit-multiplier and the client assumes inheritance from the chassis (in this case, kilo), the reported power value would be interpreted as 10^6 times larger than its actual value (kilo vs. milli). This magnitude of error is unacceptable for energy accounting/reporting.
 
-By contrast, a misread of data-source-accuracy (e.g., treating a silver ±10% measurement as gold ±5%) affects data confidence but does not produce incorrect absolute values.
+By contrast, a misread of data-source-accuracy (e.g., treating a silver +/-10% measurement as gold +/-5%) affects data confidence but does not produce incorrect absolute values.
 
 For this reason, unit-multiplier SHOULD be self-contained per energy object: clients read it directly from each object without traversing the hardware containment tree.
 
