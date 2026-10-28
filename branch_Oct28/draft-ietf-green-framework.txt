@@ -356,12 +356,12 @@ Table of Contents
     ^               ^                                   ^
     | (a)           | (b)        +- (c)                 |
     | Inventory of  | Monitor    | DataSheets/DataBase  |
-    | identity and  | Energy     | and/or via API,      +-(g)
+    | identity and  | Energy     | and/or via (g),      +-(g)
     | Capability    | Efficiency | Metadata and other     API Service
     |               |            | device, component &  +-Interface
     |               |            | network related      |
     |               |            | information          |
-    |               |            |                      |
+    |               |            | (no EnMS required)
     |               |            |                      |
     |               |            |                      |
     |               |            v                      v
