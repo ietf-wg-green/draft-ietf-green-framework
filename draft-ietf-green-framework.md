@@ -195,7 +195,7 @@ The main elements in the framework are as follows:
 
 * (f) Control Energy Saving
 
-* (g) API Service Interface: enables access for service consumption, enabling data retrieval , control, and integration through API, e.g., {{PetraApi}}. The bidirectional arrows represent retrieval (GET) going up and control intents (SET/RPC) going down through the same API interface.
+* (g) API Service Interface: enables access for service consumption, enabling data retrieval, control, and integration through API, e.g., {{PetraApi}}. The bidirectional arrows represent retrieval (GET) going up and control intents (SET/RPC) going down through the same API interface.
 
 Inventory information, referring to interfaces (a) and (d), may originate from device self-discovery, manufacturer datasheets, asset-management systems, or other authoritative metadata repositories. The controller is responsible for correlating these sources and exposing a consistent inventory view.
 
