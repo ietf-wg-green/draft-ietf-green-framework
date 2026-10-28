@@ -191,9 +191,12 @@ The main elements in the framework are as follows:
 
 * (a), (d) Discovery and Inventory
 
-* (b), (c) GREEN Metrics
+* (b) Monitor energy efficiency from the Controller: upward flow of aggregated GREEN metrics from the Controller to the EnMS. Carries power consumption, energy counters, power state, and efficiency indicators after Controller-level aggregation and
+  normalization. 
 
-* (b), (e) Monitor energy efficiency
+* (c) Static/Reference: manufacturer-provided datasheets, static capability data, YANG instance data per RFC 9195. This is a read-once or cache-and-reuse data source. It does not require an EnMS and may be delivered out-of-band, even prior to deployment.
+
+* (e) Monitor power and energy from device: upward flow of raw operational telemetry from individual network devices and components to the Controller. Carries instantaneous power, energy counters, power state, and data-source accuracy metadata as defined in {{PowerAndEnergy}}, streamed via YANG Push ({{RFC8641}}) or retrieved via NETCONF/RESTCONF. This interface is the primary source of device-level data that the Controller aggregates before exposing it via (b). While devices may also provide traffic and utilization metrics over this same interface, those metrics are outside the scope of this framework.
 
 * (f) Control Energy Saving
 
