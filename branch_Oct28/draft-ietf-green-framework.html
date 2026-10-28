@@ -14,7 +14,7 @@
 <meta content="
        Recognizing the urgent need for energy efficiency, this document specifies a management framework focused on networks, devices and device components within, or connected to, interconnected systems. The framework aims to enable energy usage optimization, based on the network condition while achieving the network's functional and performance requirements (e.g., improving overall network utilization) and also ensure interoperability across diverse systems. Leveraging data from existing use cases, it delivers actionable metrics to support effective energy management and informed decision-making. Furthermore, the framework defines mechanisms for representing and organizing timestamped telemetry data using YANG data models and metadata, enabling transparent and reliable monitoring. This structured approach facilitates improved energy efficiency through consistent energy management practices. 
     " name="description">
-<meta content="xml2rfc 3.34.0" name="generator">
+<meta content="xml2rfc 3.34.1" name="generator">
 <meta content="framework" name="keyword">
 <meta content="energy" name="keyword">
 <meta content="efficiency" name="keyword">
@@ -22,19 +22,19 @@
 <meta content="management" name="keyword">
 <meta content="draft-ietf-green-framework-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.34.0
-    Python 3.14.5
-    ConfigArgParse 1.7.5
+  xml2rfc 3.34.1
+    Python 3.14.8
+    ConfigArgParse 1.8.0
     google-i18n-address 3.1.1
     intervaltree 3.2.1
     Jinja2 3.1.6
     lxml 6.1.1
     natsort 8.4.0
-    platformdirs 4.10.0
+    platformdirs 4.13.4
     pycountry 24.6.1
     PyYAML 6.0.3
     requests 2.33.1
-    wcwidth 0.8.2
+    wcwidth 0.9.2
 -->
 <link href="draft-ietf-green-framework.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -70,7 +70,6 @@
   src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
-
 @font-face {
   font-family: 'Lora';
   font-style: italic;
@@ -119,7 +118,6 @@
   src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-
 @font-face {
   font-family: 'Lora';
   font-style: normal;
@@ -184,7 +182,6 @@
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 }
 
 @font-face {
@@ -1053,11 +1050,11 @@ svg {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">GREEN-Framework</td>
-<td class="right">July 2026</td>
+<td class="right">October 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Claise, et al.</td>
-<td class="center">Expires 5 January 2027</td>
+<td class="center">Expires 1 May 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1070,12 +1067,12 @@ svg {
 <dd class="internet-draft">draft-ietf-green-framework-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-07-04" class="published">4 July 2026</time>
+<time datetime="2026-10-28" class="published">28 October 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2027-01-05">5 January 2027</time></dd>
+<dd class="expires"><time datetime="2027-05-01">1 May 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1145,7 +1142,7 @@ svg {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 5 January 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 1 May 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1227,7 +1224,7 @@ svg {
                     <p id="section-toc.1-1.4.2.1.2.7.1"><a href="#section-4.1.7" class="auto internal xref">4.1.7</a>.  <a href="#name-hierarchical-data-model-and" class="internal xref">Hierarchical Data Model and Default Value Inheritance</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.8">
-                    <p id="section-toc.1-1.4.2.1.2.8.1"><a href="#section-4.1.8" class="auto internal xref">4.1.8</a>.  <a href="#name-unit-multiplier" class="internal xref">Unit Multiplier</a></p>
+                    <p id="section-toc.1-1.4.2.1.2.8.1"><a href="#section-4.1.8" class="auto internal xref">4.1.8</a>.  <a href="#name-fixed-units-for-power-and-e" class="internal xref">Fixed Units for Power and Energy Values</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.9">
                     <p id="section-toc.1-1.4.2.1.2.9.1"><a href="#section-4.1.9" class="auto internal xref">4.1.9</a>.  <a href="#name-power-factor" class="internal xref">Power Factor</a></p>
@@ -1316,7 +1313,7 @@ svg {
             <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-operational-considerations" class="internal xref">Operational Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-hierarchical-inheritance-un" class="internal xref">Hierarchical Inheritance: unit-multiplier vs accuracy</a></p>
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-measurement-accuracy-inheri" class="internal xref">Measurement Accuracy Inheritance</a></p>
 </li>
             </ul>
 </li>
@@ -1599,18 +1596,18 @@ appear in all capitals, as shown here.<a href="#section-3-1" class="pilcrow">¶<
 |               (3) Energy Management System (EnMS)                |
 |                                                                  |
 +------------------------------------------------------------------+
-  ^               ^                                     |
-  | (a)           | (b)        +- (c)                   |
-  | Inventory of  | Monitor    | DataSheets/DataBase    |
-  | identity and  | Energy     | and/or via API,        v API Service
-  | Capability    | Efficiency | Metadata and other    (g) Interface
-  |               |            | device, component and
-  |               |            | network related        ^
-  |               |            | information            |
-  |               |            |                        |
-  |               |            |                        |
-  |               |            |                        |
-  |               |            v                        |
+  ^               ^                                   ^
+  | (a)           | (b)        +- (c)                 |
+  | Inventory of  | Monitor    | DataSheets/DataBase  |
+  | identity and  | Energy     | and/or via API,      +-(g)
+  | Capability    | Efficiency | Metadata and other     API Service
+  |               |            | device, component &amp;  +-Interface
+  |               |            | network related      |
+  |               |            | information          |
+  |               |            |                      |
+  |               |            |                      |
+  |               |            |                      |
+  |               |            v                      v
 +------------------------------------------------------------------+
 |                                                                  |
 |       (2) Controller (collection, compute and aggregate?)        |
@@ -1832,18 +1829,9 @@ Energy efficiency management requires stable identification of Energy Objects ac
           <h4 id="name-extensibility-through-yang-">
 <a href="#section-4.1.6" class="section-number selfRef">4.1.6. </a><a href="#name-extensibility-through-yang-" class="section-name selfRef">Extensibility Through YANG Identities</a>
           </h4>
-<p id="section-4.1.6-1">The accuracy hierarchy uses YANG <code>identityref</code> to allow vendor-specific extensions:<a href="#section-4.1.6-1" class="pilcrow">¶</a></p>
-<div class="lang-yang sourcecode" id="section-4.1.6-2">
-<pre>
-identity accuracy-measured-vendor-calibrated {
-  base accuracy-measured;
-  description
-    "Vendor-specific calibrated sensor with certificate ID XYZ";
-}
-</pre><a href="#section-4.1.6-2" class="pilcrow">¶</a>
-</div>
-<p id="section-4.1.6-3">This maintains interoperability (base <code>accuracy-measured</code> classification) while supporting proprietary accuracy metadata.<a href="#section-4.1.6-3" class="pilcrow">¶</a></p>
-<p id="section-4.1.6-4">Implementation details are in <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>.<a href="#section-4.1.6-4" class="pilcrow">¶</a></p>
+<p id="section-4.1.6-1">The accuracy hierarchy uses YANG <code>identityref</code> to allow vendor-specific extensions.
+Any implementation may derive a new identity from the base <code>accuracy-measured</code> identity to record vendor-specific calibration metadata; in this way, interoperability is preserved.
+The full identity hierarchy and encoding rules are defined in <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>.<a href="#section-4.1.6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="hierarchical-data-model-and-default-value-inheritance">
@@ -1876,39 +1864,37 @@ identity accuracy-measured-vendor-calibrated {
               <p id="section-4.1.7-5.3.1">Hierarchical validation: Controllers leverage the device containment tree (per <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>) to verify parent measurements by aggregating child values.<a href="#section-4.1.7-5.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-4.1.7-6">The YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> implements hierarchical defaults for key attributes. For example:<a href="#section-4.1.7-6" class="pilcrow">¶</a></p>
-<p id="section-4.1.7-7">The <code>data-source-accuracy</code> leaf has a default value of <code>accuracy-like-parent</code>, meaning:<a href="#section-4.1.7-7" class="pilcrow">¶</a></p>
+<p id="section-4.1.7-6">The GREEN YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> implements hierarchical defaults for key attributes. For example:<a href="#section-4.1.7-6" class="pilcrow">¶</a></p>
+<p id="section-4.1.7-7">For measurement accuracy, the default behaviour is inheritance from the parent object (expressed as <code>accuracy-like-parent</code> in <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>), meaning:<a href="#section-4.1.7-7" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.1.7-8.1">
-              <p id="section-4.1.7-8.1.1">If a chassis reports <code>accuracy-measured-gold</code> (±5%)<a href="#section-4.1.7-8.1.1" class="pilcrow">¶</a></p>
+              <p id="section-4.1.7-8.1.1">If a chassis reports accuracy at the gold tier (+/-5%), all child components (line cards, ports, fans) automatically inherit that accuracy tier.<a href="#section-4.1.7-8.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-4.1.7-8.2">
-              <p id="section-4.1.7-8.2.1">All child components(line cards, ports, fans) automatically inherit <code>accuracy-measured-gold</code><a href="#section-4.1.7-8.2.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-4.1.7-8.3">
-              <p id="section-4.1.7-8.3.1">Only components with different accuracy need to explicitly report their value<a href="#section-4.1.7-8.3.1" class="pilcrow">¶</a></p>
+              <p id="section-4.1.7-8.2.1">Only components whose accuracy differs from their parent need to explicitly report a value.<a href="#section-4.1.7-8.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <p id="section-4.1.7-9">Example:<a href="#section-4.1.7-9" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-4.1.7-10">
 <pre>
-Chassis (accuracy: gold ±5%)
-├── Line Card 1 (inherits: gold ±5%)  ← No need to report
-├── Line Card 2 (inherits: gold ±5%)  ← No need to report
-└── PSU 1 (explicit: silver ±10%)     ← Must report (differs from parent)
+Chassis (accuracy: gold +/-5%)
++-- Line Card 1 (inherits: gold +/-5%)  &lt;- No need to report
+|-- Line Card 2 (inherits: gold +/-5%)  &lt;- No need to report
+|-- PSU 1 (explicit: silver +/-10%)     &lt;- Must report (differs from parent)
 </pre><a href="#section-4.1.7-10" class="pilcrow">¶</a>
 </div>
 <p id="section-4.1.7-11">This reduces YANG-Push telemetry volume while maintaining accuracy transparency.<a href="#section-4.1.7-11" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="unit-multiplier">
+<div id="fixed-units-for-power-and-energy-values">
 <section id="section-4.1.8">
-          <h4 id="name-unit-multiplier">
-<a href="#section-4.1.8" class="section-number selfRef">4.1.8. </a><a href="#name-unit-multiplier" class="section-name selfRef">Unit Multiplier</a>
+          <h4 id="name-fixed-units-for-power-and-e">
+<a href="#section-4.1.8" class="section-number selfRef">4.1.8. </a><a href="#name-fixed-units-for-power-and-e" class="section-name selfRef">Fixed Units for Power and Energy Values</a>
           </h4>
-<p id="section-4.1.8-1">The unit-multiplier leaf in <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> expresses the scale of power and energy values (e.g., milli, kilo). It is defined independently per container, not inherited from parent objects:
-- In the <code>power</code> container is mandatory. Devices <span class="bcp14">MUST</span> always specify the scale explicitly.
-- In the <code>energy</code> container is optional. If absent, multiplier-units default value <span class="bcp14">SHOULD</span> be considered as 10^0 = 1 Watt-hours applies. Devices reporting at a different scale <span class="bcp14">MUST</span> set this leaf explicitly.<a href="#section-4.1.8-1" class="pilcrow">¶</a></p>
+<p id="section-4.1.8-1">The GREEN YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> uses fixed units for all power and energy leaves, rather than a variable-scale approach.
+Instantaneous power is always expressed in milliwatts (mW), nameplate power in Watts (W), and energy in milliwatt-hours (mWh).
+This design eliminates a class of interoperability errors that would arise if different implementations applied different unit multipliers to the same value, and simplifies YANG Push consumers since no per-instance unit resolution is required before values can be compared or aggregated.
+The integer types used (int64 for instantaneous power, uint64 for energy) provide sufficient range to represent the power consumption of any foreseeable network device or aggregate without overflow.<a href="#section-4.1.8-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="power-factor">
@@ -2831,31 +2817,14 @@ Power States. TO BE COMPLETED<a href="#section-4.4-8" class="pilcrow">¶</a></p>
       <h2 id="name-operational-considerations">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-operational-considerations" class="section-name selfRef">Operational Considerations</a>
       </h2>
-<div id="hierarchical-inheritance-unit-multiplier-vs-accuracy">
+<div id="measurement-accuracy-inheritance">
 <section id="section-7.1">
-        <h3 id="name-hierarchical-inheritance-un">
-<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-hierarchical-inheritance-un" class="section-name selfRef">Hierarchical Inheritance: unit-multiplier vs accuracy</a>
+        <h3 id="name-measurement-accuracy-inheri">
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-measurement-accuracy-inheri" class="section-name selfRef">Measurement Accuracy Inheritance</a>
         </h3>
-<p id="section-7.1-1">The data model uses two different patterns for absent leaf values:<a href="#section-7.1-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-7.1-2.1">
-            <p id="section-7.1-2.1.1">unit-multiplier: if absent, the default value is 10^0 = 1 Watt-hours. The client requires no additional lookup.<a href="#section-7.1-2.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-7.1-2.2">
-            <p id="section-7.1-2.2.1">data-source-accuracy: if absent, the client looks up the parent object's accuracy value in the hardware tree <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>.<a href="#section-7.1-2.2.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-7.1-3">If a client incorrectly assumes inheritance for unit-multiplier, a single missing leaf can cause energy values to be reported orders of magnitude above or below their actual value. For example:<a href="#section-7.1-3" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-7.1-4">
-<pre>
-Chassis (unit-multiplier: kilo)
-├── Line Card 1 (unit-multiplier: milli)  ← must be explicit
-└── PSU 1      (unit-multiplier: kilo)    ← must be explicit
-</pre><a href="#section-7.1-4" class="pilcrow">¶</a>
-</div>
-<p id="section-7.1-5">If Line Card 1 omits unit-multiplier and the client assumes inheritance from the chassis (in this case, kilo), the reported power value would be interpreted as 10^6 times larger than its actual value (kilo vs. milli). This magnitude of error is unacceptable for energy accounting/reporting.<a href="#section-7.1-5" class="pilcrow">¶</a></p>
-<p id="section-7.1-6">By contrast, a misread of data-source-accuracy (e.g., treating a silver ±10% measurement as gold ±5%) affects data confidence but does not produce incorrect absolute values.<a href="#section-7.1-6" class="pilcrow">¶</a></p>
-<p id="section-7.1-7">For this reason, unit-multiplier <span class="bcp14">SHOULD</span> be self-contained per energy object: clients read it directly from each object without traversing the hardware containment tree.<a href="#section-7.1-7" class="pilcrow">¶</a></p>
+<p id="section-7.1-1">The GREEN YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> uses parent-inheritance for the <code>data-source-accuracy</code> attribute: when a component omits the leaf, the client should look up the accuracy reported by the parent object in the hardware containment tree <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.1-2">This design is safe for accuracy because a misread (e.g., treating a silver +/-10% measurement as gold +/-5%) affects only data-confidence classification, not absolute values.  A controller that incorrectly inherits a parent's accuracy tier for a child that has a different tier will make suboptimal scheduling decisions but will not produce numerically incorrect energy totals.<a href="#section-7.1-2" class="pilcrow">¶</a></p>
+<p id="section-7.1-3">Power and energy magnitudes do not use inheritance: the GREEN YANG data model uses fixed units (milliwatts for instantaneous power, milliwatt-hours for energy), so no per-instance scale factor needs to be propagated or resolved.<a href="#section-7.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2917,15 +2886,15 @@ Chassis (unit-multiplier: kilo)
 <dd class="break"></dd>
 <dt id="GreenUseCases">[GreenUseCases]</dt>
         <dd>
-<span class="refAuthor">Stephan, E.</span>, <span class="refAuthor">Palmero, M. P.</span>, <span class="refAuthor">Claise, B.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Contreras, L. M.</span>, <span class="refAuthor">Bernardos, C. J.</span>, and <span class="refAuthor">X. Chen</span>, <span class="refTitle">"Use Cases for Energy Efficiency Management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-green-use-cases-01</span>, <time datetime="2026-01-22" class="refDate">22 January 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-green-use-cases-01">https://datatracker.ietf.org/doc/html/draft-ietf-green-use-cases-01</a>&gt;</span>. </dd>
+<span class="refAuthor">Stephan, E.</span>, <span class="refAuthor">Palmero, M. P.</span>, <span class="refAuthor">Claise, B.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Contreras, L. M.</span>, <span class="refAuthor">Bernardos, C. J.</span>, and <span class="refAuthor">X. Chen</span>, <span class="refTitle">"Use Cases for Energy Efficiency Management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-green-use-cases-02</span>, <time datetime="2026-08-07" class="refDate">7 August 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-green-use-cases-02">https://datatracker.ietf.org/doc/html/draft-ietf-green-use-cases-02</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="PetraApi">[PetraApi]</dt>
         <dd>
-<span class="refAuthor">Rodriguez-Natal, A.</span>, <span class="refAuthor">Contreras, L. M.</span>, <span class="refAuthor">Palmero, M. P.</span>, <span class="refAuthor">Lindblad, J.</span>, and <span class="refAuthor">A. G. Sánchez</span>, <span class="refTitle">"Path Energy Traffic Ratio API (PETRA)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-petra-green-api-03</span>, <time datetime="2026-03-02" class="refDate">2 March 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-petra-green-api-03">https://datatracker.ietf.org/doc/html/draft-petra-green-api-03</a>&gt;</span>. </dd>
+<span class="refAuthor">Rodriguez-Natal, A.</span>, <span class="refAuthor">Contreras, L. M.</span>, <span class="refAuthor">Palmero, M. P.</span>, <span class="refAuthor">Lindblad, J.</span>, and <span class="refAuthor">A. G. Sánchez</span>, <span class="refTitle">"Path Energy Traffic Ratio API (PETRA)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-petra-green-api-04</span>, <time datetime="2026-07-06" class="refDate">6 July 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-petra-green-api-04">https://datatracker.ietf.org/doc/html/draft-petra-green-api-04</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="PowerAndEnergy">[PowerAndEnergy]</dt>
         <dd>
-<span class="refAuthor">Claise, B.</span>, <span class="refAuthor">Chen, G.</span>, <span class="refAuthor">Palmero, M. P.</span>, and <span class="refAuthor">J. Lindblad</span>, <span class="refTitle">"Power and Energy YANG Module"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-green-power-and-energy-yang-03</span>, <time datetime="2026-07-04" class="refDate">4 July 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-green-power-and-energy-yang-03">https://datatracker.ietf.org/doc/html/draft-ietf-green-power-and-energy-yang-03</a>&gt;</span>. </dd>
+<span class="refAuthor">Claise, B.</span>, <span class="refAuthor">Chen, G.</span>, <span class="refAuthor">Palmero, M. P.</span>, and <span class="refAuthor">J. Lindblad</span>, <span class="refTitle">"Power and Energy YANG Module"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-green-power-and-energy-yang-04</span>, <time datetime="2026-09-09" class="refDate">9 September 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-green-power-and-energy-yang-04">https://datatracker.ietf.org/doc/html/draft-ietf-green-power-and-energy-yang-04</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7326">[RFC7326]</dt>
         <dd>
