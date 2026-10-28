@@ -106,18 +106,13 @@ This framework defines conceptual requirements and architectural patterns for en
 - Power and energy metric definitions and units
 - Measurement accuracy representation
 - Hierarchical default value inheritance
--  {{RFC8348}} hardware data model link with energy attributes
+- {{RFC8348}} hardware data model link with energy attributes
 
 Implementers are expected to refer to both documents: this framework for understanding requirements and use cases, the YANG data model for implementation details and data structures.
 
 ## Terminology
 
-The following terms are defined in {{GreenTerminology}}: Energy, Power,
-Energy Object, Energy Management, Energy Monitoring, Energy Control,
-Energy Management System (EnMS), Device, Component, Meter (Energy Meter),
-Power Inlet, Power Outlet, Power Interface, Power State, Power State Set, Nameplate Power,
-Energy Efficiency, Energy Efficiency Management, Energy Saving,
-Energy-Aware Intent.
+The following terms are defined in {{GreenTerminology}}: Energy, Power, Energy Object, Energy Management, Energy Monitoring, Energy Control, Energy Management System (EnMS), Device, Component, Meter (Energy Meter), Power Inlet, Power Outlet, Power Interface, Power State, Power State Set, Nameplate Power, Energy Efficiency, Energy Efficiency Management, Energy Saving, Energy-Aware Intent.
 
 
 
@@ -125,6 +120,7 @@ This document uses the terms Power and Energy as further elaborated in {{GreenTe
 
 - Power refers to the instantaneous rate at which a device consumes or produces electrical energy (typically expressed in watts).
 - Energy, by contrast, represents the cumulative amount of work performed over time (typically expressed in joules or watt-hours).
+
 Both concepts are required within the YANG modules: Power enables real-time monitoring, control, and optimization of device operation, while Energy provides a time-integrated view necessary for accounting and reporting. For completeness and alignment with existing operational models and use cases, this specification includes both Power and Energy attributes.
 
 ## EMAN Data Model Compatibility {#eman-compat}
@@ -191,8 +187,7 @@ The main elements in the framework are as follows:
 
 * (a), (d) Discovery and Inventory
 
-* (b) Monitor energy efficiency from the Controller: upward flow of aggregated GREEN metrics from the Controller to the EnMS. Carries power consumption, energy counters, power state, and efficiency indicators after Controller-level aggregation and
-  normalization. 
+* (b) Monitor energy efficiency from the Controller: upward flow of aggregated GREEN metrics from the Controller to the EnMS. Carries power consumption, energy counters, power state, and efficiency indicators after Controller-level aggregation and normalization.
 
 * (c) Static/Reference: manufacturer-provided database, static capability information, and configuration metadata from external repositories or datastores. This is a read-once or cache-and-reuse data source. It does not require an EnMS and may be delivered out-of-band, even prior to deployment.
 
