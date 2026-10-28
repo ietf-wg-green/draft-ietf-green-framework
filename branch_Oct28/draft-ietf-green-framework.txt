@@ -439,7 +439,7 @@ Table of Contents
    *  (f) Control Energy Saving
 
    *  (g) API Service Interface: enables access for service consumption,
-      enabling data retrieval , control, and integration through API,
+      enabling data retrieval, control, and integration through API,
       e.g., [PetraApi].  The bidirectional arrows represent retrieval
       (GET) going up and control intents (SET/RPC) going down through
       the same API interface.
