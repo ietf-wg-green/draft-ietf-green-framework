@@ -266,16 +266,20 @@ The framework supports both initiation models:
 
   Energy efficiency management requires stable identification of Energy Objects across device, controller, inventory, and reporting systems. The framework therefore relies on UUID-based identification ({{?RFC9562}}) as exposed through {{RFC8348}}, while allowing controller-assigned identifiers for onboarding and cross-system correlation. Implementations should maintain mappings between local identifiers and globally unique hardware identifiers to support inventory and reporting consistency, as well as telemetry correlation.
 
-### UUID-Based Component Identification
+### Energy Object Identification
 
-Energy metrics are anchored to hardware components using UUIDs (refer to {{?RFC9562}}), as exposed by the "ietf-hardware" YANG module {{RFC8348}}:
+Every Energy Object, i.e., a device, a chassis, a line card, a power supply, needs a stable identity so that energy data, control actions, and inventory records all refer to the same physical thing, consistently, across every system that touches it.
 
-- Each physical component (chassis, power supply, line card, etc.) has a stable UUID as defined in {{?RFC9562}}
-- Energy metrics reference these UUIDs, enabling correlation with:
-  - Component lifecycle (installation, replacement, decommissioning)
-  - Inventory management systems
-  - Warranty and support tracking
-  - Asset management databases
+The device itself is the source of truth for its own identity. Each component reports a hardware UUID ({{?RFC9562}}) that follows it through its entire lifecycle: from the moment it is installed until it is decommissioned or replaced. No other system can change this identifier. The Controller and the EnMS read it; they do not write it.
+
+The Controller also needs its own handle for each Energy Object, so it can attach instructions to it; for example, a desired power state or an energy-saving policy. The Controller assigns this handle when it first discovers the object. This is the identifier the Controller uses when it wants to act on something.
+
+These two identifiers serve different purposes:
+
+- The device's hardware UUID answers the question: what is this thing?
+- The Controller's handle answers the question: what should be done with it?
+
+The Controller is responsible for keeping the link between the two, so that when an operator looks up a component in an inventory system and wants tovact on it, the Controller can map from one identifier to the other.
 
 To enable stable component identification across systems, the GREEN Framework supports dual identifiers based on {{RFC8348}}: controllers will need to assign their own ID during onboarding, query the device's "ietf-hardware" UUID, and maintain a mapping between both for cross-system correlation.
 
