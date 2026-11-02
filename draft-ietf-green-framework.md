@@ -69,6 +69,8 @@ informative:
 
    PowerAndEnergy: I-D.ietf-green-power-and-energy-yang
 
+   CapabilityDiscovery: I-D.claise-green-capability-discovery
+
    PetraApi: I-D.petra-green-api
 
 --- abstract
@@ -109,7 +111,7 @@ Implementers are expected to refer to both documents: this framework for underst
 
 ## Terminology
 
-The following terms are defined in {{GreenTerminology}}: Energy, Power, Energy Object, Energy Management, Energy Monitoring, Energy Control, Energy Management System (EnMS), Device, Component, Meter (Energy Meter), Power Inlet, Power Outlet, Power Interface, Power State, Power State Set, Nameplate Power, Energy Efficiency, Energy Efficiency Management, Energy Saving, Energy-Aware Intent. The term Power Cap is defined in {{PowerAndEnergy}}.
+The following terms are defined in {{GreenTerminology}}: Energy, Power, Energy Object, Energy Management, Energy Monitoring, Energy Control, Energy Management System (EnMS), Device, Component, Meter (Energy Meter), Power Inlet, Power Outlet, Power Interface, Power Source, Power Factor, Power State, Power State Set, Nameplate Power, Energy Efficiency, Energy Efficiency Management, Energy Saving, Energy-Aware Intent. The term Power Cap is defined in {{PowerAndEnergy}}.
 
 
 
@@ -294,7 +296,7 @@ The full identity hierarchy and encoding rules are defined in {{PowerAndEnergy}}
 
 The framework leverages the hierarchical structure of the "ietf-hardware" YANG module {{RFC8348}} to minimize redundant data reporting and simplify device implementation. The framework refers to these containment relationships as parent-child relationships.
 
-Energy objects inherit their hierarchical containment relationships from the hardware component tree. For example:
+Energy Objects inherit their hierarchical containment relationships from the hardware component tree. For example:
 
 - A chassis (parent) contains line cards (children).
 - Each line card (parent) contains ports (children).
@@ -490,7 +492,7 @@ Power States. The IANA "Power State Sets" registry {{?RFC7326}} lists the IEEE16
 
 ## Power State Set Mapping and Intent
 
-Defining and enforcing power states can be challenging, because each Energy Object's technical capabilities must be mapped to high-level operational intents for energy-efficient operation. The following examples illustrate how an Energy Object's power-saving capabilities can be aligned with typical intents:
+Defining and enforcing Power States can be challenging, because each Energy Object's technical capabilities must be mapped to high-level operational intents for energy-efficient operation. The following examples illustrate how an Energy Object's power-saving capabilities can be aligned with typical intents:
 
 - running at reduced capacity during predictable low-demand periods;
 
@@ -498,17 +500,18 @@ Defining and enforcing power states can be challenging, because each Energy Obje
 
 - operating at a reduced service level when the site is on a backup power source during a grid outage.
 
-By expressing such intents, a controller can decide which power state an Energy Object should enter at any given time and under what conditions.
+By expressing such intents, a controller can decide which Power State an Energy Object should enter at any given time and under what conditions.
 
 ### Capability Discovery
 
-Identifying what power states an Energy Object supports is crucial for onboarding and integration, especially for legacy systems. Key discovery elements include:
+Identifying what Power States an Energy Object supports is crucial for onboarding and integration. Key discovery elements include:
 
-- Whether the energy object supports multiple Power State Sets.
+- Whether the Energy Object supports multiple Power State Sets.
 - Semantics and limitations of each state (e.g., absolute power, relative power).
 - Transition characteristics, such as the time required to move between states.
 - Energy Object-specific state transition constraints like frequency, which may limit energy-saving measures to avoid damaging the device/components.
-- Impacts on measurement accuracy.
+
+{{CapabilityDiscovery}} addresses part of this list. It defines a YANG module, discoverable through the system capabilities mechanism of {{?RFC9196}}, that advertises for each hardware Component {{RFC8348}} the Power States the Component supports, identified by the Power State identities of {{PowerAndEnergy}} (additional Power State Sets can be defined as identities derived from the same base identity), the expected and maximum Power in each state, and the times to enter and exit each state relative to the on state. These capabilities can be read from a running device, or from a YANG instance data file {{?RFC9195}} before the device is deployed. The Power values are static planning baselines, not measurements, and each Component reports its own values, excluding its child Components. Being capable of a low-power state does not make a Component eligible to enter it: eligibility is operator policy. Dependencies between Components are expressed by the Functional Enablement Relationship of {{PowerAndEnergy}}. Direct transitions between two low-power states, limits on transition frequency or duty cycle, relative Power, and the semantics of each Power State beyond its name are not covered.
 
 
 
@@ -617,7 +620,7 @@ Use Cases need both device capabilities and controller coordination:
 Who triggers telemetry is independent of implementation focus and follows YANG-Push {{?RFC8641}} patterns:
 
 Controller-Initiated, or Dynamic subscription:
-- Controller establishes YANG-Push subscriptions to energy objects
+- Controller establishes YANG-Push subscriptions to Energy Objects
 - Device streams telemetry at specified intervals (periodic) or on change (event-driven)
 - Centralized monitoring policy management
 
@@ -703,15 +706,6 @@ This document has no IANA actions.
 * IEC60050 reference needs a new URL
 
 The following topics remain open for further discussion points:
-
-## Discovering Capabilities
-- Enable automatic detection of power-saving features.
-- Allow controllers to easily discover device-specific limits like transition time and duty cycle.
-
-## Understanding Device Capabilities
-- Explore if Energy Objects can support multiple sets of power states.
-- Make power states clearly described and understandable.
-- Represent these capabilities in a machine-readable format.
 
 ## Mapping Intents to Device Settings
 - Develop ways to translate high-level energy goals (like "save energy at low utilization") into actual device configurations.
