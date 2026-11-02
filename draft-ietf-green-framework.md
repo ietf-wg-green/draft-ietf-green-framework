@@ -187,11 +187,13 @@ The main elements in the framework are as follows:
 
 * (a), (d) Discovery and Inventory
 
-* (b) Monitor energy efficiency from the Controller: upward flow of aggregated GREEN metrics from the Controller to the EnMS. Carries power consumption, energy counters, power state, and efficiency indicators after Controller-level aggregation and normalization.
+* (b) Expose monitored energy efficiency metrics from the Controller: The Controller exposes aggregated GREEN metrics to the EnMS. Reported data includes power consumption, energy counters, power state, and efficiency indicators, after Controller-level aggregation and normalization. This interface is realized via YANG Push {{RFC8641}} subscriptions established from the Controller toward the EnMS.
 
-* (c) Static/Reference: manufacturer-provided database, static capability information, and configuration metadata from external repositories or datastores. This is a read-once or cache-and-reuse data source. It does not require an EnMS and may be delivered out-of-band, even prior to deployment.
+* (c) GREEN Metrics — Static Reference Data: power and energy reference values obtained from sources external to the managed network, such as manufacturer datasheets, equipment specifications, and energy efficiency certification records. This data is typically retrieved once at onboarding time or when new equipment is introduced, and cached for subsequent use. It does not require an EnMS and may be obtained prior to device deployment.
 
-* (e) Monitor power and energy from device: upward flow of raw operational telemetry from individual network devices and components to the Controller. Carries instantaneous power, energy counters, power state, and data-source accuracy metadata as defined in {{PowerAndEnergy}}, streamed via YANG Push ({{RFC8641}}) or retrieved via NETCONF/RESTCONF. This interface is the primary source of device-level data that the Controller aggregates before exposing it via (b). While devices may also provide traffic and utilization metrics over this same interface, those metrics are outside the scope of this framework.
+  Interface (c) is complementary to, but distinct from, interface (d). Interface (d) concerns the discovery of device identity and operational capability through the management plane, information that the device itself reports at runtime. Interface (c) concerns reference data about a device's power characteristics that originates from the manufacturer or an external repository, independently of whether the device is reachable or deployed. A practical example is nameplate power values: these may be loaded into the Controller from a vendor datasheet via (c) before the device is installed, and later correlated with the device identit discovered via (d).
+
+* (e) Expose monitored power and energy from device: each Energy Object expose raw operational telemetry energy related data directly to the Controller. Reported data includes instantaneous power, energy counters, power state, data-source accuracy metadata, and energy efficiency certifications, as defined in {{PowerAndEnergy}}. Data is delivered via YANG Push {{RFC8641}} subscriptions or retrieved via NETCONF/RESTCONF. This interface is the primary source of device-level data that the Controller aggregates and normalizes before reporting it to the EnMS via interface (b). Devices may also provide traffic and utilization metrics over the same management channel; those metrics are outside the scope of this framework.
 
 * (f) Control Energy Saving
 
@@ -269,12 +271,12 @@ The device itself is the source of truth for its own identity. Each component re
 
 The Controller also needs its own handle for each Energy Object, so it can attach instructions to it; for example, a desired power state or an energy-saving policy. The Controller assigns this handle when it first discovers the object. This is the identifier the Controller uses when it wants to act on something.
 
-These two identifiers serve different purposes:
+These two identifiers serve different roles:
+The device hardware UUID identifies the physical component, with a stable unique reference enabling correlation with external inventory, asset-management databases and lifecycle tracking systems.
 
-- The device's hardware UUID answers the question: what is this thing?
-- The Controller's handle answers the question: what should be done with it?
+The Controller assigned identifier is the reference used to associate management configuration, such as an administrative power state or an energy-saving policy, with that component within the Controller's management domain.
 
-The Controller is responsible for keeping the link between the two, so that when an operator looks up a component in an inventory system and wants tovact on it, the Controller can map from one identifier to the other.
+The Controller is responsible for keeping the link between the two, so that when an operator looks up a component in an inventory system and wants to act on it, the Controller can map from one identifier to the other.
 
 To enable stable component identification across systems, the GREEN Framework supports dual identifiers based on {{RFC8348}}: controllers will need to assign their own ID during onboarding, query the device's "ietf-hardware" UUID, and maintain a mapping between both for cross-system correlation.
 
@@ -676,9 +678,11 @@ Even device-centric use cases(autonomous operation) typically use controller-ini
 
 ## Measurement Accuracy Inheritance
 
-The GREEN YANG data model {{PowerAndEnergy}} uses parent-inheritance for the `data-source-accuracy` attribute: when a component omits the leaf, the client should look up the accuracy reported by the parent object in the hardware containment tree {{RFC8348}}.
+The GREEN YANG data model {{PowerAndEnergy}} uses parent-inheritance for measurement accuracy: when a component does not explicitly report its data-source accuracy, the client determines the applicable accuracy by consulting the accuracy value reported by the parent object in the ietf-hardware tree diagram {{RFC8348}}, which represents the physical structure of a device as a tree of component. 
 
-This design is safe for accuracy because a misread (e.g., treating a silver +/-10% measurement as gold +/-5%) affects only data-confidence classification, not absolute values.  A controller that incorrectly inherits a parent's accuracy tier for a child that has a different tier will make suboptimal scheduling decisions but will not produce numerically incorrect energy totals.
+For example, a chassis containing line cards, each containing ports and power supply units. Each component in that tree has a "parent" leaf that identifies its containing component. Accuracy inheritance follows this same parent-child relationship: a line card that does not report its own accuracy inherits the accuracy reported by the chassis that contains it.
+
+This design reduces telemetry volume, since components that share theirvparent's accuracy class need not transmit redundant accuracy metadata. Only components whose accuracy differs from their parent are required to report an explicit value.
 
 Power and energy magnitudes do not use inheritance: the GREEN YANG data model uses fixed units (milliwatts for instantaneous power, milliwatt-hours for energy), so no per-instance scale factor needs to be propagated or resolved.
 
