@@ -1077,7 +1077,7 @@ svg {
 <dd class="authors">
 <div class="author">
       <div class="author-name">B. Claise</div>
-<div class="org">Everything OPS</div>
+<div class="org">Everything OPS &amp; Arrcus</div>
 </div>
 <div class="author">
       <div class="author-name">L. Contreras</div>
@@ -1403,7 +1403,7 @@ svg {
           <p id="section-1-5.2.1">Power sources: Uninterruptible power supplies (UPS), Power Distribution Units (PDUs), Power over Ethernet (PoE) switches, renewable energy systems, and their components (battery cells, inverters, photovoltaic panels)<a href="#section-1-5.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-5.3">
-          <p id="section-1-5.3.1">Monitored entities: Any network-attached device or component with a unique identifier (UUID per <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span>) that influences power or energy consumption<a href="#section-1-5.3.1" class="pilcrow">¶</a></p>
+          <p id="section-1-5.3.1">Monitored entities: Any network-attached device or component with a Universally Unique Identifier (UUID) <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span> that influences power or energy consumption<a href="#section-1-5.3.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="section-1-6">This framework defines conceptual requirements and architectural patterns for energy efficiency management. The companion YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> provides the implementable specification, including:<a href="#section-1-6" class="pilcrow">¶</a></p>
@@ -1445,7 +1445,7 @@ svg {
         <h3 id="name-eman-data-model-compatibili">
 <a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-eman-data-model-compatibili" class="section-name selfRef">EMAN Data Model Compatibility</a>
         </h3>
-<p id="section-1.2-1">The GREEN framework builds upon the conceptual foundations of the Energy MANagement (EMAN) framework <span>[<a href="#RFC7326" class="cite xref">RFC7326</a>]</span> and its associated SNMP-based data models <span>[<a href="#RFC7460" class="cite xref">RFC7460</a>]</span><span>[<a href="#RFC7461" class="cite xref">RFC7461</a>]</span>.  <a href="#eman-mapping-table" class="auto internal xref">Table 1</a> shows the correspondence between the EMAN MIB objects and the GREEN YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>; it is a migration aid, not a one-to-one mapping (see the "Relationship to the EMAN Work" section of <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>).  Energy collection scheduling objects from <span>[<a href="#RFC7460" class="cite xref">RFC7460</a>]</span> (e.g., <code>eoEnergyCollectionStartTime</code>) are not carried forward, as collection timing is managed through YANG-Push subscriptions <span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span>. Implementations currently supporting the EMAN MIBs can use this correspondence as a migration path toward YANG/NETCONF/RESTCONF-based energy management.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
+<p id="section-1.2-1">The GREEN framework builds upon the conceptual foundations of the Energy MANagement (EMAN) framework <span>[<a href="#RFC7326" class="cite xref">RFC7326</a>]</span> and its associated SNMP-based data models <span>[<a href="#RFC7460" class="cite xref">RFC7460</a>]</span> <span>[<a href="#RFC7461" class="cite xref">RFC7461</a>]</span>.  <a href="#eman-mapping-table" class="auto internal xref">Table 1</a> shows the correspondence between the EMAN MIB objects and the GREEN YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>; it is a migration aid, not a one-to-one mapping (see the "Relationship to the EMAN Work" section of <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>).  Energy collection scheduling objects from <span>[<a href="#RFC7460" class="cite xref">RFC7460</a>]</span> (e.g., <code>eoEnergyCollectionStartTime</code>) are not carried forward, as collection timing is managed through YANG-Push subscriptions <span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span>. Implementations currently supporting the EMAN MIBs can use this correspondence as a migration path toward YANG/NETCONF/RESTCONF-based energy management.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
 <span id="name-eman-mib-to-green-yang-mapp"></span><div id="eman-mapping-table">
 <table class="center" id="table-1">
           <caption>
@@ -1588,7 +1588,7 @@ svg {
       </h2>
 <p id="section-3-1">The framework introduces the concept of a Power Interface.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <p id="section-3-2">A Power Interface is defined as an interconnection among devices where energy can be provided, received, or both. There are some similarities between Power Interfaces and network interfaces. A network interface can be set to different states, such as sending or receiving data on an attached line. Similarly, a Power Interface can be receiving or providing energy.<a href="#section-3-2" class="pilcrow">¶</a></p>
-<p id="section-3-3">The most basic example of Energy Management is a single device reporting information about itself.  In many cases, however, energy is not measured by the device itself but is measured upstream in the power distribution tree.  For example, a Power Distribution Unit(PDU) may measure the energy it supplies to attached devices and report this to an Energy Management System.  Therefore, devices often have relationships to other devices or components in the power network.  An Energy Management System (EnMS) generally requires an understanding of the power topology (who provides power to whom), the metering topology (who meters whom), and the potential aggregation (who aggregates values of others).<a href="#section-3-3" class="pilcrow">¶</a></p>
+<p id="section-3-3">The most basic example of Energy Management is a single device reporting information about itself.  In many cases, however, energy is not measured by the device itself but is measured upstream in the power distribution tree.  For example, a Power Distribution Unit (PDU) may measure the energy it supplies to attached devices and report this to an Energy Management System.  Therefore, devices often have relationships to other devices or components in the power network.  An Energy Management System (EnMS) generally requires an understanding of the power topology (who provides power to whom), the metering topology (who meters whom), and the potential aggregation (who aggregates values of others).<a href="#section-3-3" class="pilcrow">¶</a></p>
 <p id="section-3-4">The relationships build on the Power Interface concept. The different relationships among device(s)/component(s), as specified in this document, include power source, Metering, and Aggregation Relationships.<a href="#section-3-4" class="pilcrow">¶</a></p>
 <p id="section-3-5">The GREEN Framework Reference Model is represented in <a href="#fig-green-reference-model" class="auto internal xref">Figure 1</a>.<a href="#section-3-5" class="pilcrow">¶</a></p>
 <span id="name-green-framework-reference-m"></span><div id="fig-green-reference-model">
@@ -1614,17 +1614,17 @@ svg {
   |               |            v                      v
 +------------------------------------------------------------------+
 |                                                                  |
-|       (2) Controller (collection, compute and aggregate?)        |
+|       (2) Controller (collection, compute and aggregate)         |
 |                                                                  |
 +------------------------------------------------------------------+
   ^                   ^                         ^ |
   | (d)               | (e)                     | | (f)
   | Inventory         | Monitor power           | | Control
-  | Capability        | Proportion              | | (Energy saving
-  |                   | Energy efficiency       | | Functionality
-  |                   | ratio, power            | | Localized mgmt/
-  |                   | consumption,            | | network wide mgmt)
-  |                   | etc)                    | |
+  | Capability        | Energy efficiency       | | (Energy saving
+  |                   | ratio, power            | | Functionality
+  |                   | consumption,            | | Localized mgmt/
+  |                   | etc)                    | | network wide mgmt)
+  |                   |                         | |
   |                   |                         | v
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -1652,10 +1652,10 @@ svg {
           <p id="section-3-11.1.1">(a), (d) Discovery and Inventory<a href="#section-3-11.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-3-11.2">
-          <p id="section-3-11.2.1">(b) Expose monitored energy efficiency metrics from the Controller: The Controller exposes aggregated GREEN metrics to the EnMS. Reported data includes power consumption, energy counters, power state, and efficiency indicators, after Controller-level aggregation and normalization. This interface is realized via YANG-Push <span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span> subscriptions established from the Controller toward the EnMS.<a href="#section-3-11.2.1" class="pilcrow">¶</a></p>
+          <p id="section-3-11.2.1">(b) Expose monitored energy efficiency metrics from the Controller: The Controller exposes aggregated GREEN metrics to the EnMS. Reported data includes power consumption, energy counters, power state, and efficiency indicators, after Controller-level aggregation and normalization. Data is delivered via YANG-Push <span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span> subscriptions or retrieved via NETCONF/RESTCONF.<a href="#section-3-11.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-3-11.3">
-          <p id="section-3-11.3.1">(c) GREEN Metrics (Static Reference Data): power and energy reference values obtained from sources external to the managed network, such as manufacturer datasheets, equipment specifications, and energy efficiency certification records. This data is typically retrieved once at onboarding time or when new equipment is introduced, and cached for subsequent use. It does not require an EnMS and may be obtained prior to device deployment.<a href="#section-3-11.3.1" class="pilcrow">¶</a></p>
+          <p id="section-3-11.3.1">(c) Static Reference Data: power and energy reference values obtained from sources external to the managed network, such as manufacturer datasheets, equipment specifications, and energy efficiency certification records. This data is typically retrieved once at onboarding time or when new equipment is introduced, and cached for subsequent use. It does not require an EnMS and may be obtained prior to device deployment.<a href="#section-3-11.3.1" class="pilcrow">¶</a></p>
 <p id="section-3-11.3.2">
 Interface (c) is complementary to, but distinct from, interface (d). Interface (d) concerns the discovery of device identity and operational capability through the management plane, information that the device itself reports at runtime. Interface (c) concerns reference data about a device's power characteristics that originates from the manufacturer or an external repository, independently of whether the device is reachable or deployed. A practical example is nameplate power values: these may be loaded into the Controller from a vendor datasheet via (c) before the device is installed, and later correlated with the device identity discovered via (d).<a href="#section-3-11.3.2" class="pilcrow">¶</a></p>
 </li>
@@ -1670,10 +1670,10 @@ Interface (c) is complementary to, but distinct from, interface (d). Interface (
 </li>
       </ul>
 <p id="section-3-12">Inventory information, referring to interfaces (a) and (d), may originate from device self-discovery, manufacturer datasheets, asset-management systems, or other authoritative metadata repositories. The controller is responsible for correlating these sources and exposing a consistent inventory view.<a href="#section-3-12" class="pilcrow">¶</a></p>
-<p id="section-3-13">The reference model covers every network device and component that have a Unique Identifiable ID (UUID) and can represent or influence power or energy consumption. If the component can be uniquely identified, it can be modeled.<a href="#section-3-13" class="pilcrow">¶</a></p>
+<p id="section-3-13">The reference model covers every network device and component that has a Universally Unique Identifier (UUID) and can represent or influence power or energy consumption. If the component can be uniquely identified, it can be modeled.<a href="#section-3-13" class="pilcrow">¶</a></p>
 <p id="section-3-14">Interface (b) carries the dynamic, aggregated GREEN metrics from the Controller to the EnMS. Interface (c) brings static reference data, such as datasheet and certification values, into the Controller; it does not involve the EnMS.<a href="#section-3-14" class="pilcrow">¶</a></p>
 <p id="section-3-15">The monitoring interface (e) monitors more aspects than just power and energy, (for example traffic monitoring) but this is not covered in the framework.<a href="#section-3-15" class="pilcrow">¶</a></p>
-<p id="section-3-16">The control interface (f) allows both local management and network wide management. The nework wide management can be used fufill the intent,e.g., turn on or off of energy saving capability globally based on discovered inventory capabilities.<a href="#section-3-16" class="pilcrow">¶</a></p>
+<p id="section-3-16">The control interface (f) allows both local management and network-wide management. Network-wide management can be used to fulfill an intent, e.g., turning energy saving capabilities on or off globally based on discovered inventory capabilities.<a href="#section-3-16" class="pilcrow">¶</a></p>
 <p id="section-3-17">Note that the GREEN framework specifies logical blocks, however, the Energy Efficiency Management function might be implemented inside the device, based in <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>, in the controller, or a combination of both.<a href="#section-3-17" class="pilcrow">¶</a></p>
 <p id="section-3-18">Even if the reference model implicitly assumes a hierarchical network structure, this assumption acknowledges that conventional networks have flatter and anticipate more distributed topologies.<a href="#section-3-18" class="pilcrow">¶</a></p>
 <p id="section-3-19">Examples of applications consuming GREEN framework data include carbon-aware workload placement, sustainability reporting, lifecycle management, and energy-aware traffic engineering.<a href="#section-3-19" class="pilcrow">¶</a></p>
@@ -1826,14 +1826,14 @@ The full identity hierarchy and encoding rules are defined in <span>[<a href="#P
           <h4 id="name-hierarchical-data-model-and">
 <a href="#section-3.1.7" class="section-number selfRef">3.1.7. </a><a href="#name-hierarchical-data-model-and" class="section-name selfRef">Hierarchical Data Model and Default Value Inheritance</a>
           </h4>
-<p id="section-3.1.7-1">The framework leverages the hierarchical structure of the "ietf-hardware" YANG module <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span> to minimize redundant data reporting and simplify device implementation. The framework refers as <code>parent-child</code> relationships.<a href="#section-3.1.7-1" class="pilcrow">¶</a></p>
+<p id="section-3.1.7-1">The framework leverages the hierarchical structure of the "ietf-hardware" YANG module <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span> to minimize redundant data reporting and simplify device implementation. The framework refers to these containment relationships as parent-child relationships.<a href="#section-3.1.7-1" class="pilcrow">¶</a></p>
 <p id="section-3.1.7-2">Energy objects inherit their hierarchical containment relationships from the hardware component tree. For example:<a href="#section-3.1.7-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.1.7-3.1">
-              <p id="section-3.1.7-3.1.1">A chassis(parent) contains line cards(children).<a href="#section-3.1.7-3.1.1" class="pilcrow">¶</a></p>
+              <p id="section-3.1.7-3.1.1">A chassis (parent) contains line cards (children).<a href="#section-3.1.7-3.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.1.7-3.2">
-              <p id="section-3.1.7-3.2.1">Each line card(parent) contains ports(children).<a href="#section-3.1.7-3.2.1" class="pilcrow">¶</a></p>
+              <p id="section-3.1.7-3.2.1">Each line card (parent) contains ports (children).<a href="#section-3.1.7-3.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.1.7-3.3">
               <p id="section-3.1.7-3.3.1">A chassis (parent) contains power supply units (children).<a href="#section-3.1.7-3.3.1" class="pilcrow">¶</a></p>
@@ -1851,8 +1851,8 @@ The full identity hierarchy and encoding rules are defined in <span>[<a href="#P
               <p id="section-3.1.7-5.3.1">Hierarchical validation: Controllers leverage the device containment tree (per <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>) to verify parent measurements by aggregating child values.<a href="#section-3.1.7-5.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-3.1.7-6">The GREEN YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> implements hierarchical defaults for key attributes. For example:<a href="#section-3.1.7-6" class="pilcrow">¶</a></p>
-<p id="section-3.1.7-7">For measurement accuracy, the default behaviour is inheritance from the parent object (expressed as <code>accuracy-like-parent</code> in <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>), meaning:<a href="#section-3.1.7-7" class="pilcrow">¶</a></p>
+<p id="section-3.1.7-6">The GREEN YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> implements hierarchical defaults for key attributes.<a href="#section-3.1.7-6" class="pilcrow">¶</a></p>
+<p id="section-3.1.7-7">For measurement accuracy, the default behavior is inheritance from the parent object (expressed as <code>accuracy-like-parent</code> in <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>), meaning:<a href="#section-3.1.7-7" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.1.7-8.1">
               <p id="section-3.1.7-8.1.1">If a chassis reports accuracy at the gold tier (+/-5%), all child components (line cards, ports, fans) automatically inherit that accuracy tier.<a href="#section-3.1.7-8.1.1" class="pilcrow">¶</a></p>
@@ -1968,7 +1968,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
           <h4 id="name-physical-meter-with-legacy-">
 <a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-physical-meter-with-legacy-" class="section-name selfRef">Physical Meter with Legacy Device</a>
           </h4>
-<p id="section-3.2.2-1">This covers the basic example of device connected to wall Power Outlet, with a Physical Meter placed in the wall Power Outlet, because the device can not monitor its power, energy, demand.<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-1">This covers the basic example of a device connected to a wall Power Outlet, with a Physical Meter placed in the wall Power Outlet, because the device cannot monitor its power, energy, or demand.<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
 <span id="name-reference-model-example-phy"></span><div id="fig-physical_meter">
 <figure id="figure-3">
             <div class="alignLeft art-text artwork" id="section-3.2.2-2.1">
@@ -2010,7 +2010,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
 <a href="#name-reference-model-example-phy" class="selfRef">Reference Model Example: Physical Meter</a>
             </figcaption></figure>
 </div>
-<p id="section-3.2.2-3">When the EnMS discovers the physical meter, it must know for which Energy Object(s) it measures power or energy. This is the Metering Relatonship.<a href="#section-3.2.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-3">When the EnMS discovers the physical meter, it must know for which Energy Object(s) it measures power or energy. This is the Metering Relationship.<a href="#section-3.2.2-3" class="pilcrow">¶</a></p>
 <p id="section-3.2.2-4">A Metering Relationship is a relationship where one Energy Object measures power, energy, demand, or Power Attributes of one or more other Energy Objects.  The Metering Relationship gives the view of the Metering topology.  Physical meters can be placed anywhere in a power distribution tree.  For example, utility meters monitor and report accumulated power consumption of the entire building. Logically, the Metering topology overlaps with the wiring topology, as meters are connected to the wiring topology.  A typical example is meters that clamp onto the existing wiring.<a href="#section-3.2.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2069,7 +2069,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
           <h4 id="name-power-over-ethernet">
 <a href="#section-3.2.4" class="section-number selfRef">3.2.4. </a><a href="#name-power-over-ethernet" class="section-name selfRef">Power over Ethernet</a>
           </h4>
-<p id="section-3.2.4-1">This covers the example of a switch port (Power Outlet) the provides energy with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).<a href="#section-3.2.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.4-1">This covers the example of a switch port (Power Outlet) that provides energy with Power over Ethernet (PoE) to PoE end points (camera, access port, etc.).<a href="#section-3.2.4-1" class="pilcrow">¶</a></p>
 <span id="name-reference-model-example-pow"></span><div id="fig-power_ethernet">
 <figure id="figure-5">
             <div class="alignLeft art-text artwork" id="section-3.2.4-2.1">
@@ -2268,7 +2268,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
 </li>
         </ul>
 <p id="section-3.3-12">Summing the net values (1 Wh + 9 Wh = 10 Wh) counts each watt-hour once. The Power Source Relationship between the port and the endpoint tells the Controller that the 9 Wh are the same Energy.<a href="#section-3.3-12" class="pilcrow">¶</a></p>
-<p id="section-3.3-13">In some situations, it is not possible to discover the Energy Object Relationships, and an EnMS or administrator must manually set them.  Given that relationships can be assigned manually, the following sections describe guidelines for use.<a href="#section-3.3-13" class="pilcrow">¶</a></p>
+<p id="section-3.3-13">In some situations, it is not possible to discover the Energy Object Relationships, and an EnMS or administrator must manually set them.<a href="#section-3.3-13" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="power-state-set">
@@ -2375,7 +2375,7 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
           <h4 id="name-sla-considerations">
 <a href="#section-3.5.3" class="section-number selfRef">3.5.3. </a><a href="#name-sla-considerations" class="section-name selfRef">SLA Considerations</a>
           </h4>
-<p id="section-3.5.3-1">Meanwhile saving energy, the device or component shouldn't drop below a certain performance threshold or allow a certain service reduction or degradation. Based on this, there are two kinds of service level expectations (SLAs) are associated with Power State behavior:<a href="#section-3.5.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.5.3-1">While saving energy, the device or component should not drop below a certain performance threshold or allow a certain service degradation. Based on this, two kinds of Service Level Agreements (SLAs) are associated with Power State behavior:<a href="#section-3.5.3-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.5.3-2.1">
               <p id="section-3.5.3-2.1.1">Transition SLAs - e.g., the maximum time allowed to transition between states.<a href="#section-3.5.3-2.1.1" class="pilcrow">¶</a></p>
@@ -2402,7 +2402,7 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
         <h3 id="name-mapping-of-use-cases-to-fra">
 <a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-mapping-of-use-cases-to-fra" class="section-name selfRef">Mapping of Use Cases to Framework Interfaces</a>
         </h3>
-<p id="section-4.1-1">The table <a href="#green-uc-interfaces-usage" class="auto internal xref">Table 2</a> maps each GREEN use case to the framework interfaces and summarizes how these are used:<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1-1"><a href="#green-uc-interfaces-usage" class="auto internal xref">Table 2</a> maps each GREEN use case to the framework interfaces and summarizes how these are used:<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.1-2.1">
             <p id="section-4.1-2.1.1">The first line shows the interface sequences.<a href="#section-4.1-2.1.1" class="pilcrow">¶</a></p>
@@ -2411,7 +2411,7 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
             <p id="section-4.1-2.2.1">The second line briefly describes the functional purpose of that flow.<a href="#section-4.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-4.1-3">The notation <code>a-&gt;b-&gt;c</code> represents the flow between framework components as described in the <a href="#fig-green-reference-model" class="auto internal xref">Figure 1</a>, where:<a href="#section-4.1-3" class="pilcrow">¶</a></p>
+<p id="section-4.1-3">The notation <code>a-&gt;b-&gt;c</code> represents the flow between framework components as described in <a href="#fig-green-reference-model" class="auto internal xref">Figure 1</a>, where:<a href="#section-4.1-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.1-4.1">
             <p id="section-4.1-4.1.1">(a), (d) Discovery and inventory<a href="#section-4.1-4.1.1" class="pilcrow">¶</a></p>
@@ -2454,7 +2454,7 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
             <tr>
               <td class="text-left" rowspan="1" colspan="1"> </td>
               <td class="text-left" rowspan="1" colspan="1">of the GREEN Framework</td>
-              <td class="text-left" rowspan="1" colspan="1">1,2: legacy; 3: GREEN WG support (i)</td>
+              <td class="text-left" rowspan="1" colspan="1">1,2: legacy; 3: GREEN WG support</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">2</td>
@@ -2513,12 +2513,12 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">7</td>
-              <td class="text-left" rowspan="1" colspan="1">Dynamic Adjustment via</td>
+              <td class="text-left" rowspan="1" colspan="1">Dynamic Adjustment in</td>
               <td class="text-left" rowspan="1" colspan="1">b-&gt;f-&gt;c</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">Traffic Levels</td>
+              <td class="text-left" rowspan="1" colspan="1">Wireless Transport</td>
               <td class="text-left" rowspan="1" colspan="1">observe-&gt;control-&gt;update metrics</td>
             </tr>
             <tr>
@@ -2606,6 +2606,31 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
               <td class="text-left" rowspan="1" colspan="1">AI Training Workloads</td>
               <td class="text-left" rowspan="1" colspan="1">monitor-&gt;metrics-&gt;control</td>
             </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">16</td>
+              <td class="text-left" rowspan="1" colspan="1">Network-level Cross Layer</td>
+              <td class="text-left" rowspan="1" colspan="1">b-&gt;c-&gt;f</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">Energy Saving</td>
+              <td class="text-left" rowspan="1" colspan="1">monitor-&gt;metrics-&gt;control</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">(across layers)</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">17</td>
+              <td class="text-left" rowspan="1" colspan="1">AI Agents for Energy</td>
+              <td class="text-left" rowspan="1" colspan="1">b-&gt;c-&gt;f</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">Efficiency Management</td>
+              <td class="text-left" rowspan="1" colspan="1">monitor-&gt;metrics-&gt;control</td>
+            </tr>
           </tbody>
         </table>
 </div>
@@ -2643,7 +2668,7 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
 - Device autonomously pushes alerts without prior subscription
 - Used for threshold violations, hardware failures, certification degradation
 - Complements controller-initiated monitoring<a href="#section-5.1-6" class="pilcrow">¶</a></p>
-<p id="section-5.1-7">Even device-centric use cases(autonomous operation) typically use controller-initiated telemetry (controller subscribes to observe device behavior). These concepts are independent.<a href="#section-5.1-7" class="pilcrow">¶</a></p>
+<p id="section-5.1-7">Even device-centric use cases (autonomous operation) typically use controller-initiated telemetry (controller subscribes to observe device behavior). These concepts are independent.<a href="#section-5.1-7" class="pilcrow">¶</a></p>
 <span id="name-use-case-implementation-foc"></span><div id="uc-implementation-focus">
 <table class="center" id="table-3">
           <caption>
@@ -2731,8 +2756,8 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">7</td>
-              <td class="text-left" rowspan="1" colspan="1">Wireless Transport Optimization</td>
-              <td class="text-left" rowspan="1" colspan="1">*Traffic-aware power adjustment, dynamic link control, pattern recognition</td>
+              <td class="text-left" rowspan="1" colspan="1">Dynamic Adjustment in Wireless Transport</td>
+              <td class="text-left" rowspan="1" colspan="1">Traffic-aware power adjustment, dynamic link control, pattern recognition</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">8</td>
@@ -2768,6 +2793,11 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
               <td class="text-left" rowspan="1" colspan="1">16</td>
               <td class="text-left" rowspan="1" colspan="1">Cross-Layer Saving</td>
               <td class="text-left" rowspan="1" colspan="1">Multi-layer coordination (L0-L3), cross-layer state synchronization</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">17</td>
+              <td class="text-left" rowspan="1" colspan="1">AI Agents</td>
+              <td class="text-left" rowspan="1" colspan="1">AI-based analysis, automated energy-saving actions, continuous learning</td>
             </tr>
           </tbody>
         </table>
@@ -2836,7 +2866,7 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
       <h2 id="name-security-considerations">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-7-1">Resiliency is an implicit use case of energy efficiency management which comes with numerous security considerations :<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-7-1">Resiliency is an implicit use case of energy efficiency management which comes with numerous security considerations:<a href="#section-7-1" class="pilcrow">¶</a></p>
 <p id="section-7-2">Controlling Power State and power supply of entities are considered highly sensitive actions, since they can significantly affect the operation of directly and indirectly connected devices.  Therefore, all control actions must be sufficiently protected through authentication, authorization, and integrity protection mechanisms.<a href="#section-7-2" class="pilcrow">¶</a></p>
 <p id="section-7-3">Entities that are not sufficiently secure to operate directly on the public Internet do exist and can be a significant cause of risk, for example, if the remote control functions can be exercised on those devices from anywhere on the Internet.<a href="#section-7-3" class="pilcrow">¶</a></p>
 <p id="section-7-4">The monitoring of energy-related quantities of an entity as addressed can be used to derive more information than just the received and provided energy; therefore, monitored data requires protection. This protection includes authentication and authorization of entities requesting access to monitored data as well as confidentiality protection during transmission of monitored data.  Privacy of stored data in an entity must be taken into account.  Monitored data may be used as input to control, accounting, and other actions, so integrity of transmitted information and authentication of the origin may be needed.<a href="#section-7-4" class="pilcrow">¶</a></p>
@@ -2863,7 +2893,7 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
 <dl class="references">
 <dt id="RFC8348">[RFC8348]</dt>
       <dd>
-<span class="refTitle">"A YANG Data Model for Hardware Management"</span>, <time datetime="2018-03" class="refDate">March 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8348">https://www.rfc-editor.org/info/rfc8348</a>&gt;</span>. </dd>
+<span class="refAuthor">Bierman, A.</span>, <span class="refAuthor">Bjorklund, M.</span>, <span class="refAuthor">Dong, J.</span>, and <span class="refAuthor">D. Romascanu</span>, <span class="refTitle">"A YANG Data Model for Hardware Management"</span>, <span class="seriesInfo">RFC 8348</span>, <span class="seriesInfo">DOI 10.17487/RFC8348</span>, <time datetime="2018-03" class="refDate">March 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8348">https://www.rfc-editor.org/rfc/rfc8348</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -3024,7 +3054,7 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
       </h2>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Benoit Claise</span></div>
-<div dir="auto" class="left"><span class="org">Everything OPS</span></div>
+<div dir="auto" class="left"><span class="org">Everything OPS &amp; Arrcus</span></div>
 <div class="email">
 <span>Email:</span>
 <a href="mailto:benoit@everything-ops.net" class="email">benoit@everything-ops.net</a>
