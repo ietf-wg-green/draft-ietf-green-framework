@@ -191,6 +191,8 @@ The main elements in the framework are as follows:
 
   Interface (c) is complementary to, but distinct from, interface (d). Interface (d) concerns the discovery of device identity and operational capability through the management plane, information that the device itself reports at runtime. Interface (c) concerns reference data about a device's power characteristics that originates from the manufacturer or an external repository, independently of whether the device is reachable or deployed. A practical example is nameplate power values: these may be loaded into the Controller from a vendor datasheet via (c) before the device is installed, and later correlated with the device identity discovered via (d).
 
+  When the reference data follows a YANG data model, it can be provided as a YANG instance data file {{?RFC9195}}, for example the Nameplate Power and certifications of {{PowerAndEnergy}} published for a given platform. The Controller then uses the same schema for the data obtained before deployment over (c) and for the data the running device reports over (d), and can compare the two. Reference data that follows no YANG data model, such as a datasheet document or a certification registry, is obtained by means outside the scope of this framework.
+
 * (e) Expose monitored power and energy from device: each Energy Object exposes raw operational energy-related telemetry directly to the Controller. Reported data includes instantaneous power, energy counters, power state, data-source accuracy metadata, and energy efficiency certifications, as defined in {{PowerAndEnergy}}. Data is delivered via YANG-Push {{RFC8641}} subscriptions or retrieved via NETCONF/RESTCONF. This interface is the primary source of device-level data that the Controller aggregates and normalizes before reporting it to the EnMS via interface (b). Devices may also provide traffic and utilization metrics over the same management channel; those metrics are outside the scope of this framework.
 
 * (f) Control Energy Saving
@@ -244,6 +246,8 @@ Following the YANG-Push approach, several parameters from EMAN {{?RFC7460}} are 
 - eoEnergyCollectionStartTime: Collection timing is managed by YANG-Push subscriptions.
 - eoEnergyMaxConsumed/eoEnergyMaxProduced: Devices do not store energy time series; controllers handle historical data.
 - Energy collection parameters table: Replaced by YANG-Push subscription configuration.
+
+Each YANG-Push notification carries the time at which it was generated {{?RFC8639}}. The Energy counters of {{PowerAndEnergy}} are cumulative since their last reset, so the Energy received or provided over an interval is the difference between two counter values, each taken with its notification time. A counter that decreases indicates a reset, for example after a reboot; the Energy for that interval cannot be computed from the counters alone.
 
 ### Controller vs. Device Initiated
 
@@ -364,30 +368,28 @@ This covers the basic example of router connected to Power Outlet in the wall.
 ~~~
 {: #fig-basic_power title="Reference Model Example: Basic Power Supply" }
 
-### Physical Meter with Legacy Device
+### Meter with Legacy Device
 
-This covers the basic example of a device connected to a wall Power Outlet, with a Physical Meter placed in the wall Power Outlet, because the device cannot monitor its power, energy, or demand.
+This covers the basic example of a device connected to a wall Power Outlet, with a Meter placed in the wall Power Outlet, because the device cannot monitor its power, energy, or demand.
 
 ~~~
 {::include art/physical_meter_ascii.txt}
 ~~~
-{: #fig-physical_meter title="Reference Model Example: Physical Meter" }
+{: #fig-physical_meter title="Reference Model Example: Meter with Legacy Device" }
 
-When the EnMS discovers the physical meter, it must know for which Energy Object(s) it measures power or energy. This is the Metering Relationship.
+When the EnMS discovers the Meter, it must know for which Energy Object(s) it measures power or energy. This is the Metering Relationship ({{relationships}}).
 
-A Metering Relationship is a relationship where one Energy Object measures power, energy, demand, or Power Attributes of one or more other Energy Objects.  The Metering Relationship gives the view of the Metering topology.  Physical meters can be placed anywhere in a power distribution tree.  For example, utility meters monitor and report accumulated power consumption of the entire building. Logically, the Metering topology overlaps with the wiring topology, as meters are connected to the wiring topology.  A typical example is meters that clamp onto the existing wiring.
+### Meter with New Device
 
-### Physical Meter with New Device
-
-This covers the example of device connected to wall Power Outlet, with a Physical Meter placed in the wall Power Outlet, because the previous device was not able to monitor its power, energy, demand.
+This covers the example of device connected to wall Power Outlet, with a Meter placed in the wall Power Outlet, because the previous device was not able to monitor its power, energy, demand.
 
 ~~~
 {::include art/physical_meter_new_device_ascii.txt}
 ~~~
-{: #fig-new_device title="Reference Model Example: Physical Meter with New Device" }
+{: #fig-new_device title="Reference Model Example: Meter with New Device" }
 
 
-The most important issue in such a topology is to avoid the double counting in the Energy Management System (EnMS). The physical meter reports the Energy transmitted, while the connected Device/Component might also report its consumed Energy. Those two values are identical. Without the knowledge of this specific topology, that is the Metering Relationship between the two Energy Objects, the EnMS will double count the Energy consumed in the network.
+The most important issue in such a topology is to avoid the double counting in the Energy Management System (EnMS). The Meter reports the Energy transmitted, while the connected Device/Component might also report its consumed Energy. Those two values are identical. Without the knowledge of this specific topology, that is the Metering Relationship between the two Energy Objects, the EnMS will double count the Energy consumed in the network.
 
 
 ### Power over Ethernet
@@ -401,9 +403,7 @@ This covers the example of a switch port (Power Outlet) that provides energy wit
 
 Double counting is also an issue in such an example. The switch port, via its Power Outlet, reports the Energy transmitted, while the PoE End Point, via its Power Inlet, reports its Energy consumed.
 
-A second issue in such an example is the control topology. The controller must have the knowledge that, if it shuts down the switch port, it will also switch off the connected PoE End Point, as a consequence. This is the Power Source Relationship.
-
-A Power Source Relationship is a relationship where one Energy Object provides power to one or more Energy Objects. The Power Source Relationship gives a view of the physical wiring topology -- for example, a PoE End Point receiving power from a switch port over PoE or a data center server receiving power from two specific Power Interfaces from two different PDUs.
+A second issue in such an example is the control topology. The controller must have the knowledge that, if it shuts down the switch port, it will also switch off the connected PoE End Point, as a consequence. This is the Power Source Relationship ({{relationships}}).
 
 On top of that, there might be two control points for the PoE End Point. First the connected switch port but also the controller direct connection to the PoE End Point (f). Via this interface, the controller might for example put the PoE End Point to a lower Power State.
 
@@ -420,13 +420,19 @@ This covers the example of a smart PDU that provides energy to a series of route
 
 ### Multiple Power Supplies with Single Device
 
+This covers the example of a device, such as a router with redundant power supplies, that receives energy from two or more Power Supplies through separate Power Inlets.
+
+The Energy received by the device is the sum over all its Power Inlets {{PowerAndEnergy}}, while each Power Supply reports the Energy it provides. The Power Source Relationships between the device and each Power Supply tell the EnMS that these values describe the same Energy, so that it is counted once.
+
+The control topology differs from the single-supply case: switching off one Power Supply does not switch off the device. Before acting on a Power Supply, for example for maintenance, the Controller needs all the Power Source Relationships of the device, to verify that the remaining Power Supplies can carry its load.
+
 ~~~
 {::include art/multiple_power_ascii.txt}
 ~~~
 {: #fig-multiple_power title="Reference Model Example: Multiple Power Supplies with Single Device" }
 
 
-## Relationships
+## Relationships {#relationships}
 
 The framework for Energy Management needs to describe a means to monitor and control devices and components, and it needs to describe the relationships among, and connections between, devices and components.
 
@@ -440,7 +446,7 @@ There are four types of relationships: Power Source, Metering, Aggregation, and 
 
 Note: A Power Source Relationship may or may not change as the direction of power changes between two Energy Objects.  The relationship may remain to indicate that the change of power direction was unintended or an error condition.
 
-* A Metering Relationship is a relationship where one Energy Object measures power, energy, demand, or Power Attributes of one or more other Energy Objects.  The Metering Relationship gives the view of the Metering topology.  Physical meters can be placed anywhere in a power distribution tree.  For example, utility meters monitor and report accumulated power consumption of the entire building. Logically, the Metering topology overlaps with the wiring topology, as meters are connected to the wiring topology. A typical example is meters that clamp onto the existing wiring.
+* A Metering Relationship is a relationship where one Energy Object measures power, energy, demand, or Power Attributes of one or more other Energy Objects.  The Metering Relationship gives the view of the Metering topology.  Meters can be placed anywhere in a power distribution tree.  For example, utility meters monitor and report accumulated power consumption of the entire building. Logically, the Metering topology overlaps with the wiring topology, as meters are connected to the wiring topology. A typical example is meters that clamp onto the existing wiring.
 
 * An Aggregation Relationship is a relationship where one Energy Object aggregates Energy Management information of one or more other Energy Objects.  The Aggregation Relationship gives a model of devices that may aggregate (sum, average, etc.) values for other devices.  The Aggregation Relationship is slightly different compared to the other relationships, as this refers more to a management function.
 
@@ -511,7 +517,7 @@ Identifying what Power States an Energy Object supports is crucial for onboardin
 - Transition characteristics, such as the time required to move between states.
 - Energy Object-specific state transition constraints like frequency, which may limit energy-saving measures to avoid damaging the device/components.
 
-{{CapabilityDiscovery}} addresses part of this list. It defines a YANG module, discoverable through the system capabilities mechanism of {{?RFC9196}}, that advertises for each hardware Component {{RFC8348}} the Power States the Component supports, identified by the Power State identities of {{PowerAndEnergy}} (additional Power State Sets can be defined as identities derived from the same base identity), the expected and maximum Power in each state, and the times to enter and exit each state relative to the on state. These capabilities can be read from a running device, or from a YANG instance data file {{?RFC9195}} before the device is deployed. The Power values are static planning baselines, not measurements, and each Component reports its own values, excluding its child Components. Being capable of a low-power state does not make a Component eligible to enter it: eligibility is operator policy. Dependencies between Components are expressed by the Functional Enablement Relationship of {{PowerAndEnergy}}. Direct transitions between two low-power states, limits on transition frequency or duty cycle, relative Power, and the semantics of each Power State beyond its name are not covered.
+{{CapabilityDiscovery}} addresses part of this list. It defines a YANG module, discoverable through the system capabilities mechanism of {{?RFC9196}}, that advertises for each hardware Component {{RFC8348}} the Power States the Component supports, identified by the Power State identities of {{PowerAndEnergy}} (additional Power State Sets can be defined as identities derived from the same base identity), the expected and maximum Power in each state, and the times to enter and exit each state relative to the on state. These capabilities are read from the running device over interface (d), and passed on to the EnMS over interface (a); before the device is deployed, they can be obtained from a YANG instance data file {{?RFC9195}} over interface (c). The Power values are static planning baselines, not measurements, and each Component reports its own values, excluding its child Components. Being capable of a low-power state does not make a Component eligible to enter it: eligibility is operator policy. Dependencies between Components are expressed by the Functional Enablement Relationship of {{PowerAndEnergy}}. Direct transitions between two low-power states, limits on transition frequency or duty cycle, relative Power, and the semantics of each Power State beyond its name are not covered.
 
 
 
@@ -580,8 +586,9 @@ The notation `a->b->c` represents the flow between framework components as descr
 |11| Energy Efficiency Network | a->b->c->f->g |
 | | Management | discover->monitor->metrics-> |
 | | | control->API |
-|12| ISAC-enabled Energy-Aware | --- |
-| | Smart City Traffic Mgmt | not clearly specified |
+|12| ISAC-enabled Energy-Aware | b->f |
+| | Smart City Traffic Mgmt | monitor->control |
+| | | (local and city-wide) |
 |13| Double Accounting Open | c->g |
 | | Issue | metrics / metadata->API |
 |14| Energy Efficiency Under | b->f |
@@ -619,14 +626,15 @@ Use Cases need both device capabilities and controller coordination:
 
 Who triggers telemetry is independent of implementation focus and follows YANG-Push {{?RFC8641}} patterns:
 
-Controller-Initiated, or Dynamic subscription:
+Controller-Initiated, or Dynamic Subscription {{?RFC8639}}:
 - Controller establishes YANG-Push subscriptions to Energy Objects
 - Device streams telemetry at specified intervals (periodic) or on change (event-driven)
 - Centralized monitoring policy management
 
-Device-Initiated, or Static Subscription:
-- Device autonomously pushes alerts without prior subscription
-- Used for threshold violations, hardware failures, certification degradation
+Device-Initiated, or Configured Subscription {{?RFC8639}}:
+- The subscription is installed via configuration on the device, which initiates the connection to the receiver
+- Persists across device reboots and transport interruptions
+- Used for threshold crossings and hardware failures, typically with on-change updates
 - Complements controller-initiated monitoring
 
 Even device-centric use cases (autonomous operation) typically use controller-initiated telemetry (controller subscribes to observe device behavior). These concepts are independent.
@@ -659,20 +667,6 @@ Even device-centric use cases (autonomous operation) typically use controller-in
 {: #uc-implementation-focus title="Use Case Implementation Focus"}
 
 
-<<TODO - consider to include>>
-
-## Key Findings
-
-### Device Capabilities Required across Use Cases
-
-### Controller Capabilities Required across Use Cases
-
-## Implementation Priorities
-
-## Next Steps
-
-<<TODO - ends here>>
-
 # Operational Considerations
 
 ## Measurement Accuracy Inheritance
@@ -685,15 +679,38 @@ This design reduces telemetry volume, since components that share their parent's
 
 Power and Energy magnitudes do not use inheritance: the GREEN YANG data model uses fixed units (milliwatts for instantaneous Power received and provided and for the Power Cap, milliwatt-hours for Energy received and provided), so no per-instance scale factor needs to be propagated or resolved.
 
+## Telemetry Interval and Volume
+
+The Energy counters of {{PowerAndEnergy}} are cumulative, so a longer YANG-Push {{?RFC8641}} period loses no Energy, only time resolution. Instantaneous Power is sampled at each update, so a longer period can miss short peaks. The period is therefore chosen per purpose: a long period suffices for Energy accounting and reporting, while detecting Power anomalies needs a shorter one. Power State changes are better reported with on-change updates, using a dampening period {{?RFC8641}} to limit the number of updates when a state changes repeatedly.
+
+## Incomplete Coverage
+
+Not every Component has an Energy Object, and the Power and Energy values of {{PowerAndEnergy}} are reported only when the device can measure them. A total obtained by summing the values reported by Components is complete only when every Energy Object in the relevant part of the hardware inventory {{RFC8348}} reports; otherwise it is a lower bound. A total taken at the supply side, from the Energy received or provided by all the Power Supplies of a device, or from a Meter upstream, does not depend on which Components report. Subtracting the Energy received by the reporting Components from the Energy provided by the Power Supplies that feed them gives the Energy not attributed to any reporting Component. The Controller can determine coverage by comparing the Energy Objects it receives with the hardware inventory, and needs to state the coverage, together with the accuracy of the values, when it reports an aggregate over interface (b).
+
+## Manually Configured Relationships
+
+Relationships that are configured manually, because they cannot be discovered, do not follow changes in the physical installation, such as re-cabling or the replacement of a Power Supply. A stale Metering Relationship leads to double counting or to missing Energy, and a stale Power Source Relationship can lead to a wrong control decision. Manually configured relationships need to be reviewed after any such change. Where a Meter measures a set of Energy Objects, a sudden and lasting change in the difference between the Meter value and the sum of the values reported by those Energy Objects indicates a stale or missing relationship.
+
+
 # Security Considerations
 
-Resiliency is an implicit use case of energy efficiency management which comes with numerous security considerations:
+The YANG data models used by this framework, {{PowerAndEnergy}} and {{CapabilityDiscovery}}, describe in their Security Considerations the secure transport, mutual authentication, and access control {{?RFC8341}} that apply to the data nodes they define. This section covers the security aspects of the framework architecture.
 
 Controlling Power State and power supply of entities are considered highly sensitive actions, since they can significantly affect the operation of directly and indirectly connected devices.  Therefore, all control actions must be sufficiently protected through authentication, authorization, and integrity protection mechanisms.
 
 Entities that are not sufficiently secure to operate directly on the public Internet do exist and can be a significant cause of risk, for example, if the remote control functions can be exercised on those devices from anywhere on the Internet.
 
 The monitoring of energy-related quantities of an entity as addressed can be used to derive more information than just the received and provided energy; therefore, monitored data requires protection. This protection includes authentication and authorization of entities requesting access to monitored data as well as confidentiality protection during transmission of monitored data.  Privacy of stored data in an entity must be taken into account.  Monitored data may be used as input to control, accounting, and other actions, so integrity of transmitted information and authentication of the origin may be needed.
+
+The Controller aggregates data from many devices, maintains the mapping between identifiers, and exercises control (f). A compromised Controller therefore affects every Energy Object it manages, and access to it needs the same protection as access to the devices.
+
+Static reference data received over interface (c), such as datasheet or certification values, influences planning and reporting without involving any device. Its source needs to be authenticated and its integrity protected.
+
+Relationships configured manually are a target: a false Metering Relationship causes double counting or hides consumption, and a false Power Source Relationship can lead a Controller to switch off a Power Supply it considers redundant.
+
+Energy data feeds accounting and sustainability reporting, so its integrity, not only its confidentiality, needs protection against falsification.
+
+With a configured subscription {{?RFC8639}}, the device sends telemetry to the configured receivers; a misconfigured receiver discloses that telemetry for as long as the subscription exists. Interface (g) exposes data and control to external consumers and requires its own authentication and authorization.
 
 # IANA Considerations
 
@@ -702,8 +719,6 @@ This document has no IANA actions.
 --- back
 
 # TO DO and Open Issues
-
-* IEC60050 reference needs a new URL
 
 The following topics remain open for further discussion points:
 

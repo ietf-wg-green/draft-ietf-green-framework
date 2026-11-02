@@ -8,7 +8,7 @@
   | Inventory of     | Monitor       +- (c)
   | identity and     | Energy        |
   | Capability       | Efficiency    | DataSheets/DataBase
-  |                  |               | and/or via API,
+  |                  |               | and/or via (g),
   |                  |               | Metadata and other
   |                  |               | device, component and
   |                  |               | network related
@@ -16,7 +16,7 @@
   |                  |               v               
 +--------------------------------------------------------------------+
 |                                                                    |
-|       (2) Controller (collection, compute and aggregate?)          |
+|       (2) Controller (collection, compute and aggregate)           |
 |                                                                    |
 +--------------------------------------------------------------------+
                                              ^   ^   ^
