@@ -1990,7 +1990,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
                               |
     +--------------+   +----------------+   +---------------+
     |              |   |                |   |               |
-    | Power Supply |###|     Meter      |###| Legacy Device |
+    | Power Supply |~~~|     Meter      |~~~| Legacy Device |
     |              |   |                |   |               |
     +--------------+   +----------------+   +---------------+
 </pre>
@@ -2040,7 +2040,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
                               |                 |   |   v
  +--------------+   +----------------+   +------------------+
  |              |   |                |   |                  |
- | Power Supply |###|     Meter      |###| Device/Component |
+ | Power Supply |~~~|     Meter      |~~~| Device/Component |
  |              |   |                |   |                  |
  +--------------+   +----------------+   +------------------+
 </pre>
@@ -2090,7 +2090,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
               |   |   v                    |   |   v
             +--------------+            +----------------+
             |              |            |                |
-            | Device       |############| PoE End Point  |
+            | Device       |~~~~~~~~~~~~| PoE End Point  |
             | (switch)     |            |                |
             |              |            |                |
             +--------------+            +----------------+
@@ -2115,11 +2115,11 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
 <figure id="figure-6">
             <div class="alignLeft art-text artwork" id="section-3.2.5-2.1">
 <pre>
-+--------------------------------------------------------------------+
-|                                                                    |
-|              (3) Energy Management System (EnMS)                   |
-|                                                                    |
-+--------------------------------------------------------------------+
++------------------------------------------------------------------+
+|                                                                  |
+|              (3) Energy Management System (EnMS)                 |
+|                                                                  |
++------------------------------------------------------------------+
   ^                  ^
   | (a)              | (b)
   | Inventory of     | Monitor       +- (c)
@@ -2131,11 +2131,11 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
   |                  |               | network related
   |                  |               | information
   |                  |               v
-+--------------------------------------------------------------------+
-|                                                                    |
-|       (2) Controller (collection, compute and aggregate)           |
-|                                                                    |
-+--------------------------------------------------------------------+
++-----------------------------------------------------------------+
+|                                                                 |
+|       (2) Controller (collection, compute and aggregate)        |
+|                                                                 |
++-----------------------------------------------------------------+
               ^   ^   ^                     ^   ^   ^
               |   |   |                     |   |   |
              (d) (e) (f)                   (d) (e) (f) ... N
@@ -2143,20 +2143,20 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
               |   |   v                     |   |   v
             +--------------+            +--------------------+
             |              |            |                    |
-            | Power Supply |############| Device/Component 1 |
-            | (Smart PDU)  |  #         |                    |
-            |              |  #         +--------------------+
-            +--------------+  #
-                              #
-                              #         +--------------------+
-                              #         |                    |
-                              ##########| Device/Component 2 |
-                                 #      |                    |
-                                 #      +--------------------+
-                                 #
-                                 #      +--------------------+
-                                 #      |                    |
-                                 #######| Device/Component N |
+            | Power Supply |~~~~~~~~~~~~| Device/Component 1 |
+            | (Smart PDU)  |  ~         |                    |
+            |              |  ~         +--------------------+
+            +--------------+  ~
+                              ~
+                              ~         +--------------------+
+                              ~         |                    |
+                              ~~~~~~~~~~| Device/Component 2 |
+                                 ~      |                    |
+                                 ~      +--------------------+
+                                 ~
+                                 ~      +--------------------+
+                                 ~      |                    |
+                                 ~~~~~~~| Device/Component N |
                                         |                    |
                                         +--------------------+
 </pre>
@@ -2207,7 +2207,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
       |   |   v                |   |   v                 |   |   v
    +----------------+      +------------------+      +----------------+
    |                |      |                  |      |                |
-   | Power Supply 1 |######| Device/Component |######| Power Supply 2 |
+   | Power Supply 1 |~~~~~~| Device/Component |~~~~~~| Power Supply 2 |
    |                |      |                  |      |                |
    +----------------+      +------------------+      +----------------+
 </pre>
