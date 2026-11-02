@@ -17,17 +17,17 @@
   |               |            v                      v
 +------------------------------------------------------------------+
 |                                                                  |
-|       (2) Controller (collection, compute and aggregate?)        |
+|       (2) Controller (collection, compute and aggregate)         |
 |                                                                  |
 +------------------------------------------------------------------+
   ^                   ^                         ^ |
   | (d)               | (e)                     | | (f)
   | Inventory         | Monitor power           | | Control
-  | Capability        | Proportion              | | (Energy saving
-  |                   | Energy efficiency       | | Functionality
-  |                   | ratio, power            | | Localized mgmt/
-  |                   | consumption,            | | network wide mgmt)
-  |                   | etc)                    | |
+  | Capability        | Energy efficiency       | | (Energy saving
+  |                   | ratio, power            | | Functionality
+  |                   | consumption,            | | Localized mgmt/
+  |                   | etc)                    | | network wide mgmt)
+  |                   |                         | |
   |                   |                         | v
 +--------------------------------------------------------------------+
 |                                                                    |
