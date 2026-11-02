@@ -71,7 +71,22 @@ informative:
 
    CapabilityDiscovery: I-D.claise-green-capability-discovery
 
-   PetraApi: I-D.petra-green-api
+   PetraApi:
+     title: "Path Energy Traffic Ratio API (PETRA)"
+     author:
+       - ins: A. Rodriguez-Natal
+         name: Alberto Rodriguez-Natal
+       - ins: L.M. Contreras
+         name: Luis M. Contreras
+       - ins: M. Palmero
+         name: Marisol Palmero
+       - ins: J. Lindblad
+         name: Jan Lindblad
+       - ins: A. Gallego Sanchez
+         name: Adrian Gallego Sanchez
+     seriesinfo:
+       Internet-Draft: draft-petra-green-api-05
+     date: 2026-10-31
 
 --- abstract
 
