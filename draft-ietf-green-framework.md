@@ -25,8 +25,8 @@ venue:
   type: ""
   mail: "green@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/green/"
-  github: "https://github.com/ietf-wg-green/draft-ietf-green-framework"
-  latest: "https://github.com/ietf-wg-green/draft-ietf-green-framework.html"
+  github: "ietf-wg-green/draft-ietf-green-framework"
+  latest: "https://ietf-wg-green.github.io/draft-ietf-green-framework/draft-ietf-green-framework.html"
 
 
 author:
@@ -112,7 +112,7 @@ Implementers are expected to refer to both documents: this framework for underst
 
 ## Terminology
 
-The following terms are defined in {{GreenTerminology}}: Energy, Power, Energy Object, Energy Management, Energy Monitoring, Energy Control, Energy Management System (EnMS), Device, Component, Meter (Energy Meter), Power Inlet, Power Outlet, Power Interface, Power State, Power State Set, Nameplate Power, Energy Efficiency, Energy Efficiency Management, Energy Saving, Energy-Aware Intent.
+The following terms are defined in {{GreenTerminology}}: Energy, Power, Energy Object, Energy Management, Energy Monitoring, Energy Control, Energy Management System (EnMS), Device, Component, Meter (Energy Meter), Power Inlet, Power Outlet, Power Interface, Power State, Power State Set, Nameplate Power, Energy Efficiency, Energy Efficiency Management, Energy Saving, Energy-Aware Intent. The term Power Cap is defined in {{PowerAndEnergy}}.
 
 
 
@@ -125,17 +125,20 @@ Both concepts are required within the YANG modules: Power enables real-time moni
 
 ## EMAN Data Model Compatibility {#eman-compat}
 
-The GREEN framework builds upon the conceptual foundations of the Energy MANagement (EMAN) framework {{?RFC7326}} and its associated SNMP-based data models {{?RFC7460}}{{?RFC7461}}.  The GREEN YANG data model {{PowerAndEnergy}} supersedes those MIB modules using the correspondence shown in {{eman-mapping-table}}.  Energy collection scheduling objects from {{?RFC7460}} (e.g., `eoEnergyCollectionStartTime`) are not carried forward, as collection timing is managed through YANG-Push subscriptions {{?RFC8641}}. Implementations currently supporting the EMAN MIBs can use this correspondence as a migration path toward YANG/NETCONF/RESTCONF-based energy management.
+The GREEN framework builds upon the conceptual foundations of the Energy MANagement (EMAN) framework {{?RFC7326}} and its associated SNMP-based data models {{?RFC7460}}{{?RFC7461}}.  {{eman-mapping-table}} shows the correspondence between the EMAN MIB objects and the GREEN YANG data model {{PowerAndEnergy}}; it is a migration aid, not a one-to-one mapping (see the "Relationship to the EMAN Work" section of {{PowerAndEnergy}}).  Energy collection scheduling objects from {{?RFC7460}} (e.g., `eoEnergyCollectionStartTime`) are not carried forward, as collection timing is managed through YANG-Push subscriptions {{?RFC8641}}. Implementations currently supporting the EMAN MIBs can use this correspondence as a migration path toward YANG/NETCONF/RESTCONF-based energy management.
 
 
 | EMAN MIB Object | GREEN YANG Data Model |
 |-|:-|
 | `eoPowerTable` / `eoEnergyTable` | `energy-objects` container |
-| `eoPowerEntry` | `energy-entry` list |
-| `eoPowerAdminState` | `power-state-admin` identityref (control tree) |
-| `eoPowerOperState` | `power-state-oper` identityref (monitoring tree) |
-| `eoPowerStateEnterReason` | `state-enter-reason` identityref |
-| `PowerStateSet` | `power-state-on`, `power-state-off`, `power-state-low-power` identities |
+| `eoPowerEntry` | `energy-object` list |
+| `eoPower` | `instantaneous-power-received` minus `instantaneous-power-provided` |
+| `eoEnergyConsumed` | `total-energy-received` |
+| `eoEnergyProvided` | `total-energy-provided` |
+| `eoPowerAdminState` | `admin` identityref (energy-control tree) |
+| `eoPowerOperState` | `oper` identityref (energy-objects tree) |
+| `eoPowerStateEnterReason` | no equivalent (not carried forward) |
+| `PowerStateSet` | identities derived from `power-state`: `power-state-on`, `power-state-off`, `power-state-sleep` |
 | `eoRelationTable` | `relationship` list |
 {: #eman-mapping-table title="EMAN MIB to GREEN YANG Mapping"}
 
@@ -155,10 +158,6 @@ The framework aims to enhance the creation of energy metrics with actionable ins
 ## Device Readiness
 
 While many modern networking devices have basic energy monitoring capabilities, these are often proprietary. The framework defines requirements to enhance these capabilities, enabling standardized metric production and meaningful data contributions for energy management goals.
-
-# Conventions and Definitions
-
-{::boilerplate bcp14-tagged}
 
 # Reference Model
 
@@ -187,13 +186,13 @@ The main elements in the framework are as follows:
 
 * (a), (d) Discovery and Inventory
 
-* (b) Expose monitored energy efficiency metrics from the Controller: The Controller exposes aggregated GREEN metrics to the EnMS. Reported data includes power consumption, energy counters, power state, and efficiency indicators, after Controller-level aggregation and normalization. This interface is realized via YANG Push {{RFC8641}} subscriptions established from the Controller toward the EnMS.
+* (b) Expose monitored energy efficiency metrics from the Controller: The Controller exposes aggregated GREEN metrics to the EnMS. Reported data includes power consumption, energy counters, power state, and efficiency indicators, after Controller-level aggregation and normalization. This interface is realized via YANG-Push {{RFC8641}} subscriptions established from the Controller toward the EnMS.
 
-* (c) GREEN Metrics — Static Reference Data: power and energy reference values obtained from sources external to the managed network, such as manufacturer datasheets, equipment specifications, and energy efficiency certification records. This data is typically retrieved once at onboarding time or when new equipment is introduced, and cached for subsequent use. It does not require an EnMS and may be obtained prior to device deployment.
+* (c) GREEN Metrics (Static Reference Data): power and energy reference values obtained from sources external to the managed network, such as manufacturer datasheets, equipment specifications, and energy efficiency certification records. This data is typically retrieved once at onboarding time or when new equipment is introduced, and cached for subsequent use. It does not require an EnMS and may be obtained prior to device deployment.
 
-  Interface (c) is complementary to, but distinct from, interface (d). Interface (d) concerns the discovery of device identity and operational capability through the management plane, information that the device itself reports at runtime. Interface (c) concerns reference data about a device's power characteristics that originates from the manufacturer or an external repository, independently of whether the device is reachable or deployed. A practical example is nameplate power values: these may be loaded into the Controller from a vendor datasheet via (c) before the device is installed, and later correlated with the device identit discovered via (d).
+  Interface (c) is complementary to, but distinct from, interface (d). Interface (d) concerns the discovery of device identity and operational capability through the management plane, information that the device itself reports at runtime. Interface (c) concerns reference data about a device's power characteristics that originates from the manufacturer or an external repository, independently of whether the device is reachable or deployed. A practical example is nameplate power values: these may be loaded into the Controller from a vendor datasheet via (c) before the device is installed, and later correlated with the device identity discovered via (d).
 
-* (e) Expose monitored power and energy from device: each Energy Object expose raw operational telemetry energy related data directly to the Controller. Reported data includes instantaneous power, energy counters, power state, data-source accuracy metadata, and energy efficiency certifications, as defined in {{PowerAndEnergy}}. Data is delivered via YANG Push {{RFC8641}} subscriptions or retrieved via NETCONF/RESTCONF. This interface is the primary source of device-level data that the Controller aggregates and normalizes before reporting it to the EnMS via interface (b). Devices may also provide traffic and utilization metrics over the same management channel; those metrics are outside the scope of this framework.
+* (e) Expose monitored power and energy from device: each Energy Object exposes raw operational energy-related telemetry directly to the Controller. Reported data includes instantaneous power, energy counters, power state, data-source accuracy metadata, and energy efficiency certifications, as defined in {{PowerAndEnergy}}. Data is delivered via YANG-Push {{RFC8641}} subscriptions or retrieved via NETCONF/RESTCONF. This interface is the primary source of device-level data that the Controller aggregates and normalizes before reporting it to the EnMS via interface (b). Devices may also provide traffic and utilization metrics over the same management channel; those metrics are outside the scope of this framework.
 
 * (f) Control Energy Saving
 
@@ -203,7 +202,7 @@ Inventory information, referring to interfaces (a) and (d), may originate from d
 
 The reference model covers every network device and component that have a Unique Identifiable ID (UUID) and can represent or influence power or energy consumption. If the component can be uniquely identified, it can be modeled.
 
-The GREEN metric related interfaces (b) (c) between the EnMS and the Controller can be used to collect/exchange both dynamic energy efficiency metrics and static energy/power consumption metrics.
+Interface (b) carries the dynamic, aggregated GREEN metrics from the Controller to the EnMS. Interface (c) brings static reference data, such as datasheet and certification values, into the Controller; it does not involve the EnMS.
 
 The monitoring interface (e) monitors more aspects than just power and energy, (for example traffic monitoring) but this is not covered in the framework.
 
@@ -261,24 +260,15 @@ The framework supports both initiation models:
   - Useful for threshold violations or hardware failures
   - Complements controller-initiated subscriptions
 
-  Energy efficiency management requires stable identification of Energy Objects across device, controller, inventory, and reporting systems. The framework therefore relies on UUID-based identification ({{?RFC9562}}) as exposed through {{RFC8348}}, while allowing controller-assigned identifiers for onboarding and cross-system correlation. Implementations should maintain mappings between local identifiers and globally unique hardware identifiers to support inventory and reporting consistency, as well as telemetry correlation.
-
 ### Energy Object Identification
 
-Every Energy Object, i.e., a device, a chassis, a line card, a power supply, needs a stable identity so that energy data, control actions, and inventory records all refer to the same physical thing, consistently, across every system that touches it.
+Every Energy Object (e.g., a device, a chassis, a line card, or a power supply) needs a stable identity, so that energy data, control actions, and inventory records refer to the same physical thing across every system that handles it.
 
-The device itself is the source of truth for its own identity. Each component reports a hardware UUID ({{?RFC9562}}) that follows it through its entire lifecycle: from the moment it is installed until it is decommissioned or replaced. No other system can change this identifier. The Controller and the EnMS read it; they do not write it.
+The device is the source of truth for the identity of its own Energy Objects. The device reports an identifier for each Energy Object and, where the Energy Object is a hardware component, a reference to that component in the "ietf-hardware" module {{RFC8348}} {{PowerAndEnergy}}. When the component reports a Universally Unique Identifier (UUID) {{?RFC9562}} through {{RFC8348}}, that UUID is the preferred key for correlation with external inventory, asset-management, and lifecycle tracking systems. The Controller and the EnMS read these identifiers; they do not write them.
 
-The Controller also needs its own handle for each Energy Object, so it can attach instructions to it; for example, a desired power state or an energy-saving policy. The Controller assigns this handle when it first discovers the object. This is the identifier the Controller uses when it wants to act on something.
+The Controller also needs its own identifier for each Energy Object, to which it attaches management configuration, such as an administrative Power State or an energy-saving policy, within its management domain. The Controller assigns this identifier when it first discovers the Energy Object.
 
-These two identifiers serve different roles:
-The device hardware UUID identifies the physical component, with a stable unique reference enabling correlation with external inventory, asset-management databases and lifecycle tracking systems.
-
-The Controller assigned identifier is the reference used to associate management configuration, such as an administrative power state or an energy-saving policy, with that component within the Controller's management domain.
-
-The Controller is responsible for keeping the link between the two, so that when an operator looks up a component in an inventory system and wants to act on it, the Controller can map from one identifier to the other.
-
-To enable stable component identification across systems, the GREEN Framework supports dual identifiers based on {{RFC8348}}: controllers will need to assign their own ID during onboarding, query the device's "ietf-hardware" UUID, and maintain a mapping between both for cross-system correlation.
+The Controller is responsible for maintaining the mapping between its own identifier and the device-reported identifiers, so that an operator who looks up a component in an inventory system can act on it through the Controller.
 
 ### Measurement Accuracy and Data Source Classification
 
@@ -311,7 +301,7 @@ Energy objects inherit their hierarchical containment relationships from the har
 
 - A chassis(parent) contains line cards(children).
 - Each line card(parent) contains ports(children).
-- Each chassis(parent) is powered by power supply units(children).
+- A chassis (parent) contains power supply units (children).
 
 Energy metrics and metadata follow these same hierarchical relationships, enabling:
 
@@ -332,17 +322,18 @@ Example:
 Chassis (accuracy: gold +/-5%)
 +-- Line Card 1 (inherits: gold +/-5%)  <- No need to report
 |-- Line Card 2 (inherits: gold +/-5%)  <- No need to report
-|-- PSU 1 (explicit: silver +/-10%)     <- Must report (differs from parent)
+|-- PSU 1 (explicit: silver +/-10%)     <- Must report (differs)
 ~~~
 
 This reduces YANG-Push telemetry volume while maintaining accuracy transparency.
 
 ### Fixed Units for Power and Energy Values
 
-The GREEN YANG data model {{PowerAndEnergy}} uses fixed units for all power and energy leaves, rather than a variable-scale approach.
-Instantaneous power is always expressed in milliwatts (mW), nameplate power in Watts (W), and energy in milliwatt-hours (mWh).
-This design eliminates a class of interoperability errors that would arise if different implementations applied different unit multipliers to the same value, and simplifies YANG Push consumers since no per-instance unit resolution is required before values can be compared or aggregated.
-The integer types used (int64 for instantaneous power, uint64 for energy) provide sufficient range to represent the power consumption of any foreseeable network device or aggregate without overflow.
+The GREEN YANG data model {{PowerAndEnergy}} uses fixed units for all Power and Energy leaves, rather than a variable-scale approach.
+Power and Energy are reported per direction, received and provided, as unsigned values.
+Instantaneous Power received and provided, and the Power Cap, are expressed in milliwatts (mW), Nameplate Power in watts (W), and Energy received and provided in milliwatt-hours (mWh).
+This design eliminates a class of interoperability errors that would arise if different implementations applied different unit multipliers to the same value, and simplifies YANG-Push consumers since no per-instance unit resolution is required before values can be compared or aggregated.
+The integer types used (uint64 for Power and Energy) provide sufficient range to represent the Power of any foreseeable network device or aggregate without overflow.
 
 ### Power Factor
 
@@ -442,9 +433,9 @@ The framework for Energy Management needs to describe a means to monitor and con
 
 Two Energy Objects can establish an Energy Object Relationship to model the deployment topology with respect to Energy Management.
 
-Relationships are modeled with a Relationship that contains the UUID of the other participant in the relationship, along with a Relationship type.
+Relationships are modeled with a Relationship that contains the identifier of the other participant, preferably its UUID, along with a Relationship type.
 
-There are four types of relationships are Power Source, Metering, Aggregation, and Functional Enablement.
+There are four types of relationships: Power Source, Metering, Aggregation, and Functional Enablement.
 
 * A Power Source Relationship is a relationship where one Energy Object provides power to one or more Energy Objects.  The Power Source Relationship gives a view of the physical wiring topology; for example, a data center server receiving power from two specific Power Interfaces from two different PDUs.
 
@@ -454,25 +445,24 @@ Note: A Power Source Relationship may or may not change as the direction of powe
 
 * An Aggregation Relationship is a relationship where one Energy Object aggregates Energy Management information of one or more other Energy Objects.  The Aggregation Relationship gives a model of devices that may aggregate (sum, average, etc.) values for other devices.  The Aggregation Relationship is slightly different compared to the other relationships, as this refers more to a management function.
 
-* A Functional Dependency Relationship is a relationship where one Energy Object requires another Energy Object to be in an operational state for its own correct functioning, even though no energy flows between them and neither measures the other.  This relationship captures operational dependencies that are distinct from physical power supply or metering topology. For example, a line card (Line Processing Unit, LPU) that depends on a switch card (Switch Fabric Unit, SFU) to forward traffic.  The SFU does not power the LPU, does not meter it, and does not aggregate its energy measurements; the dependency is purely functional.  Without an explicit Functional Dependency Relationship, a controller that only understands Power Source, Metering, and Aggregation Relationships has no basis for concluding that powering off the SFU will disrupt the LPU's data-plane operation. The relationship is expressed as a symmetric pair in the YANG data model {{PowerAndEnergy}}: `enabled-by` (from the dependent toward the object it requires) and `enabling` (from the required object toward those that depend on it).
+* A Functional Enablement Relationship is a relationship where one Energy Object requires another Energy Object to be in an operational state for its own correct functioning, even though no energy flows between them and neither measures the other.  This relationship captures operational dependencies that are distinct from physical power supply or metering topology. For example, a line card (Line Processing Unit, LPU) that depends on a switch card (Switch Fabric Unit, SFU) to forward traffic.  The SFU does not power the LPU, does not meter it, and does not aggregate its energy measurements; the dependency is purely functional.  Without an explicit Functional Enablement Relationship, a controller that only understands Power Source, Metering, and Aggregation Relationships has no basis for concluding that powering off the SFU will disrupt the LPU's data-plane operation. The relationship is expressed as a symmetric pair in the YANG data model {{PowerAndEnergy}}: `enabled-by` (from the dependent toward the object it requires) and `enabling` (from the required object toward those that depend on it).
 
 To prevent double counting in scenarios where one Energy Object provides power to another (e.g., PoE switch port to PoE endpoint):
 
-Convention: Report both consumed and delivered energy separately:
-- The providing Energy Object reports total-energy-consumed (self) AND total-energy-delivered (to downstream)
-- The receiving Energy Object reports total-energy-consumed
+Each Energy Object reports the Energy it receives and the Energy it provides; its consumption is the net value, received minus provided {{PowerAndEnergy}}.
 
-Example: A PoE switch port consuming 1W and providing 9W to an endpoint:
-- Port reports: total-energy-consumed=1W, total-energy-produced=9W
-- Endpoint reports: total-energy-consumed=9W
+Example: over one hour, a PoE switch port receives 10 Wh and provides 9 Wh to an endpoint (cable loss ignored):
 
-Controllers must use Metering Relationships to identify and avoid aggregating both values.
+- Port reports: total-energy-received = 10 Wh, total-energy-provided = 9 Wh (net: 1 Wh)
+- Endpoint reports: total-energy-received = 9 Wh (net: 9 Wh)
+
+Summing the net values (1 Wh + 9 Wh = 10 Wh) counts each watt-hour once. The Power Source Relationship between the port and the endpoint tells the Controller that the 9 Wh are the same Energy.
 
 In some situations, it is not possible to discover the Energy Object Relationships, and an EnMS or administrator must manually set them.  Given that relationships can be assigned manually, the following sections describe guidelines for use.
 
 ## Power State Set
 
-The Energy Object contains a Power State Set attribute that represents a set of Power States a device or component supports.
+An Energy Object supports a set of Power States, its Power State Set.
 
 A Power State describes a condition or mode of a device or component. While Power States are typically used for control, they may be used for monitoring only.
 
@@ -494,11 +484,11 @@ The semantics of a Power State should be clearly defined.  Limitation(curtailmen
 
    *  An indication of power relative to another Power State.  For example, specify that power in state A is less than in state B.
 
-   *  For supporting Power State management, an Energy Object provides statistics on Power States, including the time an Energy Object spent in a certain Power State and the number of times an Energy Object entered a Power State.
+   *  For supporting Power State management, an Energy Object can provide statistics on Power States, such as the time spent in a Power State and the number of times it entered a Power State. These statistics are not part of {{PowerAndEnergy}}.
 
 
 There are many existing standards describing device and component
-Power States. TO BE COMPLETED
+Power States. The IANA "Power State Sets" registry {{?RFC7326}} lists the IEEE1621, DMTF, and EMAN Power State Sets.
 
 
 ## Power State Set Mapping and Intent
@@ -556,9 +546,12 @@ The table {{green-uc-interfaces-usage}} maps each GREEN use case to the framewor
 
 The notation `a->b->c` represents the flow between framework components as described in the {{fig-green-reference-model}}, where:
 
-- (a) Discovery interface
-- (b) Monitoring interface
-- (c) Metrics interface
+- (a), (d) Discovery and inventory
+- (b) Aggregated GREEN metrics, Controller to EnMS
+- (c) Static reference data (datasheets, certifications)
+- (e) Device telemetry, device to Controller
+- (f) Control
+- (g) API service interface
 
 
 |UC#| Use Case | Interfaces Usages |
@@ -678,13 +671,13 @@ Even device-centric use cases(autonomous operation) typically use controller-ini
 
 ## Measurement Accuracy Inheritance
 
-The GREEN YANG data model {{PowerAndEnergy}} uses parent-inheritance for measurement accuracy: when a component does not explicitly report its data-source accuracy, the client determines the applicable accuracy by consulting the accuracy value reported by the parent object in the ietf-hardware tree diagram {{RFC8348}}, which represents the physical structure of a device as a tree of component.
+The GREEN YANG data model {{PowerAndEnergy}} uses parent-inheritance for measurement accuracy: when a component does not explicitly report its data-source accuracy, the client determines the applicable accuracy by consulting the accuracy value reported by the parent Energy Object: following the "parent" leaf of the ietf-hardware component tree {{RFC8348}} towards the root, the first component that has an Energy Object. The Energy Object at the top of the tree has no parent and reports its accuracy explicitly {{PowerAndEnergy}}.
 
 For example, a chassis containing line cards, each containing ports and power supply units. Each component in that tree has a "parent" leaf that identifies its containing component. Accuracy inheritance follows this same parent-child relationship: a line card that does not report its own accuracy inherits the accuracy reported by the chassis that contains it.
 
-This design reduces telemetry volume, since components that share theirvparent's accuracy class need not transmit redundant accuracy metadata. Only components whose accuracy differs from their parent are required to report an explicit value.
+This design reduces telemetry volume, since components that share their parent's accuracy class need not transmit redundant accuracy metadata. Only components whose accuracy differs from their parent are required to report an explicit value.
 
-Power and energy magnitudes do not use inheritance: the GREEN YANG data model uses fixed units (milliwatts for instantaneous power, milliwatt-hours for energy), so no per-instance scale factor needs to be propagated or resolved.
+Power and Energy magnitudes do not use inheritance: the GREEN YANG data model uses fixed units (milliwatts for instantaneous Power received and provided and for the Power Cap, milliwatt-hours for Energy received and provided), so no per-instance scale factor needs to be propagated or resolved.
 
 # Security Considerations
 
