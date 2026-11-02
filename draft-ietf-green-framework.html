@@ -1113,7 +1113,7 @@ svg {
       </h2>
 <p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
 <p id="section-note.1-2">
-        The latest revision of this draft can be found at <span><a href="https://github.com/ietf-wg-green/draft-ietf-green-framework.html">https://github.com/ietf-wg-green/draft-ietf-green-framework.html</a></span>.
+        The latest revision of this draft can be found at <span><a href="https://ietf-wg-green.github.io/draft-ietf-green-framework/draft-ietf-green-framework.html">https://ietf-wg-green.github.io/draft-ietf-green-framework/draft-ietf-green-framework.html</a></span>.
         Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-ietf-green-framework/">https://datatracker.ietf.org/doc/draft-ietf-green-framework/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">
         Discussion of this document takes place on the
@@ -1121,7 +1121,7 @@ svg {
         which is archived at <span><a href="https://mailarchive.ietf.org/arch/browse/green/">https://mailarchive.ietf.org/arch/browse/green/</a></span>.
         Subscribe at <span><a href="https://www.ietf.org/mailman/listinfo/green/">https://www.ietf.org/mailman/listinfo/green/</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 <p id="section-note.1-4">Source for this draft and an issue tracker can be found at
-        <span><a href="https://github.com/https://github.com/ietf-wg-green/draft-ietf-green-framework">https://github.com/https://github.com/ietf-wg-green/draft-ietf-green-framework</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
+        <span><a href="https://github.com/ietf-wg-green/draft-ietf-green-framework">https://github.com/ietf-wg-green/draft-ietf-green-framework</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -1194,171 +1194,168 @@ svg {
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-reference-model" class="internal xref">Reference Model</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
+                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-data-collection-architectur" class="internal xref">Data Collection Architecture</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.1">
+                    <p id="section-toc.1-1.3.2.1.2.1.1"><a href="#section-3.1.1" class="auto internal xref">3.1.1</a>.  <a href="#name-telemetry-push-pattern" class="internal xref">Telemetry Push Pattern</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.2">
+                    <p id="section-toc.1-1.3.2.1.2.2.1"><a href="#section-3.1.2" class="auto internal xref">3.1.2</a>.  <a href="#name-controller-vs-device-initia" class="internal xref">Controller vs. Device Initiated</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.3">
+                    <p id="section-toc.1-1.3.2.1.2.3.1"><a href="#section-3.1.3" class="auto internal xref">3.1.3</a>.  <a href="#name-energy-object-identificatio" class="internal xref">Energy Object Identification</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.4">
+                    <p id="section-toc.1-1.3.2.1.2.4.1"><a href="#section-3.1.4" class="auto internal xref">3.1.4</a>.  <a href="#name-measurement-accuracy-and-da" class="internal xref">Measurement Accuracy and Data Source Classification</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.5">
+                    <p id="section-toc.1-1.3.2.1.2.5.1"><a href="#section-3.1.5" class="auto internal xref">3.1.5</a>.  <a href="#name-industry-standard-certifica" class="internal xref">Industry-Standard Certifications</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.6">
+                    <p id="section-toc.1-1.3.2.1.2.6.1"><a href="#section-3.1.6" class="auto internal xref">3.1.6</a>.  <a href="#name-extensibility-through-yang-" class="internal xref">Extensibility Through YANG Identities</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.7">
+                    <p id="section-toc.1-1.3.2.1.2.7.1"><a href="#section-3.1.7" class="auto internal xref">3.1.7</a>.  <a href="#name-hierarchical-data-model-and" class="internal xref">Hierarchical Data Model and Default Value Inheritance</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.8">
+                    <p id="section-toc.1-1.3.2.1.2.8.1"><a href="#section-3.1.8" class="auto internal xref">3.1.8</a>.  <a href="#name-fixed-units-for-power-and-e" class="internal xref">Fixed Units for Power and Energy Values</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.9">
+                    <p id="section-toc.1-1.3.2.1.2.9.1"><a href="#section-3.1.9" class="auto internal xref">3.1.9</a>.  <a href="#name-power-factor" class="internal xref">Power Factor</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-typical-power-topologies" class="internal xref">Typical Power Topologies</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.1">
+                    <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-basic-power-supply" class="internal xref">Basic Power Supply</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.2">
+                    <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-physical-meter-with-legacy-" class="internal xref">Physical Meter with Legacy Device</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.3">
+                    <p id="section-toc.1-1.3.2.2.2.3.1"><a href="#section-3.2.3" class="auto internal xref">3.2.3</a>.  <a href="#name-physical-meter-with-new-dev" class="internal xref">Physical Meter with New Device</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.4">
+                    <p id="section-toc.1-1.3.2.2.2.4.1"><a href="#section-3.2.4" class="auto internal xref">3.2.4</a>.  <a href="#name-power-over-ethernet" class="internal xref">Power over Ethernet</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.5">
+                    <p id="section-toc.1-1.3.2.2.2.5.1"><a href="#section-3.2.5" class="auto internal xref">3.2.5</a>.  <a href="#name-single-power-supply-with-mu" class="internal xref">Single Power Supply with Multiple Devices</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.6">
+                    <p id="section-toc.1-1.3.2.2.2.6.1"><a href="#section-3.2.6" class="auto internal xref">3.2.6</a>.  <a href="#name-multiple-power-supplies-wit" class="internal xref">Multiple Power Supplies with Single Device</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-relationships" class="internal xref">Relationships</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
+                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-power-state-set" class="internal xref">Power State Set</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5">
+                <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="auto internal xref">3.5</a>.  <a href="#name-power-state-set-mapping-and" class="internal xref">Power State Set Mapping and Intent</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5.2.1">
+                    <p id="section-toc.1-1.3.2.5.2.1.1"><a href="#section-3.5.1" class="auto internal xref">3.5.1</a>.  <a href="#name-capability-discovery" class="internal xref">Capability Discovery</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5.2.2">
+                    <p id="section-toc.1-1.3.2.5.2.2.1"><a href="#section-3.5.2" class="auto internal xref">3.5.2</a>.  <a href="#name-intent-mapping" class="internal xref">Intent Mapping</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5.2.3">
+                    <p id="section-toc.1-1.3.2.5.2.3.1"><a href="#section-3.5.3" class="auto internal xref">3.5.3</a>.  <a href="#name-sla-considerations" class="internal xref">SLA Considerations</a></p>
+</li>
+                </ul>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-reference-model" class="internal xref">Reference Model</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-interfaces-usage-of-the-fra" class="internal xref">Interfaces Usage Of the Framework</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-data-collection-architectur" class="internal xref">Data Collection Architecture</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.1">
-                    <p id="section-toc.1-1.4.2.1.2.1.1"><a href="#section-4.1.1" class="auto internal xref">4.1.1</a>.  <a href="#name-telemetry-push-pattern" class="internal xref">Telemetry Push Pattern</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.2">
-                    <p id="section-toc.1-1.4.2.1.2.2.1"><a href="#section-4.1.2" class="auto internal xref">4.1.2</a>.  <a href="#name-controller-vs-device-initia" class="internal xref">Controller vs. Device Initiated</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.3">
-                    <p id="section-toc.1-1.4.2.1.2.3.1"><a href="#section-4.1.3" class="auto internal xref">4.1.3</a>.  <a href="#name-energy-object-identificatio" class="internal xref">Energy Object Identification</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.4">
-                    <p id="section-toc.1-1.4.2.1.2.4.1"><a href="#section-4.1.4" class="auto internal xref">4.1.4</a>.  <a href="#name-measurement-accuracy-and-da" class="internal xref">Measurement Accuracy and Data Source Classification</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.5">
-                    <p id="section-toc.1-1.4.2.1.2.5.1"><a href="#section-4.1.5" class="auto internal xref">4.1.5</a>.  <a href="#name-industry-standard-certifica" class="internal xref">Industry-Standard Certifications</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.6">
-                    <p id="section-toc.1-1.4.2.1.2.6.1"><a href="#section-4.1.6" class="auto internal xref">4.1.6</a>.  <a href="#name-extensibility-through-yang-" class="internal xref">Extensibility Through YANG Identities</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.7">
-                    <p id="section-toc.1-1.4.2.1.2.7.1"><a href="#section-4.1.7" class="auto internal xref">4.1.7</a>.  <a href="#name-hierarchical-data-model-and" class="internal xref">Hierarchical Data Model and Default Value Inheritance</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.8">
-                    <p id="section-toc.1-1.4.2.1.2.8.1"><a href="#section-4.1.8" class="auto internal xref">4.1.8</a>.  <a href="#name-fixed-units-for-power-and-e" class="internal xref">Fixed Units for Power and Energy Values</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.9">
-                    <p id="section-toc.1-1.4.2.1.2.9.1"><a href="#section-4.1.9" class="auto internal xref">4.1.9</a>.  <a href="#name-power-factor" class="internal xref">Power Factor</a></p>
-</li>
-                </ul>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-typical-power-topologies" class="internal xref">Typical Power Topologies</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.1">
-                    <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="auto internal xref">4.2.1</a>.  <a href="#name-basic-power-supply" class="internal xref">Basic Power Supply</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.2">
-                    <p id="section-toc.1-1.4.2.2.2.2.1"><a href="#section-4.2.2" class="auto internal xref">4.2.2</a>.  <a href="#name-physical-meter-with-legacy-" class="internal xref">Physical Meter with Legacy Device</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.3">
-                    <p id="section-toc.1-1.4.2.2.2.3.1"><a href="#section-4.2.3" class="auto internal xref">4.2.3</a>.  <a href="#name-physical-meter-with-new-dev" class="internal xref">Physical Meter with New Device</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.4">
-                    <p id="section-toc.1-1.4.2.2.2.4.1"><a href="#section-4.2.4" class="auto internal xref">4.2.4</a>.  <a href="#name-power-over-ethernet" class="internal xref">Power over Ethernet</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.5">
-                    <p id="section-toc.1-1.4.2.2.2.5.1"><a href="#section-4.2.5" class="auto internal xref">4.2.5</a>.  <a href="#name-single-power-supply-with-mu" class="internal xref">Single Power Supply with Multiple Devices</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.6">
-                    <p id="section-toc.1-1.4.2.2.2.6.1"><a href="#section-4.2.6" class="auto internal xref">4.2.6</a>.  <a href="#name-multiple-power-supplies-wit" class="internal xref">Multiple Power Supplies with Single Device</a></p>
-</li>
-                </ul>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
-                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-relationships" class="internal xref">Relationships</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4">
-                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="auto internal xref">4.4</a>.  <a href="#name-power-state-set" class="internal xref">Power State Set</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.5">
-                <p id="section-toc.1-1.4.2.5.1"><a href="#section-4.5" class="auto internal xref">4.5</a>.  <a href="#name-power-state-set-mapping-and" class="internal xref">Power State Set Mapping and Intent</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.5.2.1">
-                    <p id="section-toc.1-1.4.2.5.2.1.1"><a href="#section-4.5.1" class="auto internal xref">4.5.1</a>.  <a href="#name-capability-discovery" class="internal xref">Capability Discovery</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.5.2.2">
-                    <p id="section-toc.1-1.4.2.5.2.2.1"><a href="#section-4.5.2" class="auto internal xref">4.5.2</a>.  <a href="#name-intent-mapping" class="internal xref">Intent Mapping</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.5.2.3">
-                    <p id="section-toc.1-1.4.2.5.2.3.1"><a href="#section-4.5.3" class="auto internal xref">4.5.3</a>.  <a href="#name-sla-considerations" class="internal xref">SLA Considerations</a></p>
-</li>
-                </ul>
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-mapping-of-use-cases-to-fra" class="internal xref">Mapping of Use Cases to Framework Interfaces</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-interfaces-usage-of-the-fra" class="internal xref">Interfaces Usage Of the Framework</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-use-case-implementation-req" class="internal xref">Use Case Implementation Requirements: Device vs. Controller Centric</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
-                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-mapping-of-use-cases-to-fra" class="internal xref">Mapping of Use Cases to Framework Interfaces</a></p>
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-implementation-focus-where-" class="internal xref">Implementation Focus: Where Intelligence Resides</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-key-findings" class="internal xref">Key Findings</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.1">
+                    <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="auto internal xref">5.2.1</a>.  <a href="#name-device-capabilities-require" class="internal xref">Device Capabilities Required across Use Cases</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.2">
+                    <p id="section-toc.1-1.5.2.2.2.2.1"><a href="#section-5.2.2" class="auto internal xref">5.2.2</a>.  <a href="#name-controller-capabilities-req" class="internal xref">Controller Capabilities Required across Use Cases</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3">
+                <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="auto internal xref">5.3</a>.  <a href="#name-implementation-priorities" class="internal xref">Implementation Priorities</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.4">
+                <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="auto internal xref">5.4</a>.  <a href="#name-next-steps" class="internal xref">Next Steps</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-use-case-implementation-req" class="internal xref">Use Case Implementation Requirements: Device vs. Controller Centric</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-operational-considerations" class="internal xref">Operational Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
-                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-implementation-focus-where-" class="internal xref">Implementation Focus: Where Intelligence Resides</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
-                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-key-findings" class="internal xref">Key Findings</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2.2.1">
-                    <p id="section-toc.1-1.6.2.2.2.1.1"><a href="#section-6.2.1" class="auto internal xref">6.2.1</a>.  <a href="#name-device-capabilities-require" class="internal xref">Device Capabilities Required across Use Cases</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2.2.2">
-                    <p id="section-toc.1-1.6.2.2.2.2.1"><a href="#section-6.2.2" class="auto internal xref">6.2.2</a>.  <a href="#name-controller-capabilities-req" class="internal xref">Controller Capabilities Required across Use Cases</a></p>
-</li>
-                </ul>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3">
-                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-implementation-priorities" class="internal xref">Implementation Priorities</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.4">
-                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="auto internal xref">6.4</a>.  <a href="#name-next-steps" class="internal xref">Next Steps</a></p>
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-measurement-accuracy-inheri" class="internal xref">Measurement Accuracy Inheritance</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-operational-considerations" class="internal xref">Operational Considerations</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-references" class="internal xref">References</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-measurement-accuracy-inheri" class="internal xref">Measurement Accuracy Inheritance</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.1">
+                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="auto internal xref">9.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.2">
+                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="auto internal xref">9.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
-</li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#section-10" class="auto internal xref">10</a>. <a href="#name-references" class="internal xref">References</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-to-do-and-open-issues" class="internal xref">TO DO and Open Issues</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1">
-                <p id="section-toc.1-1.10.2.1.1"><a href="#section-10.1" class="auto internal xref">10.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+                <p id="section-toc.1-1.10.2.1.1"><a href="#appendix-A.1" class="auto internal xref">A.1</a>.  <a href="#name-discovering-capabilities" class="internal xref">Discovering Capabilities</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.2">
-                <p id="section-toc.1-1.10.2.2.1"><a href="#section-10.2" class="auto internal xref">10.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+                <p id="section-toc.1-1.10.2.2.1"><a href="#appendix-A.2" class="auto internal xref">A.2</a>.  <a href="#name-understanding-device-capabi" class="internal xref">Understanding Device Capabilities</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.3">
+                <p id="section-toc.1-1.10.2.3.1"><a href="#appendix-A.3" class="auto internal xref">A.3</a>.  <a href="#name-mapping-intents-to-device-s" class="internal xref">Mapping Intents to Device Settings</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.4">
+                <p id="section-toc.1-1.10.2.4.1"><a href="#appendix-A.4" class="auto internal xref">A.4</a>.  <a href="#name-handling-transitions-and-en" class="internal xref">Handling Transitions and Ensuring Safety</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.5">
+                <p id="section-toc.1-1.10.2.5.1"><a href="#appendix-A.5" class="auto internal xref">A.5</a>.  <a href="#name-east-west-traffic-energy-me" class="internal xref">East-West Traffic/Energy Metrics</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-to-do-and-open-issues" class="internal xref">TO DO and Open Issues</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.1">
-                <p id="section-toc.1-1.11.2.1.1"><a href="#appendix-A.1" class="auto internal xref">A.1</a>.  <a href="#name-discovering-capabilities" class="internal xref">Discovering Capabilities</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.2">
-                <p id="section-toc.1-1.11.2.2.1"><a href="#appendix-A.2" class="auto internal xref">A.2</a>.  <a href="#name-understanding-device-capabi" class="internal xref">Understanding Device Capabilities</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.3">
-                <p id="section-toc.1-1.11.2.3.1"><a href="#appendix-A.3" class="auto internal xref">A.3</a>.  <a href="#name-mapping-intents-to-device-s" class="internal xref">Mapping Intents to Device Settings</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.4">
-                <p id="section-toc.1-1.11.2.4.1"><a href="#appendix-A.4" class="auto internal xref">A.4</a>.  <a href="#name-handling-transitions-and-en" class="internal xref">Handling Transitions and Ensuring Safety</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.5">
-                <p id="section-toc.1-1.11.2.5.1"><a href="#appendix-A.5" class="auto internal xref">A.5</a>.  <a href="#name-east-west-traffic-energy-me" class="internal xref">East-West Traffic/Energy Metrics</a></p>
-</li>
-            </ul>
+            <p id="section-toc.1-1.11.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
-            <p id="section-toc.1-1.13.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.12.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1430,7 +1427,7 @@ svg {
         <h3 id="name-terminology">
 <a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-terminology" class="section-name selfRef">Terminology</a>
         </h3>
-<p id="section-1.1-1">The following terms are defined in <span>[<a href="#GreenTerminology" class="cite xref">GreenTerminology</a>]</span>: Energy, Power, Energy Object, Energy Management, Energy Monitoring, Energy Control, Energy Management System (EnMS), Device, Component, Meter (Energy Meter), Power Inlet, Power Outlet, Power Interface, Power State, Power State Set, Nameplate Power, Energy Efficiency, Energy Efficiency Management, Energy Saving, Energy-Aware Intent.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+<p id="section-1.1-1">The following terms are defined in <span>[<a href="#GreenTerminology" class="cite xref">GreenTerminology</a>]</span>: Energy, Power, Energy Object, Energy Management, Energy Monitoring, Energy Control, Energy Management System (EnMS), Device, Component, Meter (Energy Meter), Power Inlet, Power Outlet, Power Interface, Power State, Power State Set, Nameplate Power, Energy Efficiency, Energy Efficiency Management, Energy Saving, Energy-Aware Intent. The term Power Cap is defined in <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
 <p id="section-1.1-2">This document uses the terms Power and Energy as further elaborated in <span>[<a href="#GreenTerminology" class="cite xref">GreenTerminology</a>]</span>:<a href="#section-1.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-1.1-3.1">
@@ -1448,7 +1445,7 @@ svg {
         <h3 id="name-eman-data-model-compatibili">
 <a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-eman-data-model-compatibili" class="section-name selfRef">EMAN Data Model Compatibility</a>
         </h3>
-<p id="section-1.2-1">The GREEN framework builds upon the conceptual foundations of the Energy MANagement (EMAN) framework <span>[<a href="#RFC7326" class="cite xref">RFC7326</a>]</span> and its associated SNMP-based data models <span>[<a href="#RFC7460" class="cite xref">RFC7460</a>]</span><span>[<a href="#RFC7461" class="cite xref">RFC7461</a>]</span>.  The GREEN YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> supersedes those MIB modules using the correspondence shown in <a href="#eman-mapping-table" class="auto internal xref">Table 1</a>.  Energy collection scheduling objects from <span>[<a href="#RFC7460" class="cite xref">RFC7460</a>]</span> (e.g., <code>eoEnergyCollectionStartTime</code>) are not carried forward, as collection timing is managed through YANG-Push subscriptions <span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span>. Implementations currently supporting the EMAN MIBs can use this correspondence as a migration path toward YANG/NETCONF/RESTCONF-based energy management.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
+<p id="section-1.2-1">The GREEN framework builds upon the conceptual foundations of the Energy MANagement (EMAN) framework <span>[<a href="#RFC7326" class="cite xref">RFC7326</a>]</span> and its associated SNMP-based data models <span>[<a href="#RFC7460" class="cite xref">RFC7460</a>]</span><span>[<a href="#RFC7461" class="cite xref">RFC7461</a>]</span>.  <a href="#eman-mapping-table" class="auto internal xref">Table 1</a> shows the correspondence between the EMAN MIB objects and the GREEN YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>; it is a migration aid, not a one-to-one mapping (see the "Relationship to the EMAN Work" section of <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>).  Energy collection scheduling objects from <span>[<a href="#RFC7460" class="cite xref">RFC7460</a>]</span> (e.g., <code>eoEnergyCollectionStartTime</code>) are not carried forward, as collection timing is managed through YANG-Push subscriptions <span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span>. Implementations currently supporting the EMAN MIBs can use this correspondence as a migration path toward YANG/NETCONF/RESTCONF-based energy management.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
 <span id="name-eman-mib-to-green-yang-mapp"></span><div id="eman-mapping-table">
 <table class="center" id="table-1">
           <caption>
@@ -1474,35 +1471,58 @@ svg {
                 <code>eoPowerEntry</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>energy-entry</code> list</td>
+                <code>energy-object</code> list</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">
+                <code>eoPower</code>
+</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <code>instantaneous-power-received</code> minus <code>instantaneous-power-provided</code>
+</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">
+                <code>eoEnergyConsumed</code>
+</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <code>total-energy-received</code>
+</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">
+                <code>eoEnergyProvided</code>
+</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <code>total-energy-provided</code>
+</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>eoPowerAdminState</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>power-state-admin</code> identityref (control tree)</td>
+                <code>admin</code> identityref (energy-control tree)</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>eoPowerOperState</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>power-state-oper</code> identityref (monitoring tree)</td>
+                <code>oper</code> identityref (energy-objects tree)</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>eoPowerStateEnterReason</code>
 </td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>state-enter-reason</code> identityref</td>
+              <td class="text-left" rowspan="1" colspan="1">no equivalent (not carried forward)</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>PowerStateSet</code>
 </td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>power-state-on</code>, <code>power-state-off</code>, <code>power-state-low-power</code> identities</td>
+              <td class="text-left" rowspan="1" colspan="1">identities derived from <code>power-state</code>: <code>power-state-on</code>, <code>power-state-off</code>, <code>power-state-sleep</code>
+</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
@@ -1561,30 +1581,19 @@ svg {
 </div>
 </section>
 </div>
-<div id="conventions-and-definitions">
-<section id="section-3">
-      <h2 id="name-conventions-and-definitions">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-conventions-and-definitions" class="section-name selfRef">Conventions and Definitions</a>
-      </h2>
-<p id="section-3-1">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", "<span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", "<span class="bcp14">NOT RECOMMENDED</span>",
-"<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
-described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
-appear in all capitals, as shown here.<a href="#section-3-1" class="pilcrow">¶</a></p>
-</section>
-</div>
 <div id="reference-model">
-<section id="section-4">
+<section id="section-3">
       <h2 id="name-reference-model">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-reference-model" class="section-name selfRef">Reference Model</a>
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-reference-model" class="section-name selfRef">Reference Model</a>
       </h2>
-<p id="section-4-1">The framework introduces the concept of a Power Interface.<a href="#section-4-1" class="pilcrow">¶</a></p>
-<p id="section-4-2">A Power Interface is defined as an interconnection among devices where energy can be provided, received, or both. There are some similarities between Power Interfaces and network interfaces. A network interface can be set to different states, such as sending or receiving data on an attached line. Similarly, a Power Interface can be receiving or providing energy.<a href="#section-4-2" class="pilcrow">¶</a></p>
-<p id="section-4-3">The most basic example of Energy Management is a single device reporting information about itself.  In many cases, however, energy is not measured by the device itself but is measured upstream in the power distribution tree.  For example, a Power Distribution Unit(PDU) may measure the energy it supplies to attached devices and report this to an Energy Management System.  Therefore, devices often have relationships to other devices or components in the power network.  An Energy Management System (EnMS) generally requires an understanding of the power topology (who provides power to whom), the metering topology (who meters whom), and the potential aggregation (who aggregates values of others).<a href="#section-4-3" class="pilcrow">¶</a></p>
-<p id="section-4-4">The relationships build on the Power Interface concept. The different relationships among device(s)/component(s), as specified in this document, include power source, Metering, and Aggregation Relationships.<a href="#section-4-4" class="pilcrow">¶</a></p>
-<p id="section-4-5">The GREEN Framework Reference Model is represented in <a href="#fig-green-reference-model" class="auto internal xref">Figure 1</a>.<a href="#section-4-5" class="pilcrow">¶</a></p>
+<p id="section-3-1">The framework introduces the concept of a Power Interface.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">A Power Interface is defined as an interconnection among devices where energy can be provided, received, or both. There are some similarities between Power Interfaces and network interfaces. A network interface can be set to different states, such as sending or receiving data on an attached line. Similarly, a Power Interface can be receiving or providing energy.<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-3">The most basic example of Energy Management is a single device reporting information about itself.  In many cases, however, energy is not measured by the device itself but is measured upstream in the power distribution tree.  For example, a Power Distribution Unit(PDU) may measure the energy it supplies to attached devices and report this to an Energy Management System.  Therefore, devices often have relationships to other devices or components in the power network.  An Energy Management System (EnMS) generally requires an understanding of the power topology (who provides power to whom), the metering topology (who meters whom), and the potential aggregation (who aggregates values of others).<a href="#section-3-3" class="pilcrow">¶</a></p>
+<p id="section-3-4">The relationships build on the Power Interface concept. The different relationships among device(s)/component(s), as specified in this document, include power source, Metering, and Aggregation Relationships.<a href="#section-3-4" class="pilcrow">¶</a></p>
+<p id="section-3-5">The GREEN Framework Reference Model is represented in <a href="#fig-green-reference-model" class="auto internal xref">Figure 1</a>.<a href="#section-3-5" class="pilcrow">¶</a></p>
 <span id="name-green-framework-reference-m"></span><div id="fig-green-reference-model">
 <figure id="figure-1">
-        <div class="alignLeft art-text artwork" id="section-4-6.1">
+        <div class="alignLeft art-text artwork" id="section-3-6.1">
 <pre>
 +------------------------------------------------------------------+
 |                                                                  |
@@ -1634,291 +1643,286 @@ appear in all capitals, as shown here.<a href="#section-3-1" class="pilcrow">¶<
 <a href="#name-green-framework-reference-m" class="selfRef">GREEN Framework Reference Model</a>
         </figcaption></figure>
 </div>
-<p id="section-4-7">The current GREEN Working Group deliverables primarily focus on the Energy Management Layer while preserving architectural extensibility toward Service Consumption Layer functions.<a href="#section-4-7" class="pilcrow">¶</a></p>
-<p id="section-4-8">The GREEN Framework defines a complete conceptual architecture for energy-efficiency management. Not all logical functions are necessarily standardized within the current GREEN Working Group charter.<a href="#section-4-8" class="pilcrow">¶</a></p>
-<p id="section-4-9">The current work primarily focuses on energy monitoring, metrics, inventory correlation, and control capabilities supported through YANG-based data models. Service-level applications, reporting functions, sustainability dashboards, lifecycle management integrations, and external API consumption are represented in the framework to provide architectural context and support future extensibility.<a href="#section-4-9" class="pilcrow">¶</a></p>
-<p id="section-4-10">The main elements in the framework are as follows:<a href="#section-4-10" class="pilcrow">¶</a></p>
+<p id="section-3-7">The current GREEN Working Group deliverables primarily focus on the Energy Management Layer while preserving architectural extensibility toward Service Consumption Layer functions.<a href="#section-3-7" class="pilcrow">¶</a></p>
+<p id="section-3-8">The GREEN Framework defines a complete conceptual architecture for energy-efficiency management. Not all logical functions are necessarily standardized within the current GREEN Working Group charter.<a href="#section-3-8" class="pilcrow">¶</a></p>
+<p id="section-3-9">The current work primarily focuses on energy monitoring, metrics, inventory correlation, and control capabilities supported through YANG-based data models. Service-level applications, reporting functions, sustainability dashboards, lifecycle management integrations, and external API consumption are represented in the framework to provide architectural context and support future extensibility.<a href="#section-3-9" class="pilcrow">¶</a></p>
+<p id="section-3-10">The main elements in the framework are as follows:<a href="#section-3-10" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4-11.1">
-          <p id="section-4-11.1.1">(a), (d) Discovery and Inventory<a href="#section-4-11.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3-11.1">
+          <p id="section-3-11.1.1">(a), (d) Discovery and Inventory<a href="#section-3-11.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-4-11.2">
-          <p id="section-4-11.2.1">(b) Expose monitored energy efficiency metrics from the Controller: The Controller exposes aggregated GREEN metrics to the EnMS. Reported data includes power consumption, energy counters, power state, and efficiency indicators, after Controller-level aggregation and normalization. This interface is realized via YANG Push <span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span> subscriptions established from the Controller toward the EnMS.<a href="#section-4-11.2.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-3-11.2">
+          <p id="section-3-11.2.1">(b) Expose monitored energy efficiency metrics from the Controller: The Controller exposes aggregated GREEN metrics to the EnMS. Reported data includes power consumption, energy counters, power state, and efficiency indicators, after Controller-level aggregation and normalization. This interface is realized via YANG-Push <span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span> subscriptions established from the Controller toward the EnMS.<a href="#section-3-11.2.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-4-11.3">
-          <p id="section-4-11.3.1">(c) GREEN Metrics — Static Reference Data: power and energy reference values obtained from sources external to the managed network, such as manufacturer datasheets, equipment specifications, and energy efficiency certification records. This data is typically retrieved once at onboarding time or when new equipment is introduced, and cached for subsequent use. It does not require an EnMS and may be obtained prior to device deployment.<a href="#section-4-11.3.1" class="pilcrow">¶</a></p>
-<p id="section-4-11.3.2">
-Interface (c) is complementary to, but distinct from, interface (d). Interface (d) concerns the discovery of device identity and operational capability through the management plane, information that the device itself reports at runtime. Interface (c) concerns reference data about a device's power characteristics that originates from the manufacturer or an external repository, independently of whether the device is reachable or deployed. A practical example is nameplate power values: these may be loaded into the Controller from a vendor datasheet via (c) before the device is installed, and later correlated with the device identit discovered via (d).<a href="#section-4-11.3.2" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-3-11.3">
+          <p id="section-3-11.3.1">(c) GREEN Metrics (Static Reference Data): power and energy reference values obtained from sources external to the managed network, such as manufacturer datasheets, equipment specifications, and energy efficiency certification records. This data is typically retrieved once at onboarding time or when new equipment is introduced, and cached for subsequent use. It does not require an EnMS and may be obtained prior to device deployment.<a href="#section-3-11.3.1" class="pilcrow">¶</a></p>
+<p id="section-3-11.3.2">
+Interface (c) is complementary to, but distinct from, interface (d). Interface (d) concerns the discovery of device identity and operational capability through the management plane, information that the device itself reports at runtime. Interface (c) concerns reference data about a device's power characteristics that originates from the manufacturer or an external repository, independently of whether the device is reachable or deployed. A practical example is nameplate power values: these may be loaded into the Controller from a vendor datasheet via (c) before the device is installed, and later correlated with the device identity discovered via (d).<a href="#section-3-11.3.2" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-4-11.4">
-          <p id="section-4-11.4.1">(e) Expose monitored power and energy from device: each Energy Object expose raw operational telemetry energy related data directly to the Controller. Reported data includes instantaneous power, energy counters, power state, data-source accuracy metadata, and energy efficiency certifications, as defined in <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>. Data is delivered via YANG Push <span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span> subscriptions or retrieved via NETCONF/RESTCONF. This interface is the primary source of device-level data that the Controller aggregates and normalizes before reporting it to the EnMS via interface (b). Devices may also provide traffic and utilization metrics over the same management channel; those metrics are outside the scope of this framework.<a href="#section-4-11.4.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-3-11.4">
+          <p id="section-3-11.4.1">(e) Expose monitored power and energy from device: each Energy Object exposes raw operational energy-related telemetry directly to the Controller. Reported data includes instantaneous power, energy counters, power state, data-source accuracy metadata, and energy efficiency certifications, as defined in <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>. Data is delivered via YANG-Push <span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span> subscriptions or retrieved via NETCONF/RESTCONF. This interface is the primary source of device-level data that the Controller aggregates and normalizes before reporting it to the EnMS via interface (b). Devices may also provide traffic and utilization metrics over the same management channel; those metrics are outside the scope of this framework.<a href="#section-3-11.4.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-4-11.5">
-          <p id="section-4-11.5.1">(f) Control Energy Saving<a href="#section-4-11.5.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-3-11.5">
+          <p id="section-3-11.5.1">(f) Control Energy Saving<a href="#section-3-11.5.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-4-11.6">
-          <p id="section-4-11.6.1">(g) API Service Interface: enables access for service consumption, enabling data retrieval, control, and integration through API, e.g., <span>[<a href="#PetraApi" class="cite xref">PetraApi</a>]</span>. The bidirectional arrows represent retrieval (GET) going up and control intents (SET/RPC) going down through the same API interface.<a href="#section-4-11.6.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-3-11.6">
+          <p id="section-3-11.6.1">(g) API Service Interface: enables access for service consumption, enabling data retrieval, control, and integration through API, e.g., <span>[<a href="#PetraApi" class="cite xref">PetraApi</a>]</span>. The bidirectional arrows represent retrieval (GET) going up and control intents (SET/RPC) going down through the same API interface.<a href="#section-3-11.6.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-4-12">Inventory information, referring to interfaces (a) and (d), may originate from device self-discovery, manufacturer datasheets, asset-management systems, or other authoritative metadata repositories. The controller is responsible for correlating these sources and exposing a consistent inventory view.<a href="#section-4-12" class="pilcrow">¶</a></p>
-<p id="section-4-13">The reference model covers every network device and component that have a Unique Identifiable ID (UUID) and can represent or influence power or energy consumption. If the component can be uniquely identified, it can be modeled.<a href="#section-4-13" class="pilcrow">¶</a></p>
-<p id="section-4-14">The GREEN metric related interfaces (b) (c) between the EnMS and the Controller can be used to collect/exchange both dynamic energy efficiency metrics and static energy/power consumption metrics.<a href="#section-4-14" class="pilcrow">¶</a></p>
-<p id="section-4-15">The monitoring interface (e) monitors more aspects than just power and energy, (for example traffic monitoring) but this is not covered in the framework.<a href="#section-4-15" class="pilcrow">¶</a></p>
-<p id="section-4-16">The control interface (f) allows both local management and network wide management. The nework wide management can be used fufill the intent,e.g., turn on or off of energy saving capability globally based on discovered inventory capabilities.<a href="#section-4-16" class="pilcrow">¶</a></p>
-<p id="section-4-17">Note that the GREEN framework specifies logical blocks, however, the Energy Efficiency Management function might be implemented inside the device, based in <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>, in the controller, or a combination of both.<a href="#section-4-17" class="pilcrow">¶</a></p>
-<p id="section-4-18">Even if the reference model implicitly assumes a hierarchical network structure, this assumption acknowledges that conventional networks have flatter and anticipate more distributed topologies.<a href="#section-4-18" class="pilcrow">¶</a></p>
-<p id="section-4-19">Examples of applications consuming GREEN framework data include carbon-aware workload placement, sustainability reporting, lifecycle management, and energy-aware traffic engineering.<a href="#section-4-19" class="pilcrow">¶</a></p>
-<p id="section-4-20">These logical interfaces defined by the GREEN Framework are expected to be realized through YANG-based data models, primarily the GREEN Power and Energy YANG model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> together with <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span> hardware inventory models and associated telemetry mechanisms.<a href="#section-4-20" class="pilcrow">¶</a></p>
-<p id="section-4-21">In scope:<a href="#section-4-21" class="pilcrow">¶</a></p>
+<p id="section-3-12">Inventory information, referring to interfaces (a) and (d), may originate from device self-discovery, manufacturer datasheets, asset-management systems, or other authoritative metadata repositories. The controller is responsible for correlating these sources and exposing a consistent inventory view.<a href="#section-3-12" class="pilcrow">¶</a></p>
+<p id="section-3-13">The reference model covers every network device and component that have a Unique Identifiable ID (UUID) and can represent or influence power or energy consumption. If the component can be uniquely identified, it can be modeled.<a href="#section-3-13" class="pilcrow">¶</a></p>
+<p id="section-3-14">Interface (b) carries the dynamic, aggregated GREEN metrics from the Controller to the EnMS. Interface (c) brings static reference data, such as datasheet and certification values, into the Controller; it does not involve the EnMS.<a href="#section-3-14" class="pilcrow">¶</a></p>
+<p id="section-3-15">The monitoring interface (e) monitors more aspects than just power and energy, (for example traffic monitoring) but this is not covered in the framework.<a href="#section-3-15" class="pilcrow">¶</a></p>
+<p id="section-3-16">The control interface (f) allows both local management and network wide management. The nework wide management can be used fufill the intent,e.g., turn on or off of energy saving capability globally based on discovered inventory capabilities.<a href="#section-3-16" class="pilcrow">¶</a></p>
+<p id="section-3-17">Note that the GREEN framework specifies logical blocks, however, the Energy Efficiency Management function might be implemented inside the device, based in <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>, in the controller, or a combination of both.<a href="#section-3-17" class="pilcrow">¶</a></p>
+<p id="section-3-18">Even if the reference model implicitly assumes a hierarchical network structure, this assumption acknowledges that conventional networks have flatter and anticipate more distributed topologies.<a href="#section-3-18" class="pilcrow">¶</a></p>
+<p id="section-3-19">Examples of applications consuming GREEN framework data include carbon-aware workload placement, sustainability reporting, lifecycle management, and energy-aware traffic engineering.<a href="#section-3-19" class="pilcrow">¶</a></p>
+<p id="section-3-20">These logical interfaces defined by the GREEN Framework are expected to be realized through YANG-based data models, primarily the GREEN Power and Energy YANG model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> together with <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span> hardware inventory models and associated telemetry mechanisms.<a href="#section-3-20" class="pilcrow">¶</a></p>
+<p id="section-3-21">In scope:<a href="#section-3-21" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4-22.1">
-          <p id="section-4-22.1.1">Devices<a href="#section-4-22.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3-22.1">
+          <p id="section-3-22.1.1">Devices<a href="#section-3-22.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-4-22.2">
-          <p id="section-4-22.2.1">Chassis,<a href="#section-4-22.2.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-3-22.2">
+          <p id="section-3-22.2.1">Chassis,<a href="#section-3-22.2.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-4-22.3">
-          <p id="section-4-22.3.1">Line cards, modules, ports<a href="#section-4-22.3.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-3-22.3">
+          <p id="section-3-22.3.1">Line cards, modules, ports<a href="#section-3-22.3.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-4-22.4">
-          <p id="section-4-22.4.1">Power supply units (PSUs), fans, thermal units<a href="#section-4-22.4.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-3-22.4">
+          <p id="section-3-22.4.1">Power supply units (PSUs), fans, thermal units<a href="#section-3-22.4.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-4-22.5">
-          <p id="section-4-22.5.1">Accelerators, GPUs, NPUs<a href="#section-4-22.5.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-3-22.5">
+          <p id="section-3-22.5.1">Accelerators, GPUs, NPUs<a href="#section-3-22.5.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-4-22.6">
-          <p id="section-4-22.6.1">Virtualized components where applicable<a href="#section-4-22.6.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-3-22.6">
+          <p id="section-3-22.6.1">Virtualized components where applicable<a href="#section-3-22.6.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-4-22.7">
-          <p id="section-4-22.7.1">Any element providing power, energy<a href="#section-4-22.7.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-3-22.7">
+          <p id="section-3-22.7.1">Any element providing power, energy<a href="#section-3-22.7.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <div id="data-collection-architecture">
-<section id="section-4.1">
+<section id="section-3.1">
         <h3 id="name-data-collection-architectur">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-data-collection-architectur" class="section-name selfRef">Data Collection Architecture</a>
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-data-collection-architectur" class="section-name selfRef">Data Collection Architecture</a>
         </h3>
 <div id="telemetry-push-pattern">
-<section id="section-4.1.1">
+<section id="section-3.1.1">
           <h4 id="name-telemetry-push-pattern">
-<a href="#section-4.1.1" class="section-number selfRef">4.1.1. </a><a href="#name-telemetry-push-pattern" class="section-name selfRef">Telemetry Push Pattern</a>
+<a href="#section-3.1.1" class="section-number selfRef">3.1.1. </a><a href="#name-telemetry-push-pattern" class="section-name selfRef">Telemetry Push Pattern</a>
           </h4>
-<p id="section-4.1.1-1">The framework recommends a push-based telemetry model for energy efficiency data collection, where network devices stream power and energy measurements to management systems rather than waiting for poll requests.<a href="#section-4.1.1-1" class="pilcrow">¶</a></p>
-<p id="section-4.1.1-2">For energy monitoring specifically, push-based telemetry offers:<a href="#section-4.1.1-2" class="pilcrow">¶</a></p>
+<p id="section-3.1.1-1">The framework recommends a push-based telemetry model for energy efficiency data collection, where network devices stream power and energy measurements to management systems rather than waiting for poll requests.<a href="#section-3.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1.1-2">For energy monitoring specifically, push-based telemetry offers:<a href="#section-3.1.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.1.1-3.1">
-              <p id="section-4.1.1-3.1.1">Temporal accuracy: Energy consumption varies over time; push models capture variations that polling might miss.<a href="#section-4.1.1-3.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.1.1-3.1">
+              <p id="section-3.1.1-3.1.1">Temporal accuracy: Energy consumption varies over time; push models capture variations that polling might miss.<a href="#section-3.1.1-3.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.1.1-3.2">
-              <p id="section-4.1.1-3.2.1">Reduced latency: Anomalies (power spikes, efficiency degradation) are detected immediately.<a href="#section-4.1.1-3.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.1.1-3.2">
+              <p id="section-3.1.1-3.2.1">Reduced latency: Anomalies (power spikes, efficiency degradation) are detected immediately.<a href="#section-3.1.1-3.2.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.1.1-3.3">
-              <p id="section-4.1.1-3.3.1">Network and data collection efficiency: Eliminates repetitive poll/response cycles.<a href="#section-4.1.1-3.3.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.1.1-3.3">
+              <p id="section-3.1.1-3.3.1">Network and data collection efficiency: Eliminates repetitive poll/response cycles.<a href="#section-3.1.1-3.3.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.1.1-3.4">
-              <p id="section-4.1.1-3.4.1">Scalability: Controllers can subscribe once rather than poll continuously.<a href="#section-4.1.1-3.4.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.1.1-3.4">
+              <p id="section-3.1.1-3.4.1">Scalability: Controllers can subscribe once rather than poll continuously.<a href="#section-3.1.1-3.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-4.1.1-4">Following the YANG-Push approach, several parameters from EMAN <span>[<a href="#RFC7460" class="cite xref">RFC7460</a>]</span> are not needed in this framework:<a href="#section-4.1.1-4" class="pilcrow">¶</a></p>
+<p id="section-3.1.1-4">Following the YANG-Push approach, several parameters from EMAN <span>[<a href="#RFC7460" class="cite xref">RFC7460</a>]</span> are not needed in this framework:<a href="#section-3.1.1-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.1.1-5.1">
-              <p id="section-4.1.1-5.1.1">eoEnergyCollectionStartTime: Collection timing is managed by YANG-Push subscriptions.<a href="#section-4.1.1-5.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.1.1-5.1">
+              <p id="section-3.1.1-5.1.1">eoEnergyCollectionStartTime: Collection timing is managed by YANG-Push subscriptions.<a href="#section-3.1.1-5.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.1.1-5.2">
-              <p id="section-4.1.1-5.2.1">eoEnergyMaxConsumed/eoEnergyMaxProduced: Devices do not store energy time series; controllers handle historical data.<a href="#section-4.1.1-5.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.1.1-5.2">
+              <p id="section-3.1.1-5.2.1">eoEnergyMaxConsumed/eoEnergyMaxProduced: Devices do not store energy time series; controllers handle historical data.<a href="#section-3.1.1-5.2.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.1.1-5.3">
-              <p id="section-4.1.1-5.3.1">Energy collection parameters table: Replaced by YANG-Push subscription configuration.<a href="#section-4.1.1-5.3.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.1.1-5.3">
+              <p id="section-3.1.1-5.3.1">Energy collection parameters table: Replaced by YANG-Push subscription configuration.<a href="#section-3.1.1-5.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
 </div>
 <div id="controller-vs-device-initiated">
-<section id="section-4.1.2">
+<section id="section-3.1.2">
           <h4 id="name-controller-vs-device-initia">
-<a href="#section-4.1.2" class="section-number selfRef">4.1.2. </a><a href="#name-controller-vs-device-initia" class="section-name selfRef">Controller vs. Device Initiated</a>
+<a href="#section-3.1.2" class="section-number selfRef">3.1.2. </a><a href="#name-controller-vs-device-initia" class="section-name selfRef">Controller vs. Device Initiated</a>
           </h4>
-<p id="section-4.1.2-1">The framework supports both initiation models:<a href="#section-4.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.1.2-1">The framework supports both initiation models:<a href="#section-3.1.2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.1.2-2.1">
-              <p id="section-4.1.2-2.1.1">Controller-Initiated:<a href="#section-4.1.2-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.1.2-2.1">
+              <p id="section-3.1.2-2.1.1">Controller-Initiated:<a href="#section-3.1.2-2.1.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.1.2-2.1.2.1">
-                  <p id="section-4.1.2-2.1.2.1.1">Controller subscribes to Energy Objects streaming.<a href="#section-4.1.2-2.1.2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.1.2-2.1.2.1">
+                  <p id="section-3.1.2-2.1.2.1.1">Controller subscribes to Energy Objects streaming.<a href="#section-3.1.2-2.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
-                <li class="normal" id="section-4.1.2-2.1.2.2">
-                  <p id="section-4.1.2-2.1.2.2.1">Provides centralized control over monitoring scope and frequency<a href="#section-4.1.2-2.1.2.2.1" class="pilcrow">¶</a></p>
+                <li class="normal" id="section-3.1.2-2.1.2.2">
+                  <p id="section-3.1.2-2.1.2.2.1">Provides centralized control over monitoring scope and frequency<a href="#section-3.1.2-2.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
-                <li class="normal" id="section-4.1.2-2.1.2.3">
-                  <p id="section-4.1.2-2.1.2.3.1">Enables dynamic adjustment of monitoring based on operational needs<a href="#section-4.1.2-2.1.2.3.1" class="pilcrow">¶</a></p>
+                <li class="normal" id="section-3.1.2-2.1.2.3">
+                  <p id="section-3.1.2-2.1.2.3.1">Enables dynamic adjustment of monitoring based on operational needs<a href="#section-3.1.2-2.1.2.3.1" class="pilcrow">¶</a></p>
 </li>
               </ul>
 </li>
-            <li class="normal" id="section-4.1.2-2.2">
-              <p id="section-4.1.2-2.2.1">Device-Initiated:<a href="#section-4.1.2-2.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.1.2-2.2">
+              <p id="section-3.1.2-2.2.1">Device-Initiated:<a href="#section-3.1.2-2.2.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.1.2-2.2.2.1">
-                  <p id="section-4.1.2-2.2.2.1.1">Devices can autonomously report critical energy events<a href="#section-4.1.2-2.2.2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.1.2-2.2.2.1">
+                  <p id="section-3.1.2-2.2.2.1.1">Devices can autonomously report critical energy events<a href="#section-3.1.2-2.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
-                <li class="normal" id="section-4.1.2-2.2.2.2">
-                  <p id="section-4.1.2-2.2.2.2.1">Useful for threshold violations or hardware failures<a href="#section-4.1.2-2.2.2.2.1" class="pilcrow">¶</a></p>
+                <li class="normal" id="section-3.1.2-2.2.2.2">
+                  <p id="section-3.1.2-2.2.2.2.1">Useful for threshold violations or hardware failures<a href="#section-3.1.2-2.2.2.2.1" class="pilcrow">¶</a></p>
 </li>
-                <li class="normal" id="section-4.1.2-2.2.2.3">
-                  <p id="section-4.1.2-2.2.2.3.1">Complements controller-initiated subscriptions<a href="#section-4.1.2-2.2.2.3.1" class="pilcrow">¶</a></p>
+                <li class="normal" id="section-3.1.2-2.2.2.3">
+                  <p id="section-3.1.2-2.2.2.3.1">Complements controller-initiated subscriptions<a href="#section-3.1.2-2.2.2.3.1" class="pilcrow">¶</a></p>
 </li>
               </ul>
-<p id="section-4.1.2-2.2.3">
-Energy efficiency management requires stable identification of Energy Objects across device, controller, inventory, and reporting systems. The framework therefore relies on UUID-based identification (<span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span>) as exposed through <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>, while allowing controller-assigned identifiers for onboarding and cross-system correlation. Implementations should maintain mappings between local identifiers and globally unique hardware identifiers to support inventory and reporting consistency, as well as telemetry correlation.<a href="#section-4.1.2-2.2.3" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
 </div>
 <div id="energy-object-identification">
-<section id="section-4.1.3">
+<section id="section-3.1.3">
           <h4 id="name-energy-object-identificatio">
-<a href="#section-4.1.3" class="section-number selfRef">4.1.3. </a><a href="#name-energy-object-identificatio" class="section-name selfRef">Energy Object Identification</a>
+<a href="#section-3.1.3" class="section-number selfRef">3.1.3. </a><a href="#name-energy-object-identificatio" class="section-name selfRef">Energy Object Identification</a>
           </h4>
-<p id="section-4.1.3-1">Every Energy Object, i.e., a device, a chassis, a line card, a power supply, needs a stable identity so that energy data, control actions, and inventory records all refer to the same physical thing, consistently, across every system that touches it.<a href="#section-4.1.3-1" class="pilcrow">¶</a></p>
-<p id="section-4.1.3-2">The device itself is the source of truth for its own identity. Each component reports a hardware UUID (<span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span>) that follows it through its entire lifecycle: from the moment it is installed until it is decommissioned or replaced. No other system can change this identifier. The Controller and the EnMS read it; they do not write it.<a href="#section-4.1.3-2" class="pilcrow">¶</a></p>
-<p id="section-4.1.3-3">The Controller also needs its own handle for each Energy Object, so it can attach instructions to it; for example, a desired power state or an energy-saving policy. The Controller assigns this handle when it first discovers the object. This is the identifier the Controller uses when it wants to act on something.<a href="#section-4.1.3-3" class="pilcrow">¶</a></p>
-<p id="section-4.1.3-4">These two identifiers serve different roles:
-The device hardware UUID identifies the physical component, with a stable unique reference enabling correlation with external inventory, asset-management databases and lifecycle tracking systems.<a href="#section-4.1.3-4" class="pilcrow">¶</a></p>
-<p id="section-4.1.3-5">The Controller assigned identifier is the reference used to associate management configuration, such as an administrative power state or an energy-saving policy, with that component within the Controller's management domain.<a href="#section-4.1.3-5" class="pilcrow">¶</a></p>
-<p id="section-4.1.3-6">The Controller is responsible for keeping the link between the two, so that when an operator looks up a component in an inventory system and wants to act on it, the Controller can map from one identifier to the other.<a href="#section-4.1.3-6" class="pilcrow">¶</a></p>
-<p id="section-4.1.3-7">To enable stable component identification across systems, the GREEN Framework supports dual identifiers based on <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>: controllers will need to assign their own ID during onboarding, query the device's "ietf-hardware" UUID, and maintain a mapping between both for cross-system correlation.<a href="#section-4.1.3-7" class="pilcrow">¶</a></p>
+<p id="section-3.1.3-1">Every Energy Object (e.g., a device, a chassis, a line card, or a power supply) needs a stable identity, so that energy data, control actions, and inventory records refer to the same physical thing across every system that handles it.<a href="#section-3.1.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.1.3-2">The device is the source of truth for the identity of its own Energy Objects. The device reports an identifier for each Energy Object and, where the Energy Object is a hardware component, a reference to that component in the "ietf-hardware" module <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span> <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>. When the component reports a Universally Unique Identifier (UUID) <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span> through <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>, that UUID is the preferred key for correlation with external inventory, asset-management, and lifecycle tracking systems. The Controller and the EnMS read these identifiers; they do not write them.<a href="#section-3.1.3-2" class="pilcrow">¶</a></p>
+<p id="section-3.1.3-3">The Controller also needs its own identifier for each Energy Object, to which it attaches management configuration, such as an administrative Power State or an energy-saving policy, within its management domain. The Controller assigns this identifier when it first discovers the Energy Object.<a href="#section-3.1.3-3" class="pilcrow">¶</a></p>
+<p id="section-3.1.3-4">The Controller is responsible for maintaining the mapping between its own identifier and the device-reported identifiers, so that an operator who looks up a component in an inventory system can act on it through the Controller.<a href="#section-3.1.3-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="measurement-accuracy-and-data-source-classification">
-<section id="section-4.1.4">
+<section id="section-3.1.4">
           <h4 id="name-measurement-accuracy-and-da">
-<a href="#section-4.1.4" class="section-number selfRef">4.1.4. </a><a href="#name-measurement-accuracy-and-da" class="section-name selfRef">Measurement Accuracy and Data Source Classification</a>
+<a href="#section-3.1.4" class="section-number selfRef">3.1.4. </a><a href="#name-measurement-accuracy-and-da" class="section-name selfRef">Measurement Accuracy and Data Source Classification</a>
           </h4>
-<p id="section-4.1.4-1">Power and energy data reported by network elements differ significantly in origin and reliability. Some values are derived from calibrated sensors, while others are based on manufacturer specifications, historical observations, or analytical models. To ensure meaningful comparison, aggregation, and interpretation, the framework requires all reported energy-related metrics to include an explicit indication of measurement accuracy.<a href="#section-4.1.4-1" class="pilcrow">¶</a></p>
-<p id="section-4.1.4-2">The framework defines a common classification of data accuracy covering unknown, estimated, and directly measured values. Measured data is further differentiated by precision levels. This classification enables consumers of the data to assess reliability, prioritize upgrades, support regulatory compliance, and avoid incorrect aggregation or double counting across measurement domains.<a href="#section-4.1.4-2" class="pilcrow">¶</a></p>
-<p id="section-4.1.4-3">Detailed accuracy categories, and extensibility mechanisms are specified in the GREEN YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>.<a href="#section-4.1.4-3" class="pilcrow">¶</a></p>
+<p id="section-3.1.4-1">Power and energy data reported by network elements differ significantly in origin and reliability. Some values are derived from calibrated sensors, while others are based on manufacturer specifications, historical observations, or analytical models. To ensure meaningful comparison, aggregation, and interpretation, the framework requires all reported energy-related metrics to include an explicit indication of measurement accuracy.<a href="#section-3.1.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.1.4-2">The framework defines a common classification of data accuracy covering unknown, estimated, and directly measured values. Measured data is further differentiated by precision levels. This classification enables consumers of the data to assess reliability, prioritize upgrades, support regulatory compliance, and avoid incorrect aggregation or double counting across measurement domains.<a href="#section-3.1.4-2" class="pilcrow">¶</a></p>
+<p id="section-3.1.4-3">Detailed accuracy categories, and extensibility mechanisms are specified in the GREEN YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>.<a href="#section-3.1.4-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="industry-standard-certifications">
-<section id="section-4.1.5">
+<section id="section-3.1.5">
           <h4 id="name-industry-standard-certifica">
-<a href="#section-4.1.5" class="section-number selfRef">4.1.5. </a><a href="#name-industry-standard-certifica" class="section-name selfRef">Industry-Standard Certifications</a>
+<a href="#section-3.1.5" class="section-number selfRef">3.1.5. </a><a href="#name-industry-standard-certifica" class="section-name selfRef">Industry-Standard Certifications</a>
           </h4>
-<p id="section-4.1.5-1">In addition to measurement accuracy, the framework supports the reporting of industry-standard energy efficiency certifications, per Energy Object, when available (for example a PSU). These certifications provide vendor- or laboratory-validated benchmarks that characterize the designed efficiency of equipment and components.<a href="#section-4.1.5-1" class="pilcrow">¶</a></p>
-<p id="section-4.1.5-2">Certification information complements measurement accuracy by providing a stable, device-level reference for procurement, compliance, and lifecycle management, while accuracy indicators describe the reliability of operational measurements. Together, these mechanisms enable informed assessment of both expected and observed energy performance.<a href="#section-4.1.5-2" class="pilcrow">¶</a></p>
-<p id="section-4.1.5-3">The purpose of this framework and YANG module is not to identify all certifications, but to establish a foundation for future extensions. Detailed certification models and encoding rules are defined in the companion GREEN YANG data model.<a href="#section-4.1.5-3" class="pilcrow">¶</a></p>
+<p id="section-3.1.5-1">In addition to measurement accuracy, the framework supports the reporting of industry-standard energy efficiency certifications, per Energy Object, when available (for example a PSU). These certifications provide vendor- or laboratory-validated benchmarks that characterize the designed efficiency of equipment and components.<a href="#section-3.1.5-1" class="pilcrow">¶</a></p>
+<p id="section-3.1.5-2">Certification information complements measurement accuracy by providing a stable, device-level reference for procurement, compliance, and lifecycle management, while accuracy indicators describe the reliability of operational measurements. Together, these mechanisms enable informed assessment of both expected and observed energy performance.<a href="#section-3.1.5-2" class="pilcrow">¶</a></p>
+<p id="section-3.1.5-3">The purpose of this framework and YANG module is not to identify all certifications, but to establish a foundation for future extensions. Detailed certification models and encoding rules are defined in the companion GREEN YANG data model.<a href="#section-3.1.5-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="extensibility-through-yang-identities">
-<section id="section-4.1.6">
+<section id="section-3.1.6">
           <h4 id="name-extensibility-through-yang-">
-<a href="#section-4.1.6" class="section-number selfRef">4.1.6. </a><a href="#name-extensibility-through-yang-" class="section-name selfRef">Extensibility Through YANG Identities</a>
+<a href="#section-3.1.6" class="section-number selfRef">3.1.6. </a><a href="#name-extensibility-through-yang-" class="section-name selfRef">Extensibility Through YANG Identities</a>
           </h4>
-<p id="section-4.1.6-1">The accuracy hierarchy uses YANG <code>identityref</code> to allow vendor-specific extensions.
+<p id="section-3.1.6-1">The accuracy hierarchy uses YANG <code>identityref</code> to allow vendor-specific extensions.
 Any implementation may derive a new identity from the base <code>accuracy-measured</code> identity to record vendor-specific calibration metadata; in this way, interoperability is preserved.
-The full identity hierarchy and encoding rules are defined in <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>.<a href="#section-4.1.6-1" class="pilcrow">¶</a></p>
+The full identity hierarchy and encoding rules are defined in <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>.<a href="#section-3.1.6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="hierarchical-data-model-and-default-value-inheritance">
-<section id="section-4.1.7">
+<section id="section-3.1.7">
           <h4 id="name-hierarchical-data-model-and">
-<a href="#section-4.1.7" class="section-number selfRef">4.1.7. </a><a href="#name-hierarchical-data-model-and" class="section-name selfRef">Hierarchical Data Model and Default Value Inheritance</a>
+<a href="#section-3.1.7" class="section-number selfRef">3.1.7. </a><a href="#name-hierarchical-data-model-and" class="section-name selfRef">Hierarchical Data Model and Default Value Inheritance</a>
           </h4>
-<p id="section-4.1.7-1">The framework leverages the hierarchical structure of the "ietf-hardware" YANG module <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span> to minimize redundant data reporting and simplify device implementation. The framework refers as <code>parent-child</code> relationships.<a href="#section-4.1.7-1" class="pilcrow">¶</a></p>
-<p id="section-4.1.7-2">Energy objects inherit their hierarchical containment relationships from the hardware component tree. For example:<a href="#section-4.1.7-2" class="pilcrow">¶</a></p>
+<p id="section-3.1.7-1">The framework leverages the hierarchical structure of the "ietf-hardware" YANG module <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span> to minimize redundant data reporting and simplify device implementation. The framework refers as <code>parent-child</code> relationships.<a href="#section-3.1.7-1" class="pilcrow">¶</a></p>
+<p id="section-3.1.7-2">Energy objects inherit their hierarchical containment relationships from the hardware component tree. For example:<a href="#section-3.1.7-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.1.7-3.1">
-              <p id="section-4.1.7-3.1.1">A chassis(parent) contains line cards(children).<a href="#section-4.1.7-3.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.1.7-3.1">
+              <p id="section-3.1.7-3.1.1">A chassis(parent) contains line cards(children).<a href="#section-3.1.7-3.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.1.7-3.2">
-              <p id="section-4.1.7-3.2.1">Each line card(parent) contains ports(children).<a href="#section-4.1.7-3.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.1.7-3.2">
+              <p id="section-3.1.7-3.2.1">Each line card(parent) contains ports(children).<a href="#section-3.1.7-3.2.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.1.7-3.3">
-              <p id="section-4.1.7-3.3.1">Each chassis(parent) is powered by power supply units(children).<a href="#section-4.1.7-3.3.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.1.7-3.3">
+              <p id="section-3.1.7-3.3.1">A chassis (parent) contains power supply units (children).<a href="#section-3.1.7-3.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-4.1.7-4">Energy metrics and metadata follow these same hierarchical relationships, enabling:<a href="#section-4.1.7-4" class="pilcrow">¶</a></p>
+<p id="section-3.1.7-4">Energy metrics and metadata follow these same hierarchical relationships, enabling:<a href="#section-3.1.7-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.1.7-5.1">
-              <p id="section-4.1.7-5.1.1">Child components inherit measurement accuracy from their parent unless explicitly overridden.<a href="#section-4.1.7-5.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.1.7-5.1">
+              <p id="section-3.1.7-5.1.1">Child components inherit measurement accuracy from their parent unless explicitly overridden.<a href="#section-3.1.7-5.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.1.7-5.2">
-              <p id="section-4.1.7-5.2.1">Reduced reporting overhead: Devices only transmit accuracy metadata for components that differ from their parent.<a href="#section-4.1.7-5.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.1.7-5.2">
+              <p id="section-3.1.7-5.2.1">Reduced reporting overhead: Devices only transmit accuracy metadata for components that differ from their parent.<a href="#section-3.1.7-5.2.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.1.7-5.3">
-              <p id="section-4.1.7-5.3.1">Hierarchical validation: Controllers leverage the device containment tree (per <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>) to verify parent measurements by aggregating child values.<a href="#section-4.1.7-5.3.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.1.7-5.3">
+              <p id="section-3.1.7-5.3.1">Hierarchical validation: Controllers leverage the device containment tree (per <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>) to verify parent measurements by aggregating child values.<a href="#section-3.1.7-5.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-4.1.7-6">The GREEN YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> implements hierarchical defaults for key attributes. For example:<a href="#section-4.1.7-6" class="pilcrow">¶</a></p>
-<p id="section-4.1.7-7">For measurement accuracy, the default behaviour is inheritance from the parent object (expressed as <code>accuracy-like-parent</code> in <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>), meaning:<a href="#section-4.1.7-7" class="pilcrow">¶</a></p>
+<p id="section-3.1.7-6">The GREEN YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> implements hierarchical defaults for key attributes. For example:<a href="#section-3.1.7-6" class="pilcrow">¶</a></p>
+<p id="section-3.1.7-7">For measurement accuracy, the default behaviour is inheritance from the parent object (expressed as <code>accuracy-like-parent</code> in <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>), meaning:<a href="#section-3.1.7-7" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.1.7-8.1">
-              <p id="section-4.1.7-8.1.1">If a chassis reports accuracy at the gold tier (+/-5%), all child components (line cards, ports, fans) automatically inherit that accuracy tier.<a href="#section-4.1.7-8.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.1.7-8.1">
+              <p id="section-3.1.7-8.1.1">If a chassis reports accuracy at the gold tier (+/-5%), all child components (line cards, ports, fans) automatically inherit that accuracy tier.<a href="#section-3.1.7-8.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.1.7-8.2">
-              <p id="section-4.1.7-8.2.1">Only components whose accuracy differs from their parent need to explicitly report a value.<a href="#section-4.1.7-8.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.1.7-8.2">
+              <p id="section-3.1.7-8.2.1">Only components whose accuracy differs from their parent need to explicitly report a value.<a href="#section-3.1.7-8.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-4.1.7-9">Example:<a href="#section-4.1.7-9" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-4.1.7-10">
+<p id="section-3.1.7-9">Example:<a href="#section-3.1.7-9" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-3.1.7-10">
 <pre>
 Chassis (accuracy: gold +/-5%)
 +-- Line Card 1 (inherits: gold +/-5%)  &lt;- No need to report
 |-- Line Card 2 (inherits: gold +/-5%)  &lt;- No need to report
-|-- PSU 1 (explicit: silver +/-10%)     &lt;- Must report (differs from parent)
-</pre><a href="#section-4.1.7-10" class="pilcrow">¶</a>
+|-- PSU 1 (explicit: silver +/-10%)     &lt;- Must report (differs)
+</pre><a href="#section-3.1.7-10" class="pilcrow">¶</a>
 </div>
-<p id="section-4.1.7-11">This reduces YANG-Push telemetry volume while maintaining accuracy transparency.<a href="#section-4.1.7-11" class="pilcrow">¶</a></p>
+<p id="section-3.1.7-11">This reduces YANG-Push telemetry volume while maintaining accuracy transparency.<a href="#section-3.1.7-11" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="fixed-units-for-power-and-energy-values">
-<section id="section-4.1.8">
+<section id="section-3.1.8">
           <h4 id="name-fixed-units-for-power-and-e">
-<a href="#section-4.1.8" class="section-number selfRef">4.1.8. </a><a href="#name-fixed-units-for-power-and-e" class="section-name selfRef">Fixed Units for Power and Energy Values</a>
+<a href="#section-3.1.8" class="section-number selfRef">3.1.8. </a><a href="#name-fixed-units-for-power-and-e" class="section-name selfRef">Fixed Units for Power and Energy Values</a>
           </h4>
-<p id="section-4.1.8-1">The GREEN YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> uses fixed units for all power and energy leaves, rather than a variable-scale approach.
-Instantaneous power is always expressed in milliwatts (mW), nameplate power in Watts (W), and energy in milliwatt-hours (mWh).
-This design eliminates a class of interoperability errors that would arise if different implementations applied different unit multipliers to the same value, and simplifies YANG Push consumers since no per-instance unit resolution is required before values can be compared or aggregated.
-The integer types used (int64 for instantaneous power, uint64 for energy) provide sufficient range to represent the power consumption of any foreseeable network device or aggregate without overflow.<a href="#section-4.1.8-1" class="pilcrow">¶</a></p>
+<p id="section-3.1.8-1">The GREEN YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> uses fixed units for all Power and Energy leaves, rather than a variable-scale approach.
+Power and Energy are reported per direction, received and provided, as unsigned values.
+Instantaneous Power received and provided, and the Power Cap, are expressed in milliwatts (mW), Nameplate Power in watts (W), and Energy received and provided in milliwatt-hours (mWh).
+This design eliminates a class of interoperability errors that would arise if different implementations applied different unit multipliers to the same value, and simplifies YANG-Push consumers since no per-instance unit resolution is required before values can be compared or aggregated.
+The integer types used (uint64 for Power and Energy) provide sufficient range to represent the Power of any foreseeable network device or aggregate without overflow.<a href="#section-3.1.8-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="power-factor">
-<section id="section-4.1.9">
+<section id="section-3.1.9">
           <h4 id="name-power-factor">
-<a href="#section-4.1.9" class="section-number selfRef">4.1.9. </a><a href="#name-power-factor" class="section-name selfRef">Power Factor</a>
+<a href="#section-3.1.9" class="section-number selfRef">3.1.9. </a><a href="#name-power-factor" class="section-name selfRef">Power Factor</a>
           </h4>
-<p id="section-4.1.9-1">The YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> introduces a power-factor leaf to capture Power Factor (PF), enabling controller engines to accurately compute real power. PF is essential for accurately estimating real power consumption in AC-powered components, especially Power Supply Units (PSUs).<a href="#section-4.1.9-1" class="pilcrow">¶</a></p>
-<p id="section-4.1.9-2">The <code>power-factor</code> leaf defaults to 100 (unity power factor), meaning:
+<p id="section-3.1.9-1">The YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> introduces a power-factor leaf to capture Power Factor (PF), enabling controller engines to accurately compute real power. PF is essential for accurately estimating real power consumption in AC-powered components, especially Power Supply Units (PSUs).<a href="#section-3.1.9-1" class="pilcrow">¶</a></p>
+<p id="section-3.1.9-2">The <code>power-factor</code> leaf defaults to 100 (unity power factor), meaning:
 - Devices with typical resistive loads don't need to report power factor
 - Only devices with significant reactive power (motors, large PSUs) need explicit values
-- Simplifies data for most networking equipment<a href="#section-4.1.9-2" class="pilcrow">¶</a></p>
+- Simplifies data for most networking equipment<a href="#section-3.1.9-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="typical-power-topologies">
-<section id="section-4.2">
+<section id="section-3.2">
         <h3 id="name-typical-power-topologies">
-<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-typical-power-topologies" class="section-name selfRef">Typical Power Topologies</a>
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-typical-power-topologies" class="section-name selfRef">Typical Power Topologies</a>
         </h3>
-<p id="section-4.2-1">The following reference model describes physical power topologies that exist in parallel with a communication topology. While many more topologies can be created with a combination of devices, the following are some basic ones that show how Energy Management topologies differ from Network Management topologies. Only the controller, devices and components, are depicted here, as the Network Domain Level remains identical.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
-<p id="section-4.2-2">NOTE:<a href="#section-4.2-2" class="pilcrow">¶</a></p>
+<p id="section-3.2-1">The following reference model describes physical power topologies that exist in parallel with a communication topology. While many more topologies can be created with a combination of devices, the following are some basic ones that show how Energy Management topologies differ from Network Management topologies. Only the controller, devices and components, are depicted here, as the Network Domain Level remains identical.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-2">NOTE:<a href="#section-3.2-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.2-3.1">
-            <p id="section-4.2-3.1.1">"###" is used to denote a transfer of energy using Power Interface.<a href="#section-4.2-3.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.2-3.1">
+            <p id="section-3.2-3.1.1">"###" is used to denote a transfer of energy using Power Interface.<a href="#section-3.2-3.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.2-3.2">
-            <p id="section-4.2-3.2.1">"- &gt;" is used to denote a transfer of information using Network Interface.<a href="#section-4.2-3.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.2-3.2">
+            <p id="section-3.2-3.2.1">"- &gt;" is used to denote a transfer of information using Network Interface.<a href="#section-3.2-3.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <div id="basic-power-supply">
-<section id="section-4.2.1">
+<section id="section-3.2.1">
           <h4 id="name-basic-power-supply">
-<a href="#section-4.2.1" class="section-number selfRef">4.2.1. </a><a href="#name-basic-power-supply" class="section-name selfRef">Basic Power Supply</a>
+<a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-basic-power-supply" class="section-name selfRef">Basic Power Supply</a>
           </h4>
-<p id="section-4.2.1-1">This covers the basic example of router connected to Power Outlet in the wall.<a href="#section-4.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.1-1">This covers the basic example of router connected to Power Outlet in the wall.<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
 <span id="name-reference-model-example-bas"></span><div id="fig-basic_power">
 <figure id="figure-2">
-            <div class="alignLeft art-text artwork" id="section-4.2.1-2.1">
+            <div class="alignLeft art-text artwork" id="section-3.2.1-2.1">
 <pre>
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -1960,14 +1964,14 @@ The integer types used (int64 for instantaneous power, uint64 for energy) provid
 </section>
 </div>
 <div id="physical-meter-with-legacy-device">
-<section id="section-4.2.2">
+<section id="section-3.2.2">
           <h4 id="name-physical-meter-with-legacy-">
-<a href="#section-4.2.2" class="section-number selfRef">4.2.2. </a><a href="#name-physical-meter-with-legacy-" class="section-name selfRef">Physical Meter with Legacy Device</a>
+<a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-physical-meter-with-legacy-" class="section-name selfRef">Physical Meter with Legacy Device</a>
           </h4>
-<p id="section-4.2.2-1">This covers the basic example of device connected to wall Power Outlet, with a Physical Meter placed in the wall Power Outlet, because the device can not monitor its power, energy, demand.<a href="#section-4.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-1">This covers the basic example of device connected to wall Power Outlet, with a Physical Meter placed in the wall Power Outlet, because the device can not monitor its power, energy, demand.<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
 <span id="name-reference-model-example-phy"></span><div id="fig-physical_meter">
 <figure id="figure-3">
-            <div class="alignLeft art-text artwork" id="section-4.2.2-2.1">
+            <div class="alignLeft art-text artwork" id="section-3.2.2-2.1">
 <pre>
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -2006,19 +2010,19 @@ The integer types used (int64 for instantaneous power, uint64 for energy) provid
 <a href="#name-reference-model-example-phy" class="selfRef">Reference Model Example: Physical Meter</a>
             </figcaption></figure>
 </div>
-<p id="section-4.2.2-3">When the EnMS discovers the physical meter, it must know for which Energy Object(s) it measures power or energy. This is the Metering Relatonship.<a href="#section-4.2.2-3" class="pilcrow">¶</a></p>
-<p id="section-4.2.2-4">A Metering Relationship is a relationship where one Energy Object measures power, energy, demand, or Power Attributes of one or more other Energy Objects.  The Metering Relationship gives the view of the Metering topology.  Physical meters can be placed anywhere in a power distribution tree.  For example, utility meters monitor and report accumulated power consumption of the entire building. Logically, the Metering topology overlaps with the wiring topology, as meters are connected to the wiring topology.  A typical example is meters that clamp onto the existing wiring.<a href="#section-4.2.2-4" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-3">When the EnMS discovers the physical meter, it must know for which Energy Object(s) it measures power or energy. This is the Metering Relatonship.<a href="#section-3.2.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-4">A Metering Relationship is a relationship where one Energy Object measures power, energy, demand, or Power Attributes of one or more other Energy Objects.  The Metering Relationship gives the view of the Metering topology.  Physical meters can be placed anywhere in a power distribution tree.  For example, utility meters monitor and report accumulated power consumption of the entire building. Logically, the Metering topology overlaps with the wiring topology, as meters are connected to the wiring topology.  A typical example is meters that clamp onto the existing wiring.<a href="#section-3.2.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="physical-meter-with-new-device">
-<section id="section-4.2.3">
+<section id="section-3.2.3">
           <h4 id="name-physical-meter-with-new-dev">
-<a href="#section-4.2.3" class="section-number selfRef">4.2.3. </a><a href="#name-physical-meter-with-new-dev" class="section-name selfRef">Physical Meter with New Device</a>
+<a href="#section-3.2.3" class="section-number selfRef">3.2.3. </a><a href="#name-physical-meter-with-new-dev" class="section-name selfRef">Physical Meter with New Device</a>
           </h4>
-<p id="section-4.2.3-1">This covers the example of device connected to wall Power Outlet, with a Physical Meter placed in the wall Power Outlet, because the previous device was not able to monitor its power, energy, demand.<a href="#section-4.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.3-1">This covers the example of device connected to wall Power Outlet, with a Physical Meter placed in the wall Power Outlet, because the previous device was not able to monitor its power, energy, demand.<a href="#section-3.2.3-1" class="pilcrow">¶</a></p>
 <span id="name-reference-model-example-phys"></span><div id="fig-new_device">
 <figure id="figure-4">
-            <div class="alignLeft art-text artwork" id="section-4.2.3-2.1">
+            <div class="alignLeft art-text artwork" id="section-3.2.3-2.1">
 <pre>
 +-------------------------------------------------------------+
 |                                                             |
@@ -2057,18 +2061,18 @@ The integer types used (int64 for instantaneous power, uint64 for energy) provid
 <a href="#name-reference-model-example-phys" class="selfRef">Reference Model Example: Physical Meter with New Device</a>
             </figcaption></figure>
 </div>
-<p id="section-4.2.3-3">The most important issue in such a topology is to avoid the double counting in the Energy Management System (EnMS). The physical meter reports the Energy transmitted, while the connected Device/Component might also report its consumed Energy. Those two values are identical. Without the knowledge of this specific topology, that is the Metering Relationship between the two Energy Objects, the EnMS will double count the Energy consumed in the network.<a href="#section-4.2.3-3" class="pilcrow">¶</a></p>
+<p id="section-3.2.3-3">The most important issue in such a topology is to avoid the double counting in the Energy Management System (EnMS). The physical meter reports the Energy transmitted, while the connected Device/Component might also report its consumed Energy. Those two values are identical. Without the knowledge of this specific topology, that is the Metering Relationship between the two Energy Objects, the EnMS will double count the Energy consumed in the network.<a href="#section-3.2.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="power-over-ethernet">
-<section id="section-4.2.4">
+<section id="section-3.2.4">
           <h4 id="name-power-over-ethernet">
-<a href="#section-4.2.4" class="section-number selfRef">4.2.4. </a><a href="#name-power-over-ethernet" class="section-name selfRef">Power over Ethernet</a>
+<a href="#section-3.2.4" class="section-number selfRef">3.2.4. </a><a href="#name-power-over-ethernet" class="section-name selfRef">Power over Ethernet</a>
           </h4>
-<p id="section-4.2.4-1">This covers the example of a switch port (Power Outlet) the provides energy with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).<a href="#section-4.2.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.4-1">This covers the example of a switch port (Power Outlet) the provides energy with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).<a href="#section-3.2.4-1" class="pilcrow">¶</a></p>
 <span id="name-reference-model-example-pow"></span><div id="fig-power_ethernet">
 <figure id="figure-5">
-            <div class="alignLeft art-text artwork" id="section-4.2.4-2.1">
+            <div class="alignLeft art-text artwork" id="section-3.2.4-2.1">
 <pre>
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -2108,21 +2112,21 @@ The integer types used (int64 for instantaneous power, uint64 for energy) provid
 <a href="#name-reference-model-example-pow" class="selfRef">Reference Model Example: Power over Ethernet</a>
             </figcaption></figure>
 </div>
-<p id="section-4.2.4-3">Double counting is also an issue in such an example. The switch port, via its Power Outlet, reports the Energy transmitted, while the PoE End Point, via its Power Inlet, reports its Energy consumed.<a href="#section-4.2.4-3" class="pilcrow">¶</a></p>
-<p id="section-4.2.4-4">A second issue in such an example is the control topology. The controller must have the knowledge that, if it shuts down the switch port, it will also switch off the connected PoE End Point, as a consequence. This is the Power Source Relationship.<a href="#section-4.2.4-4" class="pilcrow">¶</a></p>
-<p id="section-4.2.4-5">A Power Source Relationship is a relationship where one Energy Object provides power to one or more Energy Objects. The Power Source Relationship gives a view of the physical wiring topology -- for example, a PoE End Point receiving power from a switch port over PoE or a data center server receiving power from two specific Power Interfaces from two different PDUs.<a href="#section-4.2.4-5" class="pilcrow">¶</a></p>
-<p id="section-4.2.4-6">On top of that, there might be two control points for the PoE End Point. First the connected switch port but also the controller direct connection to the PoE End Point (f). Via this interface, the controller might for example put the PoE End Point to a lower Power State.<a href="#section-4.2.4-6" class="pilcrow">¶</a></p>
+<p id="section-3.2.4-3">Double counting is also an issue in such an example. The switch port, via its Power Outlet, reports the Energy transmitted, while the PoE End Point, via its Power Inlet, reports its Energy consumed.<a href="#section-3.2.4-3" class="pilcrow">¶</a></p>
+<p id="section-3.2.4-4">A second issue in such an example is the control topology. The controller must have the knowledge that, if it shuts down the switch port, it will also switch off the connected PoE End Point, as a consequence. This is the Power Source Relationship.<a href="#section-3.2.4-4" class="pilcrow">¶</a></p>
+<p id="section-3.2.4-5">A Power Source Relationship is a relationship where one Energy Object provides power to one or more Energy Objects. The Power Source Relationship gives a view of the physical wiring topology -- for example, a PoE End Point receiving power from a switch port over PoE or a data center server receiving power from two specific Power Interfaces from two different PDUs.<a href="#section-3.2.4-5" class="pilcrow">¶</a></p>
+<p id="section-3.2.4-6">On top of that, there might be two control points for the PoE End Point. First the connected switch port but also the controller direct connection to the PoE End Point (f). Via this interface, the controller might for example put the PoE End Point to a lower Power State.<a href="#section-3.2.4-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="single-power-supply-with-multiple-devices">
-<section id="section-4.2.5">
+<section id="section-3.2.5">
           <h4 id="name-single-power-supply-with-mu">
-<a href="#section-4.2.5" class="section-number selfRef">4.2.5. </a><a href="#name-single-power-supply-with-mu" class="section-name selfRef">Single Power Supply with Multiple Devices</a>
+<a href="#section-3.2.5" class="section-number selfRef">3.2.5. </a><a href="#name-single-power-supply-with-mu" class="section-name selfRef">Single Power Supply with Multiple Devices</a>
           </h4>
-<p id="section-4.2.5-1">This covers the example of a smart PDU that provides energy to a series of routers in a rack.<a href="#section-4.2.5-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.5-1">This covers the example of a smart PDU that provides energy to a series of routers in a rack.<a href="#section-3.2.5-1" class="pilcrow">¶</a></p>
 <span id="name-reference-model-example-sin"></span><div id="fig-multiple_devices">
 <figure id="figure-6">
-            <div class="alignLeft art-text artwork" id="section-4.2.5-2.1">
+            <div class="alignLeft art-text artwork" id="section-3.2.5-2.1">
 <pre>
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -2177,13 +2181,13 @@ The integer types used (int64 for instantaneous power, uint64 for energy) provid
 </section>
 </div>
 <div id="multiple-power-supplies-with-single-device">
-<section id="section-4.2.6">
+<section id="section-3.2.6">
           <h4 id="name-multiple-power-supplies-wit">
-<a href="#section-4.2.6" class="section-number selfRef">4.2.6. </a><a href="#name-multiple-power-supplies-wit" class="section-name selfRef">Multiple Power Supplies with Single Device</a>
+<a href="#section-3.2.6" class="section-number selfRef">3.2.6. </a><a href="#name-multiple-power-supplies-wit" class="section-name selfRef">Multiple Power Supplies with Single Device</a>
           </h4>
 <span id="name-reference-model-example-mul"></span><div id="fig-multiple_power">
 <figure id="figure-7">
-            <div class="alignLeft art-text artwork" id="section-4.2.6-1.1">
+            <div class="alignLeft art-text artwork" id="section-3.2.6-1.1">
 <pre>
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -2227,153 +2231,157 @@ The integer types used (int64 for instantaneous power, uint64 for energy) provid
 </section>
 </div>
 <div id="relationships">
-<section id="section-4.3">
+<section id="section-3.3">
         <h3 id="name-relationships">
-<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-relationships" class="section-name selfRef">Relationships</a>
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-relationships" class="section-name selfRef">Relationships</a>
         </h3>
-<p id="section-4.3-1">The framework for Energy Management needs to describe a means to monitor and control devices and components, and it needs to describe the relationships among, and connections between, devices and components.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
-<p id="section-4.3-2">Two Energy Objects can establish an Energy Object Relationship to model the deployment topology with respect to Energy Management.<a href="#section-4.3-2" class="pilcrow">¶</a></p>
-<p id="section-4.3-3">Relationships are modeled with a Relationship that contains the UUID of the other participant in the relationship, along with a Relationship type.<a href="#section-4.3-3" class="pilcrow">¶</a></p>
-<p id="section-4.3-4">There are four types of relationships are Power Source, Metering, Aggregation, and Functional Enablement.<a href="#section-4.3-4" class="pilcrow">¶</a></p>
+<p id="section-3.3-1">The framework for Energy Management needs to describe a means to monitor and control devices and components, and it needs to describe the relationships among, and connections between, devices and components.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.3-2">Two Energy Objects can establish an Energy Object Relationship to model the deployment topology with respect to Energy Management.<a href="#section-3.3-2" class="pilcrow">¶</a></p>
+<p id="section-3.3-3">Relationships are modeled with a Relationship that contains the identifier of the other participant, preferably its UUID, along with a Relationship type.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
+<p id="section-3.3-4">There are four types of relationships: Power Source, Metering, Aggregation, and Functional Enablement.<a href="#section-3.3-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.3-5.1">
-            <p id="section-4.3-5.1.1">A Power Source Relationship is a relationship where one Energy Object provides power to one or more Energy Objects.  The Power Source Relationship gives a view of the physical wiring topology; for example, a data center server receiving power from two specific Power Interfaces from two different PDUs.<a href="#section-4.3-5.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.3-5.1">
+            <p id="section-3.3-5.1.1">A Power Source Relationship is a relationship where one Energy Object provides power to one or more Energy Objects.  The Power Source Relationship gives a view of the physical wiring topology; for example, a data center server receiving power from two specific Power Interfaces from two different PDUs.<a href="#section-3.3-5.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-4.3-6">Note: A Power Source Relationship may or may not change as the direction of power changes between two Energy Objects.  The relationship may remain to indicate that the change of power direction was unintended or an error condition.<a href="#section-4.3-6" class="pilcrow">¶</a></p>
+<p id="section-3.3-6">Note: A Power Source Relationship may or may not change as the direction of power changes between two Energy Objects.  The relationship may remain to indicate that the change of power direction was unintended or an error condition.<a href="#section-3.3-6" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.3-7.1">
-            <p id="section-4.3-7.1.1">A Metering Relationship is a relationship where one Energy Object measures power, energy, demand, or Power Attributes of one or more other Energy Objects.  The Metering Relationship gives the view of the Metering topology.  Physical meters can be placed anywhere in a power distribution tree.  For example, utility meters monitor and report accumulated power consumption of the entire building. Logically, the Metering topology overlaps with the wiring topology, as meters are connected to the wiring topology. A typical example is meters that clamp onto the existing wiring.<a href="#section-4.3-7.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.3-7.1">
+            <p id="section-3.3-7.1.1">A Metering Relationship is a relationship where one Energy Object measures power, energy, demand, or Power Attributes of one or more other Energy Objects.  The Metering Relationship gives the view of the Metering topology.  Physical meters can be placed anywhere in a power distribution tree.  For example, utility meters monitor and report accumulated power consumption of the entire building. Logically, the Metering topology overlaps with the wiring topology, as meters are connected to the wiring topology. A typical example is meters that clamp onto the existing wiring.<a href="#section-3.3-7.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.3-7.2">
-            <p id="section-4.3-7.2.1">An Aggregation Relationship is a relationship where one Energy Object aggregates Energy Management information of one or more other Energy Objects.  The Aggregation Relationship gives a model of devices that may aggregate (sum, average, etc.) values for other devices.  The Aggregation Relationship is slightly different compared to the other relationships, as this refers more to a management function.<a href="#section-4.3-7.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.3-7.2">
+            <p id="section-3.3-7.2.1">An Aggregation Relationship is a relationship where one Energy Object aggregates Energy Management information of one or more other Energy Objects.  The Aggregation Relationship gives a model of devices that may aggregate (sum, average, etc.) values for other devices.  The Aggregation Relationship is slightly different compared to the other relationships, as this refers more to a management function.<a href="#section-3.3-7.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.3-7.3">
-            <p id="section-4.3-7.3.1">A Functional Dependency Relationship is a relationship where one Energy Object requires another Energy Object to be in an operational state for its own correct functioning, even though no energy flows between them and neither measures the other.  This relationship captures operational dependencies that are distinct from physical power supply or metering topology. For example, a line card (Line Processing Unit, LPU) that depends on a switch card (Switch Fabric Unit, SFU) to forward traffic.  The SFU does not power the LPU, does not meter it, and does not aggregate its energy measurements; the dependency is purely functional.  Without an explicit Functional Dependency Relationship, a controller that only understands Power Source, Metering, and Aggregation Relationships has no basis for concluding that powering off the SFU will disrupt the LPU's data-plane operation. The relationship is expressed as a symmetric pair in the YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>: <code>enabled-by</code> (from the dependent toward the object it requires) and <code>enabling</code> (from the required object toward those that depend on it).<a href="#section-4.3-7.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.3-7.3">
+            <p id="section-3.3-7.3.1">A Functional Enablement Relationship is a relationship where one Energy Object requires another Energy Object to be in an operational state for its own correct functioning, even though no energy flows between them and neither measures the other.  This relationship captures operational dependencies that are distinct from physical power supply or metering topology. For example, a line card (Line Processing Unit, LPU) that depends on a switch card (Switch Fabric Unit, SFU) to forward traffic.  The SFU does not power the LPU, does not meter it, and does not aggregate its energy measurements; the dependency is purely functional.  Without an explicit Functional Enablement Relationship, a controller that only understands Power Source, Metering, and Aggregation Relationships has no basis for concluding that powering off the SFU will disrupt the LPU's data-plane operation. The relationship is expressed as a symmetric pair in the YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>: <code>enabled-by</code> (from the dependent toward the object it requires) and <code>enabling</code> (from the required object toward those that depend on it).<a href="#section-3.3-7.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-4.3-8">To prevent double counting in scenarios where one Energy Object provides power to another (e.g., PoE switch port to PoE endpoint):<a href="#section-4.3-8" class="pilcrow">¶</a></p>
-<p id="section-4.3-9">Convention: Report both consumed and delivered energy separately:
-- The providing Energy Object reports total-energy-consumed (self) AND total-energy-delivered (to downstream)
-- The receiving Energy Object reports total-energy-consumed<a href="#section-4.3-9" class="pilcrow">¶</a></p>
-<p id="section-4.3-10">Example: A PoE switch port consuming 1W and providing 9W to an endpoint:
-- Port reports: total-energy-consumed=1W, total-energy-produced=9W
-- Endpoint reports: total-energy-consumed=9W<a href="#section-4.3-10" class="pilcrow">¶</a></p>
-<p id="section-4.3-11">Controllers must use Metering Relationships to identify and avoid aggregating both values.<a href="#section-4.3-11" class="pilcrow">¶</a></p>
-<p id="section-4.3-12">In some situations, it is not possible to discover the Energy Object Relationships, and an EnMS or administrator must manually set them.  Given that relationships can be assigned manually, the following sections describe guidelines for use.<a href="#section-4.3-12" class="pilcrow">¶</a></p>
+<p id="section-3.3-8">To prevent double counting in scenarios where one Energy Object provides power to another (e.g., PoE switch port to PoE endpoint):<a href="#section-3.3-8" class="pilcrow">¶</a></p>
+<p id="section-3.3-9">Each Energy Object reports the Energy it receives and the Energy it provides; its consumption is the net value, received minus provided <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>.<a href="#section-3.3-9" class="pilcrow">¶</a></p>
+<p id="section-3.3-10">Example: over one hour, a PoE switch port receives 10 Wh and provides 9 Wh to an endpoint (cable loss ignored):<a href="#section-3.3-10" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.3-11.1">
+            <p id="section-3.3-11.1.1">Port reports: total-energy-received = 10 Wh, total-energy-provided = 9 Wh (net: 1 Wh)<a href="#section-3.3-11.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-11.2">
+            <p id="section-3.3-11.2.1">Endpoint reports: total-energy-received = 9 Wh (net: 9 Wh)<a href="#section-3.3-11.2.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-3.3-12">Summing the net values (1 Wh + 9 Wh = 10 Wh) counts each watt-hour once. The Power Source Relationship between the port and the endpoint tells the Controller that the 9 Wh are the same Energy.<a href="#section-3.3-12" class="pilcrow">¶</a></p>
+<p id="section-3.3-13">In some situations, it is not possible to discover the Energy Object Relationships, and an EnMS or administrator must manually set them.  Given that relationships can be assigned manually, the following sections describe guidelines for use.<a href="#section-3.3-13" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="power-state-set">
-<section id="section-4.4">
+<section id="section-3.4">
         <h3 id="name-power-state-set">
-<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-power-state-set" class="section-name selfRef">Power State Set</a>
+<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-power-state-set" class="section-name selfRef">Power State Set</a>
         </h3>
-<p id="section-4.4-1">The Energy Object contains a Power State Set attribute that represents a set of Power States a device or component supports.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
-<p id="section-4.4-2">A Power State describes a condition or mode of a device or component. While Power States are typically used for control, they may be used for monitoring only.<a href="#section-4.4-2" class="pilcrow">¶</a></p>
-<p id="section-4.4-3">A device or component is expected to support at least one set of Power States consisting of at least two states: an on state and an off state.<a href="#section-4.4-3" class="pilcrow">¶</a></p>
-<p id="section-4.4-4">The semantics of a Power State are specified by:<a href="#section-4.4-4" class="pilcrow">¶</a></p>
+<p id="section-3.4-1">An Energy Object supports a set of Power States, its Power State Set.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.4-2">A Power State describes a condition or mode of a device or component. While Power States are typically used for control, they may be used for monitoring only.<a href="#section-3.4-2" class="pilcrow">¶</a></p>
+<p id="section-3.4-3">A device or component is expected to support at least one set of Power States consisting of at least two states: an on state and an off state.<a href="#section-3.4-3" class="pilcrow">¶</a></p>
+<p id="section-3.4-4">The semantics of a Power State are specified by:<a href="#section-3.4-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.4-5.1">
-            <p id="section-4.4-5.1.1">The functionality provided by an Energy Object in this state.<a href="#section-4.4-5.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.4-5.1">
+            <p id="section-3.4-5.1.1">The functionality provided by an Energy Object in this state.<a href="#section-3.4-5.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.4-5.2">
-            <p id="section-4.4-5.2.1">A limitation of the power that an Energy Object uses in this state.<a href="#section-4.4-5.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.4-5.2">
+            <p id="section-3.4-5.2.1">A limitation of the power that an Energy Object uses in this state.<a href="#section-3.4-5.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.4-5.3">
-            <p id="section-4.4-5.3.1">A combination of the first two.<a href="#section-4.4-5.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.4-5.3">
+            <p id="section-3.4-5.3.1">A combination of the first two.<a href="#section-3.4-5.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-4.4-6">The semantics of a Power State should be clearly defined.  Limitation(curtailment) of the power used by an Energy Object in a state may be specified by:<a href="#section-4.4-6" class="pilcrow">¶</a></p>
+<p id="section-3.4-6">The semantics of a Power State should be clearly defined.  Limitation(curtailment) of the power used by an Energy Object in a state may be specified by:<a href="#section-3.4-6" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.4-7.1">
-            <p id="section-4.4-7.1.1">An absolute power value.<a href="#section-4.4-7.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.4-7.1">
+            <p id="section-3.4-7.1.1">An absolute power value.<a href="#section-3.4-7.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.4-7.2">
-            <p id="section-4.4-7.2.1">A percentage value of power relative to the Energy Object's Nameplate Power.<a href="#section-4.4-7.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.4-7.2">
+            <p id="section-3.4-7.2.1">A percentage value of power relative to the Energy Object's Nameplate Power.<a href="#section-3.4-7.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.4-7.3">
-            <p id="section-4.4-7.3.1">An indication of power relative to another Power State.  For example, specify that power in state A is less than in state B.<a href="#section-4.4-7.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.4-7.3">
+            <p id="section-3.4-7.3.1">An indication of power relative to another Power State.  For example, specify that power in state A is less than in state B.<a href="#section-3.4-7.3.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.4-7.4">
-            <p id="section-4.4-7.4.1">For supporting Power State management, an Energy Object provides statistics on Power States, including the time an Energy Object spent in a certain Power State and the number of times an Energy Object entered a Power State.<a href="#section-4.4-7.4.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.4-7.4">
+            <p id="section-3.4-7.4.1">For supporting Power State management, an Energy Object can provide statistics on Power States, such as the time spent in a Power State and the number of times it entered a Power State. These statistics are not part of <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>.<a href="#section-3.4-7.4.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-4.4-8">There are many existing standards describing device and component
-Power States. TO BE COMPLETED<a href="#section-4.4-8" class="pilcrow">¶</a></p>
+<p id="section-3.4-8">There are many existing standards describing device and component
+Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" class="cite xref">RFC7326</a>]</span> lists the IEEE1621, DMTF, and EMAN Power State Sets.<a href="#section-3.4-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="power-state-set-mapping-and-intent">
-<section id="section-4.5">
+<section id="section-3.5">
         <h3 id="name-power-state-set-mapping-and">
-<a href="#section-4.5" class="section-number selfRef">4.5. </a><a href="#name-power-state-set-mapping-and" class="section-name selfRef">Power State Set Mapping and Intent</a>
+<a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-power-state-set-mapping-and" class="section-name selfRef">Power State Set Mapping and Intent</a>
         </h3>
-<p id="section-4.5-1">Defining and enforcing power states can be challenging, because each Energy Object's technical capabilities must be mapped to high-level operational intents for energy-efficient operation. The following examples illustrate how an Energy Object's power-saving capabilities can be aligned with typical intents:<a href="#section-4.5-1" class="pilcrow">¶</a></p>
+<p id="section-3.5-1">Defining and enforcing power states can be challenging, because each Energy Object's technical capabilities must be mapped to high-level operational intents for energy-efficient operation. The following examples illustrate how an Energy Object's power-saving capabilities can be aligned with typical intents:<a href="#section-3.5-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.5-2.1">
-            <p id="section-4.5-2.1.1">running at reduced capacity during predictable low-demand periods;<a href="#section-4.5-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.5-2.1">
+            <p id="section-3.5-2.1.1">running at reduced capacity during predictable low-demand periods;<a href="#section-3.5-2.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.5-2.2">
-            <p id="section-4.5-2.2.1">lowering energy use while maintaining required performance levels;<a href="#section-4.5-2.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.5-2.2">
+            <p id="section-3.5-2.2.1">lowering energy use while maintaining required performance levels;<a href="#section-3.5-2.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.5-2.3">
-            <p id="section-4.5-2.3.1">operating at a reduced service level when the site is on a backup power source during a grid outage.<a href="#section-4.5-2.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-3.5-2.3">
+            <p id="section-3.5-2.3.1">operating at a reduced service level when the site is on a backup power source during a grid outage.<a href="#section-3.5-2.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-4.5-3">By expressing such intents, a controller can decide which power state an Energy Object should enter at any given time and under what conditions.<a href="#section-4.5-3" class="pilcrow">¶</a></p>
+<p id="section-3.5-3">By expressing such intents, a controller can decide which power state an Energy Object should enter at any given time and under what conditions.<a href="#section-3.5-3" class="pilcrow">¶</a></p>
 <div id="capability-discovery">
-<section id="section-4.5.1">
+<section id="section-3.5.1">
           <h4 id="name-capability-discovery">
-<a href="#section-4.5.1" class="section-number selfRef">4.5.1. </a><a href="#name-capability-discovery" class="section-name selfRef">Capability Discovery</a>
+<a href="#section-3.5.1" class="section-number selfRef">3.5.1. </a><a href="#name-capability-discovery" class="section-name selfRef">Capability Discovery</a>
           </h4>
-<p id="section-4.5.1-1">Identifying what power states an Energy Object supports is crucial for onboarding and integration, especially for legacy systems. Key discovery elements include:<a href="#section-4.5.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.5.1-1">Identifying what power states an Energy Object supports is crucial for onboarding and integration, especially for legacy systems. Key discovery elements include:<a href="#section-3.5.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.5.1-2.1">
-              <p id="section-4.5.1-2.1.1">Whether the energy object supports multiple Power State Sets.<a href="#section-4.5.1-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.5.1-2.1">
+              <p id="section-3.5.1-2.1.1">Whether the energy object supports multiple Power State Sets.<a href="#section-3.5.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.5.1-2.2">
-              <p id="section-4.5.1-2.2.1">Semantics and limitations of each state (e.g., absolute power, relative power).<a href="#section-4.5.1-2.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.5.1-2.2">
+              <p id="section-3.5.1-2.2.1">Semantics and limitations of each state (e.g., absolute power, relative power).<a href="#section-3.5.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.5.1-2.3">
-              <p id="section-4.5.1-2.3.1">Transition characteristics, such as the time required to move between states.<a href="#section-4.5.1-2.3.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.5.1-2.3">
+              <p id="section-3.5.1-2.3.1">Transition characteristics, such as the time required to move between states.<a href="#section-3.5.1-2.3.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.5.1-2.4">
-              <p id="section-4.5.1-2.4.1">Energy Object-specific state transition constraints like frequency, which may limit energy-saving measures to avoid damaging the device/components.<a href="#section-4.5.1-2.4.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.5.1-2.4">
+              <p id="section-3.5.1-2.4.1">Energy Object-specific state transition constraints like frequency, which may limit energy-saving measures to avoid damaging the device/components.<a href="#section-3.5.1-2.4.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.5.1-2.5">
-              <p id="section-4.5.1-2.5.1">Impacts on measurement accuracy.<a href="#section-4.5.1-2.5.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.5.1-2.5">
+              <p id="section-3.5.1-2.5.1">Impacts on measurement accuracy.<a href="#section-3.5.1-2.5.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
 </div>
 <div id="intent-mapping">
-<section id="section-4.5.2">
+<section id="section-3.5.2">
           <h4 id="name-intent-mapping">
-<a href="#section-4.5.2" class="section-number selfRef">4.5.2. </a><a href="#name-intent-mapping" class="section-name selfRef">Intent Mapping</a>
+<a href="#section-3.5.2" class="section-number selfRef">3.5.2. </a><a href="#name-intent-mapping" class="section-name selfRef">Intent Mapping</a>
           </h4>
-<p id="section-4.5.2-1">The goal of intent mapping is to translate Energy-Aware Intent into specific device/component configurations. For example:<a href="#section-4.5.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.5.2-1">The goal of intent mapping is to translate Energy-Aware Intent into specific device/component configurations. For example:<a href="#section-3.5.2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.5.2-2.1">
-              <p id="section-4.5.2-2.1.1">An intent like "reduce power consumption at low utilization" might map to a predefined low-power state.<a href="#section-4.5.2-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.5.2-2.1">
+              <p id="section-3.5.2-2.1.1">An intent like "reduce power consumption at low utilization" might map to a predefined low-power state.<a href="#section-3.5.2-2.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.5.2-2.2">
-              <p id="section-4.5.2-2.2.1">Controllers may interpret intents variably, e.g., "run at half capacity but be ready to scale up if needed."<a href="#section-4.5.2-2.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.5.2-2.2">
+              <p id="section-3.5.2-2.2.1">Controllers may interpret intents variably, e.g., "run at half capacity but be ready to scale up if needed."<a href="#section-3.5.2-2.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-4.5.2-3">This is comparable to intent mapping in YANG-based systems, from high-level Customer-Facing Services (CFS) to Resource-Facing Services (RFS) and ultimately to device-specific configurations.<a href="#section-4.5.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.5.2-3">This is comparable to intent mapping in YANG-based systems, from high-level Customer-Facing Services (CFS) to Resource-Facing Services (RFS) and ultimately to device-specific configurations.<a href="#section-3.5.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sla-considerations">
-<section id="section-4.5.3">
+<section id="section-3.5.3">
           <h4 id="name-sla-considerations">
-<a href="#section-4.5.3" class="section-number selfRef">4.5.3. </a><a href="#name-sla-considerations" class="section-name selfRef">SLA Considerations</a>
+<a href="#section-3.5.3" class="section-number selfRef">3.5.3. </a><a href="#name-sla-considerations" class="section-name selfRef">SLA Considerations</a>
           </h4>
-<p id="section-4.5.3-1">Meanwhile saving energy, the device or component shouldn't drop below a certain performance threshold or allow a certain service reduction or degradation. Based on this, there are two kinds of service level expectations (SLAs) are associated with Power State behavior:<a href="#section-4.5.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.5.3-1">Meanwhile saving energy, the device or component shouldn't drop below a certain performance threshold or allow a certain service reduction or degradation. Based on this, there are two kinds of service level expectations (SLAs) are associated with Power State behavior:<a href="#section-3.5.3-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.5.3-2.1">
-              <p id="section-4.5.3-2.1.1">Transition SLAs - e.g., the maximum time allowed to transition between states.<a href="#section-4.5.3-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-3.5.3-2.1">
+              <p id="section-3.5.3-2.1.1">Transition SLAs - e.g., the maximum time allowed to transition between states.<a href="#section-3.5.3-2.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-4.5.3-2.2">
-              <p id="section-4.5.3-2.2.1">Operational SLAs - e.g., device frequency or operational cycle limits that ensure long-term hardware health.<a href="#section-4.5.3-2.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-3.5.3-2.2">
+              <p id="section-3.5.3-2.2.1">Operational SLAs - e.g., device frequency or operational cycle limits that ensure long-term hardware health.<a href="#section-3.5.3-2.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
@@ -2383,36 +2391,45 @@ Power States. TO BE COMPLETED<a href="#section-4.4-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="interfaces-usage-of-the-framework">
-<section id="section-5">
+<section id="section-4">
       <h2 id="name-interfaces-usage-of-the-fra">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-interfaces-usage-of-the-fra" class="section-name selfRef">Interfaces Usage Of the Framework</a>
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-interfaces-usage-of-the-fra" class="section-name selfRef">Interfaces Usage Of the Framework</a>
       </h2>
-<p id="section-5-1">This section provides an overview of how the GREEN use cases described in <span>[<a href="#GreenUseCases" class="cite xref">GreenUseCases</a>]</span> interact with the framework interfaces defined in this document.<a href="#section-5-1" class="pilcrow">¶</a></p>
-<p id="section-5-2">Each use case is characterized by the sequence of framework interfaces it invokes to achieve energy-efficiency objectives.<a href="#section-5-2" class="pilcrow">¶</a></p>
+<p id="section-4-1">This section provides an overview of how the GREEN use cases described in <span>[<a href="#GreenUseCases" class="cite xref">GreenUseCases</a>]</span> interact with the framework interfaces defined in this document.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-2">Each use case is characterized by the sequence of framework interfaces it invokes to achieve energy-efficiency objectives.<a href="#section-4-2" class="pilcrow">¶</a></p>
 <div id="mapping-of-use-cases-to-framework-interfaces">
-<section id="section-5.1">
+<section id="section-4.1">
         <h3 id="name-mapping-of-use-cases-to-fra">
-<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-mapping-of-use-cases-to-fra" class="section-name selfRef">Mapping of Use Cases to Framework Interfaces</a>
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-mapping-of-use-cases-to-fra" class="section-name selfRef">Mapping of Use Cases to Framework Interfaces</a>
         </h3>
-<p id="section-5.1-1">The table <a href="#green-uc-interfaces-usage" class="auto internal xref">Table 2</a> maps each GREEN use case to the framework interfaces and summarizes how these are used:<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1-1">The table <a href="#green-uc-interfaces-usage" class="auto internal xref">Table 2</a> maps each GREEN use case to the framework interfaces and summarizes how these are used:<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5.1-2.1">
-            <p id="section-5.1-2.1.1">The first line shows the interface sequences.<a href="#section-5.1-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-4.1-2.1">
+            <p id="section-4.1-2.1.1">The first line shows the interface sequences.<a href="#section-4.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-5.1-2.2">
-            <p id="section-5.1-2.2.1">The second line briefly describes the functional purpose of that flow.<a href="#section-5.1-2.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-4.1-2.2">
+            <p id="section-4.1-2.2.1">The second line briefly describes the functional purpose of that flow.<a href="#section-4.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-5.1-3">The notation <code>a-&gt;b-&gt;c</code> represents the flow between framework components as described in the <a href="#fig-green-reference-model" class="auto internal xref">Figure 1</a>, where:<a href="#section-5.1-3" class="pilcrow">¶</a></p>
+<p id="section-4.1-3">The notation <code>a-&gt;b-&gt;c</code> represents the flow between framework components as described in the <a href="#fig-green-reference-model" class="auto internal xref">Figure 1</a>, where:<a href="#section-4.1-3" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5.1-4.1">
-            <p id="section-5.1-4.1.1">(a) Discovery interface<a href="#section-5.1-4.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-4.1-4.1">
+            <p id="section-4.1-4.1.1">(a), (d) Discovery and inventory<a href="#section-4.1-4.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-5.1-4.2">
-            <p id="section-5.1-4.2.1">(b) Monitoring interface<a href="#section-5.1-4.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-4.1-4.2">
+            <p id="section-4.1-4.2.1">(b) Aggregated GREEN metrics, Controller to EnMS<a href="#section-4.1-4.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-5.1-4.3">
-            <p id="section-5.1-4.3.1">(c) Metrics interface<a href="#section-5.1-4.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-4.1-4.3">
+            <p id="section-4.1-4.3.1">(c) Static reference data (datasheets, certifications)<a href="#section-4.1-4.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.1-4.4">
+            <p id="section-4.1-4.4.1">(e) Device telemetry, device to Controller<a href="#section-4.1-4.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.1-4.5">
+            <p id="section-4.1-4.5.1">(f) Control<a href="#section-4.1-4.5.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.1-4.6">
+            <p id="section-4.1-4.6.1">(g) API service interface<a href="#section-4.1-4.6.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <span id="name-use-cases-interfaces-usage"></span><div id="green-uc-interfaces-usage">
@@ -2592,41 +2609,41 @@ Power States. TO BE COMPLETED<a href="#section-4.4-8" class="pilcrow">¶</a></p>
           </tbody>
         </table>
 </div>
-<p id="section-5.1-6">Use Case 1 (Incremental Deployment) illustrates how the usage of the framework interfaces evolves during the lifecycle of a network or device group, starting with legacy reporting, which is represented by 1=(c) and 2=(c -&gt; b) and progressively incorporating GREEN-specific components 3=(a -&gt; d -&gt; b -&gt; e).<a href="#section-5.1-6" class="pilcrow">¶</a></p>
+<p id="section-4.1-6">Use Case 1 (Incremental Deployment) illustrates how the usage of the framework interfaces evolves during the lifecycle of a network or device group, starting with legacy reporting, which is represented by 1=(c) and 2=(c -&gt; b) and progressively incorporating GREEN-specific components 3=(a -&gt; d -&gt; b -&gt; e).<a href="#section-4.1-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="use-case-implementation-requirements-device-vs-controller-centric">
-<section id="section-6">
+<section id="section-5">
       <h2 id="name-use-case-implementation-req">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-use-case-implementation-req" class="section-name selfRef">Use Case Implementation Requirements: Device vs. Controller Centric</a>
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-use-case-implementation-req" class="section-name selfRef">Use Case Implementation Requirements: Device vs. Controller Centric</a>
       </h2>
-<p id="section-6-1">This section analyzes the <span>[<a href="#GreenUseCases" class="cite xref">GreenUseCases</a>]</span> to identify which capabilities require device-level implementation versus controller orchestration. This guides implementers on device feature priorities and operators on controller capabilities needed for effective energy management.<a href="#section-6-1" class="pilcrow">¶</a></p>
-<p id="section-6-2">The framework distinguishes between two orthogonal concepts:<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-5-1">This section analyzes the <span>[<a href="#GreenUseCases" class="cite xref">GreenUseCases</a>]</span> to identify which capabilities require device-level implementation versus controller orchestration. This guides implementers on device feature priorities and operators on controller capabilities needed for effective energy management.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">The framework distinguishes between two orthogonal concepts:<a href="#section-5-2" class="pilcrow">¶</a></p>
 <div id="implementation-focus-where-intelligence-resides">
-<section id="section-6.1">
+<section id="section-5.1">
         <h3 id="name-implementation-focus-where-">
-<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-implementation-focus-where-" class="section-name selfRef">Implementation Focus: Where Intelligence Resides</a>
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-implementation-focus-where-" class="section-name selfRef">Implementation Focus: Where Intelligence Resides</a>
         </h3>
-<p id="section-6.1-1">Device-Centric Use Cases require autonomous on-device decision-making:
+<p id="section-5.1-1">Device-Centric Use Cases require autonomous on-device decision-making:
 - Example: UC 14 (Power Shortage) - Device must independently manage backup power transitions when network connectivity is lost.
-- It might require local algorithms, minimal controller dependency, autonomous operation, etc.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
-<p id="section-6.1-2">Controller-Centric Use Cases require centralized orchestration and network-wide visibility:
+- It might require local algorithms, minimal controller dependency, autonomous operation, etc.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.1-2">Controller-Centric Use Cases require centralized orchestration and network-wide visibility:
 - Example: UC 10 (Fixed Network Saving) - Controller predicts traffic patterns across devices and coordinates state changes.
-- It requires cross-device coordination, centralized intelligence<a href="#section-6.1-2" class="pilcrow">¶</a></p>
-<p id="section-6.1-3">Use Cases need both device capabilities and controller coordination:
-- Example: UC 9 (WLAN Energy Saving) - Devices support power modes; controller coordinates AP groups to maintain coverage.<a href="#section-6.1-3" class="pilcrow">¶</a></p>
-<p id="section-6.1-4">Who triggers telemetry is independent of implementation focus and follows YANG-Push <span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span> patterns:<a href="#section-6.1-4" class="pilcrow">¶</a></p>
-<p id="section-6.1-5">Controller-Initiated, or Dynamic subscription:
+- It requires cross-device coordination, centralized intelligence<a href="#section-5.1-2" class="pilcrow">¶</a></p>
+<p id="section-5.1-3">Use Cases need both device capabilities and controller coordination:
+- Example: UC 9 (WLAN Energy Saving) - Devices support power modes; controller coordinates AP groups to maintain coverage.<a href="#section-5.1-3" class="pilcrow">¶</a></p>
+<p id="section-5.1-4">Who triggers telemetry is independent of implementation focus and follows YANG-Push <span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span> patterns:<a href="#section-5.1-4" class="pilcrow">¶</a></p>
+<p id="section-5.1-5">Controller-Initiated, or Dynamic subscription:
 - Controller establishes YANG-Push subscriptions to energy objects
 - Device streams telemetry at specified intervals (periodic) or on change (event-driven)
-- Centralized monitoring policy management<a href="#section-6.1-5" class="pilcrow">¶</a></p>
-<p id="section-6.1-6">Device-Initiated, or Static Subscription:
+- Centralized monitoring policy management<a href="#section-5.1-5" class="pilcrow">¶</a></p>
+<p id="section-5.1-6">Device-Initiated, or Static Subscription:
 - Device autonomously pushes alerts without prior subscription
 - Used for threshold violations, hardware failures, certification degradation
-- Complements controller-initiated monitoring<a href="#section-6.1-6" class="pilcrow">¶</a></p>
-<p id="section-6.1-7">Even device-centric use cases(autonomous operation) typically use controller-initiated telemetry (controller subscribes to observe device behavior). These concepts are independent.<a href="#section-6.1-7" class="pilcrow">¶</a></p>
+- Complements controller-initiated monitoring<a href="#section-5.1-6" class="pilcrow">¶</a></p>
+<p id="section-5.1-7">Even device-centric use cases(autonomous operation) typically use controller-initiated telemetry (controller subscribes to observe device behavior). These concepts are independent.<a href="#section-5.1-7" class="pilcrow">¶</a></p>
 <span id="name-use-case-implementation-foc"></span><div id="uc-implementation-focus">
 <table class="center" id="table-3">
           <caption>
@@ -2755,103 +2772,95 @@ Power States. TO BE COMPLETED<a href="#section-4.4-8" class="pilcrow">¶</a></p>
           </tbody>
         </table>
 </div>
-<p id="section-6.1-9">&lt;&lt;TODO - consider to include&gt;&gt;<a href="#section-6.1-9" class="pilcrow">¶</a></p>
+<p id="section-5.1-9">&lt;&lt;TODO - consider to include&gt;&gt;<a href="#section-5.1-9" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="key-findings">
-<section id="section-6.2">
+<section id="section-5.2">
         <h3 id="name-key-findings">
-<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-key-findings" class="section-name selfRef">Key Findings</a>
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-key-findings" class="section-name selfRef">Key Findings</a>
         </h3>
 <div id="device-capabilities-required-across-use-cases">
-<section id="section-6.2.1">
+<section id="section-5.2.1">
           <h4 id="name-device-capabilities-require">
-<a href="#section-6.2.1" class="section-number selfRef">6.2.1. </a><a href="#name-device-capabilities-require" class="section-name selfRef">Device Capabilities Required across Use Cases</a>
+<a href="#section-5.2.1" class="section-number selfRef">5.2.1. </a><a href="#name-device-capabilities-require" class="section-name selfRef">Device Capabilities Required across Use Cases</a>
         </h4>
 </section>
 </div>
 <div id="controller-capabilities-required-across-use-cases">
-<section id="section-6.2.2">
+<section id="section-5.2.2">
           <h4 id="name-controller-capabilities-req">
-<a href="#section-6.2.2" class="section-number selfRef">6.2.2. </a><a href="#name-controller-capabilities-req" class="section-name selfRef">Controller Capabilities Required across Use Cases</a>
+<a href="#section-5.2.2" class="section-number selfRef">5.2.2. </a><a href="#name-controller-capabilities-req" class="section-name selfRef">Controller Capabilities Required across Use Cases</a>
         </h4>
 </section>
 </div>
 </section>
 </div>
 <div id="implementation-priorities">
-<section id="section-6.3">
+<section id="section-5.3">
         <h3 id="name-implementation-priorities">
-<a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-implementation-priorities" class="section-name selfRef">Implementation Priorities</a>
+<a href="#section-5.3" class="section-number selfRef">5.3. </a><a href="#name-implementation-priorities" class="section-name selfRef">Implementation Priorities</a>
       </h3>
 </section>
 </div>
 <div id="next-steps">
-<section id="section-6.4">
+<section id="section-5.4">
         <h3 id="name-next-steps">
-<a href="#section-6.4" class="section-number selfRef">6.4. </a><a href="#name-next-steps" class="section-name selfRef">Next Steps</a>
+<a href="#section-5.4" class="section-number selfRef">5.4. </a><a href="#name-next-steps" class="section-name selfRef">Next Steps</a>
         </h3>
-<p id="section-6.4-1">&lt;&lt;TODO - ends here&gt;&gt;<a href="#section-6.4-1" class="pilcrow">¶</a></p>
+<p id="section-5.4-1">&lt;&lt;TODO - ends here&gt;&gt;<a href="#section-5.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="operational-considerations">
-<section id="section-7">
+<section id="section-6">
       <h2 id="name-operational-considerations">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-operational-considerations" class="section-name selfRef">Operational Considerations</a>
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-operational-considerations" class="section-name selfRef">Operational Considerations</a>
       </h2>
 <div id="measurement-accuracy-inheritance">
-<section id="section-7.1">
+<section id="section-6.1">
         <h3 id="name-measurement-accuracy-inheri">
-<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-measurement-accuracy-inheri" class="section-name selfRef">Measurement Accuracy Inheritance</a>
+<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-measurement-accuracy-inheri" class="section-name selfRef">Measurement Accuracy Inheritance</a>
         </h3>
-<p id="section-7.1-1">The GREEN YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> uses parent-inheritance for measurement accuracy: when a component does not explicitly report its data-source accuracy, the client determines the applicable accuracy by consulting the accuracy value reported by the parent object in the ietf-hardware tree diagram <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>, which represents the physical structure of a device as a tree of component.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
-<p id="section-7.1-2">For example, a chassis containing line cards, each containing ports and power supply units. Each component in that tree has a "parent" leaf that identifies its containing component. Accuracy inheritance follows this same parent-child relationship: a line card that does not report its own accuracy inherits the accuracy reported by the chassis that contains it.<a href="#section-7.1-2" class="pilcrow">¶</a></p>
-<p id="section-7.1-3">This design reduces telemetry volume, since components that share theirvparent's accuracy class need not transmit redundant accuracy metadata. Only components whose accuracy differs from their parent are required to report an explicit value.<a href="#section-7.1-3" class="pilcrow">¶</a></p>
-<p id="section-7.1-4">Power and energy magnitudes do not use inheritance: the GREEN YANG data model uses fixed units (milliwatts for instantaneous power, milliwatt-hours for energy), so no per-instance scale factor needs to be propagated or resolved.<a href="#section-7.1-4" class="pilcrow">¶</a></p>
+<p id="section-6.1-1">The GREEN YANG data model <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> uses parent-inheritance for measurement accuracy: when a component does not explicitly report its data-source accuracy, the client determines the applicable accuracy by consulting the accuracy value reported by the parent Energy Object: following the "parent" leaf of the ietf-hardware component tree <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span> towards the root, the first component that has an Energy Object. The Energy Object at the top of the tree has no parent and reports its accuracy explicitly <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.1-2">For example, a chassis containing line cards, each containing ports and power supply units. Each component in that tree has a "parent" leaf that identifies its containing component. Accuracy inheritance follows this same parent-child relationship: a line card that does not report its own accuracy inherits the accuracy reported by the chassis that contains it.<a href="#section-6.1-2" class="pilcrow">¶</a></p>
+<p id="section-6.1-3">This design reduces telemetry volume, since components that share their parent's accuracy class need not transmit redundant accuracy metadata. Only components whose accuracy differs from their parent are required to report an explicit value.<a href="#section-6.1-3" class="pilcrow">¶</a></p>
+<p id="section-6.1-4">Power and Energy magnitudes do not use inheritance: the GREEN YANG data model uses fixed units (milliwatts for instantaneous Power received and provided and for the Power Cap, milliwatt-hours for Energy received and provided), so no per-instance scale factor needs to be propagated or resolved.<a href="#section-6.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="security-considerations">
-<section id="section-8">
+<section id="section-7">
       <h2 id="name-security-considerations">
-<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-8-1">Resiliency is an implicit use case of energy efficiency management which comes with numerous security considerations :<a href="#section-8-1" class="pilcrow">¶</a></p>
-<p id="section-8-2">Controlling Power State and power supply of entities are considered highly sensitive actions, since they can significantly affect the operation of directly and indirectly connected devices.  Therefore, all control actions must be sufficiently protected through authentication, authorization, and integrity protection mechanisms.<a href="#section-8-2" class="pilcrow">¶</a></p>
-<p id="section-8-3">Entities that are not sufficiently secure to operate directly on the public Internet do exist and can be a significant cause of risk, for example, if the remote control functions can be exercised on those devices from anywhere on the Internet.<a href="#section-8-3" class="pilcrow">¶</a></p>
-<p id="section-8-4">The monitoring of energy-related quantities of an entity as addressed can be used to derive more information than just the received and provided energy; therefore, monitored data requires protection. This protection includes authentication and authorization of entities requesting access to monitored data as well as confidentiality protection during transmission of monitored data.  Privacy of stored data in an entity must be taken into account.  Monitored data may be used as input to control, accounting, and other actions, so integrity of transmitted information and authentication of the origin may be needed.<a href="#section-8-4" class="pilcrow">¶</a></p>
+<p id="section-7-1">Resiliency is an implicit use case of energy efficiency management which comes with numerous security considerations :<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-7-2">Controlling Power State and power supply of entities are considered highly sensitive actions, since they can significantly affect the operation of directly and indirectly connected devices.  Therefore, all control actions must be sufficiently protected through authentication, authorization, and integrity protection mechanisms.<a href="#section-7-2" class="pilcrow">¶</a></p>
+<p id="section-7-3">Entities that are not sufficiently secure to operate directly on the public Internet do exist and can be a significant cause of risk, for example, if the remote control functions can be exercised on those devices from anywhere on the Internet.<a href="#section-7-3" class="pilcrow">¶</a></p>
+<p id="section-7-4">The monitoring of energy-related quantities of an entity as addressed can be used to derive more information than just the received and provided energy; therefore, monitored data requires protection. This protection includes authentication and authorization of entities requesting access to monitored data as well as confidentiality protection during transmission of monitored data.  Privacy of stored data in an entity must be taken into account.  Monitored data may be used as input to control, accounting, and other actions, so integrity of transmitted information and authentication of the origin may be needed.<a href="#section-7-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
-<section id="section-9">
+<section id="section-8">
       <h2 id="name-iana-considerations">
-<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-9-1">This document has no IANA actions.<a href="#section-9-1" class="pilcrow">¶</a></p>
+<p id="section-8-1">This document has no IANA actions.<a href="#section-8-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-combined-references">
-<section id="section-10">
+<section id="section-9">
       <h2 id="name-references">
-<a href="#section-10" class="section-number selfRef">10. </a><a href="#name-references" class="section-name selfRef">References</a>
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
 <div id="sec-normative-references">
-<section id="section-10.1">
+<section id="section-9.1">
         <h3 id="name-normative-references">
-<a href="#section-10.1" class="section-number selfRef">10.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
-<dt id="RFC2119">[RFC2119]</dt>
-        <dd>
-<span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC8174">[RFC8174]</dt>
-        <dd>
-<span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC8348">[RFC8348]</dt>
       <dd>
 <span class="refTitle">"A YANG Data Model for Hardware Management"</span>, <time datetime="2018-03" class="refDate">March 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8348">https://www.rfc-editor.org/info/rfc8348</a>&gt;</span>. </dd>
@@ -2860,9 +2869,9 @@ Power States. TO BE COMPLETED<a href="#section-4.4-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-informative-references">
-<section id="section-10.2">
+<section id="section-9.2">
         <h3 id="name-informative-references">
-<a href="#section-10.2" class="section-number selfRef">10.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
 <dt id="GreenTerminology">[GreenTerminology]</dt>
@@ -2879,7 +2888,7 @@ Power States. TO BE COMPLETED<a href="#section-4.4-8" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="PowerAndEnergy">[PowerAndEnergy]</dt>
         <dd>
-<span class="refAuthor">Claise, B.</span>, <span class="refAuthor">Chen, G.</span>, <span class="refAuthor">Palmero, M. P.</span>, and <span class="refAuthor">J. Lindblad</span>, <span class="refTitle">"Power and Energy YANG Module"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-green-power-and-energy-yang-04</span>, <time datetime="2026-09-09" class="refDate">9 September 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-green-power-and-energy-yang-04">https://datatracker.ietf.org/doc/html/draft-ietf-green-power-and-energy-yang-04</a>&gt;</span>. </dd>
+<span class="refAuthor">Claise, B.</span>, <span class="refAuthor">Chen, G.</span>, <span class="refAuthor">Palmero, M. P.</span>, and <span class="refAuthor">J. Lindblad</span>, <span class="refTitle">"Power and Energy YANG Module"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-green-power-and-energy-yang-05</span>, <time datetime="2026-11-02" class="refDate">2 November 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-green-power-and-energy-yang-05">https://datatracker.ietf.org/doc/html/draft-ietf-green-power-and-energy-yang-05</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7326">[RFC7326]</dt>
         <dd>
