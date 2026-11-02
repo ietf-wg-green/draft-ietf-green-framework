@@ -678,7 +678,7 @@ Even device-centric use cases(autonomous operation) typically use controller-ini
 
 ## Measurement Accuracy Inheritance
 
-The GREEN YANG data model {{PowerAndEnergy}} uses parent-inheritance for measurement accuracy: when a component does not explicitly report its data-source accuracy, the client determines the applicable accuracy by consulting the accuracy value reported by the parent object in the ietf-hardware tree diagram {{RFC8348}}, which represents the physical structure of a device as a tree of component. 
+The GREEN YANG data model {{PowerAndEnergy}} uses parent-inheritance for measurement accuracy: when a component does not explicitly report its data-source accuracy, the client determines the applicable accuracy by consulting the accuracy value reported by the parent object in the ietf-hardware tree diagram {{RFC8348}}, which represents the physical structure of a device as a tree of component.
 
 For example, a chassis containing line cards, each containing ports and power supply units. Each component in that tree has a "parent" leaf that identifies its containing component. Accuracy inheritance follows this same parent-child relationship: a line card that does not report its own accuracy inherits the accuracy reported by the chassis that contains it.
 
