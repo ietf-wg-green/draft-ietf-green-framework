@@ -1235,10 +1235,10 @@ svg {
                     <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-basic-power-supply" class="internal xref">Basic Power Supply</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.2">
-                    <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-physical-meter-with-legacy-" class="internal xref">Physical Meter with Legacy Device</a></p>
+                    <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-meter-with-legacy-device" class="internal xref">Meter with Legacy Device</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.3">
-                    <p id="section-toc.1-1.3.2.2.2.3.1"><a href="#section-3.2.3" class="auto internal xref">3.2.3</a>.  <a href="#name-physical-meter-with-new-dev" class="internal xref">Physical Meter with New Device</a></p>
+                    <p id="section-toc.1-1.3.2.2.2.3.1"><a href="#section-3.2.3" class="auto internal xref">3.2.3</a>.  <a href="#name-meter-with-new-device" class="internal xref">Meter with New Device</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.4">
                     <p id="section-toc.1-1.3.2.2.2.4.1"><a href="#section-3.2.4" class="auto internal xref">3.2.4</a>.  <a href="#name-power-over-ethernet" class="internal xref">Power over Ethernet</a></p>
@@ -1287,23 +1287,6 @@ svg {
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
                 <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-implementation-focus-where-" class="internal xref">Implementation Focus: Where Intelligence Resides</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
-                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-key-findings" class="internal xref">Key Findings</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.1">
-                    <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="auto internal xref">5.2.1</a>.  <a href="#name-device-capabilities-require" class="internal xref">Device Capabilities Required across Use Cases</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.2">
-                    <p id="section-toc.1-1.5.2.2.2.2.1"><a href="#section-5.2.2" class="auto internal xref">5.2.2</a>.  <a href="#name-controller-capabilities-req" class="internal xref">Controller Capabilities Required across Use Cases</a></p>
-</li>
-                </ul>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3">
-                <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="auto internal xref">5.3</a>.  <a href="#name-implementation-priorities" class="internal xref">Implementation Priorities</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.4">
-                <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="auto internal xref">5.4</a>.  <a href="#name-next-steps" class="internal xref">Next Steps</a></p>
-</li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
@@ -1311,6 +1294,15 @@ svg {
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
                 <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-measurement-accuracy-inheri" class="internal xref">Measurement Accuracy Inheritance</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-telemetry-interval-and-volu" class="internal xref">Telemetry Interval and Volume</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3">
+                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-incomplete-coverage" class="internal xref">Incomplete Coverage</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.4">
+                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="auto internal xref">6.4</a>.  <a href="#name-manually-configured-relatio" class="internal xref">Manually Configured Relationships</a></p>
 </li>
             </ul>
 </li>
@@ -1652,6 +1644,8 @@ svg {
           <p id="section-3-11.3.1">(c) Static Reference Data: power and energy reference values obtained from sources external to the managed network, such as manufacturer datasheets, equipment specifications, and energy efficiency certification records. This data is typically retrieved once at onboarding time or when new equipment is introduced, and cached for subsequent use. It does not require an EnMS and may be obtained prior to device deployment.<a href="#section-3-11.3.1" class="pilcrow">¶</a></p>
 <p id="section-3-11.3.2">
 Interface (c) is complementary to, but distinct from, interface (d). Interface (d) concerns the discovery of device identity and operational capability through the management plane, information that the device itself reports at runtime. Interface (c) concerns reference data about a device's power characteristics that originates from the manufacturer or an external repository, independently of whether the device is reachable or deployed. A practical example is nameplate power values: these may be loaded into the Controller from a vendor datasheet via (c) before the device is installed, and later correlated with the device identity discovered via (d).<a href="#section-3-11.3.2" class="pilcrow">¶</a></p>
+<p id="section-3-11.3.3">
+When the reference data follows a YANG data model, it can be provided as a YANG instance data file <span>[<a href="#RFC9195" class="cite xref">RFC9195</a>]</span>, for example the Nameplate Power and certifications of <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> published for a given platform. The Controller then uses the same schema for the data obtained before deployment over (c) and for the data the running device reports over (d), and can compare the two. Reference data that follows no YANG data model, such as a datasheet document or a certification registry, is obtained by means outside the scope of this framework.<a href="#section-3-11.3.3" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-3-11.4">
           <p id="section-3-11.4.1">(e) Expose monitored power and energy from device: each Energy Object exposes raw operational energy-related telemetry directly to the Controller. Reported data includes instantaneous power, energy counters, power state, data-source accuracy metadata, and energy efficiency certifications, as defined in <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>. Data is delivered via YANG-Push <span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span> subscriptions or retrieved via NETCONF/RESTCONF. This interface is the primary source of device-level data that the Controller aggregates and normalizes before reporting it to the EnMS via interface (b). Devices may also provide traffic and utilization metrics over the same management channel; those metrics are outside the scope of this framework.<a href="#section-3-11.4.1" class="pilcrow">¶</a></p>
@@ -1734,6 +1728,7 @@ Interface (c) is complementary to, but distinct from, interface (d). Interface (
               <p id="section-3.1.1-5.3.1">Energy collection parameters table: Replaced by YANG-Push subscription configuration.<a href="#section-3.1.1-5.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
+<p id="section-3.1.1-6">Each YANG-Push notification carries the time at which it was generated <span>[<a href="#RFC8639" class="cite xref">RFC8639</a>]</span>. The Energy counters of <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> are cumulative since their last reset, so the Energy received or provided over an interval is the difference between two counter values, each taken with its notification time. A counter that decreases indicates a reset, for example after a reboot; the Energy for that interval cannot be computed from the counters alone.<a href="#section-3.1.1-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="controller-vs-device-initiated">
@@ -1928,7 +1923,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
   | Inventory of     | Monitor       +- (c)
   | identity and     | Energy        |
   | Capability       | Efficiency    | DataSheets/DataBase
-  |                  |               | and/or via API,
+  |                  |               | and/or via (g),
   |                  |               | Metadata and other
   |                  |               | device, component and
   |                  |               | network related
@@ -1936,7 +1931,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
   |                  |               v
 +--------------------------------------------------------------------+
 |                                                                    |
-|       (2) Controller (collection, compute and aggregate?)          |
+|       (2) Controller (collection, compute and aggregate)           |
 |                                                                    |
 +--------------------------------------------------------------------+
                                              ^   ^   ^
@@ -1957,13 +1952,13 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
 </div>
 </section>
 </div>
-<div id="physical-meter-with-legacy-device">
+<div id="meter-with-legacy-device">
 <section id="section-3.2.2">
-          <h4 id="name-physical-meter-with-legacy-">
-<a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-physical-meter-with-legacy-" class="section-name selfRef">Physical Meter with Legacy Device</a>
+          <h4 id="name-meter-with-legacy-device">
+<a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-meter-with-legacy-device" class="section-name selfRef">Meter with Legacy Device</a>
           </h4>
-<p id="section-3.2.2-1">This covers the basic example of a device connected to a wall Power Outlet, with a Physical Meter placed in the wall Power Outlet, because the device cannot monitor its power, energy, or demand.<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
-<span id="name-reference-model-example-phy"></span><div id="fig-physical_meter">
+<p id="section-3.2.2-1">This covers the basic example of a device connected to a wall Power Outlet, with a Meter placed in the wall Power Outlet, because the device cannot monitor its power, energy, or demand.<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
+<span id="name-reference-model-example-met"></span><div id="fig-physical_meter">
 <figure id="figure-3">
             <div class="alignLeft art-text artwork" id="section-3.2.2-2.1">
 <pre>
@@ -1977,7 +1972,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
   | Inventory of     | Monitor       +- (c)
   | identity and     | Energy        |
   | Capability       | Efficiency    | DataSheets/DataBase
-  |                  |               | and/or via API,
+  |                  |               | and/or via (g),
   |                  |               | Metadata and other
   |                  |               | device, component and
   |                  |               | network related
@@ -1985,7 +1980,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
   |                  |               v
 +--------------------------------------------------------------------+
 |                                                                    |
-|       (2) Controller (collection, compute and aggregate?)          |
+|       (2) Controller (collection, compute and aggregate)           |
 |                                                                    |
 +--------------------------------------------------------------------+
                               ^
@@ -1995,26 +1990,25 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
                               |
     +--------------+   +----------------+   +---------------+
     |              |   |                |   |               |
-    | Power Supply |###| Physical Meter |###| Legacy Device |
+    | Power Supply |###|     Meter      |###| Legacy Device |
     |              |   |                |   |               |
     +--------------+   +----------------+   +---------------+
 </pre>
 </div>
 <figcaption><a href="#figure-3" class="selfRef">Figure 3</a>:
-<a href="#name-reference-model-example-phy" class="selfRef">Reference Model Example: Physical Meter</a>
+<a href="#name-reference-model-example-met" class="selfRef">Reference Model Example: Meter with Legacy Device</a>
             </figcaption></figure>
 </div>
-<p id="section-3.2.2-3">When the EnMS discovers the physical meter, it must know for which Energy Object(s) it measures power or energy. This is the Metering Relationship.<a href="#section-3.2.2-3" class="pilcrow">¶</a></p>
-<p id="section-3.2.2-4">A Metering Relationship is a relationship where one Energy Object measures power, energy, demand, or Power Attributes of one or more other Energy Objects.  The Metering Relationship gives the view of the Metering topology.  Physical meters can be placed anywhere in a power distribution tree.  For example, utility meters monitor and report accumulated power consumption of the entire building. Logically, the Metering topology overlaps with the wiring topology, as meters are connected to the wiring topology.  A typical example is meters that clamp onto the existing wiring.<a href="#section-3.2.2-4" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-3">When the EnMS discovers the Meter, it must know for which Energy Object(s) it measures power or energy. This is the Metering Relationship (<a href="#relationships" class="auto internal xref">Section 3.3</a>).<a href="#section-3.2.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="physical-meter-with-new-device">
+<div id="meter-with-new-device">
 <section id="section-3.2.3">
-          <h4 id="name-physical-meter-with-new-dev">
-<a href="#section-3.2.3" class="section-number selfRef">3.2.3. </a><a href="#name-physical-meter-with-new-dev" class="section-name selfRef">Physical Meter with New Device</a>
+          <h4 id="name-meter-with-new-device">
+<a href="#section-3.2.3" class="section-number selfRef">3.2.3. </a><a href="#name-meter-with-new-device" class="section-name selfRef">Meter with New Device</a>
           </h4>
-<p id="section-3.2.3-1">This covers the example of device connected to wall Power Outlet, with a Physical Meter placed in the wall Power Outlet, because the previous device was not able to monitor its power, energy, demand.<a href="#section-3.2.3-1" class="pilcrow">¶</a></p>
-<span id="name-reference-model-example-phys"></span><div id="fig-new_device">
+<p id="section-3.2.3-1">This covers the example of device connected to wall Power Outlet, with a Meter placed in the wall Power Outlet, because the previous device was not able to monitor its power, energy, demand.<a href="#section-3.2.3-1" class="pilcrow">¶</a></p>
+<span id="name-reference-model-example-mete"></span><div id="fig-new_device">
 <figure id="figure-4">
             <div class="alignLeft art-text artwork" id="section-3.2.3-2.1">
 <pre>
@@ -2028,7 +2022,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
   | Inventory of     | Monitor       +- (c)
   | identity and     | Energy        |
   | Capability       | Efficiency    | DataSheets/DataBase
-  |                  |               | and/or via API,
+  |                  |               | and/or via (g),
   |                  |               | Metadata and other
   |                  |               | device, component and
   |                  |               | network related
@@ -2036,7 +2030,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
   |                  |               v
 +--------------------------------------------------------------+
 |                                                              |
-|    (2) Controller (collection, compute and aggregate?)       |
+|    (2) Controller (collection, compute and aggregate)        |
 |                                                              |
 +--------------------------------------------------------------+
                               ^                 ^   ^   ^
@@ -2046,16 +2040,16 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
                               |                 |   |   v
  +--------------+   +----------------+   +------------------+
  |              |   |                |   |                  |
- | Power Supply |###| Physical Meter |###| Device/Component |
+ | Power Supply |###|     Meter      |###| Device/Component |
  |              |   |                |   |                  |
  +--------------+   +----------------+   +------------------+
 </pre>
 </div>
 <figcaption><a href="#figure-4" class="selfRef">Figure 4</a>:
-<a href="#name-reference-model-example-phys" class="selfRef">Reference Model Example: Physical Meter with New Device</a>
+<a href="#name-reference-model-example-mete" class="selfRef">Reference Model Example: Meter with New Device</a>
             </figcaption></figure>
 </div>
-<p id="section-3.2.3-3">The most important issue in such a topology is to avoid the double counting in the Energy Management System (EnMS). The physical meter reports the Energy transmitted, while the connected Device/Component might also report its consumed Energy. Those two values are identical. Without the knowledge of this specific topology, that is the Metering Relationship between the two Energy Objects, the EnMS will double count the Energy consumed in the network.<a href="#section-3.2.3-3" class="pilcrow">¶</a></p>
+<p id="section-3.2.3-3">The most important issue in such a topology is to avoid the double counting in the Energy Management System (EnMS). The Meter reports the Energy transmitted, while the connected Device/Component might also report its consumed Energy. Those two values are identical. Without the knowledge of this specific topology, that is the Metering Relationship between the two Energy Objects, the EnMS will double count the Energy consumed in the network.<a href="#section-3.2.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="power-over-ethernet">
@@ -2078,7 +2072,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
   | Inventory of     | Monitor       +- (c)
   | identity and     | Energy        |
   | Capability       | Efficiency    | DataSheets/DataBase
-  |                  |               | and/or via API,
+  |                  |               | and/or via (g),
   |                  |               | Metadata and other
   |                  |               | device, component and
   |                  |               | network related
@@ -2086,7 +2080,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
   |                  |               v
 +--------------------------------------------------------------------+
 |                                                                    |
-|       (2) Controller (collection, compute and aggregate?)          |
+|       (2) Controller (collection, compute and aggregate)           |
 |                                                                    |
 +--------------------------------------------------------------------+
               ^   ^   ^                    ^   ^   ^
@@ -2107,9 +2101,8 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
             </figcaption></figure>
 </div>
 <p id="section-3.2.4-3">Double counting is also an issue in such an example. The switch port, via its Power Outlet, reports the Energy transmitted, while the PoE End Point, via its Power Inlet, reports its Energy consumed.<a href="#section-3.2.4-3" class="pilcrow">¶</a></p>
-<p id="section-3.2.4-4">A second issue in such an example is the control topology. The controller must have the knowledge that, if it shuts down the switch port, it will also switch off the connected PoE End Point, as a consequence. This is the Power Source Relationship.<a href="#section-3.2.4-4" class="pilcrow">¶</a></p>
-<p id="section-3.2.4-5">A Power Source Relationship is a relationship where one Energy Object provides power to one or more Energy Objects. The Power Source Relationship gives a view of the physical wiring topology -- for example, a PoE End Point receiving power from a switch port over PoE or a data center server receiving power from two specific Power Interfaces from two different PDUs.<a href="#section-3.2.4-5" class="pilcrow">¶</a></p>
-<p id="section-3.2.4-6">On top of that, there might be two control points for the PoE End Point. First the connected switch port but also the controller direct connection to the PoE End Point (f). Via this interface, the controller might for example put the PoE End Point to a lower Power State.<a href="#section-3.2.4-6" class="pilcrow">¶</a></p>
+<p id="section-3.2.4-4">A second issue in such an example is the control topology. The controller must have the knowledge that, if it shuts down the switch port, it will also switch off the connected PoE End Point, as a consequence. This is the Power Source Relationship (<a href="#relationships" class="auto internal xref">Section 3.3</a>).<a href="#section-3.2.4-4" class="pilcrow">¶</a></p>
+<p id="section-3.2.4-5">On top of that, there might be two control points for the PoE End Point. First the connected switch port but also the controller direct connection to the PoE End Point (f). Via this interface, the controller might for example put the PoE End Point to a lower Power State.<a href="#section-3.2.4-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="single-power-supply-with-multiple-devices">
@@ -2132,7 +2125,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
   | Inventory of     | Monitor       +- (c)
   | identity and     | Energy        |
   | Capability       | Efficiency    | DataSheets/DataBase
-  |                  |               | and/or via API,
+  |                  |               | and/or via (g),
   |                  |               | Metadata and other
   |                  |               | device, component and
   |                  |               | network related
@@ -2140,7 +2133,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
   |                  |               v
 +--------------------------------------------------------------------+
 |                                                                    |
-|       (2) Controller (collection, compute and aggregate?)          |
+|       (2) Controller (collection, compute and aggregate)           |
 |                                                                    |
 +--------------------------------------------------------------------+
               ^   ^   ^                     ^   ^   ^
@@ -2179,9 +2172,12 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
           <h4 id="name-multiple-power-supplies-wit">
 <a href="#section-3.2.6" class="section-number selfRef">3.2.6. </a><a href="#name-multiple-power-supplies-wit" class="section-name selfRef">Multiple Power Supplies with Single Device</a>
           </h4>
+<p id="section-3.2.6-1">This covers the example of a device, such as a router with redundant power supplies, that receives energy from two or more Power Supplies through separate Power Inlets.<a href="#section-3.2.6-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.6-2">The Energy received by the device is the sum over all its Power Inlets <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>, while each Power Supply reports the Energy it provides. The Power Source Relationships between the device and each Power Supply tell the EnMS that these values describe the same Energy, so that it is counted once.<a href="#section-3.2.6-2" class="pilcrow">¶</a></p>
+<p id="section-3.2.6-3">The control topology differs from the single-supply case: switching off one Power Supply does not switch off the device. Before acting on a Power Supply, for example for maintenance, the Controller needs all the Power Source Relationships of the device, to verify that the remaining Power Supplies can carry its load.<a href="#section-3.2.6-3" class="pilcrow">¶</a></p>
 <span id="name-reference-model-example-mul"></span><div id="fig-multiple_power">
 <figure id="figure-7">
-            <div class="alignLeft art-text artwork" id="section-3.2.6-1.1">
+            <div class="alignLeft art-text artwork" id="section-3.2.6-4.1">
 <pre>
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -2193,7 +2189,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
   | Inventory of     | Monitor       +- (c)
   | identity and     | Energy        |
   | Capability       | Efficiency    | DataSheets/DataBase
-  |                  |               | and/or via API,
+  |                  |               | and/or via (g),
   |                  |               | Metadata and other
   |                  |               | device, component and
   |                  |               | network related
@@ -2201,7 +2197,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
   |                  |               v
 +--------------------------------------------------------------------+
 |                                                                    |
-|       (2) Controller (collection, compute and aggregate?)          |
+|       (2) Controller (collection, compute and aggregate)           |
 |                                                                    |
 +--------------------------------------------------------------------+
       ^   ^   ^                ^   ^   ^                 ^   ^   ^
@@ -2241,7 +2237,7 @@ The integer types used (uint64 for Power and Energy) provide sufficient range to
 <p id="section-3.3-6">Note: A Power Source Relationship may or may not change as the direction of power changes between two Energy Objects.  The relationship may remain to indicate that the change of power direction was unintended or an error condition.<a href="#section-3.3-6" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3-7.1">
-            <p id="section-3.3-7.1.1">A Metering Relationship is a relationship where one Energy Object measures power, energy, demand, or Power Attributes of one or more other Energy Objects.  The Metering Relationship gives the view of the Metering topology.  Physical meters can be placed anywhere in a power distribution tree.  For example, utility meters monitor and report accumulated power consumption of the entire building. Logically, the Metering topology overlaps with the wiring topology, as meters are connected to the wiring topology. A typical example is meters that clamp onto the existing wiring.<a href="#section-3.3-7.1.1" class="pilcrow">¶</a></p>
+            <p id="section-3.3-7.1.1">A Metering Relationship is a relationship where one Energy Object measures power, energy, demand, or Power Attributes of one or more other Energy Objects.  The Metering Relationship gives the view of the Metering topology.  Meters can be placed anywhere in a power distribution tree.  For example, utility meters monitor and report accumulated power consumption of the entire building. Logically, the Metering topology overlaps with the wiring topology, as meters are connected to the wiring topology. A typical example is meters that clamp onto the existing wiring.<a href="#section-3.3-7.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.3-7.2">
             <p id="section-3.3-7.2.1">An Aggregation Relationship is a relationship where one Energy Object aggregates Energy Management information of one or more other Energy Objects.  The Aggregation Relationship gives a model of devices that may aggregate (sum, average, etc.) values for other devices.  The Aggregation Relationship is slightly different compared to the other relationships, as this refers more to a management function.<a href="#section-3.3-7.2.1" class="pilcrow">¶</a></p>
@@ -2342,7 +2338,7 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
               <p id="section-3.5.1-2.4.1">Energy Object-specific state transition constraints like frequency, which may limit energy-saving measures to avoid damaging the device/components.<a href="#section-3.5.1-2.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-3.5.1-3"><span>[<a href="#CapabilityDiscovery" class="cite xref">CapabilityDiscovery</a>]</span> addresses part of this list. It defines a YANG module, discoverable through the system capabilities mechanism of <span>[<a href="#RFC9196" class="cite xref">RFC9196</a>]</span>, that advertises for each hardware Component <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span> the Power States the Component supports, identified by the Power State identities of <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> (additional Power State Sets can be defined as identities derived from the same base identity), the expected and maximum Power in each state, and the times to enter and exit each state relative to the on state. These capabilities can be read from a running device, or from a YANG instance data file <span>[<a href="#RFC9195" class="cite xref">RFC9195</a>]</span> before the device is deployed. The Power values are static planning baselines, not measurements, and each Component reports its own values, excluding its child Components. Being capable of a low-power state does not make a Component eligible to enter it: eligibility is operator policy. Dependencies between Components are expressed by the Functional Enablement Relationship of <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>. Direct transitions between two low-power states, limits on transition frequency or duty cycle, relative Power, and the semantics of each Power State beyond its name are not covered.<a href="#section-3.5.1-3" class="pilcrow">¶</a></p>
+<p id="section-3.5.1-3"><span>[<a href="#CapabilityDiscovery" class="cite xref">CapabilityDiscovery</a>]</span> addresses part of this list. It defines a YANG module, discoverable through the system capabilities mechanism of <span>[<a href="#RFC9196" class="cite xref">RFC9196</a>]</span>, that advertises for each hardware Component <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span> the Power States the Component supports, identified by the Power State identities of <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> (additional Power State Sets can be defined as identities derived from the same base identity), the expected and maximum Power in each state, and the times to enter and exit each state relative to the on state. These capabilities are read from the running device over interface (d), and passed on to the EnMS over interface (a); before the device is deployed, they can be obtained from a YANG instance data file <span>[<a href="#RFC9195" class="cite xref">RFC9195</a>]</span> over interface (c). The Power values are static planning baselines, not measurements, and each Component reports its own values, excluding its child Components. Being capable of a low-power state does not make a Component eligible to enter it: eligibility is operator policy. Dependencies between Components are expressed by the Functional Enablement Relationship of <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>. Direct transitions between two low-power states, limits on transition frequency or duty cycle, relative Power, and the semantics of each Power State beyond its name are not covered.<a href="#section-3.5.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="intent-mapping">
@@ -2561,12 +2557,17 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
             <tr>
               <td class="text-left" rowspan="1" colspan="1">12</td>
               <td class="text-left" rowspan="1" colspan="1">ISAC-enabled Energy-Aware</td>
-              <td class="text-left" rowspan="1" colspan="1">---</td>
+              <td class="text-left" rowspan="1" colspan="1">b-&gt;f</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1"> </td>
               <td class="text-left" rowspan="1" colspan="1">Smart City Traffic Mgmt</td>
-              <td class="text-left" rowspan="1" colspan="1">not clearly specified</td>
+              <td class="text-left" rowspan="1" colspan="1">monitor-&gt;control</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">(local and city-wide)</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">13</td>
@@ -2652,13 +2653,14 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
 <p id="section-5.1-3">Use Cases need both device capabilities and controller coordination:
 - Example: UC 9 (WLAN Energy Saving) - Devices support power modes; controller coordinates AP groups to maintain coverage.<a href="#section-5.1-3" class="pilcrow">¶</a></p>
 <p id="section-5.1-4">Who triggers telemetry is independent of implementation focus and follows YANG-Push <span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span> patterns:<a href="#section-5.1-4" class="pilcrow">¶</a></p>
-<p id="section-5.1-5">Controller-Initiated, or Dynamic subscription:
+<p id="section-5.1-5">Controller-Initiated, or Dynamic Subscription <span>[<a href="#RFC8639" class="cite xref">RFC8639</a>]</span>:
 - Controller establishes YANG-Push subscriptions to Energy Objects
 - Device streams telemetry at specified intervals (periodic) or on change (event-driven)
 - Centralized monitoring policy management<a href="#section-5.1-5" class="pilcrow">¶</a></p>
-<p id="section-5.1-6">Device-Initiated, or Static Subscription:
-- Device autonomously pushes alerts without prior subscription
-- Used for threshold violations, hardware failures, certification degradation
+<p id="section-5.1-6">Device-Initiated, or Configured Subscription <span>[<a href="#RFC8639" class="cite xref">RFC8639</a>]</span>:
+- The subscription is installed via configuration on the device, which initiates the connection to the receiver
+- Persists across device reboots and transport interruptions
+- Used for threshold crossings and hardware failures, typically with on-change updates
 - Complements controller-initiated monitoring<a href="#section-5.1-6" class="pilcrow">¶</a></p>
 <p id="section-5.1-7">Even device-centric use cases (autonomous operation) typically use controller-initiated telemetry (controller subscribes to observe device behavior). These concepts are independent.<a href="#section-5.1-7" class="pilcrow">¶</a></p>
 <span id="name-use-case-implementation-foc"></span><div id="uc-implementation-focus">
@@ -2794,43 +2796,6 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
           </tbody>
         </table>
 </div>
-<p id="section-5.1-9">&lt;&lt;TODO - consider to include&gt;&gt;<a href="#section-5.1-9" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="key-findings">
-<section id="section-5.2">
-        <h3 id="name-key-findings">
-<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-key-findings" class="section-name selfRef">Key Findings</a>
-        </h3>
-<div id="device-capabilities-required-across-use-cases">
-<section id="section-5.2.1">
-          <h4 id="name-device-capabilities-require">
-<a href="#section-5.2.1" class="section-number selfRef">5.2.1. </a><a href="#name-device-capabilities-require" class="section-name selfRef">Device Capabilities Required across Use Cases</a>
-        </h4>
-</section>
-</div>
-<div id="controller-capabilities-required-across-use-cases">
-<section id="section-5.2.2">
-          <h4 id="name-controller-capabilities-req">
-<a href="#section-5.2.2" class="section-number selfRef">5.2.2. </a><a href="#name-controller-capabilities-req" class="section-name selfRef">Controller Capabilities Required across Use Cases</a>
-        </h4>
-</section>
-</div>
-</section>
-</div>
-<div id="implementation-priorities">
-<section id="section-5.3">
-        <h3 id="name-implementation-priorities">
-<a href="#section-5.3" class="section-number selfRef">5.3. </a><a href="#name-implementation-priorities" class="section-name selfRef">Implementation Priorities</a>
-      </h3>
-</section>
-</div>
-<div id="next-steps">
-<section id="section-5.4">
-        <h3 id="name-next-steps">
-<a href="#section-5.4" class="section-number selfRef">5.4. </a><a href="#name-next-steps" class="section-name selfRef">Next Steps</a>
-        </h3>
-<p id="section-5.4-1">&lt;&lt;TODO - ends here&gt;&gt;<a href="#section-5.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2851,6 +2816,30 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
 <p id="section-6.1-4">Power and Energy magnitudes do not use inheritance: the GREEN YANG data model uses fixed units (milliwatts for instantaneous Power received and provided and for the Power Cap, milliwatt-hours for Energy received and provided), so no per-instance scale factor needs to be propagated or resolved.<a href="#section-6.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
+<div id="telemetry-interval-and-volume">
+<section id="section-6.2">
+        <h3 id="name-telemetry-interval-and-volu">
+<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-telemetry-interval-and-volu" class="section-name selfRef">Telemetry Interval and Volume</a>
+        </h3>
+<p id="section-6.2-1">The Energy counters of <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> are cumulative, so a longer YANG-Push <span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span> period loses no Energy, only time resolution. Instantaneous Power is sampled at each update, so a longer period can miss short peaks. The period is therefore chosen per purpose: a long period suffices for Energy accounting and reporting, while detecting Power anomalies needs a shorter one. Power State changes are better reported with on-change updates, using a dampening period <span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span> to limit the number of updates when a state changes repeatedly.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="incomplete-coverage">
+<section id="section-6.3">
+        <h3 id="name-incomplete-coverage">
+<a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-incomplete-coverage" class="section-name selfRef">Incomplete Coverage</a>
+        </h3>
+<p id="section-6.3-1">Not every Component has an Energy Object, and the Power and Energy values of <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> are reported only when the device can measure them. A total obtained by summing the values reported by Components is complete only when every Energy Object in the relevant part of the hardware inventory <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span> reports; otherwise it is a lower bound. A total taken at the supply side, from the Energy received or provided by all the Power Supplies of a device, or from a Meter upstream, does not depend on which Components report. Subtracting the Energy received by the reporting Components from the Energy provided by the Power Supplies that feed them gives the Energy not attributed to any reporting Component. The Controller can determine coverage by comparing the Energy Objects it receives with the hardware inventory, and needs to state the coverage, together with the accuracy of the values, when it reports an aggregate over interface (b).<a href="#section-6.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="manually-configured-relationships">
+<section id="section-6.4">
+        <h3 id="name-manually-configured-relatio">
+<a href="#section-6.4" class="section-number selfRef">6.4. </a><a href="#name-manually-configured-relatio" class="section-name selfRef">Manually Configured Relationships</a>
+        </h3>
+<p id="section-6.4-1">Relationships that are configured manually, because they cannot be discovered, do not follow changes in the physical installation, such as re-cabling or the replacement of a Power Supply. A stale Metering Relationship leads to double counting or to missing Energy, and a stale Power Source Relationship can lead to a wrong control decision. Manually configured relationships need to be reviewed after any such change. Where a Meter measures a set of Energy Objects, a sudden and lasting change in the difference between the Meter value and the sum of the values reported by those Energy Objects indicates a stale or missing relationship.<a href="#section-6.4-1" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="security-considerations">
@@ -2858,10 +2847,15 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
       <h2 id="name-security-considerations">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-7-1">Resiliency is an implicit use case of energy efficiency management which comes with numerous security considerations:<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-7-1">The YANG data models used by this framework, <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> and <span>[<a href="#CapabilityDiscovery" class="cite xref">CapabilityDiscovery</a>]</span>, describe in their Security Considerations the secure transport, mutual authentication, and access control <span>[<a href="#RFC8341" class="cite xref">RFC8341</a>]</span> that apply to the data nodes they define. This section covers the security aspects of the framework architecture.<a href="#section-7-1" class="pilcrow">¶</a></p>
 <p id="section-7-2">Controlling Power State and power supply of entities are considered highly sensitive actions, since they can significantly affect the operation of directly and indirectly connected devices.  Therefore, all control actions must be sufficiently protected through authentication, authorization, and integrity protection mechanisms.<a href="#section-7-2" class="pilcrow">¶</a></p>
 <p id="section-7-3">Entities that are not sufficiently secure to operate directly on the public Internet do exist and can be a significant cause of risk, for example, if the remote control functions can be exercised on those devices from anywhere on the Internet.<a href="#section-7-3" class="pilcrow">¶</a></p>
 <p id="section-7-4">The monitoring of energy-related quantities of an entity as addressed can be used to derive more information than just the received and provided energy; therefore, monitored data requires protection. This protection includes authentication and authorization of entities requesting access to monitored data as well as confidentiality protection during transmission of monitored data.  Privacy of stored data in an entity must be taken into account.  Monitored data may be used as input to control, accounting, and other actions, so integrity of transmitted information and authentication of the origin may be needed.<a href="#section-7-4" class="pilcrow">¶</a></p>
+<p id="section-7-5">The Controller aggregates data from many devices, maintains the mapping between identifiers, and exercises control (f). A compromised Controller therefore affects every Energy Object it manages, and access to it needs the same protection as access to the devices.<a href="#section-7-5" class="pilcrow">¶</a></p>
+<p id="section-7-6">Static reference data received over interface (c), such as datasheet or certification values, influences planning and reporting without involving any device. Its source needs to be authenticated and its integrity protected.<a href="#section-7-6" class="pilcrow">¶</a></p>
+<p id="section-7-7">Relationships configured manually are a target: a false Metering Relationship causes double counting or hides consumption, and a false Power Source Relationship can lead a Controller to switch off a Power Supply it considers redundant.<a href="#section-7-7" class="pilcrow">¶</a></p>
+<p id="section-7-8">Energy data feeds accounting and sustainability reporting, so its integrity, not only its confidentiality, needs protection against falsification.<a href="#section-7-8" class="pilcrow">¶</a></p>
+<p id="section-7-9">With a configured subscription <span>[<a href="#RFC8639" class="cite xref">RFC8639</a>]</span>, the device sends telemetry to the configured receivers; a misconfigured receiver discloses that telemetry for as long as the subscription exists. Interface (g) exposes data and control to external consumers and requires its own authentication and authorization.<a href="#section-7-9" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
@@ -2928,6 +2922,14 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
         <dd>
 <span class="refAuthor">Parello, J.</span>, <span class="refAuthor">Claise, B.</span>, and <span class="refAuthor">M. Chandramouli</span>, <span class="refTitle">"Energy Object Context MIB"</span>, <span class="seriesInfo">RFC 7461</span>, <span class="seriesInfo">DOI 10.17487/RFC7461</span>, <time datetime="2015-03" class="refDate">March 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7461">https://www.rfc-editor.org/rfc/rfc7461</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC8341">[RFC8341]</dt>
+        <dd>
+<span class="refAuthor">Bierman, A.</span> and <span class="refAuthor">M. Bjorklund</span>, <span class="refTitle">"Network Configuration Access Control Model"</span>, <span class="seriesInfo">STD 91</span>, <span class="seriesInfo">RFC 8341</span>, <span class="seriesInfo">DOI 10.17487/RFC8341</span>, <time datetime="2018-03" class="refDate">March 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8341">https://www.rfc-editor.org/rfc/rfc8341</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8639">[RFC8639]</dt>
+        <dd>
+<span class="refAuthor">Voit, E.</span>, <span class="refAuthor">Clemm, A.</span>, <span class="refAuthor">Gonzalez Prieto, A.</span>, <span class="refAuthor">Nilsen-Nygaard, E.</span>, and <span class="refAuthor">A. Tripathy</span>, <span class="refTitle">"Subscription to YANG Notifications"</span>, <span class="seriesInfo">RFC 8639</span>, <span class="seriesInfo">DOI 10.17487/RFC8639</span>, <time datetime="2019-09" class="refDate">September 2019</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8639">https://www.rfc-editor.org/rfc/rfc8639</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC8641">[RFC8641]</dt>
         <dd>
 <span class="refAuthor">Clemm, A.</span> and <span class="refAuthor">E. Voit</span>, <span class="refTitle">"Subscription to YANG Notifications for Datastore Updates"</span>, <span class="seriesInfo">RFC 8641</span>, <span class="seriesInfo">DOI 10.17487/RFC8641</span>, <time datetime="2019-09" class="refDate">September 2019</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8641">https://www.rfc-editor.org/rfc/rfc8641</a>&gt;</span>. </dd>
@@ -2954,12 +2956,7 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
       <h2 id="name-to-do-and-open-issues">
 <a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-to-do-and-open-issues" class="section-name selfRef">TO DO and Open Issues</a>
       </h2>
-<ul class="normal">
-<li class="normal" id="appendix-A-1.1">
-          <p id="appendix-A-1.1.1">IEC60050 reference needs a new URL<a href="#appendix-A-1.1.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
-<p id="appendix-A-2">The following topics remain open for further discussion points:<a href="#appendix-A-2" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">The following topics remain open for further discussion points:<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 <div id="mapping-intents-to-device-settings">
 <section id="appendix-A.1">
         <h3 id="name-mapping-intents-to-device-s">
