@@ -364,7 +364,7 @@ Table of Contents
     |               |            | device, component &  +-Interface
     |               |            | network related      |
     |               |            | information          |
-    |               |            | (no EnMS required)
+    |               |            | (no EnMS required)   |
     |               |            |                      |
     |               |            |                      |
     |               |            v                      v
