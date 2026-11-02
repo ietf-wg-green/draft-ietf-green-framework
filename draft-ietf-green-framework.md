@@ -106,18 +106,13 @@ This framework defines conceptual requirements and architectural patterns for en
 - Power and energy metric definitions and units
 - Measurement accuracy representation
 - Hierarchical default value inheritance
--  {{RFC8348}} hardware data model link with energy attributes
+- {{RFC8348}} hardware data model link with energy attributes
 
 Implementers are expected to refer to both documents: this framework for understanding requirements and use cases, the YANG data model for implementation details and data structures.
 
 ## Terminology
 
-The following terms are defined in {{GreenTerminology}}: Energy, Power,
-Energy Object, Energy Management, Energy Monitoring, Energy Control,
-Energy Management System (EnMS), Device, Component, Meter (Energy Meter),
-Power Inlet, Power Outlet, Power Interface, Power State, Power State Set, Nameplate Power,
-Energy Efficiency, Energy Efficiency Management, Energy Saving,
-Energy-Aware Intent.
+The following terms are defined in {{GreenTerminology}}: Energy, Power, Energy Object, Energy Management, Energy Monitoring, Energy Control, Energy Management System (EnMS), Device, Component, Meter (Energy Meter), Power Inlet, Power Outlet, Power Interface, Power State, Power State Set, Nameplate Power, Energy Efficiency, Energy Efficiency Management, Energy Saving, Energy-Aware Intent.
 
 
 
@@ -125,6 +120,7 @@ This document uses the terms Power and Energy as further elaborated in {{GreenTe
 
 - Power refers to the instantaneous rate at which a device consumes or produces electrical energy (typically expressed in watts).
 - Energy, by contrast, represents the cumulative amount of work performed over time (typically expressed in joules or watt-hours).
+
 Both concepts are required within the YANG modules: Power enables real-time monitoring, control, and optimization of device operation, while Energy provides a time-integrated view necessary for accounting and reporting. For completeness and alignment with existing operational models and use cases, this specification includes both Power and Energy attributes.
 
 ## EMAN Data Model Compatibility {#eman-compat}
@@ -191,13 +187,17 @@ The main elements in the framework are as follows:
 
 * (a), (d) Discovery and Inventory
 
-* (b), (c) GREEN Metrics
+* (b) Expose monitored energy efficiency metrics from the Controller: The Controller exposes aggregated GREEN metrics to the EnMS. Reported data includes power consumption, energy counters, power state, and efficiency indicators, after Controller-level aggregation and normalization. This interface is realized via YANG Push {{RFC8641}} subscriptions established from the Controller toward the EnMS.
 
-* (b), (e) Monitor energy efficiency
+* (c) GREEN Metrics — Static Reference Data: power and energy reference values obtained from sources external to the managed network, such as manufacturer datasheets, equipment specifications, and energy efficiency certification records. This data is typically retrieved once at onboarding time or when new equipment is introduced, and cached for subsequent use. It does not require an EnMS and may be obtained prior to device deployment.
+
+  Interface (c) is complementary to, but distinct from, interface (d). Interface (d) concerns the discovery of device identity and operational capability through the management plane, information that the device itself reports at runtime. Interface (c) concerns reference data about a device's power characteristics that originates from the manufacturer or an external repository, independently of whether the device is reachable or deployed. A practical example is nameplate power values: these may be loaded into the Controller from a vendor datasheet via (c) before the device is installed, and later correlated with the device identit discovered via (d).
+
+* (e) Expose monitored power and energy from device: each Energy Object expose raw operational telemetry energy related data directly to the Controller. Reported data includes instantaneous power, energy counters, power state, data-source accuracy metadata, and energy efficiency certifications, as defined in {{PowerAndEnergy}}. Data is delivered via YANG Push {{RFC8641}} subscriptions or retrieved via NETCONF/RESTCONF. This interface is the primary source of device-level data that the Controller aggregates and normalizes before reporting it to the EnMS via interface (b). Devices may also provide traffic and utilization metrics over the same management channel; those metrics are outside the scope of this framework.
 
 * (f) Control Energy Saving
 
-* (g) API Service Interface: enables access for service consumption, enabling data retrieval , control, and integration through API, e.g., {{PetraApi}}.
+* (g) API Service Interface: enables access for service consumption, enabling data retrieval, control, and integration through API, e.g., {{PetraApi}}. The bidirectional arrows represent retrieval (GET) going up and control intents (SET/RPC) going down through the same API interface.
 
 Inventory information, referring to interfaces (a) and (d), may originate from device self-discovery, manufacturer datasheets, asset-management systems, or other authoritative metadata repositories. The controller is responsible for correlating these sources and exposing a consistent inventory view.
 
@@ -263,16 +263,20 @@ The framework supports both initiation models:
 
   Energy efficiency management requires stable identification of Energy Objects across device, controller, inventory, and reporting systems. The framework therefore relies on UUID-based identification ({{?RFC9562}}) as exposed through {{RFC8348}}, while allowing controller-assigned identifiers for onboarding and cross-system correlation. Implementations should maintain mappings between local identifiers and globally unique hardware identifiers to support inventory and reporting consistency, as well as telemetry correlation.
 
-### UUID-Based Component Identification
+### Energy Object Identification
 
-Energy metrics are anchored to hardware components using UUIDs (refer to {{?RFC9562}}), as exposed by the "ietf-hardware" YANG module {{RFC8348}}:
+Every Energy Object, i.e., a device, a chassis, a line card, a power supply, needs a stable identity so that energy data, control actions, and inventory records all refer to the same physical thing, consistently, across every system that touches it.
 
-- Each physical component (chassis, power supply, line card, etc.) has a stable UUID as defined in {{?RFC9562}}
-- Energy metrics reference these UUIDs, enabling correlation with:
-  - Component lifecycle (installation, replacement, decommissioning)
-  - Inventory management systems
-  - Warranty and support tracking
-  - Asset management databases
+The device itself is the source of truth for its own identity. Each component reports a hardware UUID ({{?RFC9562}}) that follows it through its entire lifecycle: from the moment it is installed until it is decommissioned or replaced. No other system can change this identifier. The Controller and the EnMS read it; they do not write it.
+
+The Controller also needs its own handle for each Energy Object, so it can attach instructions to it; for example, a desired power state or an energy-saving policy. The Controller assigns this handle when it first discovers the object. This is the identifier the Controller uses when it wants to act on something.
+
+These two identifiers serve different roles:
+The device hardware UUID identifies the physical component, with a stable unique reference enabling correlation with external inventory, asset-management databases and lifecycle tracking systems.
+
+The Controller assigned identifier is the reference used to associate management configuration, such as an administrative power state or an energy-saving policy, with that component within the Controller's management domain.
+
+The Controller is responsible for keeping the link between the two, so that when an operator looks up a component in an inventory system and wants to act on it, the Controller can map from one identifier to the other.
 
 To enable stable component identification across systems, the GREEN Framework supports dual identifiers based on {{RFC8348}}: controllers will need to assign their own ID during onboarding, query the device's "ietf-hardware" UUID, and maintain a mapping between both for cross-system correlation.
 
@@ -295,20 +299,9 @@ The purpose of this framework and YANG module is not to identify all certificati
 
 ### Extensibility Through YANG Identities
 
-The accuracy hierarchy uses YANG `identityref` to allow vendor-specific extensions:
-
-~~~ yang
-identity accuracy-measured-vendor-calibrated {
-  base accuracy-measured;
-  description
-    "Vendor-specific calibrated sensor with certificate ID XYZ";
-}
-~~~
-
-This maintains interoperability (base `accuracy-measured` classification) while supporting proprietary accuracy metadata.
-
-Implementation details are in {{PowerAndEnergy}}.
-
+The accuracy hierarchy uses YANG `identityref` to allow vendor-specific extensions.
+Any implementation may derive a new identity from the base `accuracy-measured` identity to record vendor-specific calibration metadata; in this way, interoperability is preserved.
+The full identity hierarchy and encoding rules are defined in {{PowerAndEnergy}}.
 
 ### Hierarchical Data Model and Default Value Inheritance
 
@@ -326,13 +319,12 @@ Energy metrics and metadata follow these same hierarchical relationships, enabli
 - Reduced reporting overhead: Devices only transmit accuracy metadata for components that differ from their parent.
 - Hierarchical validation: Controllers leverage the device containment tree (per {{RFC8348}}) to verify parent measurements by aggregating child values.
 
-The YANG data model {{PowerAndEnergy}} implements hierarchical defaults for key attributes. For example:
+The GREEN YANG data model {{PowerAndEnergy}} implements hierarchical defaults for key attributes. For example:
 
-The `data-source-accuracy` leaf has a default value of `accuracy-like-parent`, meaning:
+For measurement accuracy, the default behaviour is inheritance from the parent object (expressed as `accuracy-like-parent` in {{PowerAndEnergy}}), meaning:
 
-- If a chassis reports `accuracy-measured-gold` (+/-5%)
-- All child components(line cards, ports, fans) automatically inherit `accuracy-measured-gold`
-- Only components with different accuracy need to explicitly report their value
+- If a chassis reports accuracy at the gold tier (+/-5%), all child components (line cards, ports, fans) automatically inherit that accuracy tier.
+- Only components whose accuracy differs from their parent need to explicitly report a value.
 
 Example:
 
@@ -345,11 +337,12 @@ Chassis (accuracy: gold +/-5%)
 
 This reduces YANG-Push telemetry volume while maintaining accuracy transparency.
 
-### Unit Multiplier
+### Fixed Units for Power and Energy Values
 
-The unit-multiplier leaf in {{PowerAndEnergy}} expresses the scale of power and energy values (e.g., milli, kilo). It is defined independently per container, not inherited from parent objects:
-- In the `power` container is mandatory. Devices MUST always specify the scale explicitly.
-- In the `energy` container is optional. If absent, multiplier-units default value SHOULD be considered as 10^0 = 1 Watt-hours applies. Devices reporting at a different scale MUST set this leaf explicitly.
+The GREEN YANG data model {{PowerAndEnergy}} uses fixed units for all power and energy leaves, rather than a variable-scale approach.
+Instantaneous power is always expressed in milliwatts (mW), nameplate power in Watts (W), and energy in milliwatt-hours (mWh).
+This design eliminates a class of interoperability errors that would arise if different implementations applied different unit multipliers to the same value, and simplifies YANG Push consumers since no per-instance unit resolution is required before values can be compared or aggregated.
+The integer types used (int64 for instantaneous power, uint64 for energy) provide sufficient range to represent the power consumption of any foreseeable network device or aggregate without overflow.
 
 ### Power Factor
 
@@ -683,27 +676,15 @@ Even device-centric use cases(autonomous operation) typically use controller-ini
 
 # Operational Considerations
 
-## Hierarchical Inheritance: unit-multiplier vs accuracy
+## Measurement Accuracy Inheritance
 
-The data model uses two different patterns for absent leaf values:
+The GREEN YANG data model {{PowerAndEnergy}} uses parent-inheritance for measurement accuracy: when a component does not explicitly report its data-source accuracy, the client determines the applicable accuracy by consulting the accuracy value reported by the parent object in the ietf-hardware tree diagram {{RFC8348}}, which represents the physical structure of a device as a tree of component.
 
-- unit-multiplier: if absent, the default value is 10^0 = 1 Watt-hours. The client requires no additional lookup.
+For example, a chassis containing line cards, each containing ports and power supply units. Each component in that tree has a "parent" leaf that identifies its containing component. Accuracy inheritance follows this same parent-child relationship: a line card that does not report its own accuracy inherits the accuracy reported by the chassis that contains it.
 
-- data-source-accuracy: if absent, the client looks up the parent object's accuracy value in the hardware tree {{RFC8348}}.
+This design reduces telemetry volume, since components that share theirvparent's accuracy class need not transmit redundant accuracy metadata. Only components whose accuracy differs from their parent are required to report an explicit value.
 
-If a client incorrectly assumes inheritance for unit-multiplier, a single missing leaf can cause energy values to be reported orders of magnitude above or below their actual value. For example:
-
-~~~
-Chassis (unit-multiplier: kilo)
-+-- Line Card 1 (unit-multiplier: milli)  <- must be explicit
-|-- PSU 1       (unit-multiplier: kilo)   <- must be explicit
-~~~
-
-If Line Card 1 omits unit-multiplier and the client assumes inheritance from the chassis (in this case, kilo), the reported power value would be interpreted as 10^6 times larger than its actual value (kilo vs. milli). This magnitude of error is unacceptable for energy accounting/reporting.
-
-By contrast, a misread of data-source-accuracy (e.g., treating a silver +/-10% measurement as gold +/-5%) affects data confidence but does not produce incorrect absolute values.
-
-For this reason, unit-multiplier SHOULD be self-contained per energy object: clients read it directly from each object without traversing the hardware containment tree.
+Power and energy magnitudes do not use inheritance: the GREEN YANG data model uses fixed units (milliwatts for instantaneous power, milliwatt-hours for energy), so no per-instance scale factor needs to be propagated or resolved.
 
 # Security Considerations
 
