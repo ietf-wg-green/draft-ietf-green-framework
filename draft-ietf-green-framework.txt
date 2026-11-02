@@ -1718,8 +1718,8 @@ Table of Contents
               2026, <https://datatracker.ietf.org/doc/html/draft-ietf-
               green-use-cases-02>.
 
-   [PetraApi] Rodriguez-Natal, A., Contreras, L. M., Palmero, M. P.,
-              Lindblad, J., and A. G. Sánchez, "Path Energy Traffic
+   [PetraApi] Rodriguez-Natal, A., Contreras, L. M., Palmero, M.,
+              Lindblad, J., and A. Gallego Sanchez, "Path Energy Traffic
               Ratio API (PETRA)", Work in Progress, Internet-Draft,
               draft-petra-green-api-05, 31 October 2026,
               <https://datatracker.ietf.org/doc/html/draft-petra-green-
