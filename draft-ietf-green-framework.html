@@ -1335,19 +1335,13 @@ svg {
             <p id="section-toc.1-1.10.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-to-do-and-open-issues" class="internal xref">TO DO and Open Issues</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1">
-                <p id="section-toc.1-1.10.2.1.1"><a href="#appendix-A.1" class="auto internal xref">A.1</a>.  <a href="#name-discovering-capabilities" class="internal xref">Discovering Capabilities</a></p>
+                <p id="section-toc.1-1.10.2.1.1"><a href="#appendix-A.1" class="auto internal xref">A.1</a>.  <a href="#name-mapping-intents-to-device-s" class="internal xref">Mapping Intents to Device Settings</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.2">
-                <p id="section-toc.1-1.10.2.2.1"><a href="#appendix-A.2" class="auto internal xref">A.2</a>.  <a href="#name-understanding-device-capabi" class="internal xref">Understanding Device Capabilities</a></p>
+                <p id="section-toc.1-1.10.2.2.1"><a href="#appendix-A.2" class="auto internal xref">A.2</a>.  <a href="#name-handling-transitions-and-en" class="internal xref">Handling Transitions and Ensuring Safety</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.3">
-                <p id="section-toc.1-1.10.2.3.1"><a href="#appendix-A.3" class="auto internal xref">A.3</a>.  <a href="#name-mapping-intents-to-device-s" class="internal xref">Mapping Intents to Device Settings</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.4">
-                <p id="section-toc.1-1.10.2.4.1"><a href="#appendix-A.4" class="auto internal xref">A.4</a>.  <a href="#name-handling-transitions-and-en" class="internal xref">Handling Transitions and Ensuring Safety</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.5">
-                <p id="section-toc.1-1.10.2.5.1"><a href="#appendix-A.5" class="auto internal xref">A.5</a>.  <a href="#name-east-west-traffic-energy-me" class="internal xref">East-West Traffic/Energy Metrics</a></p>
+                <p id="section-toc.1-1.10.2.3.1"><a href="#appendix-A.3" class="auto internal xref">A.3</a>.  <a href="#name-east-west-traffic-energy-me" class="internal xref">East-West Traffic/Energy Metrics</a></p>
 </li>
             </ul>
 </li>
@@ -1427,7 +1421,7 @@ svg {
         <h3 id="name-terminology">
 <a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-terminology" class="section-name selfRef">Terminology</a>
         </h3>
-<p id="section-1.1-1">The following terms are defined in <span>[<a href="#GreenTerminology" class="cite xref">GreenTerminology</a>]</span>: Energy, Power, Energy Object, Energy Management, Energy Monitoring, Energy Control, Energy Management System (EnMS), Device, Component, Meter (Energy Meter), Power Inlet, Power Outlet, Power Interface, Power State, Power State Set, Nameplate Power, Energy Efficiency, Energy Efficiency Management, Energy Saving, Energy-Aware Intent. The term Power Cap is defined in <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+<p id="section-1.1-1">The following terms are defined in <span>[<a href="#GreenTerminology" class="cite xref">GreenTerminology</a>]</span>: Energy, Power, Energy Object, Energy Management, Energy Monitoring, Energy Control, Energy Management System (EnMS), Device, Component, Meter (Energy Meter), Power Inlet, Power Outlet, Power Interface, Power Source, Power Factor, Power State, Power State Set, Nameplate Power, Energy Efficiency, Energy Efficiency Management, Energy Saving, Energy-Aware Intent. The term Power Cap is defined in <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
 <p id="section-1.1-2">This document uses the terms Power and Energy as further elaborated in <span>[<a href="#GreenTerminology" class="cite xref">GreenTerminology</a>]</span>:<a href="#section-1.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-1.1-3.1">
@@ -1827,7 +1821,7 @@ The full identity hierarchy and encoding rules are defined in <span>[<a href="#P
 <a href="#section-3.1.7" class="section-number selfRef">3.1.7. </a><a href="#name-hierarchical-data-model-and" class="section-name selfRef">Hierarchical Data Model and Default Value Inheritance</a>
           </h4>
 <p id="section-3.1.7-1">The framework leverages the hierarchical structure of the "ietf-hardware" YANG module <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span> to minimize redundant data reporting and simplify device implementation. The framework refers to these containment relationships as parent-child relationships.<a href="#section-3.1.7-1" class="pilcrow">¶</a></p>
-<p id="section-3.1.7-2">Energy objects inherit their hierarchical containment relationships from the hardware component tree. For example:<a href="#section-3.1.7-2" class="pilcrow">¶</a></p>
+<p id="section-3.1.7-2">Energy Objects inherit their hierarchical containment relationships from the hardware component tree. For example:<a href="#section-3.1.7-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.1.7-3.1">
               <p id="section-3.1.7-3.1.1">A chassis (parent) contains line cards (children).<a href="#section-3.1.7-3.1.1" class="pilcrow">¶</a></p>
@@ -2315,7 +2309,7 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
         <h3 id="name-power-state-set-mapping-and">
 <a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-power-state-set-mapping-and" class="section-name selfRef">Power State Set Mapping and Intent</a>
         </h3>
-<p id="section-3.5-1">Defining and enforcing power states can be challenging, because each Energy Object's technical capabilities must be mapped to high-level operational intents for energy-efficient operation. The following examples illustrate how an Energy Object's power-saving capabilities can be aligned with typical intents:<a href="#section-3.5-1" class="pilcrow">¶</a></p>
+<p id="section-3.5-1">Defining and enforcing Power States can be challenging, because each Energy Object's technical capabilities must be mapped to high-level operational intents for energy-efficient operation. The following examples illustrate how an Energy Object's power-saving capabilities can be aligned with typical intents:<a href="#section-3.5-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.5-2.1">
             <p id="section-3.5-2.1.1">running at reduced capacity during predictable low-demand periods;<a href="#section-3.5-2.1.1" class="pilcrow">¶</a></p>
@@ -2327,16 +2321,16 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
             <p id="section-3.5-2.3.1">operating at a reduced service level when the site is on a backup power source during a grid outage.<a href="#section-3.5-2.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-3.5-3">By expressing such intents, a controller can decide which power state an Energy Object should enter at any given time and under what conditions.<a href="#section-3.5-3" class="pilcrow">¶</a></p>
+<p id="section-3.5-3">By expressing such intents, a controller can decide which Power State an Energy Object should enter at any given time and under what conditions.<a href="#section-3.5-3" class="pilcrow">¶</a></p>
 <div id="capability-discovery">
 <section id="section-3.5.1">
           <h4 id="name-capability-discovery">
 <a href="#section-3.5.1" class="section-number selfRef">3.5.1. </a><a href="#name-capability-discovery" class="section-name selfRef">Capability Discovery</a>
           </h4>
-<p id="section-3.5.1-1">Identifying what power states an Energy Object supports is crucial for onboarding and integration, especially for legacy systems. Key discovery elements include:<a href="#section-3.5.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.5.1-1">Identifying what Power States an Energy Object supports is crucial for onboarding and integration. Key discovery elements include:<a href="#section-3.5.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.5.1-2.1">
-              <p id="section-3.5.1-2.1.1">Whether the energy object supports multiple Power State Sets.<a href="#section-3.5.1-2.1.1" class="pilcrow">¶</a></p>
+              <p id="section-3.5.1-2.1.1">Whether the Energy Object supports multiple Power State Sets.<a href="#section-3.5.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3.5.1-2.2">
               <p id="section-3.5.1-2.2.1">Semantics and limitations of each state (e.g., absolute power, relative power).<a href="#section-3.5.1-2.2.1" class="pilcrow">¶</a></p>
@@ -2347,10 +2341,8 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
             <li class="normal" id="section-3.5.1-2.4">
               <p id="section-3.5.1-2.4.1">Energy Object-specific state transition constraints like frequency, which may limit energy-saving measures to avoid damaging the device/components.<a href="#section-3.5.1-2.4.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-3.5.1-2.5">
-              <p id="section-3.5.1-2.5.1">Impacts on measurement accuracy.<a href="#section-3.5.1-2.5.1" class="pilcrow">¶</a></p>
-</li>
           </ul>
+<p id="section-3.5.1-3"><span>[<a href="#CapabilityDiscovery" class="cite xref">CapabilityDiscovery</a>]</span> addresses part of this list. It defines a YANG module, discoverable through the system capabilities mechanism of <span>[<a href="#RFC9196" class="cite xref">RFC9196</a>]</span>, that advertises for each hardware Component <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span> the Power States the Component supports, identified by the Power State identities of <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span> (additional Power State Sets can be defined as identities derived from the same base identity), the expected and maximum Power in each state, and the times to enter and exit each state relative to the on state. These capabilities can be read from a running device, or from a YANG instance data file <span>[<a href="#RFC9195" class="cite xref">RFC9195</a>]</span> before the device is deployed. The Power values are static planning baselines, not measurements, and each Component reports its own values, excluding its child Components. Being capable of a low-power state does not make a Component eligible to enter it: eligibility is operator policy. Dependencies between Components are expressed by the Functional Enablement Relationship of <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>. Direct transitions between two low-power states, limits on transition frequency or duty cycle, relative Power, and the semantics of each Power State beyond its name are not covered.<a href="#section-3.5.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="intent-mapping">
@@ -2661,7 +2653,7 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
 - Example: UC 9 (WLAN Energy Saving) - Devices support power modes; controller coordinates AP groups to maintain coverage.<a href="#section-5.1-3" class="pilcrow">¶</a></p>
 <p id="section-5.1-4">Who triggers telemetry is independent of implementation focus and follows YANG-Push <span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span> patterns:<a href="#section-5.1-4" class="pilcrow">¶</a></p>
 <p id="section-5.1-5">Controller-Initiated, or Dynamic subscription:
-- Controller establishes YANG-Push subscriptions to energy objects
+- Controller establishes YANG-Push subscriptions to Energy Objects
 - Device streams telemetry at specified intervals (periodic) or on change (event-driven)
 - Centralized monitoring policy management<a href="#section-5.1-5" class="pilcrow">¶</a></p>
 <p id="section-5.1-6">Device-Initiated, or Static Subscription:
@@ -2904,6 +2896,10 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
 <a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="CapabilityDiscovery">[CapabilityDiscovery]</dt>
+        <dd>
+<span class="refAuthor">Claise, B.</span>, <span class="refAuthor">Warnke, N.</span>, <span class="refAuthor">Rahman, R.</span>, <span class="refAuthor">Chen, G.</span>, and <span class="refAuthor">G. Woodward</span>, <span class="refTitle">"A YANG Data Model for Power State Capability Discovery"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-claise-green-capability-discovery-03</span>, <time datetime="2026-10-27" class="refDate">27 October 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-claise-green-capability-discovery-03">https://datatracker.ietf.org/doc/html/draft-claise-green-capability-discovery-03</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="GreenTerminology">[GreenTerminology]</dt>
         <dd>
 <span class="refAuthor">Chen, G.</span>, <span class="refAuthor">Boucadair, M.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Contreras, L. M.</span>, and <span class="refAuthor">M. P. Palmero</span>, <span class="refTitle">"Terminology for Energy Efficiency Network Management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-green-terminology-03</span>, <time datetime="2026-10-30" class="refDate">30 October 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-green-terminology-03">https://datatracker.ietf.org/doc/html/draft-ietf-green-terminology-03</a>&gt;</span>. </dd>
@@ -2936,6 +2932,14 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
         <dd>
 <span class="refAuthor">Clemm, A.</span> and <span class="refAuthor">E. Voit</span>, <span class="refTitle">"Subscription to YANG Notifications for Datastore Updates"</span>, <span class="seriesInfo">RFC 8641</span>, <span class="seriesInfo">DOI 10.17487/RFC8641</span>, <time datetime="2019-09" class="refDate">September 2019</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8641">https://www.rfc-editor.org/rfc/rfc8641</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC9195">[RFC9195]</dt>
+        <dd>
+<span class="refAuthor">Lengyel, B.</span> and <span class="refAuthor">B. Claise</span>, <span class="refTitle">"A File Format for YANG Instance Data"</span>, <span class="seriesInfo">RFC 9195</span>, <span class="seriesInfo">DOI 10.17487/RFC9195</span>, <time datetime="2022-02" class="refDate">February 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9195">https://www.rfc-editor.org/rfc/rfc9195</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9196">[RFC9196]</dt>
+        <dd>
+<span class="refAuthor">Lengyel, B.</span>, <span class="refAuthor">Clemm, A.</span>, and <span class="refAuthor">B. Claise</span>, <span class="refTitle">"YANG Modules Describing Capabilities for Systems and Datastore Update Notifications"</span>, <span class="seriesInfo">RFC 9196</span>, <span class="seriesInfo">DOI 10.17487/RFC9196</span>, <time datetime="2022-02" class="refDate">February 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9196">https://www.rfc-editor.org/rfc/rfc9196</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC9562">[RFC9562]</dt>
       <dd>
 <span class="refAuthor">Davis, K.</span>, <span class="refAuthor">Peabody, B.</span>, and <span class="refAuthor">P. Leach</span>, <span class="refTitle">"Universally Unique IDentifiers (UUIDs)"</span>, <span class="seriesInfo">RFC 9562</span>, <span class="seriesInfo">DOI 10.17487/RFC9562</span>, <time datetime="2024-05" class="refDate">May 2024</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9562">https://www.rfc-editor.org/rfc/rfc9562</a>&gt;</span>. </dd>
@@ -2956,83 +2960,50 @@ Power States. The IANA "Power State Sets" registry <span>[<a href="#RFC7326" cla
 </li>
       </ul>
 <p id="appendix-A-2">The following topics remain open for further discussion points:<a href="#appendix-A-2" class="pilcrow">¶</a></p>
-<div id="discovering-capabilities">
+<div id="mapping-intents-to-device-settings">
 <section id="appendix-A.1">
-        <h3 id="name-discovering-capabilities">
-<a href="#appendix-A.1" class="section-number selfRef">A.1. </a><a href="#name-discovering-capabilities" class="section-name selfRef">Discovering Capabilities</a>
+        <h3 id="name-mapping-intents-to-device-s">
+<a href="#appendix-A.1" class="section-number selfRef">A.1. </a><a href="#name-mapping-intents-to-device-s" class="section-name selfRef">Mapping Intents to Device Settings</a>
         </h3>
 <ul class="normal">
 <li class="normal" id="appendix-A.1-1.1">
-            <p id="appendix-A.1-1.1.1">Enable automatic detection of power-saving features.<a href="#appendix-A.1-1.1.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-1.1.1">Develop ways to translate high-level energy goals (like "save energy at low utilization") into actual device configurations.<a href="#appendix-A.1-1.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-A.1-1.2">
-            <p id="appendix-A.1-1.2.1">Allow controllers to easily discover device-specific limits like transition time and duty cycle.<a href="#appendix-A.1-1.2.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-</section>
-</div>
-<div id="understanding-device-capabilities">
-<section id="appendix-A.2">
-        <h3 id="name-understanding-device-capabi">
-<a href="#appendix-A.2" class="section-number selfRef">A.2. </a><a href="#name-understanding-device-capabi" class="section-name selfRef">Understanding Device Capabilities</a>
-        </h3>
-<ul class="normal">
-<li class="normal" id="appendix-A.2-1.1">
-            <p id="appendix-A.2-1.1.1">Explore if Energy Objects can support multiple sets of power states.<a href="#appendix-A.2-1.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="appendix-A.2-1.2">
-            <p id="appendix-A.2-1.2.1">Make power states clearly described and understandable.<a href="#appendix-A.2-1.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="appendix-A.2-1.3">
-            <p id="appendix-A.2-1.3.1">Represent these capabilities in a machine-readable format.<a href="#appendix-A.2-1.3.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-</section>
-</div>
-<div id="mapping-intents-to-device-settings">
-<section id="appendix-A.3">
-        <h3 id="name-mapping-intents-to-device-s">
-<a href="#appendix-A.3" class="section-number selfRef">A.3. </a><a href="#name-mapping-intents-to-device-s" class="section-name selfRef">Mapping Intents to Device Settings</a>
-        </h3>
-<ul class="normal">
-<li class="normal" id="appendix-A.3-1.1">
-            <p id="appendix-A.3-1.1.1">Develop ways to translate high-level energy goals (like "save energy at low utilization") into actual device configurations.<a href="#appendix-A.3-1.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="appendix-A.3-1.2">
-            <p id="appendix-A.3-1.2.1">Create a standard method to describe this mapping across systems.<a href="#appendix-A.3-1.2.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.1-1.2.1">Create a standard method to describe this mapping across systems.<a href="#appendix-A.1-1.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
 </div>
 <div id="handling-transitions-and-ensuring-safety">
-<section id="appendix-A.4">
+<section id="appendix-A.2">
         <h3 id="name-handling-transitions-and-en">
-<a href="#appendix-A.4" class="section-number selfRef">A.4. </a><a href="#name-handling-transitions-and-en" class="section-name selfRef">Handling Transitions and Ensuring Safety</a>
+<a href="#appendix-A.2" class="section-number selfRef">A.2. </a><a href="#name-handling-transitions-and-en" class="section-name selfRef">Handling Transitions and Ensuring Safety</a>
         </h3>
 <ul class="normal">
-<li class="normal" id="appendix-A.4-1.1">
-            <p id="appendix-A.4-1.1.1">Capability to power off individual components should be explicitly modeled in the Power State Set, and covered by <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>. Also to review recovery procedures and impact on dependent Energy Objects.<a href="#appendix-A.4-1.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="appendix-A.2-1.1">
+            <p id="appendix-A.2-1.1.1">Capability to power off individual components should be explicitly modeled in the Power State Set, and covered by <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>. Also to review recovery procedures and impact on dependent Energy Objects.<a href="#appendix-A.2-1.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="appendix-A.4-1.2">
-            <p id="appendix-A.4-1.2.1">Consider how long it takes for an Energy Object to switch power states.<a href="#appendix-A.4-1.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="appendix-A.2-1.2">
+            <p id="appendix-A.2-1.2.1">Consider how long it takes for an Energy Object to switch power states.<a href="#appendix-A.2-1.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="appendix-A.4-1.3">
-            <p id="appendix-A.4-1.3.1">Recommendation to standardize a data model for safe limits on frequency or speed of transitions to prevent device/component's damage.<a href="#appendix-A.4-1.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="appendix-A.2-1.3">
+            <p id="appendix-A.2-1.3.1">Recommendation to standardize a data model for safe limits on frequency or speed of transitions to prevent device/component's damage.<a href="#appendix-A.2-1.3.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="appendix-A.4-1.4">
-            <p id="appendix-A.4-1.4.1">Model SLAs that include both performance (e.g., transition time) and device safety (e.g., cycle limitations).<a href="#appendix-A.4-1.4.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="appendix-A.2-1.4">
+            <p id="appendix-A.2-1.4.1">Model SLAs that include both performance (e.g., transition time) and device safety (e.g., cycle limitations).<a href="#appendix-A.2-1.4.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
 </div>
 <div id="east-west-trafficenergy-metrics">
-<section id="appendix-A.5">
+<section id="appendix-A.3">
         <h3 id="name-east-west-traffic-energy-me">
-<a href="#appendix-A.5" class="section-number selfRef">A.5. </a><a href="#name-east-west-traffic-energy-me" class="section-name selfRef">East-West Traffic/Energy Metrics</a>
+<a href="#appendix-A.3" class="section-number selfRef">A.3. </a><a href="#name-east-west-traffic-energy-me" class="section-name selfRef">East-West Traffic/Energy Metrics</a>
         </h3>
 <ul class="normal">
-<li class="normal" id="appendix-A.5-1.1">
-            <p id="appendix-A.5-1.1.1">Recommendation to standardize a data model for new equipment interconnected East-West with optimized energy consumption.<a href="#appendix-A.5-1.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="appendix-A.3-1.1">
+            <p id="appendix-A.3-1.1.1">Recommendation to standardize a data model for new equipment interconnected East-West with optimized energy consumption.<a href="#appendix-A.3-1.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
